@@ -21,8 +21,8 @@
 先运行 `npm run build`。校验不重启服务，也不覆盖存档：
 
 ```powershell
-npm run checkpoint -- verify D:\Projects\Subterfuge\runtime\checkpoints\<存档编号>
-npm run checkpoint -- restore D:\Projects\Subterfuge\runtime\checkpoints\<存档编号> D:\Projects\Subterfuge\restored-stage
+npm run checkpoint -- verify "runtime/checkpoints/CHECKPOINT_ID"
+npm run checkpoint -- restore "runtime/checkpoints/CHECKPOINT_ID" "restored-stage"
 ```
 
 恢复目标必须不存在，其父目录必须存在。工具校验完整存档后，创建新的运行目录；游戏文件置于根目录，AI 文件置于 `independent-agent/`。不会覆盖当前运行目录或自动停止、启动服务。恢复途中失败会保留未完成标记，游戏服务器拒绝启动该目录。
