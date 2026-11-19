@@ -1,0 +1,5 @@
+{
+  "storeDirectory": ".private/official",
+  "pollMs": 1000,
+  "seats": []
+}

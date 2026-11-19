@@ -1,0 +1,11 @@
+{
+  "name": "@subterfuge/ai",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/extension.ts",
+    "./runtime": "./src/runtime.ts",
+    "./providers": "./src/providers.ts"
+  }
+}

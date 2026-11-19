@@ -1,0 +1,12 @@
+.ai-status-strip {display:flex;align-items:center;gap:1px;margin-left:20px;flex-shrink:0;}
+.ai-status-label {font:10px var(--font-ui);letter-spacing:1px;color:#8ca5b3;margin-right:6px;}
+.ai-status-strip .ai-status-seat {display:grid;place-items:center;width:23px;height:30px;padding:0;border:0;background:transparent;border-radius:5px;color:var(--ai-seat-color);cursor:pointer;}
+.ai-status-strip .ai-status-seat:hover {background:#ffffff10;}
+.ai-status-seat:focus-visible {outline:1px solid var(--ai-seat-color);outline-offset:1px;}
+.ai-status-seat i {display:block;box-sizing:border-box;width:9px;height:9px;border:1.5px solid currentColor;border-radius:50%;background:transparent;}
+.ai-status-seat.is-thinking i {background:currentColor;box-shadow:0 0 7px color-mix(in srgb,currentColor 40%,transparent);animation:ai-status-pulse 1.5s ease-in-out infinite;}
+.ai-status-seat.is-unavailable i {border-style:dashed;opacity:.5;}
+@keyframes ai-status-pulse {0%,100%{opacity:1}50%{opacity:.3}}
+html[data-motion="off"] .ai-status-seat.is-thinking i {animation:none;}
+@media(prefers-reduced-motion:reduce){.ai-status-seat.is-thinking i {animation:none;}}
+@media(max-width:1000px){.ai-status-strip {margin-left:8px;}.ai-status-strip .ai-status-seat {width:18px;}}

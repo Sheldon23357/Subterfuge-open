@@ -1,0 +1,147 @@
+[
+  {
+    "symbol": "kr.perform",
+    "line": 31739,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.startGame",
+    "line": 31846,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.joinGame",
+    "line": 31853,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.leaveGame",
+    "line": 31856,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.checkIn",
+    "line": 31864,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.cancelGame",
+    "line": 31868,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.launchSub",
+    "line": 31871,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.reserveSubIndex",
+    "line": 31916,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.cancelSub",
+    "line": 31922,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.hireSpecialist",
+    "line": 31927,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.changeSubCourse",
+    "line": 31948,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.toggleSubGifting",
+    "line": 31963,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.toggleFunding",
+    "line": 31968,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.toggleCreateMine",
+    "line": 31976,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.resign",
+    "line": 31997,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.cancelInactivityWarning",
+    "line": 32002,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.togglePromoteSpecialist",
+    "line": 32006,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.releasePrisoner",
+    "line": 32025,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.cancelHireSpecialist",
+    "line": 32035,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.finalizeHireOrPromotion",
+    "line": 32046,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.setShieldsEnabled",
+    "line": 32049,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.buyExtraHire",
+    "line": 32062,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.cancelFutureAction",
+    "line": 32067,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "kr.setTimeFactor",
+    "line": 32078,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "tr.applyFutureActionsIfAny",
+    "line": 32100,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "tr.isFutureActionKnownToLocalPlayer",
+    "line": 32115,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "tr.add",
+    "line": 32120,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "tr.remove",
+    "line": 32123,
+    "status": "requires_semantic_review"
+  },
+  {
+    "symbol": "tr.copy",
+    "line": 32127,
+    "status": "requires_semantic_review"
+  }
+]

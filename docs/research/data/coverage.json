@@ -1,0 +1,701 @@
+[
+  {
+    "id": "WORLD-001",
+    "summary": "初始据点为额外据点参数加女王据点；初始钻机总数160。",
+    "evidence": "client_static",
+    "source_ids": [
+      "world_init"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "WORLD-002",
+    "summary": "地图生成目标据点数为玩家数乘10。",
+    "evidence": "client_static",
+    "source_ids": [
+      "global_constants"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "WORLD-003",
+    "summary": "使用环面最短距离，跨地图边界相邻。",
+    "evidence": "client_static",
+    "source_ids": [
+      "geometry"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "TIME-001",
+    "summary": "标准tick为600秒，144tick为逻辑日。",
+    "evidence": "client_static",
+    "source_ids": [
+      "global_constants"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "TIME-002",
+    "summary": "前72tick适用1.5开局倍率；招募使用有效tick。",
+    "evidence": "client_static",
+    "source_ids": [
+      "start_speed"
+    ],
+    "spec_examples": [
+      "C16",
+      "C17"
+    ]
+  },
+  {
+    "id": "TIME-003",
+    "summary": "移动事件先按步内时间，再按潜艇索引升序。",
+    "evidence": "client_static",
+    "source_ids": [
+      "event_order"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "TIME-004",
+    "summary": "据点更新后提交专家，再移动/战斗，再周期能力、护盾裁剪及清理。",
+    "evidence": "client_static",
+    "source_ids": [
+      "tick_pipeline"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "ECON-001",
+    "summary": "工厂产量受覆盖工头、本地大亨、资助、能源部长和供电剩余量影响。",
+    "evidence": "client_static",
+    "source_ids": [
+      "production_amount"
+    ],
+    "spec_examples": [
+      "C01",
+      "C02",
+      "C03"
+    ]
+  },
+  {
+    "id": "ECON-002",
+    "summary": "大亨加快生产，按分钟和tick两次向下截断。",
+    "evidence": "client_static",
+    "source_ids": [
+      "production_period"
+    ],
+    "spec_examples": [
+      "C04"
+    ]
+  },
+  {
+    "id": "ECON-003",
+    "summary": "达到供电容量时不推进工厂生产进度；开局生产进度乘加速系数。",
+    "evidence": "client_static",
+    "source_ids": [
+      "factory_tick"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "ECON-004",
+    "summary": "有效工头按所在据点一半实际声呐覆盖己方工厂，含边界，可叠加。",
+    "evidence": "client_static",
+    "source_ids": [
+      "foreman_range"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SHIELD-001",
+    "summary": "安全主管和女王加盾，国王每名减20，最低0。",
+    "evidence": "client_static",
+    "source_ids": [
+      "shield_max"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SHIELD-002",
+    "summary": "护盾离散恢复，非恒定48小时线性充满。",
+    "evidence": "client_static",
+    "source_ids": [
+      "shield_tick"
+    ],
+    "spec_examples": [
+      "C18"
+    ]
+  },
+  {
+    "id": "SHIELD-003",
+    "summary": "关盾延迟到期时盾值清零并关闭。",
+    "evidence": "client_static",
+    "source_ids": [
+      "shield_tick"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "MINE-001",
+    "summary": "开矿费用使用团队历史建矿计数和正在开矿标记。",
+    "evidence": "client_static",
+    "source_ids": [
+      "mine_cost"
+    ],
+    "spec_examples": [
+      "C05",
+      "C06"
+    ]
+  },
+  {
+    "id": "MINE-002",
+    "summary": "每矿按本人有效据点数计算生产1kg所需tick，保留小数。",
+    "evidence": "client_static",
+    "source_ids": [
+      "mine_period"
+    ],
+    "spec_examples": [
+      "C08"
+    ]
+  },
+  {
+    "id": "MINE-003",
+    "summary": "每tick采矿进度加1，达到阈值减去周期并生产1kg；不套用开局加速。",
+    "evidence": "client_static",
+    "source_ids": [
+      "mine_tick"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "MINE-004",
+    "summary": "战败丢矿后剩余矿按0.8倍四舍五入，攻占者不直接获得矿。",
+    "evidence": "client_static",
+    "source_ids": [
+      "mine_capture"
+    ],
+    "spec_examples": [
+      "C07"
+    ]
+  },
+  {
+    "id": "MINE-005",
+    "summary": "4300占领分支不显式重置采矿计时，该重置仅在v18条件内。",
+    "evidence": "client_static",
+    "source_ids": [
+      "mine_capture"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "MINE-006",
+    "summary": "完成建矿清零生产和采矿进度并增加本人历史建矿次数。",
+    "evidence": "client_static",
+    "source_ids": [
+      "mine_convert"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "MOVE-001",
+    "summary": "有效专家航速取最大条件倍率，不进行多专家连乘。",
+    "evidence": "client_static",
+    "source_ids": [
+      "speed_selection"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "MOVE-002",
+    "summary": "潜艇基础速度约0.005世界单位/分钟，赠送延迟10分钟。",
+    "evidence": "client_static",
+    "source_ids": [
+      "sub_constants"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "MOVE-003",
+    "summary": "转交后超出接收方容量的部分从赠艇扣除，最多扣完赠艇钻机。",
+    "evidence": "client_static",
+    "source_ids": [
+      "gift_cap"
+    ],
+    "spec_examples": [
+      "C09",
+      "C10"
+    ]
+  },
+  {
+    "id": "MOVE-004",
+    "summary": "敌方攻击据点时召回尚待发射的艇；普通空无人据点直接接管。",
+    "evidence": "client_static",
+    "source_ids": [
+      "arrival"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "HIRE-001",
+    "summary": "有效tick达到24首次增加机会，此后每108tick增加一次；未使用机会还须减去已消费次数。",
+    "evidence": "client_static",
+    "source_ids": [
+      "hiring"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "COMBAT-001",
+    "summary": "俘虏不可主动参战；按入侵、守点、潜艇战标记筛选。",
+    "evidence": "client_static",
+    "source_ids": [
+      "combat_entry"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "COMBAT-002",
+    "summary": "正优先级从小到大执行，相同级先收集双方再依缓存顺序调用。",
+    "evidence": "client_static",
+    "source_ids": [
+      "combat_entry"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "COMBAT-003",
+    "summary": "据点战力由剩余钻机和护盾组成，艇战无盾。",
+    "evidence": "client_static",
+    "source_ids": [
+      "combat_power"
+    ],
+    "spec_examples": [
+      "C19",
+      "C20",
+      "C21",
+      "C22"
+    ]
+  },
+  {
+    "id": "COMBAT-004",
+    "summary": "战力平局比较存活非俘虏专家数量，仍相同则守点胜或海上平局。",
+    "evidence": "client_static",
+    "source_ids": [
+      "combat_entry"
+    ],
+    "spec_examples": [
+      "C19",
+      "C20",
+      "C21",
+      "C22"
+    ]
+  },
+  {
+    "id": "COMBAT-005",
+    "summary": "国王全局攻击加成不按国王数叠加，按专家阶段后兵数快照计算。",
+    "evidence": "client_static",
+    "source_ids": [
+      "combat_entry"
+    ],
+    "spec_examples": [
+      "C15"
+    ]
+  },
+  {
+    "id": "COMBAT-006",
+    "summary": "将军每名10杀伤，要求己方战场存在存活未被俘专家；技能提前结束战斗时不追加。",
+    "evidence": "client_static",
+    "source_ids": [
+      "combat_entry"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "COMBAT-007",
+    "summary": "盗贼夺取对方剩余兵力15%向上取整，守点不发动。",
+    "evidence": "client_static",
+    "source_ids": [
+      "specialist_effects"
+    ],
+    "spec_examples": [
+      "C13"
+    ]
+  },
+  {
+    "id": "COMBAT-008",
+    "summary": "胜方工程师修复比例为全局和现场贡献之和，封顶100%，对记录损失向上取整。",
+    "evidence": "client_static",
+    "source_ids": [
+      "engineer_repair"
+    ],
+    "spec_examples": [
+      "C11",
+      "C12"
+    ]
+  },
+  {
+    "id": "COMBAT-009",
+    "summary": "殉道者爆炸半径使用1.5世界单位与环面距离，不用声呐20%的近似替代。",
+    "evidence": "client_static",
+    "source_ids": [
+      "martyr_distance"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "COMBAT-010",
+    "summary": "哨兵按120分钟计时，每发摧毁5%钻机向上取整，无有效目标不重置计时。",
+    "evidence": "client_static",
+    "source_ids": [
+      "sentry_tick"
+    ],
+    "spec_examples": [
+      "C14"
+    ]
+  },
+  {
+    "id": "COMBAT-011",
+    "summary": "据点战后由到达调用者执行检查员补盾及催眠师转化，不能漏掉调用者效果。",
+    "evidence": "client_static",
+    "source_ids": [
+      "arrival"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "FORECAST-001",
+    "summary": "未来推演克隆当前状态并移除不可见对象，不等于预知敌方未来命令。",
+    "evidence": "client_static",
+    "source_ids": [
+      "forecast"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "WIN-001",
+    "summary": "默认采矿200kg获胜；统治模式按据点目标；仅剩一人也结束。",
+    "evidence": "official_documented",
+    "source_ids": [
+      "official_rulebook"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "VIS-001",
+    "summary": "据点位置公开，详情依声呐；己方和来袭单位有可见例外；矿场身份全局公开。",
+    "evidence": "official_documented",
+    "source_ids": [
+      "official_rulebook"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "FUND-001",
+    "summary": "矿领先至少20kg可资助，每位提供50容量和每工厂每周期2钻机。",
+    "evidence": "official_documented",
+    "source_ids": [
+      "official_rulebook"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "LOSE-001",
+    "summary": "无女王且无继承、投降、不活跃达到48小时导致淘汰；现代清理时序仍待核实。",
+    "evidence": "official_documented",
+    "source_ids": [
+      "official_rulebook"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Diplomat",
+    "summary": "释放其据点声呐覆盖范围内、关押在据点中的己方专家。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Engineer",
+    "summary": "胜方修复：全局每名25%，现场每名额外25%；合并比例最高100%，对结算记录的钻机损失向上取整。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-ReveredElder",
+    "summary": "只有一方有可参战长老时，关闭后续双方专家参战标记；双方都有则不关闭。殉道者优先于长老。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Admiral",
+    "summary": "至少一名提供无专家潜艇50%全局加速，不按人数叠加；自身速度1.5倍。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Foreman",
+    "summary": "位于据点且生效时，覆盖该据点一半实际声呐范围内己方工厂，每周期每名加4。覆盖含边界。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Tycoon",
+    "summary": "每名将全局生产速率系数增加0.5；本人所在工厂每周期额外3。周期按tick取整。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Pirate",
+    "summary": "可指定敌方潜艇为目标，追击速度2倍，返航最近友方据点时4倍；普通据点航行不自动享受2倍。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Lieutenant",
+    "summary": "参战直接摧毁最多5台敌方钻机，自身速度1.5倍。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Princess",
+    "summary": "所在据点声呐1.5倍；女王失去控制时最近的公主继位，距离相同的裁定待核实。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-King",
+    "summary": "专家阶段结束己方每4兵摧毁1敌兵，向下取整；攻击加成不叠加。每名仍各减全局护盾上限20。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Infiltrator",
+    "summary": "攻据点清空护盾；潜艇战触发结束战斗并继续航行。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-MinisterOfEnergy",
+    "summary": "每名增加300供电，同时每座工厂每周期少产1台钻机。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-WarHero",
+    "summary": "参战直接摧毁最多20台敌方钻机。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Sentry",
+    "summary": "据点内每120分钟尝试射击，范围为所在据点半声呐；伤害为目标钻机数5%向上取整，优先最大伤害目标。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-IntelligenceOfficer",
+    "summary": "增加全局声呐25%，并显示视野外据点类型；多个情报官的叠加顺序另列待确认。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Tinkerer",
+    "summary": "供电增加所在据点最大护盾的3倍，每小时消耗该据点3护盾。零盾/转移时序待确认。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Saboteur",
+    "summary": "潜艇战将对方潜艇改派至对方最近友方据点；一次招募获得2名。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Assassin",
+    "summary": "杀死战场对方所属专家；一次招募获得2名。同优先级刺客可相互杀死。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Inspector",
+    "summary": "到达友方据点及战后在场时补满护盾；当前不增加基础护盾上限。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-DoubleAgent",
+    "summary": "潜艇战双方钻机清零，交换双方潜艇和专家归属并结束战斗。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-SecurityChief",
+    "summary": "每名全局护盾上限加10，本人据点再加10。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Queen",
+    "summary": "所在据点护盾上限加20；提供招募入口；额外获得的女王转为公主。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Thief",
+    "summary": "进攻据点或潜艇战夺取对方15%钻机，向上取整并限制到实际剩余兵力；防守据点不发动。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-General",
+    "summary": "专家阶段后己方仍有未被俘且存活专家才触发全局每名10杀伤；自身速度1.5倍。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Smuggler",
+    "summary": "目的地属于本人时速度3倍；不对敌方据点进攻提供3倍加速。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Navigator",
+    "summary": "允许途中改向，冷却480分钟；冷却归属与首次使用边界列为待确认。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Martyr",
+    "summary": "战斗优先级1爆炸，摧毁半径1.5世界单位内潜艇及满足护盾阈值的据点，含友军；使用环面最短距离。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Helmsman",
+    "summary": "自身速度2倍。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  },
+  {
+    "id": "SPEC-Hypnotist",
+    "summary": "将本人所在据点的俘虏转为己方专家。",
+    "evidence": "client_metadata_and_reviewed_summary",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "spec_examples": []
+  }
+]

@@ -1,0 +1,471 @@
+{
+  "format": "player-protocol-wire-examples/1",
+  "description": "Normative syntax examples, not credentials or executable current-room commands. IDs are opaque. Collections and unknown data are not coerced.",
+  "hello": {
+    "scope": {
+      "serverId": "server-fixture",
+      "roomId": "fixture-room",
+      "roomEpoch": "epoch-fixture",
+      "playerId": "player-00000000-0000-4000-8000-000000000001"
+    },
+    "identity": {
+      "serverId": "server-fixture",
+      "roomId": "fixture-room",
+      "roomEpoch": "epoch-fixture",
+      "playerId": "player-00000000-0000-4000-8000-000000000001",
+      "gamePlayer": 0,
+      "lobbySeat": 3,
+      "chatPlayer": 3,
+      "chatCount": 4,
+      "roster": [
+        {
+          "gamePlayer": 0,
+          "chatPlayer": 3
+        },
+        {
+          "gamePlayer": 1,
+          "chatPlayer": 1
+        }
+      ]
+    },
+    "sessionId": "session-fixture",
+    "version": {
+      "major": 2,
+      "minor": 0
+    },
+    "capabilities": [
+      "core/2",
+      "actions.order/1"
+    ],
+    "authorizationVersion": "1",
+    "serverTime": "2026-01-01T00:00:00.000Z",
+    "limits": {
+      "requestBytes": 65536,
+      "responsePageBytes": 262144,
+      "jsonDepth": 32,
+      "counterDigits": 78,
+      "eventPageSize": 200,
+      "lookupBatchSize": 100,
+      "snapshotTtlMs": 60000,
+      "snapshotsPerPlayer": 2,
+      "snapshotBytes": 8388608,
+      "leaseDefaultMs": 30000,
+      "leaseMinMs": 1000,
+      "leaseMaxMs": 120000,
+      "acceptedCommandMs": 30000
+    },
+    "rulesetId": "diplomacy-core-v1",
+    "rulesetVersion": "4",
+    "observationSchema": "player-observation/2",
+    "commandSchema": "player-command/2"
+  },
+  "commands": [
+    {
+      "roomEpoch": "epoch-fixture",
+      "sessionId": "session-fixture",
+      "fence": "9007199254740993",
+      "authorizationVersion": "1",
+      "idempotencyKey": "operation-fixture",
+      "clientCommandId": "intent-fixture",
+      "expectedRevision": "fec6e7c10f1e85e8c37bb06083a746acbd462261fe21e9dbdfb6da0e9e2afbc9",
+      "instructionsVersion": "0",
+      "kind": "order",
+      "payload": {
+        "action": {
+          "kind": "set-shields",
+          "outpostId": "蓝方工厂",
+          "enabled": false
+        }
+      }
+    },
+    {
+      "roomEpoch": "epoch-fixture",
+      "sessionId": "session-fixture",
+      "fence": "9007199254740993",
+      "authorizationVersion": "1",
+      "idempotencyKey": "operation-fixture",
+      "clientCommandId": "intent-fixture",
+      "expectedRevision": "fec6e7c10f1e85e8c37bb06083a746acbd462261fe21e9dbdfb6da0e9e2afbc9",
+      "instructionsVersion": "0",
+      "kind": "schedule",
+      "payload": {
+        "action": {
+          "kind": "set-shields",
+          "outpostId": "蓝方工厂",
+          "enabled": false
+        },
+        "issueTick": 101
+      }
+    },
+    {
+      "roomEpoch": "epoch-fixture",
+      "sessionId": "session-fixture",
+      "fence": "9007199254740993",
+      "authorizationVersion": "1",
+      "idempotencyKey": "operation-fixture",
+      "clientCommandId": "intent-fixture",
+      "expectedRevision": "fec6e7c10f1e85e8c37bb06083a746acbd462261fe21e9dbdfb6da0e9e2afbc9",
+      "instructionsVersion": "0",
+      "kind": "cancel-schedule",
+      "payload": {
+        "id": "schedule-fixture"
+      }
+    },
+    {
+      "roomEpoch": "epoch-fixture",
+      "sessionId": "session-fixture",
+      "fence": "9007199254740993",
+      "authorizationVersion": "1",
+      "idempotencyKey": "operation-fixture",
+      "clientCommandId": "intent-fixture",
+      "expectedRevision": "fec6e7c10f1e85e8c37bb06083a746acbd462261fe21e9dbdfb6da0e9e2afbc9",
+      "instructionsVersion": "0",
+      "kind": "chat-send",
+      "payload": {
+        "id": "message-fixture",
+        "to": [
+          1,
+          2
+        ],
+        "text": "Synthetic wire example"
+      }
+    },
+    {
+      "roomEpoch": "epoch-fixture",
+      "sessionId": "session-fixture",
+      "fence": "9007199254740993",
+      "authorizationVersion": "1",
+      "idempotencyKey": "operation-fixture",
+      "clientCommandId": "intent-fixture",
+      "expectedRevision": "fec6e7c10f1e85e8c37bb06083a746acbd462261fe21e9dbdfb6da0e9e2afbc9",
+      "instructionsVersion": "0",
+      "kind": "chat-seen",
+      "payload": {
+        "conversation": "public",
+        "through": 0
+      }
+    },
+    {
+      "roomEpoch": "epoch-fixture",
+      "sessionId": "session-fixture",
+      "fence": "9007199254740993",
+      "authorizationVersion": "1",
+      "idempotencyKey": "operation-fixture",
+      "clientCommandId": "intent-fixture",
+      "expectedRevision": "fec6e7c10f1e85e8c37bb06083a746acbd462261fe21e9dbdfb6da0e9e2afbc9",
+      "instructionsVersion": "0",
+      "kind": "readiness",
+      "payload": {
+        "ready": true,
+        "tick": 0
+      }
+    },
+    {
+      "roomEpoch": "epoch-fixture",
+      "sessionId": "session-fixture",
+      "fence": "9007199254740993",
+      "authorizationVersion": "1",
+      "idempotencyKey": "scoped-launch-example",
+      "clientCommandId": "scoped-launch-example",
+      "expectedRevision": "fec6e7c10f1e85e8c37bb06083a746acbd462261fe21e9dbdfb6da0e9e2afbc9",
+      "instructionsVersion": "0",
+      "kind": "order",
+      "payload": {
+        "action": {
+          "kind": "launch",
+          "source": "甲",
+          "destination": "乙",
+          "drillers": 2
+        }
+      },
+      "actionBasis": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "roomEpoch": "epoch-fixture",
+      "sessionId": "session-fixture",
+      "fence": "9007199254740993",
+      "authorizationVersion": "1",
+      "idempotencyKey": "batch-example",
+      "clientCommandId": "batch-example",
+      "expectedRevision": "fec6e7c10f1e85e8c37bb06083a746acbd462261fe21e9dbdfb6da0e9e2afbc9",
+      "instructionsVersion": "0",
+      "kind": "order-batch",
+      "payload": {
+        "commands": [
+          {
+            "roomEpoch": "epoch-fixture",
+            "sessionId": "session-fixture",
+            "fence": "9007199254740993",
+            "authorizationVersion": "1",
+            "idempotencyKey": "operation-fixture",
+            "clientCommandId": "intent-fixture",
+            "expectedRevision": "fec6e7c10f1e85e8c37bb06083a746acbd462261fe21e9dbdfb6da0e9e2afbc9",
+            "instructionsVersion": "0",
+            "kind": "order",
+            "payload": {
+              "action": {
+                "kind": "set-shields",
+                "outpostId": "蓝方工厂",
+                "enabled": false
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "worker": {
+    "roomEpoch": "epoch-fixture",
+    "sessionId": "session-fixture",
+    "authorizationVersion": "1",
+    "instructionsVersion": "0",
+    "idempotencyKey": "worker-operation",
+    "clientCommandId": "worker-intent",
+    "kind": "commander-worker",
+    "payload": {
+      "op": "notice",
+      "id": "notice-fixture",
+      "reply": "Synthetic notice"
+    }
+  },
+  "snapshotDocument": {
+    "observation": {
+      "roomId": "fixture-room",
+      "view": {
+        "format": "player-observation/2",
+        "profile": "diplomacy-core-v1",
+        "player": 0,
+        "tick": 100,
+        "size": {
+          "width": 20,
+          "height": 20
+        },
+        "sonar": [
+          {
+            "center": {
+              "x": 0,
+              "y": 0
+            },
+            "radius": 8
+          }
+        ],
+        "fullMapVisible": false,
+        "playerCount": 2,
+        "teamSize": 0,
+        "match": null,
+        "self": {
+          "mineCreationCost": 50,
+          "neptunium": 0,
+          "active": true,
+          "drillers": 100,
+          "capacity": 150,
+          "outpostCount": 1,
+          "funding": [
+            false,
+            false
+          ]
+        },
+        "outposts": [
+          {
+            "id": "蓝方工厂",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "visibility": 2,
+            "owner": 0,
+            "type": "factory",
+            "destroyed": false,
+            "drillers": 100,
+            "shield": 0,
+            "shieldMax": 0,
+            "shieldsEnabled": true,
+            "minePending": false,
+            "metrics": {
+              "active": true,
+              "paused": false,
+              "output": 6,
+              "cycleMinutes": 480,
+              "nextMinutes": 10,
+              "progress": 0.9791666666666666,
+              "capacity": 150,
+              "used": 100,
+              "contribution": 0,
+              "neptunium": 0,
+              "mines": 0
+            }
+          },
+          {
+            "id": "红方矿场",
+            "position": {
+              "x": 0.3,
+              "y": 0
+            },
+            "visibility": 2,
+            "owner": 1,
+            "type": "mine",
+            "destroyed": false,
+            "drillers": 11,
+            "shield": 8,
+            "shieldMax": 8,
+            "shieldsEnabled": true,
+            "minePending": false,
+            "metrics": {
+              "active": true,
+              "paused": false,
+              "output": 1,
+              "cycleMinutes": 720,
+              "nextMinutes": 720,
+              "progress": 0,
+              "capacity": 200,
+              "used": 11,
+              "contribution": 0,
+              "neptunium": 51,
+              "mines": 1
+            }
+          },
+          {
+            "id": "红方后方",
+            "position": {
+              "x": 2,
+              "y": 0
+            },
+            "visibility": 2,
+            "owner": 1,
+            "type": "generator",
+            "destroyed": false,
+            "drillers": 0,
+            "shield": 0,
+            "shieldMax": 0,
+            "shieldsEnabled": true,
+            "minePending": false,
+            "metrics": {
+              "active": true,
+              "paused": false,
+              "output": 0,
+              "cycleMinutes": null,
+              "nextMinutes": null,
+              "progress": 0,
+              "capacity": 200,
+              "used": 11,
+              "contribution": 50,
+              "neptunium": 51,
+              "mines": 1
+            }
+          }
+        ],
+        "fleets": []
+      },
+      "outpostNames": {
+        "蓝方工厂": "SUIJIN",
+        "红方矿场": "RUIZ",
+        "红方后方": "SERENITY"
+      },
+      "activity": [],
+      "intel": [
+        {
+          "player": 0,
+          "active": true,
+          "neptunium": 0,
+          "npPerDay": 0,
+          "outposts": {
+            "mine": 0,
+            "generator": 0,
+            "factory": 1
+          },
+          "numOutposts": 1,
+          "drillers": 100,
+          "output": 150,
+          "drillerRate": 18
+        },
+        {
+          "player": 1,
+          "active": true,
+          "neptunium": 51,
+          "npPerDay": 2,
+          "outposts": {
+            "mine": 1,
+            "generator": 1,
+            "factory": 0
+          },
+          "numOutposts": 2,
+          "drillers": 11,
+          "output": 200,
+          "drillerRate": 0
+        }
+      ],
+      "scheduled": [],
+      "historyStartTick": 100,
+      "realtime": false,
+      "secondsSinceLastTick": 0,
+      "revision": "fec6e7c10f1e85e8c37bb06083a746acbd462261fe21e9dbdfb6da0e9e2afbc9"
+    },
+    "instructionsVersion": "0",
+    "turnDeadline": null,
+    "coverage": {
+      "observation": "complete",
+      "chat": "not-supported",
+      "notifications": "not-supported"
+    }
+  },
+  "snapshotPage": {
+    "scope": {
+      "serverId": "server-fixture",
+      "roomId": "fixture-room",
+      "roomEpoch": "epoch-fixture",
+      "playerId": "player-00000000-0000-4000-8000-000000000001"
+    },
+    "snapshotId": "snapshot-fixture",
+    "bootstrapExpiresAt": "2026-01-01T00:01:00.000Z",
+    "streamEpoch": "stream-fixture",
+    "highWatermark": "9007199254740993",
+    "cursor": "cursor-fixture",
+    "decisionInputVersion": "input-fixture",
+    "snapshotDigest": "56efb7bd974fc4242d3c5c787b725ddf790c1e9ac67189df25ab2727d62a9f6d",
+    "page": {
+      "index": 0,
+      "count": 1,
+      "encoding": "json-text/1",
+      "text": "{\"coverage\":{\"chat\":\"not-supported\",\"notifications\":\"not-supported\",\"observation\":\"complete\"},\"instructionsVersion\":\"0\",\"observation\":{\"activity\":[],\"historyStartTick\":100,\"intel\":[{\"active\":true,\"drillerRate\":18,\"drillers\":100,\"neptunium\":0,\"npPerDay\":0,\"numOutposts\":1,\"outposts\":{\"factory\":1,\"generator\":0,\"mine\":0},\"output\":150,\"player\":0},{\"active\":true,\"drillerRate\":0,\"drillers\":11,\"neptunium\":51,\"npPerDay\":2,\"numOutposts\":2,\"outposts\":{\"factory\":0,\"generator\":1,\"mine\":1},\"output\":200,\"player\":1}],\"outpostNames\":{\"红方后方\":\"SERENITY\",\"红方矿场\":\"RUIZ\",\"蓝方工厂\":\"SUIJIN\"},\"realtime\":false,\"revision\":\"fec6e7c10f1e85e8c37bb06083a746acbd462261fe21e9dbdfb6da0e9e2afbc9\",\"roomId\":\"fixture-room\",\"scheduled\":[],\"secondsSinceLastTick\":0,\"view\":{\"fleets\":[],\"format\":\"player-observation/2\",\"fullMapVisible\":false,\"match\":null,\"outposts\":[{\"destroyed\":false,\"drillers\":100,\"id\":\"蓝方工厂\",\"metrics\":{\"active\":true,\"capacity\":150,\"contribution\":0,\"cycleMinutes\":480,\"mines\":0,\"neptunium\":0,\"nextMinutes\":10,\"output\":6,\"paused\":false,\"progress\":0.9791666666666666,\"used\":100},\"minePending\":false,\"owner\":0,\"position\":{\"x\":0,\"y\":0},\"shield\":0,\"shieldMax\":0,\"shieldsEnabled\":true,\"type\":\"factory\",\"visibility\":2},{\"destroyed\":false,\"drillers\":11,\"id\":\"红方矿场\",\"metrics\":{\"active\":true,\"capacity\":200,\"contribution\":0,\"cycleMinutes\":720,\"mines\":1,\"neptunium\":51,\"nextMinutes\":720,\"output\":1,\"paused\":false,\"progress\":0,\"used\":11},\"minePending\":false,\"owner\":1,\"position\":{\"x\":0.3,\"y\":0},\"shield\":8,\"shieldMax\":8,\"shieldsEnabled\":true,\"type\":\"mine\",\"visibility\":2},{\"destroyed\":false,\"drillers\":0,\"id\":\"红方后方\",\"metrics\":{\"active\":true,\"capacity\":200,\"contribution\":50,\"cycleMinutes\":null,\"mines\":1,\"neptunium\":51,\"nextMinutes\":null,\"output\":0,\"paused\":false,\"progress\":0,\"used\":11},\"minePending\":false,\"owner\":1,\"position\":{\"x\":2,\"y\":0},\"shield\":0,\"shieldMax\":0,\"shieldsEnabled\":true,\"type\":\"generator\",\"visibility\":2}],\"player\":0,\"playerCount\":2,\"profile\":\"diplomacy-core-v1\",\"self\":{\"active\":true,\"capacity\":150,\"drillers\":100,\"funding\":[false,false],\"mineCreationCost\":50,\"neptunium\":0,\"outpostCount\":1},\"size\":{\"height\":20,\"width\":20},\"sonar\":[{\"center\":{\"x\":0,\"y\":0},\"radius\":8}],\"teamSize\":0,\"tick\":100}},\"turnDeadline\":null}",
+      "nextPageToken": null
+    }
+  },
+  "checkpointAcknowledgements": [
+    {
+      "checkpointId": "checkpoint-fixture",
+      "roomEpoch": "epoch-fixture",
+      "sessionId": "session-fixture",
+      "authorizationVersion": "1",
+      "phase": "prepared"
+    },
+    {
+      "checkpointId": "checkpoint-fixture",
+      "roomEpoch": "epoch-fixture",
+      "sessionId": "session-fixture",
+      "authorizationVersion": "1",
+      "phase": "frozen",
+      "receiptId": "local-receipt-fixture",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    {
+      "checkpointId": "checkpoint-fixture",
+      "roomEpoch": "epoch-fixture",
+      "sessionId": "session-fixture",
+      "authorizationVersion": "1",
+      "phase": "resumed"
+    }
+  ],
+  "ownerConfirmationIntent": {
+    "roomEpoch": "epoch-fixture",
+    "playerId": "player-00000000-0000-4000-8000-000000000001",
+    "proposalId": "proposal-fixture",
+    "baseVersion": "0",
+    "text": "Protect the factories."
+  },
+  "ownerConfirmation": {
+    "roomEpoch": "epoch-fixture",
+    "proposalId": "proposal-fixture",
+    "baseVersion": "0",
+    "contentDigest": "4fb06f5e773c1aca9fc0bb0976af5cffd534d579726f497453b41f25cdac7795"
+  }
+}

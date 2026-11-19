@@ -1,0 +1,109 @@
+{
+  "format": "fleet-replay/6",
+  "profile": "diplomacy-core-v1",
+  "initial": {
+    "size": {
+      "width": 20,
+      "height": 20
+    },
+    "positions": {
+      "蓝方工厂": {
+        "x": 0,
+        "y": 0
+      },
+      "红方矿场": {
+        "x": 0.3,
+        "y": 0
+      },
+      "红方后方": {
+        "x": 2,
+        "y": 0
+      }
+    },
+    "economy": {
+      "initialTick": 100,
+      "teamSize": 0,
+      "players": [
+        {
+          "active": true,
+          "neptunium": 0,
+          "minesCreated": 0
+        },
+        {
+          "active": true,
+          "neptunium": 51,
+          "minesCreated": 1
+        }
+      ],
+      "outposts": [
+        {
+          "id": "蓝方工厂",
+          "owner": 0,
+          "type": "factory",
+          "drillers": 100,
+          "shield": 0,
+          "shieldMax": 0,
+          "shieldsEnabled": true,
+          "productionProgress": 47,
+          "miningProgress": 0,
+          "shieldProgress": 0,
+          "minePending": false,
+          "shieldDisablePending": false
+        },
+        {
+          "id": "红方矿场",
+          "owner": 1,
+          "type": "mine",
+          "drillers": 11,
+          "shield": 8,
+          "shieldMax": 8,
+          "shieldsEnabled": true,
+          "productionProgress": 0,
+          "miningProgress": 0,
+          "shieldProgress": 0,
+          "minePending": false,
+          "shieldDisablePending": false
+        },
+        {
+          "id": "红方后方",
+          "owner": 1,
+          "type": "generator",
+          "drillers": 0,
+          "shield": 0,
+          "shieldMax": 0,
+          "shieldsEnabled": true,
+          "productionProgress": 0,
+          "miningProgress": 0,
+          "shieldProgress": 0,
+          "minePending": false,
+          "shieldDisablePending": false
+        }
+      ]
+    }
+  },
+  "commands": [
+    {
+      "id": "蓝方攻击艇",
+      "player": 0,
+      "tick": 101,
+      "action": {
+        "kind": "launch",
+        "source": "蓝方工厂",
+        "destination": "红方矿场",
+        "drillers": 27
+      }
+    },
+    {
+      "id": "红方拦截艇",
+      "player": 1,
+      "tick": 101,
+      "action": {
+        "kind": "launch",
+        "source": "红方矿场",
+        "destination": "蓝方工厂",
+        "drillers": 11
+      }
+    }
+  ],
+  "targetTick": 112
+}

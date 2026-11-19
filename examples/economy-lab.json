@@ -1,0 +1,117 @@
+{
+  "format": "economic-replay/1",
+  "profile": "diplomacy-core-v1",
+  "initial": {
+    "players": [
+      {
+        "neptunium": 20,
+        "active": true,
+        "minesCreated": 0
+      },
+      {
+        "neptunium": 0,
+        "active": true,
+        "minesCreated": 0
+      }
+    ],
+    "teamSize": 0,
+    "initialTick": 0,
+    "outposts": [
+      {
+        "id": "blue-factory",
+        "owner": 0,
+        "type": "factory",
+        "drillers": 80,
+        "shield": 0,
+        "shieldMax": 10,
+        "shieldsEnabled": true,
+        "productionProgress": 0,
+        "miningProgress": 0,
+        "shieldProgress": 0,
+        "minePending": false,
+        "shieldDisablePending": false
+      },
+      {
+        "id": "blue-generator",
+        "owner": 0,
+        "type": "generator",
+        "drillers": 0,
+        "shield": 10,
+        "shieldMax": 20,
+        "shieldsEnabled": true,
+        "productionProgress": 0,
+        "miningProgress": 0,
+        "shieldProgress": 0,
+        "minePending": false,
+        "shieldDisablePending": false
+      },
+      {
+        "id": "orange-factory",
+        "owner": 1,
+        "type": "factory",
+        "drillers": 80,
+        "shield": 0,
+        "shieldMax": 10,
+        "shieldsEnabled": true,
+        "productionProgress": 0,
+        "miningProgress": 0,
+        "shieldProgress": 0,
+        "minePending": false,
+        "shieldDisablePending": false
+      },
+      {
+        "id": "orange-generator",
+        "owner": 1,
+        "type": "generator",
+        "drillers": 0,
+        "shield": 10,
+        "shieldMax": 20,
+        "shieldsEnabled": true,
+        "productionProgress": 0,
+        "miningProgress": 0,
+        "shieldProgress": 0,
+        "minePending": false,
+        "shieldDisablePending": false
+      }
+    ]
+  },
+  "commands": [
+    {
+      "id": "fund-orange",
+      "player": 0,
+      "tick": 0,
+      "action": {
+        "kind": "toggle-funding",
+        "recipient": 1
+      }
+    },
+    {
+      "id": "mine-blue",
+      "player": 0,
+      "tick": 10,
+      "action": {
+        "kind": "toggle-mine",
+        "outpostId": "blue-factory"
+      }
+    },
+    {
+      "id": "mine-orange",
+      "player": 1,
+      "tick": 12,
+      "action": {
+        "kind": "toggle-mine",
+        "outpostId": "orange-factory"
+      }
+    },
+    {
+      "id": "cancel-orange",
+      "player": 1,
+      "tick": 12,
+      "action": {
+        "kind": "toggle-mine",
+        "outpostId": "orange-factory"
+      }
+    }
+  ],
+  "targetTick": 288
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 2,
+  "maxSimulations": 72,
+  "maxElapsedMs": 1001,
+  "horizonTicks": 96,
+  "reviewIntervalTicks": 9,
+  "minActionGain": 3,
+  "minCaptureGain": 2,
+  "objectiveSwitchTolerance": 7,
+  "forceBufferRatio": 0.255,
+  "remoteUncertaintyForceFraction": 0.4,
+  "economyWeight": 1.2,
+  "defenseWeight": 1.4,
+  "territoryWeight": 0.8
+}

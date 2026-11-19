@@ -1,0 +1,8 @@
+{
+  "purpose": "Offline demo documentation; mock CLI uses --port explicitly",
+  "mockHost": "127.0.0.1",
+  "mockPort": 4399,
+  "syntheticCredentialsOnly": true,
+  "realRuleSimulator": false,
+  "automaticOrders": false
+}

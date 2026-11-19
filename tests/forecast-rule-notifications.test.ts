@@ -1,0 +1,42 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {createFleetScenario,submitFleetOrder,advanceFleetScenario,projectPlayerNotifications,type FleetSetup,
+ prepareForecastKnowledge,buildForecastWorld,enableForecastNotifications,readForecastNotifications} from '../packages/engine/src/index.js';
+import {readNotifications} from '../packages/engine/src/notification-journal.js';
+import {simulatePlayerFuture} from '../packages/server/src/player-forecast.js';
+const setup=()=>JSON.parse(fs.readFileSync('examples/fleet-lab.json','utf8')).initial as FleetSetup;
+test('forecast combat notices match known execution recipients and do not enter the real journal',()=>{
+ const cfg=setup();
+ const live=submitFleetOrder(createFleetScenario(cfg),{id:'attack',player:0,action:{kind:'launch',source:cfg.economy.outposts[0]!.id,destination:cfg.economy.outposts[1]!.id,drillers:27}},250).state;
+ const before=JSON.stringify(live),archive=projectPlayerNotifications(live,0);
+ const forecast=simulatePlayerFuture({state:live,scheduled:[]},0,110);
+ assert.equal(forecast.status,'conditional');if(forecast.status!=='conditional')return;
+ assert.ok(forecast.ruleNotifications.some(e=>e.kind==='battle'));
+ assert.equal(forecast.notificationLimitReached,false);
+ assert.deepEqual(forecast.notificationTimeline.map(e=>e.sequence),forecast.notificationTimeline.map((_,i)=>i));
+ assert.deepEqual(forecast.notificationTimeline.filter(e=>e.source==='rule').map(e=>e.notification),forecast.ruleNotifications);
+ const actual=projectPlayerNotifications(advanceFleetScenario(live,110,true),0).slice(archive.length);
+ assert.deepEqual(forecast.ruleNotifications.map(({minutesBeforeSending,generateAlert,...event})=>event),actual);
+ for(const event of forecast.ruleNotifications)assert.equal(event.minutesBeforeSending,Math.trunc(((event.tick-100)*600-250)/60)+1);
+ assert.deepEqual(projectPlayerNotifications(live,0),archive);assert.equal(JSON.stringify(live),before);
+});
+test('prediction journals are opt-in, isolated across branches and cloned on read',()=>{
+ const cfg=setup();
+ const live=createFleetScenario(cfg),built=buildForecastWorld(prepareForecastKnowledge(live,0));
+ assert.equal(built.status,'conditional');if(built.status!=='conditional')return;
+ built.state.economy.outposts[2]!.drillers=250;
+ const order={id:'mine',player:1,action:{kind:'toggle-mine' as const,outpostId:cfg.economy.outposts[2]!.id}};
+ const noCapture=submitFleetOrder(built.state,order).state;
+ assert.deepEqual(readForecastNotifications(noCapture,0),[]);
+ enableForecastNotifications(built.state);
+ const pending=submitFleetOrder(built.state,order).state;
+ assert.deepEqual(readForecastNotifications(pending,0),[],'pending work does not announce a completed mine');
+ const branch=advanceFleetScenario(pending,102,true);
+ assert.ok(readForecastNotifications(branch,0).some(e=>e.kind==='mine-created'));
+ assert.deepEqual(readForecastNotifications(built.state,0),[]);
+ assert.deepEqual(readForecastNotifications(branch,1),[]);
+ assert.deepEqual(readNotifications(branch,0),[]);
+ const result=readForecastNotifications(branch,0);result[0]!.text='changed';
+ assert.notEqual(readForecastNotifications(branch,0)[0]!.text,'changed');
+});

@@ -1,0 +1,47 @@
+.prompt-context { margin-top: 14px; min-width: 0; }
+.context-view-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.context-view-toolbar > div { display: flex; gap: 1px; }
+.context-view-toolbar > span { color: var(--console-muted); font-size: 11px; }
+.instrument-console .context-view-toolbar button { min-height: 30px; padding: 5px 14px; }
+.instrument-console .context-view-toolbar button[aria-pressed=true] { background: #355e93; border-color: #aebfd4; color: #fff; }
+.context-modules { display: grid; gap: 8px; }
+.context-measurement { margin: 0 0 14px; font: 11px/1.7 Consolas, system-ui, sans-serif; color: var(--console-muted); }
+.context-module-source { margin-top: 14px; padding-top: 10px; border-top: 1px solid #3b495a; }
+.context-module-source > summary { cursor: pointer; font-size: 11px; color: #aebfd4; }
+.context-disclosure { min-width: 0; border: 1px solid #3b495a; background: #111e2d; }
+.context-disclosure > summary { display: flex; align-items: baseline; gap: 10px; cursor: pointer; list-style: none; padding: 13px 14px; border-left: 3px solid #728fb4; }
+.context-disclosure > summary::-webkit-details-marker { display: none; }
+.context-disclosure > summary::before { content: '+'; flex: none; width: 12px; color: #aebfd4; font-family: Consolas, monospace; }
+.context-disclosure[open] > summary::before { content: '−'; }
+.context-disclosure > summary:hover { background: #254267; }
+.context-disclosure > summary b { font-weight: 600; font-size: 12px; color: #ebeff5; overflow-wrap: anywhere; }
+.context-disclosure > summary > span { margin-left: auto; font-size: 11px; color: #91a7ba; white-space: nowrap; }
+.context-disclosure[open] > summary { border-bottom: 1px solid #3b495a; background: #1c3047; }
+.context-disclosure-body { padding: 14px; min-width: 0; }
+.context-fields { display: grid; gap: 8px; min-width: 0; }
+.context-section { min-width: 0; padding: 8px 0; }
+.context-section > header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; color: #d9e8f4; font-size: 12px; }
+.context-section > header b { overflow-wrap: anywhere; }
+.context-section > header span { margin-left: auto; color: #91a7ba; white-space: nowrap; font-size: 11px; }
+.context-section > .context-fields { margin-top: 8px; }
+.context-fields > .context-disclosure { border: 0; border-bottom: 1px solid #3b495a; background: transparent; }
+.context-fields > .context-disclosure > summary { padding: 10px 8px; border-left: 0; }
+.context-field { display: grid; grid-template-columns: minmax(90px, .32fr) minmax(0, 1fr); gap: 12px; margin: 0; padding: 7px 0; border-bottom: 1px solid #293e52; font-size: 12px; line-height: 1.7; }
+.context-field dt { color: #aebfd4; overflow-wrap: anywhere; }
+.context-field dd { margin: 0; min-width: 0; color: #d9e8f4; overflow-wrap: anywhere; }
+.context-prose { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 12px; line-height: 1.85; color: #d9e8f4; }
+.context-literal { font: 11px/1.7 Consolas, monospace; color: #aebfd4; overflow-wrap: anywhere; }
+.context-array { padding-left: 22px; margin: 0; color: #91a7ba; }
+.context-array > li { padding: 5px 0; min-width: 0; }
+.context-table { overflow: auto; max-width: 100%; scrollbar-width: thin; }
+.context-table table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.context-table :is(th,td) { padding: 9px 11px; border: 1px solid #3b495a; vertical-align: top; text-align: left; min-width: 75px; max-width: 320px; overflow-wrap: anywhere; }
+.context-table th { background: #254267; color: #ebeff5; font-weight: 600; white-space: nowrap; }
+.context-table td { color: #d9e8f4; }
+.context-table .context-prose { font-size: 11px; }
+.context-table tbody tr:nth-child(even) { background: #ffffff04; }
+@media(max-width:760px) {
+  .context-disclosure > summary { padding: 11px 9px; gap: 6px; }
+  .context-disclosure-body { padding: 10px; }
+  .context-field { grid-template-columns: minmax(75px, .35fr) minmax(0, 1fr); gap: 8px; }
+}

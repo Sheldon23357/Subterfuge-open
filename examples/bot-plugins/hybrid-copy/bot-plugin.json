@@ -1,0 +1,1 @@
+{"apiVersion":1,"id":"my-hybrid","name":"我的 hybrid","version":"1.0.0","entry":"index.ts","description":"复用官方 hybrid 的全部默认行为，可在此基础上修改自己的策略。"}

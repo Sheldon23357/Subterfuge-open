@@ -1,0 +1,75 @@
+.agent-console .call-workspace {
+  display: grid;
+  grid-template-columns: minmax(300px, 34%) minmax(0, 1fr);
+  gap: 12px;
+  height: clamp(400px, calc(100dvh - 210px), 1000px);
+  min-width: 0;
+}
+.agent-console .call-sidebar,
+.agent-console .call-workspace > .call-content {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--console-border) var(--console-panel, #15263b);
+  background: var(--console-panel, #15263b);
+  border: 1px solid var(--console-border);
+  border-radius: var(--console-radius, 6px);
+}
+.agent-console .call-workspace .call-timeline {
+  max-height: none;
+  overflow: visible;
+  gap: 10px;
+}
+.agent-console .call-workspace .call-round {
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 0;
+}
+.agent-console .call-workspace .call-round-heading {
+  margin: 0;
+  padding: 12px;
+}
+.agent-console .call-workspace .call-round-heading small {
+  width: 100%;
+  margin-left: 0;
+}
+.agent-console .call-workspace .call-row {
+  border-left: 2px solid transparent;
+  padding: 14px 10px;
+}
+.agent-console .call-workspace .call-row.selected {
+  border-left-color: var(--console-accent);
+}
+.agent-console .call-workspace .call-step {
+  min-width: 16px;
+}
+.agent-console .call-workspace > .call-content {
+  margin: 0;
+  padding: 18px;
+}
+.agent-console .call-workspace .call-content .diagnostic-toolbar {
+  gap: 6px;
+  margin: 16px 0 12px;
+}
+.agent-console .call-workspace .call-content pre {
+  max-height: none;
+  overflow: visible;
+}
+.agent-console .call-detail-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--console-muted);
+}
+@media (max-width: 760px) {
+  .agent-console .call-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(180px, 35dvh) minmax(300px, 60dvh);
+    height: auto;
+  }
+}

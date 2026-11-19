@@ -1,0 +1,35 @@
+.command-room .live-events {
+  position:absolute;right:20px;bottom:8px;z-index:6;
+  width:min(370px,calc(100% - 40px));
+  border:1px solid #7294a336;border-radius:9px;
+  background:#10212aeb;backdrop-filter:blur(12px);
+  box-shadow:0 8px 26px #0003;color:#b5c7cd;overflow:hidden;
+}
+.live-events header {display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-bottom:1px solid #7294a320;}
+.live-events header>span {display:flex;align-items:center;gap:7px;}
+.live-events header svg {color:#82b6b4;}
+.live-events header b {font-size:11px;font-weight:500;}
+.live-events header small {font-size:10px;color:#7d98a5;font-variant-numeric:tabular-nums;}
+.live-events header button {display:grid;place-items:center;width:24px;height:24px;padding:2px;border:0;background:transparent;color:#9cb3be;cursor:pointer;border-radius:4px;}
+.live-events header button:hover {background:#ffffff0d;}
+.live-events ol {list-style:none;margin:0;padding:0 10px;max-height:min(260px,34vh);overflow:auto;scrollbar-width:thin;scrollbar-color:#56727f55 transparent;}
+.live-events li {display:grid;grid-template-columns:61px minmax(0,1fr);gap:9px;padding:5px 0;animation:live-event-in .2s ease-out;}
+.live-events li+li {border-top:1px solid #7294a314;}
+.live-events time {font-size:10px;line-height:1.45;font-variant-numeric:tabular-nums;color:#9ab3bf;}
+.live-events p {margin:0;font-size:11px;line-height:1.45;overflow-wrap:anywhere;}
+.live-events .live-events-empty {display:block;color:#78929f;font-size:11px;padding:14px 0;}
+.live-events.is-collapsed header {border:0;}
+.command-room:has(>.live-events) > .precision-timebar {right:400px;}
+@keyframes live-event-in {from {opacity:.3;transform:translateY(-4px);}to {opacity:1;transform:translateY(0);}}
+@media(min-width:761px) and (max-width:1050px) {
+  .command-room .live-events {width:300px;}
+  .command-room:has(>.live-events) > .precision-timebar {right:330px;padding:0 12px;gap:10px;}
+  .command-room:has(>.live-events) .time-readout {min-width:100px;}
+}
+@media(max-width:760px) {
+  .command-room .live-events {right:10px;bottom:8px;width:calc(100% - 20px);}
+  .live-events ol {max-height:23vh;}
+  .command-room:has(>.live-events) > .precision-timebar {right:10px;bottom:calc(23vh + 62px);}
+  .command-room:has(>.live-events.is-collapsed) > .precision-timebar {bottom:62px;}
+}
+@media(prefers-reduced-motion:reduce) {.live-events li {animation:none;}}

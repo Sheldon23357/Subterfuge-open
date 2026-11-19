@@ -1,0 +1,134 @@
+/* One compact status row; two predictable rows on narrow maps. */
+.command-room > .quiet-header.command-header {height:80px;padding:10px 16px;gap:16px;box-sizing:border-box;}
+.command-header .command-identity {display:flex;align-items:center;gap:12px;min-width:0;}
+.command-header .home-mark {min-width:40px;min-height:40px;display:flex;align-items:center;gap:6px;}
+.command-header .room-name {padding-left:12px;max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.command-header .command-context {display:flex;flex-direction:column;gap:4px;flex-shrink:0;}
+.command-header.quiet-header .lab-header-controls {padding-left:0;border:0;gap:12px;}
+.command-header .perspective-picker {display:flex;align-items:center;gap:6px;}
+.command-header .perspective-picker select {width:148px;min-height:36px;font-size:12px;}
+.command-header .clock-actions {display:flex;gap:4px;border-left:1px solid #9bb8c52b;padding-left:10px;}
+.command-header .lab-header-button {display:flex;width:auto;min-width:64px;height:36px;gap:5px;padding:0 9px;font-size:12px;}
+.command-header .command-status {display:flex;align-items:center;gap:8px;color:#a0b5c1;font-size:11px;min-height:16px;}
+.command-header .command-status > span + span::before {content:'·';margin-right:8px;}
+.command-header .command-status .is-preview {color:#edcd88;}
+.command-header .command-status button {border:0;padding:0 3px;color:#b9e7e5;background:transparent;font-size:11px;text-decoration:underline;cursor:pointer;}
+.command-header .player-perspective {display:flex;gap:6px;align-items:center;font-size:12px;color:#c1d7df;}
+.command-header .quiet-resources {gap:18px;margin:0 0 0 auto;min-width:0;}
+.command-header .quiet-resources > span {flex-direction:column;align-items:flex-start;gap:2px;font-size:19px;white-space:nowrap;}
+.command-header .quiet-resources small {font-size:10px;}
+.command-header .observer-resources {display:flex;flex-direction:column;gap:4px;margin-left:auto;color:#b9ced8;font-size:12px;}
+.command-header .observer-resources span {font-size:11px;color:#95adba;}
+.command-header .ai-status-menu {position:relative;flex-shrink:0;color:#bbced9;}
+.command-header .ai-status-menu summary {display:flex;flex-direction:column;gap:4px;min-height:40px;justify-content:center;padding:0 12px;border:1px solid #a1c5d12b;border-radius:7px;cursor:pointer;font-size:11px;list-style:none;}
+.command-header .ai-status-menu summary::-webkit-details-marker {display:none;}
+.command-header .ai-status-menu summary b {font-weight:500;color:#a4d6cb;}
+.command-header .ai-status-menu summary span::after {content:' ▾';}
+.command-header .ai-status-menu[open] summary {background:#a4d6cb18;border-color:#a4d6cb66;}
+.command-header .ai-status-strip {position:absolute;top:calc(100% + 12px);right:0;width:min(240px,calc(100vw - 44px));max-height:calc(100dvh - 180px);overflow-y:auto;overscroll-behavior:contain;display:grid;gap:3px;margin:0;padding:12px;background:#122733;border:1px solid #91acb749;border-radius:10px;box-shadow:0 12px 30px #0007;}
+.command-header .ai-status-label {display:none;}
+.command-header .ai-status-hint {margin:0 0 7px;font-size:11px;color:#9db6c1;}
+.command-header .ai-status-strip .ai-status-seat {display:flex;gap:10px;width:100%;height:40px;padding:0 9px;text-align:left;}
+.command-header .ai-status-seat span {font-size:12px;}
+.command-header .ai-status-seat small {margin-left:auto;color:#b7c9d1;font-size:11px;}
+.command-header :is(button,select,summary):focus-visible {outline:2px solid #a6e5de;outline-offset:3px;}
+.command-room:has(> .command-header) .ocean-tools {top:102px;}
+.command-room:has(> .command-header) .prediction-banner {top:102px;}
+@media(max-width:1150px){
+ .command-header .command-context,.command-header .ai-status-shell {align-self:start;}
+ .command-header .ai-status-menu summary {box-sizing:border-box;height:36px;min-height:36px;gap:2px;}
+}
+@media(max-width:1150px){
+ .command-header .room-name {display:none;}
+ .command-room > .quiet-header.command-header {gap:12px;padding:8px 12px;}
+ .command-header .quiet-resources {gap:13px;}
+}
+@media(min-width:851px) and (max-width:1150px){
+ .command-room > .quiet-header.command-header {height:56px;align-items:center;}
+ .command-header .command-context,.command-header .ai-status-shell {align-self:center;}
+ .command-room:has(> .command-header) .ocean-tools,.command-room:has(> .command-header) .prediction-banner {top:78px;}
+ .command-room > .quiet-header.command-header:has(.command-status) {height:80px;}
+ .command-header:has(.command-status) .command-context,.command-header:has(.command-status) .ai-status-shell {align-self:start;}
+ .command-room:has(> .command-header .command-status) .ocean-tools,.command-room:has(> .command-header .command-status) .prediction-banner {top:102px;}
+}
+@media(max-width:850px){
+ .command-room > .quiet-header.command-header {height:132px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:60px 44px;gap:5px 10px;}
+ .command-header .command-identity {position:absolute;left:9px;bottom:13px;}
+ .command-header .home-mark {width:32px;min-width:32px;min-height:36px;}
+ .command-header .home-mark b {display:none;}
+ .command-header .command-context {grid-column:1;grid-row:1;min-width:0;}
+ .command-header .ai-status-menu {grid-column:2;grid-row:1;}
+ .command-header .quiet-resources,.command-header .observer-resources {grid-column:1 / -1;grid-row:2;margin:0 0 0 40px;border-top:1px solid #a7c2cc22;padding-top:7px;}
+ .command-header .quiet-resources {display:flex;justify-content:space-between;gap:10px;overflow-x:auto;}
+ .command-header .quiet-resources > span {font-size:19px;}
+ .command-header .perspective-picker select {width:132px;}
+ .command-header.quiet-header .lab-header-controls {gap:6px;}
+ .command-header .clock-actions {padding-left:6px;}
+ .command-header .lab-header-button {min-width:54px;padding:0 5px;}
+ .command-header .ai-status-menu summary {padding:0 8px;}
+ .command-room:has(> .command-header) .ocean-tools,.command-room:has(> .command-header) .selection-card,.command-room:has(> .command-header) .utility-popover,.command-room:has(> .command-header) .prediction-banner {top:150px;}
+ .command-room:has(> .command-header) .communications-panel {top:150px;}
+ .command-room:has(> .command-header) .selection-card,.command-room:has(> .command-header) .utility-popover {max-height:calc(100% - 240px);}
+}
+@media(max-width:420px){
+ .command-header .perspective-picker > svg {display:none;}
+ .command-header .perspective-picker select {width:96px;}
+ .command-header .lab-header-button {min-width:44px;font-size:11px;gap:3px;}
+ .command-room > .quiet-header.command-header {padding:8px;gap:5px 6px;}
+ .command-header .clock-actions {padding-left:4px;gap:3px;}
+ .command-header .ai-status-menu summary {padding:0 5px;font-size:10px;}
+}
+/* Desktop is the primary command surface: every seat is visible and one click away. */
+.command-header .ai-desktop-status {display:none;}
+.command-header .ai-seat-name {display:flex;align-items:center;gap:6px;}
+.command-header .ai-seat-name i {flex-shrink:0;}
+.command-header .ai-status-seat.needs-attention small {color:#ffc18c;}
+@media(min-width:1151px){
+ .command-room > .quiet-header.command-header {height:88px;gap:18px;}
+ .command-header .command-identity {flex-shrink:0;}
+ .command-header .ai-status-shell {flex:1;min-width:350px;padding:0 16px;border-inline:1px solid #a1c5d12b;}
+ .command-header .ai-status-menu {display:none;}
+ .command-header .ai-desktop-status {display:block;}
+ .command-header .ai-desktop-heading {display:flex;justify-content:space-between;gap:12px;margin-bottom:5px;font-size:10px;color:#91abb9;}
+ .command-header .ai-desktop-heading>span:first-child {color:#c0d3dc;letter-spacing:1px;}
+ .command-header .ai-desktop-seats {display:flex;gap:4px;justify-content:space-between;}
+ .command-header .ai-desktop-seats .ai-status-seat {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-width:34px;flex:1;min-height:40px;padding:3px 2px;border:1px solid transparent;border-radius:5px;background:transparent;color:var(--ai-seat-color);cursor:pointer;}
+ .command-header .ai-desktop-seats .ai-status-seat:hover {background:#9cc9d412;border-color:#a1c5d12b;}
+ .command-header .ai-desktop-seats .ai-seat-name {font-size:11px;gap:4px;white-space:nowrap;}
+ .command-header .ai-desktop-seats .ai-status-seat small {font-size:10px;color:#92aab7;white-space:nowrap;}
+ .command-header .ai-desktop-seats .ai-status-seat.needs-attention small {color:#ffc18c;}
+ .command-header .ai-desktop-seats .ai-status-seat i {display:block;box-sizing:border-box;width:7px;height:7px;border:1px solid currentColor;border-radius:50%;}
+ .command-header .quiet-resources {margin-left:0;gap:20px;flex-shrink:0;}
+ .command-header .quiet-resources > span {font-size:22px;}
+ .command-header .quiet-resources small {font-size:11px;}
+ .command-header .observer-resources {margin-left:0;flex-shrink:0;}
+ .command-room:has(> .command-header) .ocean-tools,.command-room:has(> .command-header) .prediction-banner {top:110px;}
+}
+@media(min-width:1151px) and (max-width:1440px){
+ .command-header .room-name {display:none;}
+ .command-room > .quiet-header.command-header {gap:12px;padding:10px 14px;}
+ .command-header .ai-status-shell {padding:0 10px;min-width:330px;}
+ .command-header .quiet-resources {gap:14px;}
+ .command-header .quiet-resources > span {font-size:20px;}
+}
+@media(max-width:850px){.command-header .ai-status-shell {grid-column:2;grid-row:1;}}
+/* Primary desktop direction: one quiet row, compact status dots, no roster copy. */
+@media(min-width:1151px){
+ .command-room > .quiet-header.command-header {height:56px;padding:7px 14px;gap:14px;}
+ .command-header .room-name {display:none;}
+ .command-header .home-mark {font-size:18px;letter-spacing:2px;min-height:36px;}
+ .command-header .command-context {flex-direction:row;align-items:center;gap:12px;}
+ .command-header .command-status {white-space:nowrap;}
+ .command-header .perspective-picker select {width:140px;min-height:32px;}
+ .command-header .lab-header-button {height:32px;min-width:54px;padding:0 7px;}
+ .command-header .ai-status-shell {flex:0 0 auto;min-width:0;padding:0 5px;border:0;}
+ .command-header .ai-desktop-seats {display:flex;justify-content:flex-start;gap:2px;}
+ .command-header .ai-desktop-seats .ai-status-seat {flex:0 0 22px;width:22px;min-width:22px;min-height:30px;height:30px;padding:0;gap:0;display:grid;place-items:center;border:0;}
+ .command-header .ai-desktop-seats .ai-status-seat i {width:8px;height:8px;border-width:1.5px;}
+ .command-header .ai-desktop-seats .ai-status-seat.needs-attention i {outline:1px solid #ffc18c;outline-offset:3px;}
+ .command-header .quiet-resources {margin-left:auto;gap:18px;}
+ .command-header .quiet-resources > span {flex-direction:row;align-items:baseline;gap:5px;font-size:18px;}
+ .command-header .quiet-resources small {font-size:10px;}
+ .command-header .observer-resources {margin-left:auto;flex-direction:row;align-items:center;gap:8px;font-size:11px;}
+ .command-room:has(> .command-header) .ocean-tools,.command-room:has(> .command-header) .prediction-banner {top:80px;}
+}

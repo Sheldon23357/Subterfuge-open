@@ -1,0 +1,85 @@
+[
+  {
+    "from": "v41",
+    "to": "v42",
+    "changes": [
+      {
+        "path": "GameParams.GameStartSpeedupFactor",
+        "before": null,
+        "after": 1.5
+      },
+      {
+        "path": "GameParams.GameStartSpeedupTicks",
+        "before": null,
+        "after": 72
+      },
+      {
+        "path": "GameParams.RulesVersion",
+        "before": 41,
+        "after": 42
+      },
+      {
+        "path": "SpecialistParams.KingDestroyRatio",
+        "before": 3,
+        "after": 4
+      },
+      {
+        "path": "SpecialistParams.NavigatorCourseChangeCooldownInMinutes",
+        "before": null,
+        "after": 480
+      }
+    ],
+    "scope": "configuration_only"
+  },
+  {
+    "from": "v42",
+    "to": "v4201",
+    "changes": [
+      {
+        "path": "GameParams.GiftDrillersRespectElectricalCap",
+        "before": null,
+        "after": 1
+      },
+      {
+        "path": "GameParams.RulesVersion",
+        "before": 42,
+        "after": 4201
+      },
+      {
+        "path": "SpecialistParams.ForemanExtraDrillers",
+        "before": 6,
+        "after": 4
+      }
+    ],
+    "scope": "configuration_only"
+  },
+  {
+    "from": "v4201",
+    "to": "v4300",
+    "changes": [
+      {
+        "path": "GameParams.RulesVersion",
+        "before": 4201,
+        "after": 4300
+      },
+      {
+        "path": "GameParams.TeamDominationRequirementByPlayerCount",
+        "before": null,
+        "after": [
+          0,
+          0,
+          0,
+          0,
+          19,
+          24,
+          28,
+          33,
+          37,
+          42,
+          46
+        ]
+      }
+    ],
+    "scope": "configuration_only"
+  }
+]

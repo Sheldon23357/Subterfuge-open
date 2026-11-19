@@ -1,0 +1,289 @@
+/* Authenticated services embedded in the shared command room. No global
+   overrides: SeaMap, unit panels and time machine retain the original styles. */
+.player-login {
+  width: min(440px, calc(100% - 48px));
+  margin: 11vh auto;
+}
+.player-login-mark {
+  font-family: var(--font-display), sans-serif;
+  font-size: 72px;
+  letter-spacing: 0.25em;
+  color: #d9e9e4;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 24px;
+  margin-bottom: 22px;
+}
+.player-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+}
+.player-login h1 {
+  font-size: 28px;
+  margin: 35px 0 15px;
+}
+.player-login p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.player-login form {
+  margin: 27px 0;
+}
+.player-login label {
+  display: block;
+  font-size: 13px;
+}
+.player-login input {
+  width: 100%;
+  margin-top: 8px;
+}
+.player-login button {
+  width: 100%;
+  margin-top: 18px;
+}
+.player-error {
+  border: 1px solid #b76d61;
+  background: #472c2b;
+  color: #ffd3c5;
+  padding: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.player-session .player-chat {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px;
+}
+.player-session .player-chat > :not(.player-messages) {
+  flex-shrink: 0;
+}
+.player-session .player-chat .chat-compose {
+  margin: 0;
+}
+.player-session #chat-content {
+  overflow: hidden;
+}
+.player-session #score-content:not([hidden]) {
+  display: block;
+  overflow: auto;
+}
+.player-session .scoreboard-scroll {
+  flex: none;
+  overflow: visible;
+}
+.player-session .player-chat label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+}
+.player-session .player-chat select,
+.player-session .player-chat textarea {
+  width: 100%;
+  margin-top: 7px;
+  font: inherit;
+  color: inherit;
+  border: 1px solid var(--line);
+  background: #0d202a;
+  border-radius: 6px;
+  padding: 10px;
+}
+.player-session .player-chat textarea {
+  resize: vertical;
+}
+.player-session .player-messages {
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+  overflow: auto;
+  border-block: 1px solid var(--line);
+  padding-block: 12px;
+}
+.player-session .player-messages article {
+  margin: 13px 0 22px;
+}
+.player-session .player-messages b {
+  font-size: 12px;
+}
+.player-session .player-messages time {
+  float: right;
+  font-size: 10px;
+  color: var(--muted);
+}
+.player-session .player-messages p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 6px 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.player-session .player-chat form > button {
+  width: 100%;
+  margin-top: 10px;
+}
+.player-session .player-chat fieldset {
+  border: 1px solid var(--line);
+  padding: 12px;
+}
+.player-session .player-chat .player-check {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0;
+}
+.player-session .player-notifications > ol,
+.player-session .player-final ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.player-session .player-notifications > ol > li {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.player-session .player-notifications header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+.player-session .player-notifications time {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 11px;
+}
+.player-session .player-notifications header > span {
+  color: #ecc58b;
+  font-size: 11px;
+}
+.player-session .player-notifications p {
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.player-session .player-notifications h2,
+.player-session .player-final h2,
+.player-session .player-intel h2 {
+  font-size: 17px;
+}
+.player-session .player-battle table {
+  width: 100%;
+  font-size: 12px;
+  border-collapse: collapse;
+  margin-top: 14px;
+}
+.player-session .player-battle caption {
+  text-align: left;
+  padding: 8px 0;
+  color: var(--muted);
+}
+.player-session .player-battle th,
+.player-session .player-battle td {
+  text-align: left;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--line);
+}
+.player-session .player-battle ol {
+  padding-left: 19px;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.player-session details > summary {
+  cursor: pointer;
+  padding: 12px 0;
+  font-size: 13px;
+}
+.player-session .player-intel article,
+.player-session .player-final li {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 14px;
+  margin: 14px 0;
+}
+.player-session .player-intel h3 {
+  margin: 0;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.player-session .player-intel h3 small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+.player-session .player-intel dl,
+.player-session .player-final dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 17px 0;
+}
+.player-session .player-intel dt,
+.player-session .player-final dt {
+  font-size: 11px;
+  color: var(--muted);
+}
+.player-session .player-intel dd,
+.player-session .player-final dd {
+  font-size: 15px;
+  margin: 4px 0 0;
+}
+.player-session .player-intel article > p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+.player-session .player-final li.is-winner {
+  border-color: #bcac79;
+  background: #35433e;
+}
+.player-session .player-final li > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+}
+.player-session .player-final-winner {
+  color: #e8d5a2;
+  font-size: 16px;
+}
+.player-activity {
+  position: absolute;
+  bottom: 112px;
+  left: 24px;
+  z-index: 12;
+  max-width: calc(100% - 48px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 1px solid #85734c;
+  background: #2f3028;
+  color: #f3dca3;
+  font-size: 12px;
+}
+.player-session .notification-count {
+  color: var(--accent);
+  font-size: 11px;
+}
+@media (max-width: 640px) {
+  .player-login-mark {
+    font-size: 58px;
+  }
+  .player-activity {
+    bottom: 94px;
+    left: 12px;
+    max-width: calc(100% - 24px);
+  }
+}
+
+.player-controller {position:absolute;right:20px;top:80px;z-index:5;display:flex;align-items:center;gap:9px;max-width:650px;padding:8px 11px;border:1px solid #597582;background:#132630eF;border-radius:6px;font-size:12px;color:#c9dbe2;}
+
+@media(max-width:700px){.player-controller{right:10px;left:10px;max-width:none;flex-wrap:wrap;gap:5px 9px;}}
+
+.player-turn-ready{display:flex;align-items:center;gap:8px;font-size:12px;flex-wrap:wrap}.player-turn-ready button{padding:5px 10px;border:1px solid #8aa69a55;background:#153139;color:#dfdfc5;border-radius:4px;cursor:pointer}.player-turn-ready button:disabled{opacity:.55;cursor:default}

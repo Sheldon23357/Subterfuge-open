@@ -1,0 +1,44 @@
+/* Binding dialog uses the instrument palette without settings-page offsets. */
+.agent-console.instrument-console .seat-binding-dialog {
+  width: min(760px, calc(100vw - 32px));
+  box-sizing: border-box;
+  padding: 28px;
+  color: var(--console-text);
+  background: #152231;
+  border: 1px solid var(--console-border);
+  border-radius: 14px;
+  line-height: 1.6;
+}
+.agent-console.instrument-console .seat-binding-dialog :is(label,.bot-setting,.provider-form fieldset > label,.provider-advanced label):not(.check-label) {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.agent-console.instrument-console .seat-binding-dialog > :is(label,details) { margin-block: 20px; }
+.agent-console.instrument-console .seat-binding-dialog .seat-link-heading { align-items: flex-start; }
+.agent-console.instrument-console .seat-binding-dialog .seat-link-heading h2 { margin: 0 0 8px; font-size: 24px; }
+.agent-console.instrument-console .seat-binding-dialog .provider-form { margin: 16px 0 0; padding: 0; border: 0; background: transparent; }
+.agent-console.instrument-console .seat-binding-dialog .provider-form fieldset { padding: 0; margin: 0; gap: 20px 24px; border: 0; }
+.agent-console.instrument-console .seat-binding-dialog .provider-primary-fields { padding-left: 0; }
+.agent-console.instrument-console .seat-binding-dialog .provider-primary-fields .bot-setting { grid-template-columns: minmax(0,1fr); }
+.agent-console.instrument-console .seat-binding-dialog .bot-setting-title { grid-row: auto; }
+.agent-console.instrument-console .seat-binding-dialog :is(input,select) { margin: 0; min-height: 42px; box-sizing: border-box; width: 100%; color: #deebf5; background: #101d2b; border: 1px solid #30495d; border-radius: 5px; text-align: left; }
+.agent-console.instrument-console .seat-binding-dialog .check-label { display: flex; align-items: center; gap: 8px; }
+.agent-console.instrument-console .seat-binding-dialog input[type=checkbox] { width: auto; min-height: 0; accent-color: #8bdfcf; }
+.agent-console.instrument-console .seat-binding-dialog .provider-advanced { padding-top: 20px; border-color: var(--console-border); }
+.agent-console.instrument-console .seat-binding-dialog .seat-link-footer { margin-top: 24px; border-color: var(--console-border); }
+.agent-console.instrument-console .seat-binding-dialog .seat-link-primary { background: #8bdfcf; border-color: #8bdfcf; color: #102936; }
+@media(max-width:620px) {
+  .agent-console.instrument-console .seat-binding-dialog { padding: 20px; }
+  .agent-console.instrument-console .seat-binding-dialog :is(.provider-form fieldset,.settings-field-grid) { grid-template-columns: minmax(0,1fr); }
+}
+
+.agent-console.instrument-console .seat-binding-dialog .provider-primary-fields .bot-setting > :is(span,select) { grid-column: auto; grid-row: auto; }
+.agent-console.instrument-console .seat-binding-dialog .provider-form fieldset > .check-label { display: flex; padding: 0; margin: 0; background: transparent; border: 0; }
+
+.agent-console.instrument-console .seat-binding-dialog .seat-link-footer { position: sticky; bottom: -28px; background: #152231; padding: 16px 0 12px; z-index: 1; }
+@media(max-width:620px) { .agent-console.instrument-console .seat-binding-dialog .seat-link-footer { bottom: -20px; } }

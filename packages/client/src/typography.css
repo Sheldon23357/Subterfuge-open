@@ -1,0 +1,168 @@
+@font-face {
+  font-family: "Abyss Cabin";
+  src: url("/assets/fonts/Cabin-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Abyss Cabin";
+  src: url("/assets/fonts/Cabin-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Abyss Tactical";
+  src: url("/assets/fonts/Rajdhani-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Abyss Tactical";
+  src: url("/assets/fonts/Rajdhani-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --font-ui: "Abyss Cabin", "DengXian", "Microsoft YaHei UI", sans-serif;
+  --font-tactical:
+    "Abyss Tactical", "DengXian", "Microsoft YaHei UI", sans-serif;
+  font-family: var(--font-ui);
+}
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-ui);
+}
+button,
+input,
+select,
+textarea {
+  font-variant-numeric: tabular-nums;
+}
+h1,
+h2,
+h3,
+.home-mark,
+.wordmark,
+.eyebrow,
+.tiny,
+.selection-name h2,
+.popover-title,
+.communications-tabs,
+.menu-top {
+  font-family: var(--font-tactical);
+  font-weight: 700;
+}
+.home-mark,
+.wordmark {
+  letter-spacing: 0.15em;
+}
+.room-name {
+  font-family: var(--font-ui);
+  letter-spacing: 0.06em;
+}
+.quiet-resources > span,
+.quiet-resources b,
+.quiet-resources em,
+.selection-number,
+.metric-pair b,
+.time-readout,
+.time-readout b,
+.tick-labels,
+.future-time,
+.unit-row em,
+.planned-launch,
+.quiet-event > small,
+.chat-messages time,
+.dispatch-times,
+.future-labels {
+  font-family: var(--font-tactical);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.quiet-resources > span {
+  font-size: 22px;
+  line-height: 1;
+}
+.quiet-resources em {
+  font-size: 15px;
+}
+.quiet-resources small,
+.selection-number small,
+.metric-pair b small {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+.quiet-resources small {
+  font-size: 10px;
+}
+.selection-name h2 {
+  font-size: 21px;
+  letter-spacing: 0.07em;
+  line-height: 1.15;
+}
+.selection-number {
+  font-size: 25px;
+  line-height: 1;
+}
+.metric-pair b {
+  font-size: 25px;
+  line-height: 1.05;
+}
+.metric-pair b small {
+  font-size: 10px;
+  line-height: 1.5;
+}
+.time-readout {
+  font-size: 19px;
+  letter-spacing: 0.04em;
+}
+.tick-labels {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+.quiet-event > small {
+  font-size: 12px;
+}
+.communications-tabs button {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.chat-messages article p,
+.chat-window textarea,
+.hint,
+.muted {
+  font-family: var(--font-ui);
+  line-height: 1.65;
+}
+.menu-content h1 {
+  font-family: var(--font-tactical);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+@media (max-width: 800px) {
+  .quiet-resources > span {
+    font-size: 20px;
+  }
+  .quiet-resources em {
+    font-size: 13px;
+  }
+  .quiet-resources small {
+    font-size: 9px;
+  }
+}
+@media (max-width: 500px) {
+  .quiet-resources > span {
+    font-size: 18px;
+  }
+  .quiet-resources em {
+    font-size: 12px;
+  }
+}

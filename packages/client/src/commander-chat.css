@@ -1,0 +1,118 @@
+/* Shared bottom-row glass: discussion is centered on the full viewport, not leftover space. */
+.command-room:has(>.commander-chat) { --commander-entry-width:calc(40vw - 60px); --commander-dock-end:20px; }
+.command-room:has(>.commander-chat):has(>.live-events) { --commander-dock-end:400px; }
+.command-room:has(>.commander-chat) > footer.precision-timebar { left:20px; right:auto; width:30vw; max-width:none; gap:6px; padding:0 10px; }
+.command-room:has(>.commander-chat) > footer.precision-timebar,
+.command-room > .commander-chat .commander-composer { height:58px; box-sizing:border-box; border:1px solid #d6eaf024; border-radius:12px; background:#142733b3; backdrop-filter:blur(22px) saturate(125%); -webkit-backdrop-filter:blur(22px) saturate(125%); box-shadow:inset 0 1px 0 #ffffff08,0 7px 24px #0003; }
+.command-room > .commander-chat { position:absolute; left:var(--commander-left,calc(50% - var(--commander-entry-width)/2)); bottom:var(--commander-bottom,8px); width:var(--commander-entry-width); display:flex; flex-direction:column; gap:8px; z-index:24; color:#d6e3e9; }
+.command-room:has(>.commander-chat) > footer.precision-timebar .time-readout { min-width:0; flex:0 0 auto; }
+.commander-composer { width:100%; padding:6px 8px 6px 5px; transition:border-color .18s; }
+.commander-composer:focus-within { border-color:#9cc6d360!important; }
+.commander-context { padding:7px 9px; border:1px solid #d6eaf024; border-radius:10px; background:#102733ed; backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px); }
+.commander-composer form { display:flex; align-items:center; gap:8px; min-height:44px; }
+.commander-composer textarea { flex:1; min-width:0; height:36px; max-height:100px; resize:none; border:0; border-radius:0; padding:9px 0; box-sizing:border-box; background:transparent; color:#e5edf0; font:inherit; font-size:13px; line-height:18px; box-shadow:none; }
+.commander-composer textarea:focus { outline:none; box-shadow:none; }
+.commander-composer textarea.is-waiting-reply { color:#9aabb2; opacity:.58; cursor:default; }
+.commander-composer form > .commander-waiting-spinner { flex:none; color:#a9c4d1; opacity:.8; animation:commander-wait-spin .9s linear infinite; }
+@keyframes commander-wait-spin { to { transform:rotate(360deg); } }
+.commander-composer form > button { display:grid; place-items:center; flex:none; border:0; padding:0; background:transparent; color:#a9c4d1; cursor:pointer; border-radius:8px; }
+.commander-composer form > .commander-portrait-button { position:relative; width:44px; height:44px; border-radius:10px; background:#0b1b273b; transition:background .18s; }
+.commander-portrait { display:block; width:44px; height:44px; object-fit:contain; pointer-events:none; }
+.commander-portrait-button:hover,.commander-portrait-button.is-active { background:#b8d9e51a!important; }
+.commander-status-dot { position:absolute; right:0; bottom:1px; width:5px; height:5px; border:2px solid #203441; border-radius:50%; background:#7998a4; }
+.commander-status-dot.is-ready { background:#90b9b0; }
+.commander-status-dot.is-queued { background:#d7bd80; }
+.commander-status-dot.is-offline { background:#71808b; }
+.commander-portrait-button.has-unread:after { content:""; position:absolute; top:2px; right:0; width:6px; height:6px; border-radius:50%; background:#b8deec; box-shadow:0 0 8px #9ad7ec88; }
+.commander-composer form > .commander-send { width:30px; height:32px; color:#b5d5df; }
+.commander-composer form > .commander-reply-toggle { width:23px; height:30px; color:#9ab4c1; }
+.commander-composer form > .commander-send:hover:not(:disabled),.commander-composer form > .commander-reply-toggle:hover { background:#b8d9e510; }
+.commander-chat button:focus-visible { outline:1px solid #9cc6d3; outline-offset:2px; }
+.commander-chat button:disabled { opacity:.35; cursor:default; }
+.commander-sr-status { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.commander-replies { position:absolute; bottom:100%; left:0; right:0; width:auto; margin-bottom:10px; background:#0d2632c9; backdrop-filter:blur(22px); -webkit-backdrop-filter:blur(22px); border:1px solid #49677588; box-shadow:0 -6px 28px #0004; border-radius:12px; overflow:hidden; }
+.commander-reply-actions { display:flex; align-items:center; gap:4px; }
+.commander-replies header .commander-history-toggle { gap:3px; font-size:11px; min-height:26px; border:1px solid #7294a333; border-radius:5px; }
+.commander-replies header button { display:inline-flex; align-items:center; padding:4px 6px; border:0; background:transparent; color:#a5c4d2; cursor:pointer; }
+.commander-replies > header { padding:7px 12px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #45617155; color:#a6c8d4; font-size:11px; }
+.commander-replies > header > span { display:flex; align-items:center; gap:6px; }
+.commander-scroll { max-height:min(240px,32dvh); overflow-y:auto; overscroll-behavior:contain; padding:10px 12px; scrollbar-gutter:stable; }
+.commander-history .commander-scroll { max-height:min(480px,55dvh); }
+.commander-message { display:flex; gap:9px; margin-bottom:12px; align-items:flex-start; }
+.commander-message:last-child { margin-bottom:0; }
+.commander-avatar { width:28px; height:28px; flex:none; display:grid; place-items:center; border-radius:50%; background:linear-gradient(145deg,#44717d,#24414f); border:1px solid #80a7af66; color:#e0eef0; font-size:10px; font-weight:600; }
+.commander-avatar img { display:block; width:100%; height:100%; object-fit:cover; border-radius:50%; }
+.commander-message-player .commander-avatar { background:#394c64; }
+.commander-message-player .commander-bubble { background:#1b3445; }
+.commander-bubble { min-width:0; flex:1; padding:9px 11px; border-radius:2px 10px 10px; background:#183641; font-size:13px; line-height:1.6; overflow-wrap:anywhere; }
+.commander-message-author { color:#9fbcc5; font-size:10px; display:flex; gap:10px; align-items:center; }
+.commander-message-author small { margin-left:auto; color:#7898a6; }
+.commander-bubble p { margin:4px 0; white-space:pre-wrap; }
+.commander-bubble .commander-text-button { padding:0; background:none; border:0; color:#a5d0d9; font-size:11px; cursor:pointer; }
+.commander-references,.commander-draft-references { display:flex; flex-wrap:wrap; gap:5px; }
+.commander-references button,.commander-draft-references > span { display:inline-flex; align-items:center; gap:4px; border:1px solid #60879366; border-radius:5px; background:#203f4c; color:#c0d9df; padding:3px 6px; font-size:11px; max-width:100%; overflow-wrap:anywhere; }
+.commander-references button { cursor:pointer; }
+.commander-references small { font-size:10px; }
+.commander-draft-references { margin:0; }
+.commander-draft-references button { padding:1px; display:inline-flex; background:transparent; border:0; color:#c0d9df; cursor:pointer; }
+.commander-queued { display:block; color:#9cbbc4; font-size:10px; margin-top:6px; }
+.commander-proposal { margin-top:10px; padding:9px 10px; border:1px solid #9f99645e; border-radius:7px; background:#353e333b; }
+.commander-proposal strong { color:#d6d5b0; font-size:12px; }
+.commander-proposal details { margin:7px 0; font-size:12px; }
+.commander-proposal summary { color:#bfcfcb; cursor:pointer; }
+.commander-proposal .commander-directive-preview { border-left:2px solid #aaa47b; padding-left:8px; max-height:180px; overflow-y:auto; }
+.commander-proposal .commander-confirm { background:#56736b; border:1px solid #a7bc9266; color:#f2f4e5; padding:7px 10px; border-radius:6px; cursor:pointer; font-size:12px; margin-top:3px; }
+.commander-proposal > small { color:#a9bcb7; font-size:11px; display:block; }
+.commander-empty { color:#8da8b4; font-size:12px; }
+.commander-error { padding:0; font-size:11px; color:#e1ba9f; display:flex; gap:8px; align-items:center; margin-top:0; }
+.commander-error button { color:#d2dfe4; border:0; background:none; padding:2px; text-decoration:underline; cursor:pointer; }
+.commander-new-replies { display:block; margin:0 auto 8px; padding:4px 12px; color:#c7e3e7; background:#315460; border:1px solid #7ca4aa66; border-radius:12px; font-size:11px; cursor:pointer; }
+.commander-add-reference { display:flex; align-items:center; gap:6px; margin:10px 0; padding:7px 10px; border:1px solid #52778677; border-radius:6px; background:#1d3a48; color:#bdd9df; cursor:pointer; font-size:12px; }
+.commander-add-reference:disabled { opacity:.45; cursor:default; }
+.selection-name:has(> h2 + .commander-add-reference) { display:grid; grid-template-columns:minmax(0,1fr) 22px; align-items:center; column-gap:3px; }
+.selection-name:has(> h2 + .commander-add-reference) > small { grid-column:1 / -1; }
+.selection-name h2 + .commander-add-reference { grid-column:2; grid-row:2; width:22px; height:24px; margin:0; padding:0; justify-content:center; border:0; border-radius:0; background:transparent; color:#bdd9df; }
+.notebook-commander-directives { border-left:3px solid #a3b799; padding-left:12px; }
+@media(min-width:1201px) {
+ .command-room:has(>.commander-chat) > .live-events { width:30vw; }
+}
+@media(min-width:1201px) and (max-width:1600px) {
+ .command-room:has(>.commander-chat) .tick-labels span:nth-child(2),.command-room:has(>.commander-chat) .tick-labels span:nth-child(4) { visibility:hidden; }
+}
+@media(max-width:1200px) {
+ .command-room:has(>.commander-chat) { --commander-dock-end:20px; }
+ .command-room:has(>.commander-chat):has(>.live-events) { --commander-dock-end:400px; }
+ .command-room:has(>.commander-chat) > footer.precision-timebar { left:20px; right:var(--commander-dock-end); width:auto; max-width:none; }
+ .command-room > .commander-chat { width:min(360px,calc(100% - 40px)); }
+}
+@media(min-width:761px) and (max-width:1050px) {
+ .command-room:has(>.commander-chat):has(>.live-events) { --commander-dock-end:330px; }
+}
+@media(max-width:760px) {
+ .command-room:has(>.commander-chat) { height:100dvh; }
+ .command-room:has(>.commander-chat):has(>.live-events),.command-room:has(>.commander-chat) { --commander-dock-end:10px; }
+ .command-room:has(>.commander-chat) > footer.precision-timebar { left:10px; }
+ .command-room > .commander-chat { width:calc(100% - 20px); }
+ .commander-composer textarea { font-size:16px; line-height:20px; height:40px; }
+ .commander-scroll { max-height:28dvh; }
+ .commander-history .commander-scroll { max-height:48dvh; }
+ .commander-avatar { width:24px; height:24px; }
+ .commander-bubble { font-size:12px; padding:8px; }
+ .commander-message { gap:6px; }
+}
+@media(max-height:520px) {
+ .commander-scroll,.commander-history .commander-scroll { max-height:32dvh; }
+}
+.commander-directive-changes { font-size:12px; margin:7px 0; }
+.commander-directive-changes b { font-size:11px; }
+.commander-directive-changes ul { margin:3px 0 7px; padding-left:18px; }
+.commander-removed { color:#e1bc9d; }
+.commander-added { color:#b8d6bd; }
+.command-room.commander-keyboard-open { position:fixed; top:var(--commander-visible-top,0px); left:0; width:100%; height:var(--commander-visible-height)!important; }
+.commander-keyboard-open .commander-scroll { max-height:calc(var(--commander-visible-height) * .28); }
+.commander-keyboard-open .commander-history .commander-scroll { max-height:calc(var(--commander-visible-height) * .4); }
+.commander-draft-references .commander-draft-locate { display:inline-flex; align-items:center; gap:4px; }
+
+/* Deterministic reconciliation receipts are status, not character dialogue. */
+.commander-message-system .commander-avatar { background:transparent; border-color:#7898a633; color:#91a8b1; }
+.commander-message-system .commander-bubble { background:#142d3666; color:#b6c8cf; font-size:12px; }

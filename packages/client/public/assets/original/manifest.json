@@ -1,0 +1,24 @@
+{
+  "source": "Subterfuge APK 12075; see research/provenance.json",
+  "transformed": false,
+  "assets": [
+    {
+      "file": "GameElements-Qt-7shUI.png",
+      "source": "research/extracted/assets/public/assets/GameElements-Qt-7shUI.png",
+      "bytes": 464801,
+      "sha256": "cc1162260336cf49ac86ad188ae946bc4ca2027a14548791c900e7fde2ab85bf"
+    },
+    {
+      "file": "SpecialistAtlas-BQysp94a.png",
+      "source": "research/extracted/assets/public/assets/SpecialistAtlas-BQysp94a.png",
+      "bytes": 52090,
+      "sha256": "a658b00443a58f06941b23d3bec5d9515e33feb698dd071bb853cb0718c150d0"
+    },
+    {
+      "file": "Sea-8Q-aXb55.png",
+      "source": "research/extracted/assets/public/assets/Sea-8Q-aXb55.png",
+      "bytes": 570088,
+      "sha256": "f7ec5a41ba3d4d03ff61a19cba08fd349a9e52135222782aafcabf0026f6127d"
+    }
+  ]
+}

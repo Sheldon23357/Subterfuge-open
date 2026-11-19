@@ -1,0 +1,8 @@
+{
+  "apiVersion": 1,
+  "id": "hybrid",
+  "name": "官方 hybrid",
+  "version": "1.0.0",
+  "entry": "src/plugin.ts",
+  "description": "分层协同策略：后台战略与外交、前台战术协调。未配置模型时自主决策。"
+}

@@ -1,0 +1,392 @@
+[
+  {
+    "id": "client_config",
+    "kind": "local_static",
+    "title": "client configuration versions and patches",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 20485,
+    "locator": "    il = {",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "client_specialists",
+    "kind": "local_static",
+    "title": "v42 specialist metadata with 4201/4300 inheritance",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 29621,
+    "locator": "        v42: {\n            Diplomat:",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "global_constants",
+    "kind": "local_static",
+    "title": "K global constants",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 20503,
+    "locator": "    K = (() => {",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "world_init",
+    "kind": "local_static",
+    "title": "V2e initial world ownership",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 31606,
+    "locator": "function V2e(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "geometry",
+    "kind": "local_static",
+    "title": "V.getMinDistSquared",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 41500,
+    "locator": "static getMinDistSquared(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "start_speed",
+    "kind": "local_static",
+    "title": "V.getEffectiveTickCount",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 41389,
+    "locator": "static getEffectiveTickCount(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "event_order",
+    "kind": "local_static",
+    "title": "h3e event list and YD comparator",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 42444,
+    "locator": "function h3e(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "tick_pipeline",
+    "kind": "local_static",
+    "title": "V.updateTick",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 41582,
+    "locator": "p3e(e), y3e(e)",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "production_amount",
+    "kind": "local_static",
+    "title": "V.calculateDrillersForNextProductionAtOutpost",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 42160,
+    "locator": "static calculateDrillersForNextProductionAtOutpost(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "production_period",
+    "kind": "local_static",
+    "title": "V.calculateTicksBetweenDrillerProductions",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 42260,
+    "locator": "static calculateTicksBetweenDrillerProductions(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "factory_tick",
+    "kind": "local_static",
+    "title": "m3e factory tick",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 42612,
+    "locator": "function m3e(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "foreman_range",
+    "kind": "local_static",
+    "title": "n3e coverage",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 41242,
+    "locator": "function n3e(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "shield_max",
+    "kind": "local_static",
+    "title": "kH shield cap",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 41267,
+    "locator": "function kH(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "shield_tick",
+    "kind": "local_static",
+    "title": "A3e shield tick",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 42634,
+    "locator": "function A3e(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "mine_cost",
+    "kind": "local_static",
+    "title": "ut.getMineCreationCostForPlayer",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 32546,
+    "locator": "static getMineCreationCostForPlayer(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "mine_period",
+    "kind": "local_static",
+    "title": "V.calculateTicksBetweenNpProductions",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 42194,
+    "locator": "static calculateTicksBetweenNpProductions(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "mine_tick",
+    "kind": "local_static",
+    "title": "g3e mine tick",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 42626,
+    "locator": "function g3e(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "mine_capture",
+    "kind": "local_static",
+    "title": "oX mine capture branch",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 30667,
+    "locator": "qn.getType(k, n.world.secondsSinceLastTick) == pe.Mine &&",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "mine_convert",
+    "kind": "local_static",
+    "title": "V.convertToMine",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 41877,
+    "locator": "static convertToMine(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "speed_selection",
+    "kind": "local_static",
+    "title": "V.getBestSpeedWithSpecialists",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 41418,
+    "locator": "static getBestSpeedWithSpecialists(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "sub_constants",
+    "kind": "local_static",
+    "title": "g0 constants; Aee=1, er=1",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 30131,
+    "locator": "const g0 = {",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "gift_cap",
+    "kind": "local_static",
+    "title": "V.capGiftDrillersToElectricalOutput",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 42180,
+    "locator": "static capGiftDrillersToElectricalOutput(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "arrival",
+    "kind": "local_static",
+    "title": "V.handleSubArrival",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 41584,
+    "locator": "static handleSubArrival(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "hiring",
+    "kind": "local_static",
+    "title": "ut.updateTick hiring clock",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 32466,
+    "locator": "e.tickCount % K.TicksPerDay, e.tickCount++",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "combat_entry",
+    "kind": "local_static",
+    "title": "oX combat including lX participation",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 30398,
+    "locator": "function oX(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "combat_power",
+    "kind": "local_static",
+    "title": "dX combat power",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 30855,
+    "locator": "function dX(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "specialist_effects",
+    "kind": "local_static",
+    "title": "r2e specialist effects",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 30689,
+    "locator": "function r2e(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "engineer_repair",
+    "kind": "local_static",
+    "title": "oX winning side repair",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 30618,
+    "locator": "U = $e.EngineerRepairBonus * L,",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "martyr_distance",
+    "kind": "local_static",
+    "title": "hX blast range",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 30954,
+    "locator": "function hX(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "sentry_tick",
+    "kind": "local_static",
+    "title": "EMe sentry tick",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 33544,
+    "locator": "function EMe(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "forecast",
+    "kind": "local_static",
+    "title": "future visibility removal",
+    "path": "research/analysis/javascript/index-DgdyVR_2.js",
+    "line": 40711,
+    "locator": "removeAllNonVisibleItems(",
+    "access_status": "read_local",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "official_rulebook",
+    "kind": "web",
+    "title": "Official Rule Book",
+    "url": "https://subterfuge-game.com/rulebook/index.html",
+    "access_status": "read_previous_turn",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "official_specialists",
+    "kind": "web",
+    "title": "Official Specialist Reference",
+    "url": "https://subterfuge-game.com/rulebook/Specialists.html",
+    "access_status": "indexed_previous_turn_direct_retry_failed",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "official_videos",
+    "kind": "web",
+    "title": "Tutorial Videos",
+    "url": "https://subterfuge-game.com/rulebook/Videos.html",
+    "access_status": "landing_page_only",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "wiki_rules",
+    "kind": "web",
+    "title": "Community Rules",
+    "url": "https://subterfuge.fandom.com/wiki/Rules",
+    "access_status": "search_index",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "wiki_combat",
+    "kind": "web",
+    "title": "Community Combat Resolution",
+    "url": "https://subterfuge.fandom.com/wiki/Combat_Resolution",
+    "access_status": "search_index_direct_failed",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "wiki_puzzles",
+    "kind": "web",
+    "title": "Community Puzzle Directory",
+    "url": "https://subterfuge.fandom.com/wiki/Puzzles",
+    "access_status": "directory_read",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "wiki_strategy",
+    "kind": "web",
+    "title": "Community Strategy",
+    "url": "https://subterfuge.fandom.com/wiki/Strategy",
+    "access_status": "index_only",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "update_post",
+    "kind": "web",
+    "title": "v42.1 announcement discussion",
+    "url": "https://www.reddit.com/r/Subterfuge/comments/1wjzowl/balance_and_gameplay_changes_rules_v42_is_live/",
+    "access_status": "read_previous_turn",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "update_official",
+    "kind": "web",
+    "title": "Linked v42.1 changelog",
+    "url": "https://www.secretplan.com/subterfuge-news/rules-v42-1.html",
+    "access_status": "unavailable",
+    "as_of": "2026-10-15"
+  },
+  {
+    "id": "tier_discussion",
+    "kind": "web",
+    "title": "v42.1 player tier discussion",
+    "url": "https://www.reddit.com/r/Subterfuge/comments/1x007d0/spec_tier_list_v421/",
+    "access_status": "read_opinion_only",
+    "as_of": "2026-10-15"
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "profile": "apk-12075-rules-4300",
+  "source_path": "research/analysis/javascript/index-DgdyVR_2.js",
+  "source_sha256": "41a81d2529b71de38016cff949fb9731b858869d274ecb4aa179231231c02bd1",
+  "symbols": 7963,
+  "command_candidates": 29,
+  "tutorials": 30,
+  "assets": {
+    "image": 87,
+    "audio": 72,
+    "font": 2,
+    "code_or_data": 31
+  },
+  "coverage_entries": 70,
+  "original_method_samples": 149,
+  "recruitment_samples": 72,
+  "limitations": [
+    "Source inventory is not current product coverage",
+    "Asset presence is not visual QA",
+    "Reference fixtures do not prove online server equivalence",
+    "Current product scope: docs/development/feature-availability.md"
+  ],
+  "purpose": "reference-source-inventory"
+}

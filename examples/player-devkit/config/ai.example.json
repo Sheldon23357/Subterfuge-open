@@ -1,0 +1,10 @@
+{
+  "purpose": "Illustrative custom-planner choices, not an official runtime configuration file or stable plugin ABI",
+  "planner": "./custom-planner.mjs",
+  "memory": "in-memory",
+  "model": null,
+  "modelKeyEnvironmentReference": "OPENAI_API_KEY",
+  "scheduler": "manual",
+  "simulation": null,
+  "executeIntents": false
+}

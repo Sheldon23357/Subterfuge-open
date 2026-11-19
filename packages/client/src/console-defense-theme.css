@@ -1,0 +1,298 @@
+/* Command-center chrome inspired by the supplied dark operations dashboard.
+   Structural colors live here; seat identities and runtime signals keep their semantics. */
+:root {
+  background: #0e1116;
+  color-scheme: dark;
+}
+.agent-console.instrument-console {
+  --console-shell: #0e1116;
+  --console-panel: #171b22;
+  --console-inset: #13171d;
+  --console-control: #242c36;
+  --console-control-hover: #303d48;
+  --console-border: #343e4c;
+  --console-muted: #96a8bf;
+  --console-text: #e0e9f4;
+  --console-accent: #5eddd3;
+  --console-radius: 5px;
+  --console-selected: #143039;
+  --console-focus: #409f9e;
+  background: var(--console-shell);
+  color: var(--console-text);
+}
+.instrument-console :is(button,input,select,textarea) { border-radius: var(--console-radius); }
+.instrument-console button,
+.instrument-console .toolbar-actions button,
+.instrument-console .live-console-controls .icon-button,
+.instrument-console .personality-options button {
+  background: var(--console-control);
+  border: 1px solid var(--console-border);
+  color: #bdccdf;
+}
+.instrument-console button:hover:not(:disabled),
+.instrument-console .toolbar-actions button:hover:not(:disabled),
+.instrument-console .personality-options button:hover:not(:disabled) {
+  background: var(--console-control-hover);
+  border-color: #456277;
+  color: #edf7fb;
+}
+.instrument-console :is(button,input,select,textarea,summary):focus-visible {
+  outline: 2px solid var(--console-accent);
+  outline-offset: 3px;
+}
+.instrument-console :is(input,select,textarea) {
+  background: var(--console-inset);
+  color: var(--console-text);
+  border-color: #34465d;
+  caret-color: var(--console-accent);
+}
+.instrument-console :is(input,select,textarea):hover:not(:disabled) { border-color: #52718a; }
+.instrument-console :is(input,select,textarea):disabled { background: #1c222b; color: var(--console-muted); }
+.instrument-console input::placeholder { color: #8091a8; }
+.instrument-console :is(input[type=checkbox],input[type=radio]) { accent-color: var(--console-accent); }
+.instrument-console button[type=submit],
+.instrument-console .console-primary,
+.instrument-console .live-console-controls .live-toggle {
+  background: #15383d;
+  border-color: #337c7e;
+  color: #9af1e7;
+}
+.instrument-console button[type=submit]:hover:not(:disabled),
+.instrument-console .console-primary:hover:not(:disabled),
+.instrument-console .live-console-controls .live-toggle:hover:not(:disabled) {
+  background: #1b4a50;
+  border-color: var(--console-accent);
+}
+
+/* Quiet navigation with a single cyan selection rule. */
+.agent-console.instrument-console .detail-top {
+  margin-inline: -16px;
+  padding: 0 20px;
+  min-height: 56px;
+  gap: 28px;
+  background: #13171d;
+  border-top: 0;
+  border-bottom: 1px solid var(--console-border);
+}
+.agent-console.instrument-console .detail-tabs { align-self: stretch; gap: 6px; }
+.agent-console.instrument-console .detail-tabs button {
+  position: relative;
+  min-height: 55px;
+  padding: 14px 17px;
+  border: 0;
+  border-radius: 0;
+  color: var(--console-muted);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.agent-console.instrument-console .detail-tabs button[aria-selected=true] {
+  color: #adf6ee;
+  background: linear-gradient(0deg,#5eddd315,transparent);
+  box-shadow: inset 0 -2px var(--console-accent);
+}
+.agent-console.instrument-console .detail-tabs button:hover:not(:disabled) { background: #222d38; color: #dcf1f4; }
+.instrument-console .live-console-controls { padding-bottom: 0; gap: 7px; }
+.instrument-console .live-console-controls button { min-height: 30px; }
+.agent-console.instrument-console .detail-body { padding-top: 12px; }
+.instrument-console .detail-tip-trigger,
+.instrument-console .detail-tip-trigger:hover:not(:disabled),
+.instrument-console .start-checklist button { background: transparent; border-color: transparent; }
+.instrument-console .console-error { background: #311a29; border-color: #79405a; color: #ffb9ce; }
+.instrument-console .console-notice { background: #102e30; border-color: #2e6865; color: #abebe1; }
+
+/* Shared panel surfaces across live, logs, notes, assessment, stats and settings. */
+.instrument-console :is(.live-module,.live-flow-panel,.decision-panel,.tick-time-chart,
+  .notebook-overview,.empty-state,.call-round,.call-content,.connection-settings,.console-start),
+.instrument-console .statistics-stack > section,
+.agent-console.instrument-console .settings-stack > :is(.provider-form,.strategy-form) {
+  background: var(--console-panel);
+  border: 1px solid var(--console-border);
+  border-radius: var(--console-radius);
+  box-shadow: inset 0 1px #ffffff03, 0 4px 16px #00000012;
+}
+.instrument-console :is(.diagnostic-toolbar,.diagnostic-facts,.notebook-memory-grid > details,
+  .note-list .note-card,.bot-setting,.provider-form fieldset > label,.provider-advanced label) {
+  background: var(--console-inset);
+  border-color: var(--console-border);
+  border-radius: var(--console-radius);
+}
+.instrument-console :is(.diagnostic-table,.segmented-control,.notebook-toolbar,.notebook-index,.notebook-reader) {
+  border-color: var(--console-border);
+  border-radius: var(--console-radius);
+}
+.instrument-console :is(h3,h4) { color: #d3e0ee; }
+.instrument-console :is(.muted,.diagnostic-caption,.empty-state) { color: var(--console-muted); }
+.instrument-console .diagnostic-toolbar { padding: 10px 14px; background: var(--console-panel); }
+.instrument-console .diagnostic-table thead,
+.instrument-console .call-round-heading { background: #252e3a !important; }
+.instrument-console .diagnostic-table :is(th,td) { border-color: var(--console-border); }
+.instrument-console .diagnostic-table th { color: #aebfd2; }
+.instrument-console .diagnostic-table tbody tr:hover { background: #5eddd309; }
+.instrument-console .segmented-control { background: var(--console-inset); }
+.instrument-console .segmented-control button { background: transparent; border-color: transparent; }
+.instrument-console .segmented-control button[aria-pressed=true],
+.instrument-console .diagnostic-toolbar button[aria-pressed=true],
+.instrument-console .tool-usage-range button[aria-pressed=true],
+.instrument-console .personality-options button[aria-pressed=true],
+.instrument-console .notebook-sections button[aria-pressed=true],
+.instrument-console .context-view-toolbar button[aria-pressed=true] {
+  background: var(--console-selected);
+  border-color: var(--console-focus);
+  color: #a9f1e9;
+}
+.instrument-console .call-row { border-bottom-color: var(--console-border); }
+.instrument-console .call-row:hover { background: #242d39; }
+.instrument-console .call-row.selected,
+.instrument-console .notebook-record-list > button[aria-pressed=true] { background: #123039; }
+.instrument-console :is(.call-content pre,.raw-record pre,.notebook-reader pre) {
+  background: #11151c;
+  border-radius: var(--console-radius);
+  color: #c3d2e5;
+}
+.instrument-console :is(.call-explanation,.note-body,.notebook-prose) { color: #c2d0e1; }
+.instrument-console :is(.call-row-meta,.call-step,.note-readable dt) { color: var(--console-muted); }
+.instrument-console .call-state.active { color: #76dcca; }
+
+/* Live modules retain the existing geometry and truthful data graphics. */
+.instrument-console .live-operations { --live-line: var(--console-border); --live-muted: var(--console-muted); gap: 10px; }
+.instrument-console .live-header { padding-inline: 4px; background: transparent; }
+.instrument-console .live-board,
+.instrument-console .live-left-stack { gap: 10px; }
+.instrument-console .live-fleet { gap: 6px; padding: 0; background: transparent; }
+.agent-console.instrument-console .live-bot {
+  background: #1a2029;
+  border-color: var(--console-border);
+  border-radius: var(--console-radius);
+  box-shadow: none;
+}
+.agent-console.instrument-console .live-bot[aria-pressed=true] {
+  background: #143039;
+  border-color: var(--seat-color,var(--console-accent));
+  box-shadow: inset 0 2px var(--seat-color,var(--console-accent));
+}
+.agent-console.instrument-console .live-bot:hover:not(:disabled) { background: #293640; }
+.instrument-console .live-panel-heading {
+  min-height: 35px;
+  padding: 8px 12px;
+  background: #1a202a;
+  border-bottom: 1px solid var(--console-border);
+}
+.agent-console.instrument-console .live-panel-heading h3 { font-size: 11px; font-weight: 650; letter-spacing: .06em; }
+.instrument-console .live-guidance .live-panel-heading h3 { color: #c6b2ff; }
+.instrument-console .live-protocol .live-panel-heading h3 { color: #91c7ed; }
+.instrument-console .live-search .live-panel-heading h3 { color: #87e9dc; }
+.instrument-console .live-plan .live-panel-heading h3 { color: #d9e6f4; }
+.instrument-console .live-panel-heading > span { color: var(--console-muted); }
+.instrument-console .live-search { background: radial-gradient(ellipse at 50% 48%,#33464a28,transparent 65%),var(--console-panel); }
+.instrument-console .live-neural-backdrop > rect:first-of-type { fill: var(--console-panel); }
+.instrument-console .live-search-backdrop .live-nebula-drift { opacity: .16; }
+.instrument-console .live-stage-counts { background: #151b24; border-top-color: var(--console-border); }
+.instrument-console .live-plan-summary,
+.instrument-console .live-command-heading { border-color: var(--console-border); }
+.instrument-console .live-command {
+  background: #1e2632;
+  border-color: var(--console-border);
+  border-radius: 4px;
+  border-left: 2px solid #456480;
+}
+.instrument-console .live-command[data-state=completed] { border-left-color: #4bc6a6; }
+.instrument-console .live-command[data-state=failed] { border-left-color: #ed709b; }
+.instrument-console .live-command[data-state=unknown] { border-left-color: #e3b76a; }
+.instrument-console .live-command[data-state=underway] { border-left-color: #65c9f0; background: #122835; }
+.instrument-console .live-instruments > div:not(.live-budgets),
+.instrument-console .live-budgets {
+  background: #1a202a;
+  border: 1px solid var(--console-border);
+  border-radius: var(--console-radius);
+}
+.instrument-console .live-instruments > div:not(.live-budgets) { border-bottom: 2px solid #5eddd370; }
+.instrument-console .live-instruments > div:nth-child(2) { border-bottom-color: #64bdf280; }
+.instrument-console .live-instruments > div:nth-child(3) { border-bottom-color: #e8b66180; }
+.instrument-console .live-instruments > div:nth-child(4) { border-bottom-color: #aa87f380; }
+.instrument-console .live-instruments > div:nth-child(5) { border-bottom-color: #aa87f380; }
+.instrument-console .live-network-bundles button { background: var(--console-inset); }
+.instrument-console .live-network-bundles button[aria-pressed=true] { background: var(--console-selected); border-color: var(--console-focus); }
+.instrument-console .live-network-tooltip,
+.instrument-console .live-strategy-tooltip,
+.live-protocol-tooltip,
+.console-detail-tip {
+  background: #222d3a;
+  color: #deebf7;
+  border-color: #456277;
+  border-radius: 5px;
+  box-shadow: 0 8px 24px #0008;
+}
+
+/* Forms use inset fields and restrained accent actions, without heavy section rules. */
+.instrument-console .settings-stack { gap: 18px; color: var(--console-text); }
+.agent-console.instrument-console .settings-stack > :is(.provider-form,.strategy-form),
+.instrument-console :is(.notebook-overview,.connection-settings,.console-start) { padding: 22px; }
+.instrument-console .settings-stack legend { color: #dce8f5; font-size: 15px; font-weight: 600; }
+.instrument-console .settings-stack :is(h3,h4),
+.instrument-console .connection-settings h3 { color: #c4d8e9; font-weight: 600; }
+.instrument-console .settings-stack label { color: #bacbde; font-size: 12px; }
+.agent-console.instrument-console .settings-stack :is(.bot-setting,
+  .provider-form fieldset > label,.provider-advanced label) {
+  padding: 12px;
+  background: var(--console-inset);
+  border: 1px solid var(--console-border);
+  border-radius: var(--console-radius);
+}
+.instrument-console .settings-stack :is(input,select) { min-height: 38px; }
+.instrument-console .bot-settings fieldset > section { border-color: var(--console-border); }
+.instrument-console .settings-stack :is(.muted,.bot-setting small,.connection-settings p) { color: var(--console-muted); }
+.instrument-console .settings-status { background: #123039; border-color: #337c7e; color: #a9e6df; }
+.agent-console.instrument-console .settings-save { background: var(--console-shell); border-color: var(--console-border); padding: 14px 0; }
+.instrument-console .settings-stack .personality-options button { min-height: 36px; }
+.instrument-console .console-confirm { color: #f2c9d5; background: #2a1d2b; border-color: #79405c; }
+.instrument-console .console-start h2 { color: #e2edf7; font-weight: 600; }
+.instrument-console .console-start :is(p,.start-status) { color: var(--console-muted); }
+.instrument-console .start-step { background: var(--console-inset); border-color: #34465d; border-radius: var(--console-radius); }
+.instrument-console .start-checklist li { border-bottom-color: var(--console-border); }
+.instrument-console .start-checklist [data-ready=true] .start-step { background: #143039; color: #8be4d3; border-color: #337c7e; }
+.instrument-console .statistics-stack > section,
+.instrument-console :is(.decision-panel,.tick-time-chart,.call-round,.call-content) { color: var(--console-text); }
+
+/* Context readers and tables use the same surfaces as the surrounding workspace. */
+.instrument-console .context-disclosure { background: var(--console-inset); border-color: var(--console-border); border-radius: 4px; }
+.instrument-console .context-disclosure > summary { border-left-color: #388c90; }
+.instrument-console .context-disclosure > summary:hover { background: #27333e; }
+.instrument-console .context-disclosure[open] > summary { background: #242e3a; border-bottom-color: var(--console-border); }
+.instrument-console .context-fields > .context-disclosure { background: transparent; }
+.instrument-console :is(.context-module-source,.context-field),
+.instrument-console .context-table :is(th,td) { border-color: var(--console-border); }
+.instrument-console .context-table th { background: #252e3a; color: #c7d8ea; }
+.instrument-console .notebook-sections { background: var(--console-inset); }
+.instrument-console .notebook-record-list > button:hover:not(:disabled) { background: #27333e; }
+.instrument-console .token-bar-input { fill: #8eb2d6; }
+.instrument-console .token-bar-output { fill: #5eddd3; }
+.instrument-console .token-legend .inputTokens::before { border-color: #8eb2d6; }
+.instrument-console .token-legend .outputTokens::before { border-color: #5eddd3; }
+.instrument-console .prompt-bar-track { background: #333d4c; }
+.instrument-console .tick-time-bar { fill: #e3b76a; }
+.instrument-console .tick-time-bar[data-status=complete] { fill: #5ac8c1; }
+.instrument-console .tick-time-scroll line { stroke: var(--console-border); }
+.instrument-console .tick-time-scroll text { fill: var(--console-muted); }
+
+@media(min-width:1400px) {
+  .agent-console.instrument-console .detail-top { margin-inline: -16px; padding-inline: 20px; }
+}
+@media(max-width:760px) {
+  .agent-console.instrument-console .detail-top { gap: 10px; padding-inline: 12px; }
+  .agent-console.instrument-console .detail-tabs { gap: 0; }
+  .agent-console.instrument-console .detail-tabs button { padding-inline: 10px; }
+}
+@media(max-width:620px) {
+  .agent-console.instrument-console .detail-top { margin-inline: -10px; padding-inline: 10px; min-height: 48px; }
+  .agent-console.instrument-console .detail-tabs button { min-height: 47px; padding: 12px 9px; font-size: 11px; }
+  .agent-console.instrument-console .settings-stack > :is(.provider-form,.strategy-form) { padding: 16px; }
+  .instrument-console .live-board,.instrument-console .live-left-stack,.instrument-console .live-operations { gap: 6px; }
+  .instrument-console .live-fleet { gap: 4px; }
+  .instrument-console .live-panel-heading { min-height: 29px; padding: 5px 8px; }
+  .agent-console.instrument-console .live-panel-heading h3 { font-size: 11px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .instrument-console :is(button,input,select,textarea) { transition: none; }
+}

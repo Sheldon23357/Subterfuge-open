@@ -1,0 +1,14 @@
+{
+  "maxSimulations": 50,
+  "maxElapsedMs": 10000,
+  "horizonTicks": 144,
+  "reviewIntervalTicks": 6,
+  "aggression": 1,
+  "actionMargin": 2,
+  "objectiveSwitchMargin": 6,
+  "riskForceFraction": 0.35,
+  "attackForceMargin": 0.2,
+  "economyWeight": 1,
+  "defenseWeight": 1,
+  "territoryWeight": 1
+}

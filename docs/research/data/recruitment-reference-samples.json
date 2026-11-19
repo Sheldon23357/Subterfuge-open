@@ -1,0 +1,871 @@
+{
+  "profile": "apk-12075-rules-4300",
+  "source_sha256": "41a81d2529b71de38016cff949fb9731b858869d274ecb4aa179231231c02bd1",
+  "evidence": "executed_original_deck_functions_with_metadata_and_array_stubs",
+  "samples": [
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 0,
+        "hireNumber": 1
+      },
+      "client_type_ids": [
+        28,
+        10,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 0,
+        "hireNumber": 2
+      },
+      "client_type_ids": [
+        22,
+        2,
+        19
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 0,
+        "hireNumber": 18
+      },
+      "client_type_ids": [
+        26,
+        10,
+        17
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 0,
+        "hireNumber": 19
+      },
+      "client_type_ids": [
+        25,
+        1,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 0,
+        "hireNumber": 24
+      },
+      "client_type_ids": [
+        21,
+        12,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 0,
+        "hireNumber": 25
+      },
+      "client_type_ids": [
+        25,
+        13,
+        19
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 0,
+        "hireNumber": 49
+      },
+      "client_type_ids": [
+        21,
+        14,
+        17
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 0,
+        "hireNumber": 100
+      },
+      "client_type_ids": [
+        24,
+        12,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 4,
+        "hireNumber": 1
+      },
+      "client_type_ids": [
+        26,
+        13,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 4,
+        "hireNumber": 2
+      },
+      "client_type_ids": [
+        11,
+        14,
+        19
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 4,
+        "hireNumber": 18
+      },
+      "client_type_ids": [
+        26,
+        2,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 4,
+        "hireNumber": 19
+      },
+      "client_type_ids": [
+        28,
+        10,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 4,
+        "hireNumber": 24
+      },
+      "client_type_ids": [
+        11,
+        12,
+        17
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 4,
+        "hireNumber": 25
+      },
+      "client_type_ids": [
+        25,
+        13,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 4,
+        "hireNumber": 49
+      },
+      "client_type_ids": [
+        22,
+        13,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 4,
+        "hireNumber": 100
+      },
+      "client_type_ids": [
+        22,
+        2,
+        20
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 9,
+        "hireNumber": 1
+      },
+      "client_type_ids": [
+        26,
+        1,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 9,
+        "hireNumber": 2
+      },
+      "client_type_ids": [
+        25,
+        14,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 9,
+        "hireNumber": 18
+      },
+      "client_type_ids": [
+        11,
+        13,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 9,
+        "hireNumber": 19
+      },
+      "client_type_ids": [
+        22,
+        13,
+        17
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 9,
+        "hireNumber": 24
+      },
+      "client_type_ids": [
+        11,
+        1,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 9,
+        "hireNumber": 25
+      },
+      "client_type_ids": [
+        22,
+        12,
+        17
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 9,
+        "hireNumber": 49
+      },
+      "client_type_ids": [
+        11,
+        10,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 0,
+        "playerIndex": 9,
+        "hireNumber": 100
+      },
+      "client_type_ids": [
+        28,
+        10,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 0,
+        "hireNumber": 1
+      },
+      "client_type_ids": [
+        11,
+        1,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 0,
+        "hireNumber": 2
+      },
+      "client_type_ids": [
+        23,
+        12,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 0,
+        "hireNumber": 18
+      },
+      "client_type_ids": [
+        25,
+        14,
+        19
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 0,
+        "hireNumber": 19
+      },
+      "client_type_ids": [
+        28,
+        1,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 0,
+        "hireNumber": 24
+      },
+      "client_type_ids": [
+        23,
+        1,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 0,
+        "hireNumber": 25
+      },
+      "client_type_ids": [
+        26,
+        10,
+        17
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 0,
+        "hireNumber": 49
+      },
+      "client_type_ids": [
+        22,
+        2,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 0,
+        "hireNumber": 100
+      },
+      "client_type_ids": [
+        23,
+        14,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 4,
+        "hireNumber": 1
+      },
+      "client_type_ids": [
+        11,
+        13,
+        20
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 4,
+        "hireNumber": 2
+      },
+      "client_type_ids": [
+        21,
+        10,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 4,
+        "hireNumber": 18
+      },
+      "client_type_ids": [
+        24,
+        10,
+        19
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 4,
+        "hireNumber": 19
+      },
+      "client_type_ids": [
+        21,
+        10,
+        17
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 4,
+        "hireNumber": 24
+      },
+      "client_type_ids": [
+        11,
+        14,
+        20
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 4,
+        "hireNumber": 25
+      },
+      "client_type_ids": [
+        25,
+        1,
+        19
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 4,
+        "hireNumber": 49
+      },
+      "client_type_ids": [
+        28,
+        12,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 4,
+        "hireNumber": 100
+      },
+      "client_type_ids": [
+        22,
+        2,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 9,
+        "hireNumber": 1
+      },
+      "client_type_ids": [
+        24,
+        14,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 9,
+        "hireNumber": 2
+      },
+      "client_type_ids": [
+        25,
+        13,
+        19
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 9,
+        "hireNumber": 18
+      },
+      "client_type_ids": [
+        24,
+        2,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 9,
+        "hireNumber": 19
+      },
+      "client_type_ids": [
+        23,
+        1,
+        17
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 9,
+        "hireNumber": 24
+      },
+      "client_type_ids": [
+        28,
+        12,
+        19
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 9,
+        "hireNumber": 25
+      },
+      "client_type_ids": [
+        22,
+        14,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 9,
+        "hireNumber": 49
+      },
+      "client_type_ids": [
+        21,
+        13,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 1,
+        "playerIndex": 9,
+        "hireNumber": 100
+      },
+      "client_type_ids": [
+        22,
+        14,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 0,
+        "hireNumber": 1
+      },
+      "client_type_ids": [
+        26,
+        13,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 0,
+        "hireNumber": 2
+      },
+      "client_type_ids": [
+        22,
+        2,
+        20
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 0,
+        "hireNumber": 18
+      },
+      "client_type_ids": [
+        28,
+        2,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 0,
+        "hireNumber": 19
+      },
+      "client_type_ids": [
+        11,
+        14,
+        17
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 0,
+        "hireNumber": 24
+      },
+      "client_type_ids": [
+        28,
+        2,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 0,
+        "hireNumber": 25
+      },
+      "client_type_ids": [
+        25,
+        13,
+        20
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 0,
+        "hireNumber": 49
+      },
+      "client_type_ids": [
+        22,
+        1,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 0,
+        "hireNumber": 100
+      },
+      "client_type_ids": [
+        11,
+        12,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 4,
+        "hireNumber": 1
+      },
+      "client_type_ids": [
+        24,
+        10,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 4,
+        "hireNumber": 2
+      },
+      "client_type_ids": [
+        28,
+        13,
+        17
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 4,
+        "hireNumber": 18
+      },
+      "client_type_ids": [
+        21,
+        12,
+        19
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 4,
+        "hireNumber": 19
+      },
+      "client_type_ids": [
+        26,
+        1,
+        20
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 4,
+        "hireNumber": 24
+      },
+      "client_type_ids": [
+        28,
+        12,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 4,
+        "hireNumber": 25
+      },
+      "client_type_ids": [
+        23,
+        10,
+        29
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 4,
+        "hireNumber": 49
+      },
+      "client_type_ids": [
+        22,
+        2,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 4,
+        "hireNumber": 100
+      },
+      "client_type_ids": [
+        24,
+        2,
+        20
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 9,
+        "hireNumber": 1
+      },
+      "client_type_ids": [
+        28,
+        10,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 9,
+        "hireNumber": 2
+      },
+      "client_type_ids": [
+        11,
+        13,
+        20
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 9,
+        "hireNumber": 18
+      },
+      "client_type_ids": [
+        22,
+        2,
+        19
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 9,
+        "hireNumber": 19
+      },
+      "client_type_ids": [
+        21,
+        2,
+        27
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 9,
+        "hireNumber": 24
+      },
+      "client_type_ids": [
+        25,
+        10,
+        20
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 9,
+        "hireNumber": 25
+      },
+      "client_type_ids": [
+        25,
+        12,
+        16
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 9,
+        "hireNumber": 49
+      },
+      "client_type_ids": [
+        26,
+        13,
+        20
+      ]
+    },
+    {
+      "input": {
+        "gameSeed": 2147483647,
+        "playerIndex": 9,
+        "hireNumber": 100
+      },
+      "client_type_ids": [
+        11,
+        12,
+        16
+      ]
+    }
+  ]
+}

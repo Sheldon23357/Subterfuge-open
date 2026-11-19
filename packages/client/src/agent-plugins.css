@@ -1,0 +1,79 @@
+.agent-console.instrument-console .bot-config-dialog.plugin-dialog {width:min(860px,calc(100vw - 32px))}
+.agent-console.instrument-console .plugin-dialog[open] {display:flex;flex-direction:column;max-height:min(820px,calc(100dvh - 40px))}
+.plugin-dialog .bot-config-heading {flex:none;padding:22px 26px}
+.plugin-dialog .bot-config-heading .bot-config-description {margin:7px 0 0;color:#9fb5c5;font-size:12px;line-height:1.5}
+.plugin-dialog .bot-config-content {display:flex;flex-direction:column;min-height:0;max-height:none}
+.plugin-manager {display:grid;gap:24px;padding:24px 26px;min-width:0}
+.agent-console.instrument-console .plugin-source form {display:grid;gap:9px;margin:0}
+.agent-console.instrument-console .plugin-source label {margin:0;color:#c6d7e4;font-size:12px;font-weight:500}
+.plugin-directory-controls {display:flex;gap:10px;align-items:stretch}
+.plugin-directory-input {display:flex;align-items:center;gap:10px;min-width:0;flex:1;background:#101d2b;border:1px solid #30495d;border-radius:6px;padding-left:12px;color:#8da8bb;transition:border-color .18s}
+.plugin-directory-input:focus-within {border-color:#8bdfcf;outline:2px solid #8bdfcf22;outline-offset:2px}
+.agent-console.instrument-console .plugin-directory-input input {width:100%;min-width:0;min-height:40px;margin:0;padding:10px 12px 10px 0;background:transparent;border:0;outline:0;border-radius:0;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px}
+.agent-console.instrument-console .plugin-directory-input input:focus-visible {outline:none;box-shadow:none}
+.agent-console.instrument-console .plugin-dialog button {min-height:36px;margin:0;border-radius:5px;transition:background-color .18s,border-color .18s,color .18s}
+.agent-console.instrument-console .plugin-dialog button:focus-visible,.plugin-dialog summary:focus-visible {outline:2px solid #8bdfcf;outline-offset:3px}
+.agent-console.instrument-console .plugin-dialog .plugin-scan-button {display:inline-flex;align-items:center;justify-content:center;gap:7px;flex:none;padding:9px 16px;background:#8bdfcf;border:1px solid #8bdfcf;color:#102b32;font-size:12px;font-weight:600;white-space:nowrap}
+.agent-console.instrument-console .plugin-dialog .plugin-scan-button:hover:not(:disabled) {background:#acecdf;border-color:#acecdf}
+.plugin-manager .plugin-hint {margin:0;color:#91a9bc;font-size:12px;line-height:1.7}
+.plugin-section-heading {display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:6px}
+.agent-console.instrument-console .plugin-section-heading h3 {display:flex;align-items:center;gap:9px;margin:0;font-size:13px;font-weight:600;color:#cfdfeb}
+.plugin-section-heading h3 span {color:#8ca5b9;font-size:12px;font-weight:400;font-variant-numeric:tabular-nums}
+.plugin-manager .plugin-path {min-width:0;max-width:100%;margin:0;color:#809aaf;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;line-height:1.65;overflow-wrap:anywhere}
+.plugin-list {list-style:none;margin:0;padding:0}
+.plugin-row {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:18px;padding:17px 0;border-bottom:1px solid #293e52}
+.plugin-row-info {display:grid;gap:6px;min-width:0}
+.plugin-row-title {display:flex;align-items:center;flex-wrap:wrap;gap:9px;min-width:0}
+.plugin-row-title strong {color:#e0ecf6;font-size:14px;font-weight:600;overflow-wrap:anywhere}
+.plugin-version {color:#9fb5c5;font-size:12px;font-variant-numeric:tabular-nums}
+.plugin-selected {display:inline-flex;align-items:center;gap:4px;margin-left:3px;color:#8bdfcf;font-size:11px}
+.plugin-row-meta {display:flex;align-items:center;gap:12px;color:#8da6b9;font-size:11px;flex-wrap:wrap}
+.plugin-row-meta code {padding:0;background:none;color:#a5bac9;font-size:11px}
+.plugin-manager .plugin-description {margin:0;color:#b5c9d7;font-size:12px;line-height:1.7}
+.plugin-row-actions {display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.agent-console.instrument-console .plugin-dialog .plugin-select-button {padding:8px 13px;background:#203d48;border:1px solid #3c6269;color:#bcecdf;font-size:12px;white-space:nowrap}
+.agent-console.instrument-console .plugin-dialog .plugin-select-button:hover:not(:disabled) {background:#2a4b54;border-color:#64978f}
+.agent-console.instrument-console .plugin-dialog .plugin-update-button {padding:8px 10px;background:transparent;border:1px solid transparent;color:#9eb4c4;font-size:12px;white-space:nowrap}
+.agent-console.instrument-console .plugin-dialog .plugin-update-button:hover:not(:disabled) {background:#203342;color:#e0ecf6}
+.agent-console.instrument-console .plugin-dialog button:disabled {opacity:.45;cursor:not-allowed}
+.plugin-trust {display:grid;gap:9px;padding-top:16px}
+.plugin-trust label {display:flex;align-items:flex-start;gap:9px;color:#c5d7e4;font-size:12px;line-height:1.6;cursor:pointer}
+.agent-console.instrument-console .plugin-trust input[type=checkbox] {width:15px;height:15px;min-height:0;flex:none;padding:0;margin:2px 0 0;accent-color:#8bdfcf}
+.plugin-trust details {padding-left:24px;color:#829db2;font-size:11px;line-height:1.7}
+.plugin-trust summary {width:fit-content;cursor:pointer}
+.plugin-trust p {max-width:65ch;margin:8px 0 0;color:#9fb5c5}
+.plugin-empty {display:grid;justify-items:center;gap:10px;padding:28px 18px;color:#7592a8;text-align:center}
+.plugin-empty strong {color:#c7d9e7;font-size:13px;font-weight:500}
+.plugin-empty p {max-width:45ch;margin:0;color:#8fa9bc;font-size:12px;line-height:1.7}
+.plugin-progress {margin:0;padding-left:12px;border-left:2px solid #8bdfcf;color:#bddbdf;font-size:12px;line-height:1.7}
+.plugin-manager .plugin-inline-error {margin:0;color:#f0b2a8;font-size:12px;line-height:1.7;overflow-wrap:anywhere}
+.plugin-validation {border-left:2px solid #8bdfcf;padding:0 0 0 16px;scroll-margin-block:20px}
+.plugin-validation.is-invalid {border-left-color:#f0b2a8}
+.agent-console.instrument-console .plugin-validation h3 {display:flex;align-items:center;gap:7px;margin:0 0 14px;color:#bcecdf;font-size:13px;font-weight:600}
+.agent-console.instrument-console .plugin-validation.is-invalid h3 {color:#f0b2a8}
+.plugin-validation ul {display:grid;gap:12px;list-style:none;margin:0 0 15px;padding:0}
+.plugin-validation li {display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;font-size:12px;line-height:1.6}
+.plugin-validation li strong {font-weight:500;color:#c9dce9}
+.plugin-validation li p {margin:3px 0 0;color:#8fa9bc;font-size:11px;overflow-wrap:anywhere}
+.check-passed {color:#8bdfcf;font-size:11px}
+.check-failed {color:#f0b2a8;font-size:11px}
+.plugin-footer {position:sticky;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 26px;border-top:1px solid #293e52;background:#172838}
+.plugin-footer p {min-width:0;margin:0;color:#a0b8cb;font-size:12px;line-height:1.6;overflow-wrap:anywhere}
+.agent-console.instrument-console .plugin-footer button {flex:none;padding:9px 16px;background:#253e50;border:1px solid #425d70;color:#d9e8f4;font-size:12px;white-space:nowrap}
+.agent-console.instrument-console .plugin-footer button:hover:not(:disabled) {background:#304d61;border-color:#638297}
+.plugin-config-advanced {padding:14px 0;border-bottom:1px solid #293e52}
+.plugin-config-advanced summary {width:fit-content;color:#bed2e1;font-size:13px;cursor:pointer}
+.plugin-config-advanced p {margin:12px 0;color:#91a9bc;font-size:12px;line-height:1.7}
+.plugin-config-advanced label {display:block;color:#bed2e1;font-size:12px}
+@media(max-width:620px){
+ .agent-console.instrument-console .bot-config-dialog.plugin-dialog {width:calc(100vw - 16px)}
+ .agent-console.instrument-console .plugin-dialog[open] {max-height:calc(100dvh - 16px)}
+ .plugin-dialog .bot-config-heading {padding:18px}
+ .plugin-manager {padding:20px 18px;gap:22px}
+ .plugin-directory-controls {flex-wrap:wrap}
+ .plugin-directory-input {flex-basis:100%}
+ .plugin-row {grid-template-columns:minmax(0,1fr);gap:12px}
+ .plugin-row-actions {justify-content:flex-start}
+ .plugin-footer {align-items:flex-start;flex-direction:column;gap:12px;padding:14px 18px}
+ .agent-console.instrument-console .plugin-footer button {width:100%}
+}

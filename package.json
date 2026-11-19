@@ -1,0 +1,57 @@
+{
+  "name": "subterfuge-local",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run check:boundaries && tsc -p tsconfig.json && node scripts/link-build-packages.mjs",
+    "test": "npm run build && node scripts/run-tests.mjs",
+    "test:quick": "npm run build && node scripts/run-tests.mjs --suite=quick",
+    "test:package": "npm run build && node scripts/run-tests.mjs --suite=package",
+    "test:gemini": "npm run build && node scripts/test-gemini-schemas.mjs",
+    "test:serial": "npm run build && node scripts/run-tests.mjs --concurrency=1",
+    "audit": "node scripts/audit-client.mjs",
+    "check:boundaries": "node scripts/generate-diplomacy-wire.mjs --check && node scripts/generate-bot-sdk.mjs --check && node scripts/check-boundaries.mjs",
+    "test:reference": "npm run build && node scripts/run-reference-tests.mjs",
+    "scenario:demo": "npm run build && node dist/packages/tools/src/scenario-cli.js replay examples/economy-lab.json",
+    "fleet:demo": "npm run build && node dist/packages/tools/src/fleet-cli.js replay examples/fleet-lab.json",
+    "storage": "node dist/packages/server/src/storage-cli.js",
+    "checkpoint": "node dist/packages/server/src/checkpoint-cli.js",
+    "web:build": "npm run build && node scripts/build-web.mjs",
+    "web:start": "npm run web:build && node dist/packages/server/src/main.js",
+    "web:dev": "node scripts/dev-web.mjs",
+    "lobby:start": "npm run web:build && node dist/packages/server/src/room-hub-main.js",
+    "ai:agent": "node dist/packages/ai/src/application/agent-cli.js",
+    "ai:dev": "node scripts/dev-agent.mjs",
+    "demo:agent": "npm run web:build && node scripts/start-agent-demo.mjs",
+    "sdk:build": "node scripts/build-player-sdk.mjs",
+    "game:start": "node dist/packages/server/src/game-server.js serve",
+    "game:checkpoint": "node dist/packages/server/src/game-server.js",
+    "devkit:build": "node scripts/build-player-devkit.mjs",
+    "devkit:test": "npm run build && node scripts/run-tests.mjs dist/tests/player-devkit-package.test.js",
+    "check:docs": "node scripts/check-docs.mjs",
+    "test:cleanup": "node --test scripts/project-cleanup.test.mjs",
+    "ai:example": "npm run build && node scripts/start-ai-example.mjs",
+    "bot:release": "npm run build && node scripts/build-bot-release.mjs",
+    "bot:sdk": "npm run build && node scripts/build-bot-sdk.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "20.17.19",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "esbuild": "^0.25.0",
+    "prettier": "^3.5.3",
+    "typescript": "5.7.3"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

@@ -1,0 +1,3822 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:subterfuge:player-protocol:2.0",
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9._:-]+$",
+      "not": {
+        "pattern": "[^A-Za-z0-9._:-]"
+      }
+    },
+    "counter": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]{0,77})$",
+      "maxLength": 78,
+      "not": {
+        "pattern": "[^0-9]"
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "serverId",
+        "roomId",
+        "roomEpoch",
+        "playerId"
+      ],
+      "properties": {
+        "serverId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "roomId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "x-maxUtf16CodeUnits": 128
+        },
+        "roomEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "playerId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$",
+          "description": "Opaque stable authorization subject (currently player-UUID), never a seat number; only explicit server lineage authorizes historical epochs."
+        }
+      }
+    },
+    "helloRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "supportedVersions",
+        "requiredCapabilities",
+        "optionalCapabilities",
+        "executorInstanceId"
+      ],
+      "properties": {
+        "supportedVersions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "major",
+              "minor"
+            ],
+            "properties": {
+              "major": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1000
+              },
+              "minor": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000
+              }
+            }
+          }
+        },
+        "requiredCapabilities": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "x-maxUtf16CodeUnits": 100
+          }
+        },
+        "optionalCapabilities": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "x-maxUtf16CodeUnits": 100
+          }
+        },
+        "executorInstanceId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        }
+      }
+    },
+    "action": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "const": "resign"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "const": "check-in"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "const": "cancel-inactivity-warning"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "fleetId"
+          ],
+          "properties": {
+            "kind": {
+              "const": "cancel-launch"
+            },
+            "fleetId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "x-maxUtf16CodeUnits": 128
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "fleetId"
+          ],
+          "properties": {
+            "kind": {
+              "const": "return-fleet"
+            },
+            "fleetId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "x-maxUtf16CodeUnits": 128
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "outpostId"
+          ],
+          "properties": {
+            "kind": {
+              "const": "toggle-mine"
+            },
+            "outpostId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "x-maxUtf16CodeUnits": 128
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "outpostId",
+            "enabled"
+          ],
+          "properties": {
+            "kind": {
+              "const": "set-shields"
+            },
+            "outpostId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "x-maxUtf16CodeUnits": 128
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "recipient"
+          ],
+          "properties": {
+            "kind": {
+              "const": "toggle-funding"
+            },
+            "recipient": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "source",
+            "destination",
+            "drillers"
+          ],
+          "properties": {
+            "kind": {
+              "const": "launch"
+            },
+            "source": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "x-maxUtf16CodeUnits": 128
+            },
+            "destination": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "x-maxUtf16CodeUnits": 128
+            },
+            "drillers": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000000
+            },
+            "delaySeconds": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 86400
+            },
+            "fleetId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "x-maxUtf16CodeUnits": 128
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "peer",
+            "terms",
+            "subsidy",
+            "counterTo"
+          ],
+          "properties": {
+            "kind": {
+              "const": "propose-agreement"
+            },
+            "peer": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9
+            },
+            "terms": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "kind",
+                    "outposts"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "ceasefire"
+                    },
+                    "outposts": {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 1000,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 128,
+                        "x-maxUtf16CodeUnits": 128
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "kind",
+                    "enemy"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "joint-attack"
+                    },
+                    "enemy": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9
+                    }
+                  }
+                }
+              ]
+            },
+            "subsidy": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "payer",
+                    "amount"
+                  ],
+                  "properties": {
+                    "payer": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9
+                    },
+                    "amount": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  }
+                }
+              ]
+            },
+            "counterTo": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "x-maxUtf16CodeUnits": 128
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "agreementId",
+            "response"
+          ],
+          "properties": {
+            "kind": {
+              "const": "respond-agreement"
+            },
+            "agreementId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "x-maxUtf16CodeUnits": 128
+            },
+            "response": {
+              "enum": [
+                "accept",
+                "reject",
+                "withdraw"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "commandRequest": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "roomEpoch",
+            "sessionId",
+            "fence",
+            "authorizationVersion",
+            "idempotencyKey",
+            "clientCommandId",
+            "expectedRevision",
+            "instructionsVersion",
+            "kind",
+            "payload"
+          ],
+          "properties": {
+            "roomEpoch": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "fence": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "authorizationVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "idempotencyKey": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "clientCommandId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "expectedRevision": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "instructionsVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "kind": {
+              "const": "order"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "action"
+              ],
+              "properties": {
+                "action": {
+                  "$ref": "#/$defs/action"
+                }
+              }
+            },
+            "actionBasis": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$",
+              "description": "Optional action-basis/1 SHA-256 for immediate launch or return-fleet; expectedRevision remains the original observation revision.",
+              "minLength": 64,
+              "maxLength": 64
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "required": [
+                  "actionBasis"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "payload": {
+                    "properties": {
+                      "action": {
+                        "properties": {
+                          "kind": {
+                            "enum": [
+                              "launch",
+                              "return-fleet"
+                            ]
+                          }
+                        },
+                        "allOf": [
+                          {
+                            "if": {
+                              "properties": {
+                                "kind": {
+                                  "const": "launch"
+                                }
+                              }
+                            },
+                            "then": {
+                              "properties": {
+                                "delaySeconds": {
+                                  "const": 0
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "roomEpoch",
+            "sessionId",
+            "fence",
+            "authorizationVersion",
+            "idempotencyKey",
+            "clientCommandId",
+            "expectedRevision",
+            "instructionsVersion",
+            "kind",
+            "payload"
+          ],
+          "properties": {
+            "roomEpoch": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "fence": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "authorizationVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "idempotencyKey": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "clientCommandId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "expectedRevision": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "instructionsVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "kind": {
+              "const": "schedule"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "action",
+                "issueTick"
+              ],
+              "properties": {
+                "action": {
+                  "$ref": "#/$defs/action"
+                },
+                "issueTick": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "roomEpoch",
+            "sessionId",
+            "fence",
+            "authorizationVersion",
+            "idempotencyKey",
+            "clientCommandId",
+            "expectedRevision",
+            "instructionsVersion",
+            "kind",
+            "payload"
+          ],
+          "properties": {
+            "roomEpoch": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "fence": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "authorizationVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "idempotencyKey": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "clientCommandId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "expectedRevision": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "instructionsVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "kind": {
+              "const": "cancel-schedule"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "x-maxUtf16CodeUnits": 128
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "roomEpoch",
+            "sessionId",
+            "fence",
+            "authorizationVersion",
+            "idempotencyKey",
+            "clientCommandId",
+            "expectedRevision",
+            "instructionsVersion",
+            "kind",
+            "payload"
+          ],
+          "properties": {
+            "roomEpoch": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "fence": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "authorizationVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "idempotencyKey": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "clientCommandId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "expectedRevision": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "instructionsVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "kind": {
+              "const": "chat-send"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "to",
+                "text"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "x-maxUtf16CodeUnits": 128
+                },
+                "to": {
+                  "oneOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 9,
+                      "uniqueItems": true,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9
+                      }
+                    }
+                  ]
+                },
+                "text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000,
+                  "x-maxUtf16CodeUnits": 2000
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "roomEpoch",
+            "sessionId",
+            "fence",
+            "authorizationVersion",
+            "idempotencyKey",
+            "clientCommandId",
+            "expectedRevision",
+            "instructionsVersion",
+            "kind",
+            "payload"
+          ],
+          "properties": {
+            "roomEpoch": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "fence": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "authorizationVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "idempotencyKey": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "clientCommandId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "expectedRevision": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "instructionsVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "kind": {
+              "const": "chat-seen"
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "conversation",
+                "through"
+              ],
+              "properties": {
+                "conversation": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "x-maxUtf16CodeUnits": 128
+                },
+                "through": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "roomEpoch",
+            "sessionId",
+            "fence",
+            "authorizationVersion",
+            "idempotencyKey",
+            "clientCommandId",
+            "expectedRevision",
+            "instructionsVersion",
+            "kind",
+            "payload"
+          ],
+          "properties": {
+            "roomEpoch": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "fence": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "authorizationVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "idempotencyKey": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "clientCommandId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "expectedRevision": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "instructionsVersion": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "kind": {
+              "const": "readiness"
+            },
+            "payload": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "ready"
+                  ],
+                  "properties": {
+                    "ready": {
+                      "const": false
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "ready",
+                    "tick"
+                  ],
+                  "properties": {
+                    "ready": {
+                      "const": true
+                    },
+                    "tick": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "$ref": "#/$defs/batchCommandRequest"
+        }
+      ]
+    },
+    "snapshotPage": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "scope",
+        "snapshotId",
+        "bootstrapExpiresAt",
+        "streamEpoch",
+        "highWatermark",
+        "cursor",
+        "decisionInputVersion",
+        "snapshotDigest",
+        "page"
+      ],
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "snapshotId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "bootstrapExpiresAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "streamEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "highWatermark": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "cursor": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "decisionInputVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "snapshotDigest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "page": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "index",
+            "count",
+            "encoding",
+            "text",
+            "nextPageToken"
+          ],
+          "properties": {
+            "index": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000000
+            },
+            "encoding": {
+              "const": "json-text/1"
+            },
+            "text": {
+              "type": "string"
+            },
+            "nextPageToken": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9._:-]+$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "scope",
+        "commandId",
+        "idempotencyKey",
+        "clientCommandId",
+        "intentDigest",
+        "state",
+        "receiptVersion",
+        "effectCommitted",
+        "createdAt",
+        "updatedAt"
+      ],
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "commandId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "clientCommandId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "intentDigest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "state": {
+          "enum": [
+            "accepted",
+            "applied",
+            "scheduled",
+            "rejected",
+            "cancelled"
+          ]
+        },
+        "receiptVersion": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "effectCommitted": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "code": {
+          "type": "string"
+        },
+        "effects": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [],
+          "properties": {
+            "orderId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "x-maxUtf16CodeUnits": 128
+            },
+            "scheduleId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "x-maxUtf16CodeUnits": 128
+            },
+            "messageId": {
+              "$ref": "#/$defs/identifier"
+            },
+            "instructionsVersion": {
+              "$ref": "#/$defs/counter"
+            },
+            "decisionInputVersion": {
+              "$ref": "#/$defs/identifier"
+            },
+            "ready": {
+              "type": "boolean"
+            },
+            "agreementId": {
+              "type": "string"
+            },
+            "agreementStatus": {
+              "enum": [
+                "proposed",
+                "active",
+                "completed",
+                "unfulfilled",
+                "violated",
+                "rejected",
+                "withdrawn",
+                "superseded",
+                "expired",
+                "terminated"
+              ]
+            },
+            "batchReceipts": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 8,
+              "items": {
+                "$ref": "#/$defs/receipt"
+              }
+            }
+          }
+        },
+        "scheduleOutcome": {
+          "enum": [
+            "pending",
+            "fired",
+            "cancelled",
+            "failed"
+          ]
+        }
+      }
+    },
+    "lookupRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "roomEpoch",
+        "idempotencyKeys"
+      ],
+      "properties": {
+        "roomEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "idempotencyKeys": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9._:-]+$"
+          }
+        }
+      }
+    },
+    "lease": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "scope",
+        "generation",
+        "mode",
+        "sessionId",
+        "expiresAt",
+        "ttlMs",
+        "remainingTtlMs"
+      ],
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "generation": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "mode": {
+          "enum": [
+            "manual",
+            "agent"
+          ]
+        },
+        "sessionId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "expiresAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "ttlMs": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1000,
+              "maximum": 120000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "remainingTtlMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 120000
+        }
+      }
+    },
+    "controlOperationReceipt": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "operationResult",
+        "current"
+      ],
+      "properties": {
+        "operationResult": {
+          "$ref": "#/$defs/lease"
+        },
+        "current": {
+          "$ref": "#/$defs/lease"
+        }
+      }
+    },
+    "acquireRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "roomEpoch",
+        "sessionId",
+        "idempotencyKey"
+      ],
+      "properties": {
+        "roomEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "sessionId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "ttlMs": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 120000
+        }
+      }
+    },
+    "renewRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "roomEpoch",
+        "sessionId",
+        "idempotencyKey",
+        "fence"
+      ],
+      "properties": {
+        "roomEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "sessionId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "fence": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "ttlMs": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 120000
+        }
+      }
+    },
+    "releaseRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "roomEpoch",
+        "sessionId",
+        "idempotencyKey",
+        "fence"
+      ],
+      "properties": {
+        "roomEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "sessionId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "fence": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        }
+      }
+    },
+    "emptyRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {}
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "requestBytes",
+        "responsePageBytes",
+        "jsonDepth",
+        "counterDigits",
+        "eventPageSize",
+        "lookupBatchSize",
+        "snapshotTtlMs",
+        "snapshotsPerPlayer",
+        "snapshotBytes",
+        "leaseDefaultMs",
+        "leaseMinMs",
+        "leaseMaxMs",
+        "acceptedCommandMs"
+      ],
+      "properties": {
+        "requestBytes": {
+          "type": "integer",
+          "minimum": 65536,
+          "maximum": 65536
+        },
+        "responsePageBytes": {
+          "type": "integer",
+          "minimum": 262144,
+          "maximum": 262144
+        },
+        "jsonDepth": {
+          "type": "integer",
+          "minimum": 32,
+          "maximum": 32
+        },
+        "counterDigits": {
+          "type": "integer",
+          "minimum": 78,
+          "maximum": 78
+        },
+        "eventPageSize": {
+          "type": "integer",
+          "minimum": 200,
+          "maximum": 200
+        },
+        "lookupBatchSize": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 100
+        },
+        "snapshotTtlMs": {
+          "type": "integer",
+          "minimum": 60000,
+          "maximum": 60000
+        },
+        "snapshotsPerPlayer": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 2
+        },
+        "snapshotBytes": {
+          "type": "integer",
+          "minimum": 8388608,
+          "maximum": 8388608
+        },
+        "leaseDefaultMs": {
+          "type": "integer",
+          "minimum": 30000,
+          "maximum": 30000
+        },
+        "leaseMinMs": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 1000
+        },
+        "leaseMaxMs": {
+          "type": "integer",
+          "minimum": 120000,
+          "maximum": 120000
+        },
+        "acceptedCommandMs": {
+          "type": "integer",
+          "minimum": 30000,
+          "maximum": 30000,
+          "description": "Fixed server-monotonic admission deadline; retries and lease renewal never extend it. Not a gameplay legality constraint."
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "serverId",
+        "roomId",
+        "roomEpoch",
+        "playerId",
+        "gamePlayer",
+        "lobbySeat",
+        "chatPlayer",
+        "chatCount",
+        "roster"
+      ],
+      "properties": {
+        "serverId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "roomId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "x-maxUtf16CodeUnits": 128
+        },
+        "roomEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "playerId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "gamePlayer": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9
+        },
+        "lobbySeat": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9
+        },
+        "chatPlayer": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9
+        },
+        "chatCount": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 10
+        },
+        "roster": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 10,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+              "chatPlayer",
+              "gamePlayer"
+            ],
+            "properties": {
+              "chatPlayer": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9
+              },
+              "gamePlayer": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9
+              }
+            }
+          }
+        }
+      }
+    },
+    "helloResponse": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "scope",
+        "identity",
+        "sessionId",
+        "version",
+        "capabilities",
+        "authorizationVersion",
+        "serverTime",
+        "limits",
+        "rulesetId",
+        "rulesetVersion",
+        "observationSchema",
+        "commandSchema"
+      ],
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "identity": {
+          "$ref": "#/$defs/identity"
+        },
+        "sessionId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "version": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "major",
+            "minor"
+          ],
+          "properties": {
+            "major": {
+              "const": 2
+            },
+            "minor": {
+              "const": 0
+            }
+          }
+        },
+        "capabilities": {
+          "type": "array",
+          "maxItems": 32,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "x-maxUtf16CodeUnits": 100
+          }
+        },
+        "authorizationVersion": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "serverTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "limits": {
+          "$ref": "#/$defs/limits"
+        },
+        "rulesetId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "x-maxUtf16CodeUnits": 128
+        },
+        "rulesetVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "x-maxUtf16CodeUnits": 128
+        },
+        "observationSchema": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "x-maxUtf16CodeUnits": 128
+        },
+        "commandSchema": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "x-maxUtf16CodeUnits": 128
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "roomEpoch",
+        "authoritative",
+        "retained",
+        "queryUntil"
+      ],
+      "properties": {
+        "roomEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "authoritative": {
+          "type": "boolean"
+        },
+        "retained": {
+          "enum": [
+            "complete",
+            "unavailable"
+          ]
+        },
+        "queryUntil": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "lookupResult": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "status",
+            "receipt",
+            "coverage"
+          ],
+          "properties": {
+            "status": {
+              "const": "found"
+            },
+            "receipt": {
+              "$ref": "#/$defs/receipt"
+            },
+            "coverage": {
+              "$ref": "#/$defs/coverage"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "status",
+            "idempotencyKey",
+            "coverage"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "absent_within_retained_scope",
+                "history_unavailable"
+              ]
+            },
+            "idempotencyKey": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            },
+            "coverage": {
+              "$ref": "#/$defs/coverage"
+            }
+          }
+        }
+      ]
+    },
+    "lookupResponse": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "scope",
+        "results"
+      ],
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "results": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "items": {
+            "$ref": "#/$defs/lookupResult"
+          }
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "scope",
+        "streamEpoch",
+        "seq",
+        "cursor",
+        "type",
+        "schemaVersion",
+        "required",
+        "payload"
+      ],
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "streamEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "seq": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "cursor": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "x-maxUtf16CodeUnits": 128
+        },
+        "schemaVersion": {
+          "const": 1
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "eventPage": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "scope",
+        "streamEpoch",
+        "inputCursor",
+        "nextCursor",
+        "hasMore",
+        "coverage",
+        "events"
+      ],
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "streamEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "inputCursor": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "nextCursor": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "hasMore": {
+          "type": "boolean"
+        },
+        "coverage": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "fromExclusive",
+            "toInclusive"
+          ],
+          "properties": {
+            "fromExclusive": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            },
+            "toInclusive": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]{0,77})$",
+              "maxLength": 78
+            }
+          }
+        },
+        "events": {
+          "type": "array",
+          "maxItems": 200,
+          "items": {
+            "$ref": "#/$defs/event"
+          }
+        }
+      }
+    },
+    "error": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "code",
+        "category",
+        "outcome",
+        "safeMessage",
+        "requestId"
+      ],
+      "properties": {
+        "code": {
+          "enum": [
+            "INVALID_REQUEST",
+            "UNAUTHORIZED",
+            "SCOPE_DENIED",
+            "IDENTITY_MISMATCH",
+            "PROTOCOL_INCOMPATIBLE",
+            "UNSUPPORTED_OPERATION",
+            "ROOM_EPOCH_CHANGED",
+            "LEASE_LOST",
+            "FENCE_STALE",
+            "CONTROL_BUSY",
+            "REVISION_CONFLICT",
+            "INSTRUCTIONS_CHANGED",
+            "IDEMPOTENCY_CONFLICT",
+            "RESYNC_REQUIRED",
+            "SNAPSHOT_EXPIRED",
+            "RATE_LIMITED",
+            "STORAGE_UNAVAILABLE",
+            "SERVER_RESTARTED",
+            "COMMAND_EXPIRED",
+            "BATCH_NOT_EXECUTED"
+          ]
+        },
+        "category": {
+          "enum": [
+            "permanent",
+            "authorization",
+            "ownership",
+            "replan",
+            "resync",
+            "transient"
+          ]
+        },
+        "outcome": {
+          "enum": [
+            "read-only",
+            "rejected",
+            "unknown"
+          ]
+        },
+        "safeMessage": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "retryAfterMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      }
+    },
+    "commanderRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "roomEpoch",
+        "sessionId",
+        "authorizationVersion",
+        "idempotencyKey",
+        "clientCommandId",
+        "instructionsVersion",
+        "kind",
+        "payload"
+      ],
+      "properties": {
+        "roomEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "sessionId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "authorizationVersion": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "clientCommandId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "instructionsVersion": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "kind": {
+          "const": "commander-worker"
+        },
+        "payload": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "op",
+                "id",
+                "reply"
+              ],
+              "properties": {
+                "op": {
+                  "const": "notice"
+                },
+                "id": {
+                  "$ref": "#/$defs/identifier"
+                },
+                "reply": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1500,
+                  "x-maxUtf16CodeUnits": 1500
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "op",
+                "version",
+                "reply"
+              ],
+              "properties": {
+                "op": {
+                  "const": "ack"
+                },
+                "version": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "reply": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 1500,
+                  "x-maxUtf16CodeUnits": 1500
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "op",
+                "messageId",
+                "reply"
+              ],
+              "properties": {
+                "op": {
+                  "const": "reply"
+                },
+                "messageId": {
+                  "$ref": "#/$defs/identifier"
+                },
+                "reply": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000,
+                  "x-maxUtf16CodeUnits": 2000
+                },
+                "proposal": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "baseVersion",
+                    "text",
+                    "summary"
+                  ],
+                  "properties": {
+                    "baseVersion": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "text": {
+                      "type": "string",
+                      "minLength": 0,
+                      "maxLength": 6000,
+                      "x-maxUtf16CodeUnits": 6000
+                    },
+                    "summary": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 500,
+                      "x-maxUtf16CodeUnits": 500
+                    }
+                  }
+                },
+                "error": {
+                  "type": "boolean"
+                }
+              },
+              "not": {
+                "required": [
+                  "proposal",
+                  "error"
+                ],
+                "properties": {
+                  "error": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "checkpointAcknowledgement": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "checkpointId",
+            "roomEpoch",
+            "sessionId",
+            "authorizationVersion",
+            "phase"
+          ],
+          "properties": {
+            "checkpointId": {
+              "$ref": "#/$defs/identifier"
+            },
+            "roomEpoch": {
+              "$ref": "#/$defs/identifier"
+            },
+            "sessionId": {
+              "$ref": "#/$defs/identifier"
+            },
+            "authorizationVersion": {
+              "$ref": "#/$defs/counter"
+            },
+            "phase": {
+              "const": "prepared"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "checkpointId",
+            "roomEpoch",
+            "sessionId",
+            "authorizationVersion",
+            "phase",
+            "receiptId",
+            "sha256"
+          ],
+          "properties": {
+            "checkpointId": {
+              "$ref": "#/$defs/identifier"
+            },
+            "roomEpoch": {
+              "$ref": "#/$defs/identifier"
+            },
+            "sessionId": {
+              "$ref": "#/$defs/identifier"
+            },
+            "authorizationVersion": {
+              "$ref": "#/$defs/counter"
+            },
+            "phase": {
+              "const": "frozen"
+            },
+            "receiptId": {
+              "$ref": "#/$defs/identifier"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$",
+              "minLength": 64,
+              "maxLength": 64
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "checkpointId",
+            "roomEpoch",
+            "sessionId",
+            "authorizationVersion",
+            "phase"
+          ],
+          "properties": {
+            "checkpointId": {
+              "$ref": "#/$defs/identifier"
+            },
+            "roomEpoch": {
+              "$ref": "#/$defs/identifier"
+            },
+            "sessionId": {
+              "$ref": "#/$defs/identifier"
+            },
+            "authorizationVersion": {
+              "$ref": "#/$defs/counter"
+            },
+            "phase": {
+              "const": "resumed"
+            }
+          }
+        }
+      ]
+    },
+    "ownerConfirmationRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "roomEpoch",
+        "proposalId",
+        "baseVersion",
+        "contentDigest"
+      ],
+      "properties": {
+        "roomEpoch": {
+          "$ref": "#/$defs/identifier"
+        },
+        "proposalId": {
+          "$ref": "#/$defs/identifier"
+        },
+        "baseVersion": {
+          "$ref": "#/$defs/counter"
+        },
+        "contentDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "minLength": 64,
+          "maxLength": 64
+        }
+      }
+    },
+    "ownerMessageRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "text",
+        "references"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000,
+          "x-maxUtf16CodeUnits": 4000
+        },
+        "references": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "id"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "outpost",
+                  "fleet"
+                ]
+              },
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200,
+                "x-maxUtf16CodeUnits": 200
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120,
+                "x-maxUtf16CodeUnits": 120
+              }
+            }
+          }
+        }
+      }
+    },
+    "grantRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "grantId",
+        "tokenHash",
+        "scopes",
+        "expiresAtMs"
+      ],
+      "properties": {
+        "grantId": {
+          "$ref": "#/$defs/identifier"
+        },
+        "tokenHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "minLength": 64,
+          "maxLength": 64
+        },
+        "scopes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "observe",
+              "events.read",
+              "commands.write",
+              "control.lease",
+              "chat.send",
+              "commander.worker"
+            ]
+          }
+        },
+        "expiresAtMs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        }
+      }
+    },
+    "turnDeadline": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "tick",
+            "durationMs",
+            "expiresAt",
+            "remainingMs"
+          ],
+          "properties": {
+            "tick": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "durationMs": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 86400000
+            },
+            "expiresAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "remainingMs": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 86400000
+            }
+          }
+        }
+      ]
+    },
+    "snapshotDocument": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "observation",
+        "instructionsVersion",
+        "coverage"
+      ],
+      "properties": {
+        "observation": {
+          "$ref": "#/$defs/playerObservation"
+        },
+        "instructionsVersion": {
+          "$ref": "#/$defs/counter"
+        },
+        "turnDeadline": {
+          "$ref": "#/$defs/turnDeadline"
+        },
+        "commander": {
+          "type": "object"
+        },
+        "chat": {
+          "type": "object"
+        },
+        "notifications": {
+          "type": "object"
+        },
+        "coverage": {
+          "type": "object"
+        }
+      }
+    },
+    "playerObservation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "roomId": {
+          "$ref": "#/$defs/identifier"
+        },
+        "view": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "format": {
+              "const": "player-observation/2"
+            },
+            "profile": {
+              "type": "string"
+            },
+            "player": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "playerCount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "teamSize": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "tick": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "size": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "width": {
+                  "type": "number"
+                },
+                "height": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "width",
+                "height"
+              ]
+            },
+            "sonar": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "center": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ]
+                  },
+                  "radius": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "center",
+                  "radius"
+                ]
+              }
+            },
+            "match": {
+              "type": [
+                "object",
+                "null"
+              ]
+            },
+            "self": {
+              "type": "object"
+            },
+            "outposts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "x-maxUtf16CodeUnits": 128
+                  },
+                  "position": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ]
+                  },
+                  "visibility": {
+                    "type": "integer"
+                  },
+                  "owner": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "destroyed": {
+                    "type": "boolean"
+                  },
+                  "drillers": {
+                    "type": "number"
+                  },
+                  "shield": {
+                    "type": "number"
+                  },
+                  "shieldMax": {
+                    "type": "number"
+                  },
+                  "shieldsEnabled": {
+                    "type": "boolean"
+                  },
+                  "minePending": {
+                    "type": "boolean"
+                  },
+                  "metrics": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "id",
+                  "position",
+                  "visibility"
+                ]
+              }
+            },
+            "fleets": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "required": [
+            "format",
+            "profile",
+            "player",
+            "playerCount",
+            "teamSize",
+            "tick",
+            "size",
+            "sonar",
+            "match",
+            "self",
+            "outposts",
+            "fleets"
+          ]
+        },
+        "intel": {
+          "type": "array"
+        },
+        "scheduled": {
+          "type": "array"
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "minLength": 64,
+          "maxLength": 64
+        },
+        "secondsSinceLastTick": {
+          "type": "number"
+        },
+        "historyStartTick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "realtime": {
+          "type": "boolean"
+        },
+        "outpostNames": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "activity": {
+          "type": "array"
+        },
+        "battleLosses": {
+          "description": "Public global cumulative drillers lost. Row is the player suffering losses; column is the opponent causing them. Excludes neutral combat and shield damage. Diagonal is zero.",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 10,
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 10,
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "diplomacy": {
+          "$ref": "#/$defs/playerDiplomacy"
+        }
+      },
+      "required": [
+        "roomId",
+        "view",
+        "intel",
+        "scheduled",
+        "revision",
+        "secondsSinceLastTick",
+        "historyStartTick",
+        "realtime"
+      ]
+    },
+    "checkpointResponse": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "checkpoint": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "checkpointId": {
+                  "$ref": "#/$defs/identifier"
+                },
+                "mode": {
+                  "enum": [
+                    "game-only",
+                    "coordinated"
+                  ]
+                },
+                "roomEpoch": {
+                  "$ref": "#/$defs/identifier"
+                },
+                "phase": {
+                  "enum": [
+                    "preparing",
+                    "draining",
+                    "freezing",
+                    "publishing",
+                    "resuming",
+                    "completed",
+                    "aborted"
+                  ]
+                },
+                "deadlineAtMs": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "finishedAtMs": {
+                  "oneOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "reason": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "unsettledCommands": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "participant": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": true,
+                      "properties": {
+                        "sessionId": {
+                          "oneOf": [
+                            {
+                              "$ref": "#/$defs/identifier"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "supported": {
+                          "type": "boolean"
+                        },
+                        "prepared": {
+                          "type": "boolean"
+                        },
+                        "frozen": {
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "additionalProperties": true,
+                              "properties": {
+                                "receiptId": {
+                                  "$ref": "#/$defs/identifier"
+                                },
+                                "sha256": {
+                                  "type": "string",
+                                  "pattern": "^[a-f0-9]{64}$",
+                                  "minLength": 64,
+                                  "maxLength": 64
+                                }
+                              },
+                              "required": [
+                                "receiptId",
+                                "sha256"
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "resumed": {
+                          "type": "boolean"
+                        },
+                        "missing": {
+                          "enum": [
+                            null,
+                            "unsupported",
+                            "prepare_timeout",
+                            "freeze_timeout",
+                            "resume_timeout"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "sessionId",
+                        "supported",
+                        "prepared",
+                        "frozen",
+                        "resumed",
+                        "missing"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "summary": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "participants": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "supported": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "prepared": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "frozen": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "resumed": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "missing": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  },
+                  "required": [
+                    "participants",
+                    "supported",
+                    "prepared",
+                    "frozen",
+                    "resumed",
+                    "missing"
+                  ]
+                }
+              },
+              "required": [
+                "checkpointId",
+                "mode",
+                "roomEpoch",
+                "phase",
+                "deadlineAtMs",
+                "finishedAtMs",
+                "reason",
+                "unsettledCommands",
+                "participant",
+                "summary"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "checkpoint"
+      ]
+    },
+    "ownerHistoryRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "expectedRevision",
+        "payload"
+      ],
+      "properties": {
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "tick"
+          ],
+          "properties": {
+            "tick": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "seconds": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 599
+            }
+          }
+        }
+      }
+    },
+    "playerDiplomacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "time",
+        "relations",
+        "competition",
+        "agreements",
+        "receipts",
+        "receiptCount",
+        "agreementCount"
+      ],
+      "properties": {
+        "time": {
+          "type": "number"
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "from",
+              "to",
+              "history",
+              "borderPressure",
+              "competitionPressure",
+              "trust"
+            ],
+            "properties": {
+              "from": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9
+              },
+              "to": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9
+              },
+              "history": {
+                "type": "number",
+                "minimum": -100,
+                "maximum": 100
+              },
+              "borderPressure": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 12
+              },
+              "competitionPressure": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30
+              },
+              "trust": {
+                "type": "number",
+                "minimum": -100,
+                "maximum": 100
+              }
+            }
+          }
+        },
+        "competition": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "player",
+              "score",
+              "rank"
+            ],
+            "properties": {
+              "player": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9
+              },
+              "score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "rank": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "agreements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "players",
+              "terms",
+              "subsidy",
+              "proposedAt",
+              "startedAt",
+              "deadline",
+              "status",
+              "progress",
+              "fulfilled",
+              "reason",
+              "endedAt"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "players": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "terms": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "outposts"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "const": "ceasefire"
+                      },
+                      "outposts": {
+                        "type": "array",
+                        "minItems": 1,
+                        "maxItems": 1000,
+                        "uniqueItems": true,
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 128,
+                          "x-maxUtf16CodeUnits": 128
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "enemy"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "const": "joint-attack"
+                      },
+                      "enemy": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9
+                      }
+                    }
+                  }
+                ]
+              },
+              "subsidy": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "payer",
+                      "amount"
+                    ],
+                    "properties": {
+                      "payer": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9
+                      },
+                      "amount": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      }
+                    }
+                  }
+                ]
+              },
+              "proposedAt": {
+                "type": "number"
+              },
+              "startedAt": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "deadline": {
+                "type": "number"
+              },
+              "status": {
+                "enum": [
+                  "proposed",
+                  "active",
+                  "completed",
+                  "unfulfilled",
+                  "violated",
+                  "rejected",
+                  "withdrawn",
+                  "superseded",
+                  "expired",
+                  "terminated"
+                ]
+              },
+              "progress": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "fulfilled": {
+                "type": "array",
+                "items": {
+                  "type": "boolean"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "reason": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "endedAt": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "receipts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "time",
+              "players",
+              "agreementId",
+              "kind",
+              "actor",
+              "details"
+            ],
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "time": {
+                "type": "number"
+              },
+              "players": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "agreementId": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "kind": {
+                "type": "string"
+              },
+              "actor": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9
+                  }
+                ]
+              },
+              "details": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "receiptCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "agreementCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "tickTimeAnchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "revision",
+        "fromTick",
+        "tick",
+        "wallTimeMs",
+        "monotonicMs",
+        "sessionId",
+        "kind",
+        "source"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "fromTick": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "wallTimeMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "monotonicMs": {
+          "type": "number",
+          "minimum": 0
+        },
+        "sessionId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "kind": {
+          "enum": [
+            "observed",
+            "advance",
+            "batch"
+          ]
+        },
+        "source": {
+          "enum": [
+            "state-write",
+            "automatic",
+            "manual",
+            "realtime",
+            "startup",
+            "database-trigger"
+          ]
+        }
+      }
+    },
+    "tickTimePage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope",
+        "roomId",
+        "headTick",
+        "ended",
+        "serverTimeMs",
+        "headElapsedMs",
+        "records",
+        "nextCursor",
+        "hasMore"
+      ],
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "roomId": {
+          "type": "string"
+        },
+        "headTick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "ended": {
+          "type": "boolean"
+        },
+        "serverTimeMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "headElapsedMs": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "records": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "$ref": "#/$defs/tickTimeAnchor"
+          }
+        },
+        "nextCursor": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "hasMore": {
+          "type": "boolean"
+        }
+      }
+    },
+    "batchOrderRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "roomEpoch",
+        "sessionId",
+        "fence",
+        "authorizationVersion",
+        "idempotencyKey",
+        "clientCommandId",
+        "expectedRevision",
+        "instructionsVersion",
+        "kind",
+        "payload"
+      ],
+      "properties": {
+        "roomEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "sessionId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "fence": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "authorizationVersion": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "clientCommandId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "instructionsVersion": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "kind": {
+          "const": "order"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "action"
+          ],
+          "properties": {
+            "action": {
+              "$ref": "#/$defs/action"
+            }
+          }
+        },
+        "actionBasis": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "Optional action-basis/1 SHA-256 for immediate launch or return-fleet; expectedRevision remains the original observation revision.",
+          "minLength": 64,
+          "maxLength": 64
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "actionBasis"
+            ]
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "properties": {
+                  "action": {
+                    "properties": {
+                      "kind": {
+                        "enum": [
+                          "launch",
+                          "return-fleet"
+                        ]
+                      }
+                    },
+                    "allOf": [
+                      {
+                        "if": {
+                          "properties": {
+                            "kind": {
+                              "const": "launch"
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "delaySeconds": {
+                              "const": 0
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "batchCommandResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receipt",
+        "snapshot"
+      ],
+      "properties": {
+        "receipt": {
+          "$ref": "#/$defs/receipt"
+        },
+        "snapshot": {
+          "$ref": "#/$defs/snapshotPage"
+        }
+      }
+    },
+    "batchCommandRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "roomEpoch",
+        "sessionId",
+        "fence",
+        "authorizationVersion",
+        "idempotencyKey",
+        "clientCommandId",
+        "expectedRevision",
+        "instructionsVersion",
+        "kind",
+        "payload"
+      ],
+      "properties": {
+        "roomEpoch": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "sessionId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "fence": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "authorizationVersion": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "clientCommandId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "expectedRevision": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "instructionsVersion": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,77})$",
+          "maxLength": 78
+        },
+        "kind": {
+          "const": "order-batch"
+        },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "commands"
+          ],
+          "properties": {
+            "commands": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 8,
+              "items": {
+                "$ref": "#/$defs/batchOrderRequest"
+              }
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "actionBasis"
+            ]
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "properties": {
+                  "action": {
+                    "properties": {
+                      "kind": {
+                        "enum": [
+                          "launch",
+                          "return-fleet"
+                        ]
+                      }
+                    },
+                    "allOf": [
+                      {
+                        "if": {
+                          "properties": {
+                            "kind": {
+                              "const": "launch"
+                            }
+                          }
+                        },
+                        "then": {
+                          "properties": {
+                            "delaySeconds": {
+                              "const": 0
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "observationReadResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope",
+        "observation"
+      ],
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "observation": {
+          "$ref": "#/$defs/playerObservation"
+        }
+      }
+    },
+    "commanderReadResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope",
+        "thread"
+      ],
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "thread": {
+          "$ref": "#/$defs/snapshotDocument/properties/commander"
+        }
+      }
+    },
+    "syncResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope",
+        "streamEpoch",
+        "highWatermark",
+        "cursor",
+        "decisionInputVersion",
+        "document",
+        "control"
+      ],
+      "properties": {
+        "scope": {
+          "$ref": "#/$defs/scope"
+        },
+        "streamEpoch": {
+          "$ref": "#/$defs/identifier"
+        },
+        "highWatermark": {
+          "$ref": "#/$defs/counter"
+        },
+        "cursor": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[A-Za-z0-9._:-]+$"
+        },
+        "decisionInputVersion": {
+          "$ref": "#/$defs/identifier"
+        },
+        "document": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/snapshotDocument"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "control": {
+          "$ref": "#/$defs/lease"
+        }
+      }
+    }
+  }
+}

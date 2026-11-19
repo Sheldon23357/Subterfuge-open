@@ -1,0 +1,1347 @@
+{
+  "profile": "apk-12075-rules-4300",
+  "source_sha256": "41a81d2529b71de38016cff949fb9731b858869d274ecb4aa179231231c02bd1",
+  "samples": [
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 0
+      },
+      "output": 48,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 1
+      },
+      "output": 32,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 2
+      },
+      "output": 24,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 3
+      },
+      "output": 19,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 4
+      },
+      "output": 16,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 5
+      },
+      "output": 13,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 6
+      },
+      "output": 12,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 7
+      },
+      "output": 10,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 8
+      },
+      "output": 9,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 9
+      },
+      "output": 8,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 10
+      },
+      "output": 8,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 11
+      },
+      "output": 7,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 12
+      },
+      "output": 6,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 13
+      },
+      "output": 6,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 14
+      },
+      "output": 6,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 15
+      },
+      "output": 5,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 16
+      },
+      "output": 5,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 17
+      },
+      "output": 5,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 18
+      },
+      "output": 4,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 19
+      },
+      "output": 4,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 20
+      },
+      "output": 4,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 21
+      },
+      "output": 4,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 22
+      },
+      "output": 4,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 23
+      },
+      "output": 3,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 24
+      },
+      "output": 3,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 25
+      },
+      "output": 3,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 26
+      },
+      "output": 3,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 27
+      },
+      "output": 3,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 28
+      },
+      "output": 3,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 29
+      },
+      "output": 3,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 30
+      },
+      "output": 3,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 31
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 32
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 33
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 34
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 35
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 36
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 37
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 38
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 39
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 40
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 41
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 42
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 43
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 44
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 45
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 46
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 47
+      },
+      "output": 1,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenDrillerProductions",
+      "source_line": 42260,
+      "input": {
+        "tycoons": 48
+      },
+      "output": 1,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 1
+      },
+      "output": 144,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 2
+      },
+      "output": 72,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 3
+      },
+      "output": 48,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 4
+      },
+      "output": 36,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 5
+      },
+      "output": 28.8,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 6
+      },
+      "output": 24,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 7
+      },
+      "output": 20.571428571428573,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 8
+      },
+      "output": 18,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 9
+      },
+      "output": 16,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 10
+      },
+      "output": 14.4,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 11
+      },
+      "output": 13.090909090909092,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 12
+      },
+      "output": 12,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 13
+      },
+      "output": 11.076923076923077,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 14
+      },
+      "output": 10.285714285714286,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 15
+      },
+      "output": 9.6,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 16
+      },
+      "output": 9,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 17
+      },
+      "output": 8.470588235294118,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 18
+      },
+      "output": 8,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 19
+      },
+      "output": 7.578947368421052,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 20
+      },
+      "output": 7.2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 21
+      },
+      "output": 6.857142857142857,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 22
+      },
+      "output": 6.545454545454546,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 23
+      },
+      "output": 6.260869565217392,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 24
+      },
+      "output": 6,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 25
+      },
+      "output": 5.76,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 26
+      },
+      "output": 5.538461538461538,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 27
+      },
+      "output": 5.333333333333333,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 28
+      },
+      "output": 5.142857142857143,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 29
+      },
+      "output": 4.9655172413793105,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 30
+      },
+      "output": 4.8,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 31
+      },
+      "output": 4.645161290322581,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 32
+      },
+      "output": 4.5,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 33
+      },
+      "output": 4.363636363636363,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 34
+      },
+      "output": 4.235294117647059,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 35
+      },
+      "output": 4.114285714285714,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 36
+      },
+      "output": 4,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 37
+      },
+      "output": 3.891891891891892,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 38
+      },
+      "output": 3.789473684210526,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 39
+      },
+      "output": 3.6923076923076925,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 40
+      },
+      "output": 3.6,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 41
+      },
+      "output": 3.5121951219512195,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 42
+      },
+      "output": 3.4285714285714284,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 43
+      },
+      "output": 3.3488372093023258,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 44
+      },
+      "output": 3.272727272727273,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 45
+      },
+      "output": 3.2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 46
+      },
+      "output": 3.130434782608696,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 47
+      },
+      "output": 3.0638297872340425,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 48
+      },
+      "output": 3,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 49
+      },
+      "output": 2.938775510204082,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 50
+      },
+      "output": 2.88,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 51
+      },
+      "output": 2.823529411764706,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 52
+      },
+      "output": 2.769230769230769,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 53
+      },
+      "output": 2.7169811320754715,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 54
+      },
+      "output": 2.6666666666666665,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 55
+      },
+      "output": 2.618181818181818,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 56
+      },
+      "output": 2.5714285714285716,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 57
+      },
+      "output": 2.526315789473684,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 58
+      },
+      "output": 2.4827586206896552,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 59
+      },
+      "output": 2.440677966101695,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 60
+      },
+      "output": 2.4,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 61
+      },
+      "output": 2.360655737704918,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 62
+      },
+      "output": 2.3225806451612905,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 63
+      },
+      "output": 2.2857142857142856,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 64
+      },
+      "output": 2.25,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 65
+      },
+      "output": 2.2153846153846155,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 66
+      },
+      "output": 2.1818181818181817,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 67
+      },
+      "output": 2.1492537313432836,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 68
+      },
+      "output": 2.1176470588235294,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 69
+      },
+      "output": 2.0869565217391304,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 70
+      },
+      "output": 2.057142857142857,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 71
+      },
+      "output": 2.028169014084507,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 72
+      },
+      "output": 2,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 73
+      },
+      "output": 1.9726027397260273,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 74
+      },
+      "output": 1.945945945945946,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 75
+      },
+      "output": 1.92,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 76
+      },
+      "output": 1.894736842105263,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 77
+      },
+      "output": 1.87012987012987,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 78
+      },
+      "output": 1.8461538461538463,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 79
+      },
+      "output": 1.8227848101265822,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 80
+      },
+      "output": 1.8,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 81
+      },
+      "output": 1.7777777777777777,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 82
+      },
+      "output": 1.7560975609756098,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 83
+      },
+      "output": 1.7349397590361446,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 84
+      },
+      "output": 1.7142857142857142,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 85
+      },
+      "output": 1.6941176470588235,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 86
+      },
+      "output": 1.6744186046511629,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 87
+      },
+      "output": 1.6551724137931034,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 88
+      },
+      "output": 1.6363636363636365,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 89
+      },
+      "output": 1.6179775280898876,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 90
+      },
+      "output": 1.6,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 91
+      },
+      "output": 1.5824175824175823,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 92
+      },
+      "output": 1.565217391304348,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 93
+      },
+      "output": 1.5483870967741935,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 94
+      },
+      "output": 1.5319148936170213,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 95
+      },
+      "output": 1.5157894736842106,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 96
+      },
+      "output": 1.5,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 97
+      },
+      "output": 1.4845360824742269,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 98
+      },
+      "output": 1.469387755102041,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 99
+      },
+      "output": 1.4545454545454546,
+      "evidence": "executed_original_method_with_cache_stubs"
+    },
+    {
+      "symbol": "V.calculateTicksBetweenNpProductions",
+      "source_line": 42194,
+      "input": {
+        "outposts": 100
+      },
+      "output": 1.44,
+      "evidence": "executed_original_method_with_cache_stubs"
+    }
+  ]
+}

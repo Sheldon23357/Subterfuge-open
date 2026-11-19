@@ -1,0 +1,15 @@
+{
+  "storeDirectory": ".private/official",
+  "pollMs": 1000,
+  "seats": [{
+    "id": "my-ai",
+    "serverUrl": "https://example.invalid",
+    "roomId": "REPLACE_WITH_VERIFIED_ROOM_ID",
+    "lobbySeat": 0,
+    "gamePlayer": 0,
+    "chatPlayer": 0,
+    "chatCount": 2,
+    "tokenEnv": "PLAYER_EXECUTOR_TOKEN",
+    "settings": {"model": "", "personality": "schemer"}
+  }]
+}

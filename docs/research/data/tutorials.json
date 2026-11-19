@@ -1,0 +1,302 @@
+[
+  {
+    "id": "T01",
+    "client_index": 0,
+    "title": "Combat 1",
+    "subtitle": "Launching a Sub",
+    "goal": "Take control of Calhamer",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T02",
+    "client_index": 1,
+    "title": "Combat 2",
+    "subtitle": "Joint Attack",
+    "goal": "Take control of Vaccarino",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T03",
+    "client_index": 2,
+    "title": "Combat 3",
+    "subtitle": "Reinforcement",
+    "goal": "Maintain control of Vaccarino",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T04",
+    "client_index": 3,
+    "title": "Combat 4",
+    "subtitle": "Scheduled Orders",
+    "goal": "Take control of Garfield",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T05",
+    "client_index": 4,
+    "title": "Combat 5",
+    "subtitle": "A Specialist",
+    "goal": "Take control of Feld",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T06",
+    "client_index": 5,
+    "title": "Combat 6",
+    "subtitle": "Sub to Sub Combat",
+    "goal": "Take control of Feld",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T07",
+    "client_index": 6,
+    "title": "Specialists 1",
+    "subtitle": "The Factory",
+    "goal": "Take control of Verne",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T08",
+    "client_index": 7,
+    "title": "Specialists 2",
+    "subtitle": "Hiring Specialists",
+    "goal": "Maintain control of Verne",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T09",
+    "client_index": 8,
+    "title": "Specialists 3",
+    "subtitle": "Combat priority",
+    "goal": "Maintain control of Verne",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T10",
+    "client_index": 9,
+    "title": "Specialists 4",
+    "subtitle": "Promotion",
+    "goal": "Take control of Vintgar",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T11",
+    "client_index": 10,
+    "title": "Specialists 5",
+    "subtitle": "Global Abilities",
+    "goal": "Maintain control of Vintgar",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T12",
+    "client_index": 11,
+    "title": "Specialists 6",
+    "subtitle": "Electrical Output",
+    "goal": "Maintain control of Vintgar",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T13",
+    "client_index": 12,
+    "title": "Winning 1",
+    "subtitle": "Drilling Mines",
+    "goal": "Produce 5 Kilos of Neptunium",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T14",
+    "client_index": 13,
+    "title": "Winning 2",
+    "subtitle": "Mining Rate",
+    "goal": "Win the game in less than 48 hours",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T15",
+    "client_index": 14,
+    "title": "Winning 3",
+    "subtitle": "Losing a Mine",
+    "goal": "Win the game in less than 48 hours",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T16",
+    "client_index": 15,
+    "title": "Winning 4",
+    "subtitle": "Losing a Queen",
+    "goal": "Win the game in less than 48 hours",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T17",
+    "client_index": 16,
+    "title": "Diplomacy 1",
+    "subtitle": "The Gift",
+    "goal": "Ensure your ally keeps Kyburz",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T18",
+    "client_index": 17,
+    "title": "Diplomacy 2",
+    "subtitle": "Funding",
+    "goal": "Ensure your ally keeps Kyburz",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T19",
+    "client_index": 18,
+    "title": "Diplomacy 3",
+    "subtitle": "Disabling Shields",
+    "goal": "Ensure your ally keeps Kyburz",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T20",
+    "client_index": 19,
+    "title": "Diplomacy 4",
+    "subtitle": "Captive Specialists",
+    "goal": "Ensure your ally keeps Kyburz",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T21",
+    "client_index": 20,
+    "title": "Advanced 1",
+    "subtitle": "Order Matters",
+    "goal": "Maintain control of Feld",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T22",
+    "client_index": 21,
+    "title": "Advanced 2",
+    "subtitle": "The Fastest Way From A to B",
+    "goal": "Conquer Sivan within 24 hours",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T23",
+    "client_index": 22,
+    "title": "Advanced 3",
+    "subtitle": "Against All Odds",
+    "goal": "Maintain control of Kyburz",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T24",
+    "client_index": 23,
+    "title": "Kobayashi Maru",
+    "subtitle": "A Test of Character",
+    "goal": "Hold Donatu until sub arrives",
+    "debug": false,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T25",
+    "client_index": 24,
+    "title": "War Hero Rework",
+    "subtitle": "v42: hireable, promotes to Sentry",
+    "goal": "DEBUG — hire the War Hero from the attack deck, then promote him",
+    "debug": true,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T26",
+    "client_index": 25,
+    "title": "Infiltrator Rework",
+    "subtitle": "v42: sub-to-sub combat ends",
+    "goal": "DEBUG — watch the pirate intercept fizzle against your Infiltrator sub",
+    "debug": true,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T27",
+    "client_index": 26,
+    "title": "Foreman Rework",
+    "subtitle": "v42: half-sonar production aura",
+    "goal": "DEBUG — compare factory output inside vs outside the blue ring",
+    "debug": true,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T28",
+    "client_index": 27,
+    "title": "Navigator Nerf",
+    "subtitle": "v42: one course change per 8h",
+    "goal": "DEBUG — change course once, then watch the countdown block the next",
+    "debug": true,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T29",
+    "client_index": 28,
+    "title": "King Nerf",
+    "subtitle": "v42: 1-per-4 ratio, flat -20 shields",
+    "goal": "DEBUG — inspect shield caps (King's outpost included) and combat damage",
+    "debug": true,
+    "line": 42983,
+    "metadata_only": true
+  },
+  {
+    "id": "T30",
+    "client_index": 29,
+    "title": "Smuggler Speed Mismatch",
+    "subtitle": "issue 16: pirate + smuggler",
+    "goal": "DEBUG — drag from LAUNCH BASE at the enemy sub and watch the clock thrash",
+    "debug": true,
+    "line": 42983,
+    "metadata_only": true
+  }
+]

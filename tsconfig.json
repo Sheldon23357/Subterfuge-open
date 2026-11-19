@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@subterfuge/bot-sdk": [
+        "packages/bot-sdk/src/index.ts"
+      ],
+      "@subterfuge/bot-sdk/*": [
+        "packages/bot-sdk/src/*.ts"
+      ],
+      "@subterfuge/hybrid": [
+        "plugins/hybrid/src/api.ts"
+      ]
+    }
+  },
+  "include": [
+    "packages/**/*.ts",
+    "tests/**/*.ts",
+    "packages/**/*.tsx",
+    "examples/ai-extension/**/*.ts",
+    "plugins/**/*.ts"
+  ]
+}

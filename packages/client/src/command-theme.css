@@ -1,0 +1,226 @@
+.command-kicker {
+  color: #c2af7d;
+  letter-spacing: 2.4px;
+  font-size: 9px;
+}
+.command-connect {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid #40595d !important;
+  background: #0b2029 !important;
+  padding: 30px !important;
+  animation: command-rise 0.35s both;
+}
+.command-connect-art {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, #0b2029 15%, #0b2029d9 60%, #0b2029a8),
+    url("/assets/abyss-command.png") right center/cover;
+  opacity: 0.65;
+  pointer-events: none;
+}
+.command-connect .section-title {
+  margin-bottom: 22px;
+}
+.command-connect h2 {
+  font-size: 20px !important;
+  color: #d9e7dd !important;
+  letter-spacing: 1px;
+  margin-top: 10px !important;
+}
+.command-connect .section-title > button {
+  border: 0;
+  background: transparent;
+}
+.command-steps {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  margin: 0 0 26px !important;
+  padding: 0 !important;
+  max-width: 650px;
+}
+.command-steps li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #71918f;
+}
+.command-steps li > span {
+  width: 23px;
+  height: 23px;
+  border: 1px solid #3e5c60;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+}
+.command-steps .current {
+  color: #d6c28a;
+}
+.command-steps .current > span {
+  border-color: #bca26a;
+  background: #a48c4020;
+}
+.command-steps .done > span {
+  color: #aad1b9;
+  background: #7ba18a20;
+}
+.command-connect form {
+  max-width: 620px;
+}
+.command-connect fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.command-connect label {
+  display: block;
+  color: #b9ccc1;
+  font-size: 12px;
+  margin: 18px 0;
+}
+.command-connect input {
+  background: #081b24 !important;
+  border: 1px solid #36545a !important;
+  border-radius: 2px !important;
+  width: 100%;
+  padding: 13px !important;
+  display: block;
+  margin-top: 9px !important;
+  color: #d9e8df !important;
+}
+.command-connect input:focus-visible {
+  outline: 1px solid #c5af78;
+  outline-offset: 3px;
+}
+.command-connect .command-room-code {
+  font: 24px monospace !important;
+  letter-spacing: 7px;
+}
+.command-connect .command-next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #c5b080 !important;
+  color: #102a31 !important;
+  border-color: #c5b080 !important;
+  padding: 12px 22px !important;
+  min-height: 43px;
+}
+.command-connect .command-next:hover {
+  background: #dfcc9b !important;
+}
+.command-connect .command-mode {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: #9eb6ae;
+  text-decoration: underline;
+  font-size: 11px;
+}
+.command-stage {
+  animation: command-rise 0.3s both;
+}
+.command-intro {
+  color: #9bb7b0;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.command-verified {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #b6d9bf;
+  margin: 12px 0 24px;
+  font-size: 15px;
+  animation: command-rise 0.35s both;
+}
+.command-verified small {
+  display: block;
+  margin-top: 7px;
+  color: #8ea99f;
+  font-size: 11px;
+}
+.command-connect .seat-binding {
+  padding: 18px;
+  background: #102c32aa;
+  border: 1px solid #375354;
+}
+.command-connect .console-safety {
+  border-color: #4e655b;
+  color: #a9c1b0;
+  background: #15302990;
+}
+.command-error {
+  animation: command-rise 0.2s both;
+}
+.command-spin {
+  animation: command-spin 1.2s linear infinite;
+}
+.agent-console .seat-list li {
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.agent-console .seat-list li.selected {
+  border-color: #8a9d87;
+}
+.agent-console button {
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    transform 0.18s;
+}
+.agent-console button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+@keyframes command-rise {
+  from {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes command-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 650px) {
+  .command-connect {
+    padding: 24px 18px !important;
+  }
+  .command-steps {
+    gap: 12px;
+  }
+  .command-steps li {
+    font-size: 10px;
+    gap: 5px;
+  }
+  .command-connect h2 {
+    font-size: 17px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .command-stage,
+  .command-connect,
+  .command-verified,
+  .command-error,
+  .command-spin {
+    animation: none !important;
+  }
+  .agent-console button,
+  .agent-console .seat-list li {
+    transition: none !important;
+  }
+}

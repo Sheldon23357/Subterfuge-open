@@ -1,0 +1,13 @@
+{
+  "assets": [
+    {
+      "id": "ai.abyss-command",
+      "file": "abyss-command.png",
+      "width": 1536,
+      "height": 1024,
+      "transparent": false,
+      "source": "OpenAI built-in image generation; original project artwork",
+      "prompt": "Original submarine command cabin, brass sonar instrument with subtle cyan concentric waves, mechanical switches and periscope on right, faint submarine through porthole. Dark navy negative space on left, muted teal and warm brass, cinematic retrofuturist concept art. No text, logos, watermarks, UI or robot faces."
+    }
+  ]
+}

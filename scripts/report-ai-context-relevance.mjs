@@ -1,0 +1,61 @@
+import {readFile,writeFile,stat} from 'node:fs/promises';
+import {resolve,join} from 'node:path';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+const out=resolve(process.argv[2]??'outputs/ai-context-audit-20261030');
+const read=async f=>JSON.parse(await readFile(join(out,f),'utf8'));
+const [a,base,verification]=await Promise.all(['relevance-analysis.json','analysis.json','relevance-verification.json'].map(read));
+assert.ok(verification.passed);
+const priorSource=(await read('verification.json')).sourceHashes,sourceChanges=[];
+for(const [path,previousHash] of Object.entries(priorSource)){
+ const currentHash=createHash('sha256').update(await readFile(path)).digest('hex');
+ if(currentHash!==previousHash)sourceChanges.push({path,previousHash,currentHash});
+}
+await writeFile(join(out,'relevance-source-check.json'),JSON.stringify({at:new Date().toISOString(),changedSinceFirstAudit:sourceChanges,interpretation:'Counts refer to frozen captures, not an assertion that current live prompts have the same structure.'},null,2));
+const d=a.totals.diplomacy,s=a.totals.strategy,fmt=n=>n.toLocaleString('en-US'),pct=n=>(n*100).toFixed(2)+'%';
+const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+const table=(head,rows)=>'<div class="table-wrap"><table><thead><tr>'+head.map(h=>'<th>'+esc(h)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(row=>'<tr>'+row.map(c=>'<td>'+esc(c)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+const titles={canonicalContracts:'按合同身份归并相同事实',groupedKnowledge:'未知容量与停战集合按组表达',stageHistory:'仅改终态合同列（保留旧条款）',candidateRules:'候选共有条件只写一次',irrelevantSelectors:'省略不可用动作选择器',militaryDigest:'外交军事明细按关联范围投影',scopedHistory:'非当前对象终态合同改结果汇总',scopedReceipts:'回执保留当前义务及会话详情，其他汇总',focusedCombined:'以上规则顺序组合（实测总量）'};
+const scenarios=Object.keys(titles).map(key=>[titles[key],fmt(d.scenarios[key].saving),fmt(d.scenarios[key].normalizedSaving),fmt(s.scenarios[key].saving),fmt(s.scenarios[key].normalizedSaving)]);
+const cohortRows=[['外交全部',d.scenarios.focusedCombined],['无军事编辑权外交',a.cohorts.noEditDiplomacyFocused],['有军事编辑权外交',a.cohorts.editableDiplomacyFocused],['战略',s.scenarios.focusedCombined]].map(([name,x])=>[name,fmt(x.calls),fmt(x.before),fmt(x.saving),pct(x.saving/x.before),fmt(x.normalizedSaving),pct(x.normalizedSaving/x.normalizedBefore)]);
+const poolPaths=['$.global.ownFleets','$.global.planning','$.global.economy','$.facts.fleets','$.guidance.serverAgreements','$.guidance.contractResults','$.guidance.readOnlyIntentTasks','$.guidance.relationAdvice'];
+const pool=Object.entries(base.fieldTotals).filter(([k])=>k.startsWith('diplomacy:')&&poolPaths.some(p=>k.endsWith(':'+p))).reduce((n,[,x])=>n+x.characters,0);
+const sumSavings=d.scenarios.focusedCombined.saving+s.scenarios.focusedCombined.saving;
+const sumNormalized=d.scenarios.focusedCombined.normalizedSaving+s.scenarios.focusedCombined.normalizedSaving;
+const originalBody=d.bodyChars+s.bodyChars,shortBody=d.scenarios.focusedCombined.normalizedBefore+s.scenarios.focusedCombined.normalizedBefore;
+const styles=(await readFile(join(out,'report.html'),'utf8')).match(/<style>([\s\S]*?)<\/style>/)?.[1]??'body{font:16px/1.7 sans-serif;max-width:1200px;margin:auto}';
+let html=`<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI 上下文相关性深查</title><style>${styles}</style><main><header><p class="muted">同一冻结样本 · 选择逻辑与决策依赖 · 离线试验</p><h1>上下文相关性：问题发生在材料选择层</h1><p class="lead">大块内容有价值，不意味着它们的全部明细都应进入每一种调用。更深的问题是：通用候选会级联带入明细；历史条款仍被表达成当前义务；同一事实按多个用途反复投影。应先为整轮判断构造合适的事实视图，再考虑字段名和ID长度。</p><p>沿用原报告的159次调用（外交68、战略91），不混入新阶段或新模型。以完全相同的原文比较“原ID”和“预先统一短ID”两种条件。审计试验本身不修改运行中的提示词、模型Schema或游戏状态；实现与部署验证单独记录。</p><p><a href="report.html">返回逐字符总报告</a> · <a href="relevance-analysis.json">深查数据</a> · <a href="relevance-transformations.csv">每项投影的一级字段增减账本</a> · <a href="relevance-verification.json">已验证的不变量及限制</a></p><nav><a href="#dependency">候选展开链</a><a href="#history">历史与当前义务</a><a href="#copies">多视图重复</a><a href="#measure">组合试验</a><a href="#design">材料组织建议</a><a href="#boundary">判断边界</a></nav></header>
+<section id="dependency"><h2>1. 不能只看单个字段，要看是谁把整片明细带进来</h2><p>源码中，planning 的候选由“明确目标、指定敌人候选、通用前五候选”合并而成；随后每个候选都加入 selected。selected 又决定事实据点、相关舰队，以及来源经济行的展开。外交轮与战略轮共用这条骨架。</p><pre>本轮点名/触发/义务              通用进攻候选
+          \                       /
+           → 候选合并 → selected
+                         ├→ 目标据点详情
+                         ├→ 相关外军舰队
+                         └→ 来源据点经济与可调兵估算
+</pre><p>因此，判断“通用候选本身只有几行”会低估它的上下文影响。但通用候选应继续保留：外交可以比较尚未承诺的合作目标，战略更需要发现新机会。可以缩短的是随它展开的战术分解和部分原始明细，不能把未点名目标一概删掉。</p>${table(['外交中的结构信号','行数','原文字符','如何理解'],[
+ ['未直接被来信、需求、战略、任务、约束或关键资产点名的候选',d.notDirectlyAnchoredCandidates+' / '+d.candidates,fmt(d.notDirectlyAnchoredCandidateChars),'未点名不代表无价值；可能是新的谈判选择'],
+ ['上述候选对应的目标据点详情',fmt(d.unanchoredTargetDetailRows),fmt(d.unanchoredTargetDetailChars),'可能供估算复核，但与已给出的兵力/航程判断重叠'],
+ ['只服务这些候选、且未直接点名的来源经济行',fmt(d.unanchoredExclusiveSourceRows),fmt(d.unanchoredExclusiveSourceChars),'保留来源预算估算，是否需要设施/建矿/区域细节取决于本轮职责'],
+ ['只接触这些目标、未接触当前明确目标且非己方关键来袭的外军舰队',fmt(d.unanchoredCandidateFleetRows),fmt(d.unanchoredCandidateFleetChars),'可考虑摘要，仍要保留潜在介入和在途不确定性']
+ ])}<p>这组不重叠的行内明细共 ${fmt(d.notDirectlyAnchoredCandidateChars+d.unanchoredTargetDetailChars+d.unanchoredExclusiveSourceChars+d.unanchoredCandidateFleetChars)} 字符，只是待审视的关联材料池，不是可删除量。候选真实加入原因没有保存在样本中，无法逐条证明这些详情一定由通用候选单独引入。</p><p>更严格地检查对手关联后，只有 ${d.outsideTopicCandidates} 个外交候选既未直接点名、其所有者也不在当前对象/明确对手集合内，行内共 ${fmt(d.outsideTopicCandidateChars)} 字符。战略调用的未点名候选更常见，而全局选目标正是战略职责，不能按这项信号裁掉。</p></section>
+<section id="history"><h2>2. 历史不仅重复，还混用了当前义务的表达</h2><p>正式合同投影对所有状态统一计算 ticksLeft、ownRemaining、ownTrustReward 等字段，再塞入同一张表。状态虽能表明合同已结束，其他列却仍要求模型反复判断哪些数字已经失效。</p>${table(['终态合同中的数值','外交行数','战略行数','问题'],[
+ ['ticksLeft > 0',d.terminalPositiveTimeRows,s.terminalPositiveTimeRows,'被拒或被反提替代的条款，其名义期限仍可能在未来；不是还可履行的时间窗口'],
+ ['ownRemaining > 0',d.terminalPositiveRemainingRows,s.terminalPositiveRemainingRows,'历史缺额不再等同当前义务；不能累计进当前履约负担'],
+ ['ownTrustReward > 0',d.terminalPotentialRewardRows,s.terminalPotentialRewardRows,'原条款的潜在奖励不代表还可赚取，也不代表已实际获得']
+ ])}<p>更清晰的结构应分为“可响应提案”“生效义务”“历史结果”。结束后的欠额要叫历史违约/未达标结果，实际奖惩来自回执；不能继续作为当前 ownRemaining 混在活跃合同旁。</p><h3>跨调用重复也很明显</h3>${table(['记录','样本内出现行数','按席位＋整行内容去重后的行数','重复行内字符'],[
+ ['终态合同',a.temporalRepetition.contracts.occurrences,a.temporalRepetition.contracts.distinctSeatRows,fmt(a.temporalRepetition.contracts.repeatedCharacters)],
+ ['最近回执',a.temporalRepetition.receipts.occurrences,a.temporalRepetition.receipts.distinctSeatRows,fmt(a.temporalRepetition.receipts.repeatedCharacters)]
+ ])}<p>同一终态合同行最多出现在单席位30次样本中，同一回执最多23次。回执里有 ${fmt(d.receiptRowsOlderThan24+s.receiptRowsOlderThan24)} 行距本轮世界时间已超过24天，行内共 ${fmt(d.receiptCharsOlderThan24+s.receiptCharsOlderThan24)} 字符。这里的24是诊断阈值，不是建议按年龄截断事实。</p><p class="note">这些跨调用重复不能直接删：模型请求通常是独立构造的，没有自动继承上一份JSON的记忆。需要每轮提供当前摘要，并对新增事件使用程序维护的已交付边界。摘要、交付边界和原始审计缺一不可；不能用“模型应该记得”代替事实通道。</p><p>本轮试验保留所有活跃/待签合同，并保留当前外交对象的全部旧条款；只把其他已终止合同整理为按对象、种类、结果、履约情况分组的历史摘要。没有把全部历史当垃圾，也没有恢复任何已失效提案。</p></section>
+<section id="copies"><h2>3. 同一个事实被当成多份材料重复发送</h2><p>serverAgreements 给合同事实；communicationFacts.scopeContracts 再复制一遍；editPolicy 再复制期限、敌人和达标状态；relationAdvice.obligations 再复制剩余贡献和剩余时间；contractFeasibility 再复制当前义务。它们各有新增信息，但共同部分无须反复出现。</p><p>按合同身份核对相同值后，归并试验在外交中减少 ${fmt(d.scenarios.canonicalContracts.saving)} 字符，且短ID条件下收益完全相同。因此这部分是重复事实，不是长ID拼写问题。实际实现应由程序合成一个合同视图，把条款、义务、权限和可行性放在同一处，避免反过来要求模型在多个表之间做连接。</p><p>对手容量是另一种情况：未知不是每个对手都需要一份重复说明。每人保留可见下界，四个“实际完整值未知”在组上声明一次，就能保留知识边界。停战集合也可直接按所有者分组，一次给出合法据点，不再同时给己方清单、对方清单和二者并集。</p><p>这两类组级表达合计在外交中减少 ${fmt(d.scenarios.groupedKnowledge.saving)} 字符（${pct(d.scenarios.groupedKnowledge.saving/d.bodyChars)}），先缩短ID后仍然减少同样数量。原先只盯 null 的4个字母，会低估重复键名、完整对象和说明文字的成本。</p><p>也存在反例：同一分组方案直接套到战略输入会增加 ${fmt(-s.scenarios.groupedKnowledge.saving)} 字符，因为战略中的未知容量本来更简短。因此组合试验只在外交启用该投影。</p></section>
+<section id="measure"><h2>4. 真正的净收益：顺序组合后重新序列化，不叠加估算</h2><p>为了把“信息选择”和“ID长度”拆开，本次先从原文生成统一短ID基线，再对同一份材料应用投影。所有新表头、说明、摘要、计数和引用均计入体积。每个字段增减账本的合计严格等于整份三部分正文的前后差。</p>${table(['投影实验','外交净减字符','外交：短ID后净减','战略净减字符','战略：短ID后净减'],scenarios)}<p>正数为缩短，负数为变长。各独立行不能相加，组合行是实际顺序应用后重算。单独汇总回执在短ID条件下略增，说明它的体积收益主要来自减少旧身份引用，而不是单纯“历史条数很多”；保留方向、时间、因果和知识边界也要付出字符成本。</p>${table(['职责/权限分组','调用数','原正文字符','组合净减','占原正文','短ID后额外净减','占短ID基线'],cohortRows)}<p>全样本组合净减 ${fmt(sumSavings)} 字符（${pct(sumSavings/originalBody)}）。统一短ID后仍额外减少 ${fmt(sumNormalized)} 字符（${pct(sumNormalized/shortBody)}）；如果同时考虑ID缩短，原三部分正文的理想体积合计约减少 ${pct((originalBody-shortBody+sumNormalized)/originalBody)}。这不是Token减少比例，也未计新Schema和生产映射成本。</p><h3>为何不能说“这些都是无用信息”</h3><p>外交中，舰队明细、planning、来源经济、事实舰队、合同、回执、只读任务和关系建议合计占 ${fmt(pool)} 字符（${pct(pool/d.bodyChars)}）。这说明需要按职责重新投影的内容池很大；并不说明 ${pct(pool/d.bodyChars)} 可以删除。全局胜负压力、军事实力、源头预算与可选合作方向仍直接影响谈判。</p><p>投影例子可逐项查看：<a href="relevance-example-diplomacy.json">外交原始材料与建议视图</a>、<a href="relevance-example-strategy.json">战略原始材料与建议视图</a>。建议视图是分析用结构，不符合当前执行wire，不应直接用于调用模型。</p></section>
+<section id="design"><h2>5. 生成端应承担的材料组织工作</h2><ol><li><strong>先确定整轮支持哪些判断。</strong>合并所有触发器、已确认要求、来信和当前义务；仍是整轮判断，不把每个触发器切成独立小任务。把“可以讨论哪些选择”和“可以直接编辑什么”分别表达，不能因为不可编辑就删除所有军事事实。</li><li><strong>全局给当前摘要，相关实体给直接可用的细节。</strong>始终保留胜负窗口、核心资源、关键资产、主要风险和必要未知；对当前目标及合法可编辑舰队保留完整明细。其他舰队给部署/兵力摘要，不能暗示全部空闲或可重复承诺。</li><li><strong>预计算继续存在，原始战术分解按需要展开。</strong>本试验没有删任何进攻候选、成本、航程、来源重叠信息、分类、评分或来源可调兵/留守估算。当前直接目标保留完整候选说明，其他方向给谈判所需的比较值与风险，复杂攻防仍由程序验证。</li><li><strong>合同按阶段表达，同一身份合成一份视图。</strong>当前提案可以响应，生效义务可以履约，历史只解释信任和谈判过程。将实际进度、条件可行性与模型判断分开，停止让过期数值占据当前义务的位置。</li><li><strong>事件有交付边界，认知有明确承接。</strong>程序保存模型已成功消费的事件边界；本轮给新增且相关的真实变化、当前完整摘要及必要历史因果。调用被丢弃/过时或失败时不能推进边界，不能静默丢掉原始来信、未决操作和查账结果。</li><li><strong>给展开来源留内部证据。</strong>在程序审计中记录每项材料由哪个触发、点名目标、硬约束、合同、候选或补查带入，并保留依赖链。不要把这些调试标签全发给AI；它们用于控制台解释“为什么这部分在本轮出现”。当前缺少这份来源，无法把每个未点名对象精确判为低相关。</li></ol><p>建议优先实现组级知识表达与合同视图归并，再处理历史交付和按职责展开；字符串缩短可并行进行，但不能替代材料选择逻辑。</p></section>
+<section id="boundary"><h2>验证范围与没有证明的部分</h2><p>离线检查覆盖 ${verification.sourceFiles} 份冻结原文和 ${verification.scenarioCases} 次投影：原文SHA、整份大小、一级字段差额合计，以及消息、指挥官正文、战略记录、硬约束、关键资产、公共玩家状态、全部名称、进攻候选的成本/来源/时间/评分、来源兵力估算、活跃/待签合同和知识下界等不变量。</p><p>关联判断识别了舰队目的地的字符串与对象格式，涉及当前明确目标的增援、以及全部合法返航舰队均保留明细。最终统计采用这一保留范围，早期较宽松的压缩数字不作为结论。</p><p>与首轮核查相比，当前源码有 ${sourceChanges.length} 个受核对文件变化：${esc(sourceChanges.map(x=>x.path).join('、')||'无')}。当前brief中新增的执行可行性等材料不在冻结样本内，没有混入本次体积数字或判为低相关。<a href="relevance-source-check.json">源码版本核对</a>保留具体哈希。通用候选加入selected并展开关联明细的路径已再次读取确认。</p><p>历史分组会丢掉部分旧条款/单事件审计身份，军事摘要会丢掉其他舰队的单舰方向或候选的部分原始攻防分解。这些都是有代价的投影，不是无损压缩。检查不证明模型质量不下降，不证明与当前Schema兼容，不证明哪些事实永远无关。进一步实施要用固定谈判、违约修复、突发威胁和新战略机会案例复核。</p><p>尤其应避免三种捷径：按“未点名”直接删除；按固定时间或条数裁剪来信/事件；只发增量并假设模型自动记得前文。本次没有修改生产逻辑或启动任何额外模型调用。</p><p class="muted">生成于 ${esc(new Date().toLocaleString('zh-CN',{timeZone:'Asia/Hong_Kong',hour12:false}))}（香港）。字符为UTF-16长度；所有结果只覆盖本冻结样本。</p></section></main></html>`;
+try{
+ const applied=await read('implementation-result.json'),d=applied.replayRoles.diplomacy;
+ const banner='<section id="implementation"><h2>实现与加载验证</h2><p>模型专用投影已接入生成端，并与完整发布校验材料分离。合同阶段、事实归并、任务分类、未知容量分组、无军事编辑权时的明细投影，以及成功发布后的回执消费边界已经实现。</p><p>构建与文档检查通过；'+applied.checks.hybridTests+'项hybrid回归通过。原对局与暂停世界核对一致，联动重启后'+applied.checks.liveSeats+'个运行席位均已用新格式完成并发布真实调用。</p><p>实际投影对原159份样本重放：外交正文净减'+fmt(d.saving)+'字符（'+pct(d.saving/d.before)+'）。该重放不包含新增执行反馈及回执消费机制的运行效果，不代表线上最终Token降幅。</p><p><a href="implementation-result.json">实现验证清单</a> · <a href="'+applied.liveVerification+'">真实调用验证</a> · <a href="'+applied.projectionReplay+'">实际投影重放</a> · <a href="'+applied.testLog+'">回归输出</a></p></section>';
+ html=html.replace('<section id="dependency">',banner+'<section id="dependency">');
+}catch(error){if(error.code!=='ENOENT')throw error;}
+await writeFile(join(out,'relevance-report.html'),html);
+for(const [,href]of html.matchAll(/href="([^"]+)"/g))if(!href.startsWith('#'))assert.ok((await stat(resolve(out,href))).isFile(),href);
+const summary={passed:true,generatedAt:new Date().toISOString(),report:'relevance-report.html',characters:html.length,originalBody,shortBody,combinedSaving:sumSavings,normalizedAdditionalSaving:sumNormalized,allIdealSaving:originalBody-shortBody+sumNormalized,diplomacyContentPool:pool};
+await writeFile(join(out,'relevance-report-check.json'),JSON.stringify(summary,null,2));
+console.log(JSON.stringify(summary));

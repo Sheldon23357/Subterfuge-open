@@ -1,0 +1,63 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,mkdtempSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {once} from 'node:events';
+import {createFleetScenario,type FleetSetup} from '../packages/engine/src/index.js';
+import {createPlayerApi} from '../packages/server/src/player-api.js';
+import {PlayerAccess,SerialExecutor} from '../packages/server/src/player-access.js';
+import {RoomStore} from '../packages/server/src/room-store.js';
+import type {PlayerProtocolHost} from '../packages/server/src/player-protocol-api.js';
+import {advanceRoom,type LabRoom} from '../packages/server/src/planning.js';
+
+test('v2 owner schedule retries survive concurrent requests and execution without extra SQLite writes',async()=>{
+  const dir=mkdtempSync(join(tmpdir(),'subterfuge-schedule-retry-'));
+  const store=new RoomStore(join(dir,'room.sqlite'));
+  const cfg=JSON.parse(readFileSync('examples/fleet-lab.json','utf8')).initial as FleetSetup;
+  const data=PlayerAccess.generate(2);let current:LabRoom={state:createFleetScenario(cfg),scheduled:[],playerRoomId:data.roomId};let revision=store.commit(current,0);
+  const access=new PlayerAccess(data),serial=new SerialExecutor(),repository=store.protocol!;repository.startAuthority(data.roomId,current.state.economy.players.length);
+  const save=(next:LabRoom)=>{revision=store.commit(next,revision);current=next;};
+  const protocol:PlayerProtocolHost={repository,roomId:data.roomId,serial,load:()=>store.load()!,commit:(next,expected)=>{revision=store.commit(next,expected);current=next;return revision;},ownerIdentity:authorization=>{const player=access.identity(authorization);return player===null?null:{roomId:data.roomId,player};}};
+  const server=createPlayerApi({protocol});
+  server.listen(0,'127.0.0.1');await once(server,'listening');
+  const address=server.address();assert.ok(address&&typeof address==='object');
+  const url=`http://127.0.0.1:${address.port}`,headers={Authorization:`Bearer ${data.credentials[0]!.token}`,'Content-Type':'application/json'};
+  const post=(payload:unknown)=>fetch(url+'/player/v2/owner/commands',{method:'POST',headers,body:JSON.stringify(payload)});
+  try{
+    const observed=await (await fetch(url+'/player/v2/owner/observation',{headers})).json();
+    const payload={kind:'schedule',clientCommandId:'retry-plan',payload:{action:{kind:'set-shields',outpostId:'蓝方工厂',enabled:false}},issueTick:102,expectedRevision:observed.revision};
+    const responses=await Promise.all([post(payload),post(payload)]);
+    assert.deepEqual(responses.map(r=>r.status),[200,200]);
+    assert.equal(revision,2);assert.equal(current.scheduledOrders!.length,1);
+    const id=current.scheduledOrders![0]!.id;
+    assert.equal((await post({...payload,issueTick:103})).status,400);
+    assert.equal((await post({...payload,payload:{action:{kind:'cancel-inactivity-warning'}}})).status,400);
+    assert.equal(revision,2);
+    await serial.run(()=>save(advanceRoom(current,102)));
+    assert.equal(current.scheduledOrders![0]!.status,'executed');
+    assert.equal((await post(payload)).status,200);assert.equal(revision,3);
+    assert.equal(current.state.commands.filter(c=>c.id===id).length,1);
+    assert.deepEqual(store.load(),{revision,room:current});
+    assert.equal((await post({...payload,clientCommandId:'new-stale-plan',issueTick:104})).status,409);
+    assert.equal(revision,3);
+    const fresh=await (await fetch(url+'/player/v2/owner/observation',{headers})).json();
+    const launch={kind:'schedule',clientCommandId:'cancel-me',payload:{action:{kind:'launch',source:'蓝方工厂',destination:'红方矿场',drillers:1}},issueTick:104,expectedRevision:fresh.revision};
+    const accepted=await post(launch);assert.equal(accepted.status,200);
+    const planned=await accepted.json(),plan=planned.scheduled.find((p:{status:string})=>p.status==='pending');
+    const cancelBody={kind:'cancel-schedule',clientCommandId:'cancel-'+plan.id,expectedRevision:planned.revision,payload:{id:plan.id}};
+    const cancel=async(player=0)=>{const headers={Authorization:`Bearer ${data.credentials[player]!.token}`,'Content-Type':'application/json'},body=player===0?cancelBody:{...cancelBody,expectedRevision:(await(await fetch(url+'/player/v2/owner/observation',{headers})).json()).revision};return fetch(url+'/player/v2/owner/commands',{method:'POST',headers,body:JSON.stringify(body)});};
+    const cancels=await Promise.all([cancel(),cancel()]);
+    assert.deepEqual(cancels.map(r=>r.status),[200,200]);assert.equal(revision,5);
+    assert.equal(current.state.fleetReservations.length,0);
+    assert.equal(current.scheduledOrders!.find(p=>p.id===plan.id)!.status,'cancelled');
+    assert.equal((await cancel(1)).status,400);assert.equal(revision,5);
+    await serial.run(()=>save(advanceRoom(current,105)));
+    assert.equal((await cancel()).status,200);assert.equal(revision,6);
+    assert.equal(current.state.commands.some(c=>c.id===plan.id),false);
+    assert.deepEqual(store.load(),{revision,room:current});
+  }finally{
+    server.closeAllConnections();await new Promise<void>(resolve=>server.close(()=>resolve()));
+    store.close();rmSync(dir,{recursive:true,force:true});
+  }
+});

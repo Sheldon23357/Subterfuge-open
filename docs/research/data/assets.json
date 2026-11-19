@@ -1,0 +1,1988 @@
+[
+  {
+    "id": "image/Admiral.png",
+    "path": "assets/Admiral-DBguIJF7.png",
+    "kind": "image",
+    "bytes": 8502,
+    "sha256": "38e2bead3bc58c238680dd23231883853a590ca934adf201a2b96eaf81d29052",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/AdmiralPortrait.png",
+    "path": "assets/AdmiralPortrait-maoOIrY2.png",
+    "kind": "image",
+    "bytes": 128573,
+    "sha256": "490ab49b6fd46f20904a65715cc6e49734ad56056373db61df1cc23649cb24ff",
+    "dimensions": {
+      "width": 350,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/ambient.mp3",
+    "path": "assets/ambient-BQ_eb3q_.mp3",
+    "kind": "audio",
+    "bytes": 1005631,
+    "sha256": "8ebc369caf0abf11fd2cfaa28c4cc16b225acf58e33548d6aac6cd8a343686a2",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Assassin.png",
+    "path": "assets/Assassin-Dg1RCDJP.png",
+    "kind": "image",
+    "bytes": 10626,
+    "sha256": "788850017e0ddd8ab003d62fa004496be418ed15d5c982b9a599450099e5b6f8",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/AssassinPortrait.png",
+    "path": "assets/AssassinPortrait-yusB6jEy.png",
+    "kind": "image",
+    "bytes": 95040,
+    "sha256": "64ef05feb9df2d6047fba0db21aa7d6cf4ecab8bc4013fb8afc0acdcfb385825",
+    "dimensions": {
+      "width": 350,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/browserAll-C48PxVdM.js",
+    "path": "assets/browserAll-C48PxVdM.js",
+    "kind": "code_or_data",
+    "bytes": 606,
+    "sha256": "e1067a2395d53de958628eea416e75796de742966ce82c26ec627fb443b09a36",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "font/Cabin-Bold-TTF.ttf",
+    "path": "assets/Cabin-Bold-TTF-RVwEBjQ1.ttf",
+    "kind": "font",
+    "bytes": 95388,
+    "sha256": "7fa97c9fc583923ef85c18852daf4ace8932c200a885f42802e2d094a5c31da4",
+    "dimensions": null,
+    "builtin_reference": false
+  },
+  {
+    "id": "font/Cabin-Regular-TTF.ttf",
+    "path": "assets/Cabin-Regular-TTF-C3LZVz-P.ttf",
+    "kind": "font",
+    "bytes": 97908,
+    "sha256": "197afe180dacba0b98b2750a9cf87e5916879c1558530de9269a6448f0940215",
+    "dimensions": null,
+    "builtin_reference": false
+  },
+  {
+    "id": "code_or_data/assets/capacitor-DTNDnBYz.js",
+    "path": "assets/capacitor-DTNDnBYz.js",
+    "kind": "code_or_data",
+    "bytes": 2029,
+    "sha256": "91f79c5f755cd78a87a7c08cf98f300449f2ad8d3dd73d56776d84b0b3cc5c4d",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/closing-card.jpg",
+    "path": "assets/closing-card-H3piNRtd.jpg",
+    "kind": "image",
+    "bytes": 202426,
+    "sha256": "7a8d90758f867f8c92d95e3fa50800a6e72b94b31dd1390fff2bd63e65537b74",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/core-D-V3LLfz.js",
+    "path": "assets/core-D-V3LLfz.js",
+    "kind": "code_or_data",
+    "bytes": 1252,
+    "sha256": "e615c45167c9ca50dc603ccbe5cc0d10d75ab90f8207bc6c5cb5d3de024e59f2",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Credits.png",
+    "path": "assets/Credits-CUMTbPAV.png",
+    "kind": "image",
+    "bytes": 74937,
+    "sha256": "a6d5036b24b75b433ea2619b2034774e504ce0669632cf6bccb988b942e93489",
+    "dimensions": {
+      "width": 486,
+      "height": 814
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Diplomat.png",
+    "path": "assets/Diplomat-Ho7dxcq9.png",
+    "kind": "image",
+    "bytes": 11521,
+    "sha256": "345ce55e54dda87f94c2027a786cddf94ff99fc2d1a5998205ecb57d0518ff4a",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/DiplomatPortrait.png",
+    "path": "assets/DiplomatPortrait-BZ-4nqBG.png",
+    "kind": "image",
+    "bytes": 23378,
+    "sha256": "f4f053d23ed90af3728b959d7b4ea8a73c8be04215e797841fc13a9ab2843bf6",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/DiplomatWatermark.png",
+    "path": "assets/DiplomatWatermark-CpfZw-eh.png",
+    "kind": "image",
+    "bytes": 17502,
+    "sha256": "0ac7039ae0a1ecb601afea9a2fad6ab31a3563ca974eda1402776096d911abd2",
+    "dimensions": {
+      "width": 298,
+      "height": 297
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/DoubleAgent.png",
+    "path": "assets/DoubleAgent-DTsSu7s9.png",
+    "kind": "image",
+    "bytes": 8165,
+    "sha256": "f47289e73c99b8138b91dabea0f8b104f38da08458ee619e75b21c53582113c4",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/DoubleAgentPortrait.png",
+    "path": "assets/DoubleAgentPortrait-BIL76gMm.png",
+    "kind": "image",
+    "bytes": 22897,
+    "sha256": "0f62dae0b5ebd6f5070cef88a0edb3043386f520b2cfde38c1c0585c54bfc36a",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Engineer_full.png",
+    "path": "assets/Engineer_full-C-FaSJFk.png",
+    "kind": "image",
+    "bytes": 41590,
+    "sha256": "bdb72742ac65b892df0f0c0fa847656fcc6d2d509340ace82cc9ab94ba211d11",
+    "dimensions": {
+      "width": 407,
+      "height": 375
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Engineer.png",
+    "path": "assets/Engineer-D3DdEssB.png",
+    "kind": "image",
+    "bytes": 11322,
+    "sha256": "d63466adf5d6e271ddbb3252cd63ff6c58aba43452b2d42b9a4133874cd6c748",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/EngineerPortrait.png",
+    "path": "assets/EngineerPortrait-CcdN4Sn_.png",
+    "kind": "image",
+    "bytes": 117438,
+    "sha256": "bea84ce4ba424e68242e25673832e5ddb8771246c60a8b1d9f6fbe91d620f387",
+    "dimensions": {
+      "width": 350,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/event-Ds6WFrAt.js",
+    "path": "assets/event-Ds6WFrAt.js",
+    "kind": "code_or_data",
+    "bytes": 1830,
+    "sha256": "15ca8e009fc84048134bf7fc88dd7c15f2f397cf8ff54eb7017a0e86447b2dc2",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/FactoryAbandonedPortrait.png",
+    "path": "assets/FactoryAbandonedPortrait-CfTr89u4.png",
+    "kind": "image",
+    "bytes": 554329,
+    "sha256": "960be634eb5de59955098880d8f0dbffe012b7661947657ea35008cb7b5ebf34",
+    "dimensions": {
+      "width": 565,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/FactoryDestroyedPortrait.png",
+    "path": "assets/FactoryDestroyedPortrait-Dw7zTuo9.png",
+    "kind": "image",
+    "bytes": 607232,
+    "sha256": "0c62c060f44a9c4ddb862a40244410378fbf650fa84dbca3ee2c134b7ba2e4e0",
+    "dimensions": {
+      "width": 565,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/FactoryPortrait.png",
+    "path": "assets/FactoryPortrait-Dr-6FNUm.png",
+    "kind": "image",
+    "bytes": 617872,
+    "sha256": "61c431dbdae7dc0eaa26324b14a0c948528ebd355ebe41a2e6d466a33a3a6da6",
+    "dimensions": {
+      "width": 565,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Foreman.png",
+    "path": "assets/Foreman-Bt-WePlJ.png",
+    "kind": "image",
+    "bytes": 8463,
+    "sha256": "a4171ca7150e909f175252d68c237dcfbdf09c9a50cd9f57f6a9843b9d92e80e",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/ForemanPortrait.png",
+    "path": "assets/ForemanPortrait-pQ0j-k59.png",
+    "kind": "image",
+    "bytes": 29834,
+    "sha256": "b6d4f4d96d9fc51afa0bf527c0f698398fe9b256061ba608cf760062c484303e",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/GameElements.png",
+    "path": "assets/GameElements-Qt-7shUI.png",
+    "kind": "image",
+    "bytes": 464801,
+    "sha256": "cc1162260336cf49ac86ad188ae946bc4ca2027a14548791c900e7fde2ab85bf",
+    "dimensions": {
+      "width": 1024,
+      "height": 2048
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/gen_button_cancel.wav",
+    "path": "assets/gen_button_cancel-4vuokKyc.wav",
+    "kind": "audio",
+    "bytes": 56364,
+    "sha256": "1497e6765fc4b2d450ecafc71b02ca8da2dedf19feddf4b47d31e0e28e56a3ce",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/gen_button_major.wav",
+    "path": "assets/gen_button_major-BFkr6Ekh.wav",
+    "kind": "audio",
+    "bytes": 52716,
+    "sha256": "8307a0171921161401ad82bc038e22303e9d8a938af1872a5e8da04a269b0c6c",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/gen_button_minor.wav",
+    "path": "assets/gen_button_minor-BczE3ESL.wav",
+    "kind": "audio",
+    "bytes": 25452,
+    "sha256": "6671e7b769e915c539098ef2dc5b893ebaed98f64367826a09f40bdd8bf6ef84",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/gen_open_app.wav",
+    "path": "assets/gen_open_app-D6wkvM0J.wav",
+    "kind": "audio",
+    "bytes": 589868,
+    "sha256": "6a730e90640d9f712e6e91907d927eecbc25ac61431945dffda59714e0fd04fc",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/gen_type_01.wav",
+    "path": "assets/gen_type_01-e29_g9vl.wav",
+    "kind": "audio",
+    "bytes": 30200,
+    "sha256": "6b0bc68ec677f86e1c143b4fb418ca4c1debe57053997d2d4cd2109d6d8167c6",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/gen_type_02.wav",
+    "path": "assets/gen_type_02-CFtKqxwA.wav",
+    "kind": "audio",
+    "bytes": 34432,
+    "sha256": "b3921d4c318556a5150320ebb5445dea35413168a7f95a25eedffd778a0d71e8",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/gen_type_03.wav",
+    "path": "assets/gen_type_03-_ir3ee2F.wav",
+    "kind": "audio",
+    "bytes": 36760,
+    "sha256": "61d25e6e1a7b94de0d68a31fc87da5254fbb7329f60534118cd1e99d2fb95d0a",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/gen_type_04.wav",
+    "path": "assets/gen_type_04-BaMzl5fx.wav",
+    "kind": "audio",
+    "bytes": 28164,
+    "sha256": "b9be5aef319d15708611ea28e5918b307dfcbd5de0dc8784236194c73787fd53",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/gen_type_05.wav",
+    "path": "assets/gen_type_05-SEUPzZ3Z.wav",
+    "kind": "audio",
+    "bytes": 30408,
+    "sha256": "58a6f14297e99f27e929ed40700119a5b1a1f74fa82226be58ba27dc1fe4e766",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/gen_type_backspace.wav",
+    "path": "assets/gen_type_backspace-Beuui-Gs.wav",
+    "kind": "audio",
+    "bytes": 28848,
+    "sha256": "e575d69a6d95aaefca6f4b1807a26d6f74f914bb2bdaef60ed6b44f5db408d27",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/gen_type_enter.wav",
+    "path": "assets/gen_type_enter-DtQlF6qV.wav",
+    "kind": "audio",
+    "bytes": 76740,
+    "sha256": "0e66978c8394bdf455c039208d1c1dc9200b5e50be8991821bc458b78f966906",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/General.png",
+    "path": "assets/General-CbpHd5yW.png",
+    "kind": "image",
+    "bytes": 10669,
+    "sha256": "348abf0f198665220e0a4d0f670a9cf68ff0c2eef8e39d14a3bbc85f3e133033",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/GeneralPortrait.png",
+    "path": "assets/GeneralPortrait-BS3P5hv7.png",
+    "kind": "image",
+    "bytes": 151891,
+    "sha256": "968c5a301f3e047c10565b7aaef1f8b163408bf5ad29421307a661ef45b87c14",
+    "dimensions": {
+      "width": 350,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/GeneratorAbandonedPortrait.png",
+    "path": "assets/GeneratorAbandonedPortrait-Cyi5oQl-.png",
+    "kind": "image",
+    "bytes": 450473,
+    "sha256": "0c500518706d8f3c1a9c43e1af47b2f03c588b1943fcd1a210c8089b35953ed2",
+    "dimensions": {
+      "width": 585,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/GeneratorDestroyedPortrait.png",
+    "path": "assets/GeneratorDestroyedPortrait-TrAeVnS0.png",
+    "kind": "image",
+    "bytes": 462454,
+    "sha256": "56a72942456c222b78e1de1eae5cf9a0a7f994b4cfb3ca956476a1ab949c4852",
+    "dimensions": {
+      "width": 585,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/GeneratorPortrait.png",
+    "path": "assets/GeneratorPortrait-GDGTDbCg.png",
+    "kind": "image",
+    "bytes": 454738,
+    "sha256": "2a8bf2b14392ecb1e56884989f40f94cfbfdbffe1b84bb552bb16bd0ef7770ec",
+    "dimensions": {
+      "width": 585,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Helmsman.png",
+    "path": "assets/Helmsman-CJ17SugN.png",
+    "kind": "image",
+    "bytes": 12102,
+    "sha256": "9baf98a3e176c58f88b12afb428410fd90adf45d8654245b0b8891b7a5d0a629",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/HelmsmanPortrait.png",
+    "path": "assets/HelmsmanPortrait-_KuprRxE.png",
+    "kind": "image",
+    "bytes": 111693,
+    "sha256": "2743f1e8ddc8ad53c3568899b2db5792cc9b786ea409bf23e1c7303f850dd579",
+    "dimensions": {
+      "width": 350,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Hypnotist.png",
+    "path": "assets/Hypnotist-DMgPHLgJ.png",
+    "kind": "image",
+    "bytes": 8767,
+    "sha256": "dce36ed2804cbf9eb5a0660a772f1cebf7632089c1b5dd1b57c0e3357f2fec3f",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/HypnotistPortrait.png",
+    "path": "assets/HypnotistPortrait-DZ86zN3D.png",
+    "kind": "image",
+    "bytes": 34336,
+    "sha256": "f6d58013a8ef0dab6d79b2b86539922f5eabe6c71de9efe4ad9c37f12d8415f4",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/iapBackend-yFzR8UP9.js",
+    "path": "assets/iapBackend-yFzR8UP9.js",
+    "kind": "code_or_data",
+    "bytes": 2397,
+    "sha256": "1185071d6b634b90d9e2074b10a6e7747378ec7506160138b6c618aa39ec08c2",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/index-0w6CUwir.css",
+    "path": "assets/index-0w6CUwir.css",
+    "kind": "code_or_data",
+    "bytes": 100712,
+    "sha256": "f6d4c3c52741ac1dc0a453b9c450ab00015329fe95f61c120fe381f9e74f4777",
+    "dimensions": null,
+    "builtin_reference": false
+  },
+  {
+    "id": "code_or_data/assets/index-10f-9cO_.js",
+    "path": "assets/index-10f-9cO_.js",
+    "kind": "code_or_data",
+    "bytes": 763,
+    "sha256": "783e5fd0e20e85189a05350cbd00c09ff01f7b588265bbd1d7fb58fa79ab6fb8",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/index-BBgV8s5T.js",
+    "path": "assets/index-BBgV8s5T.js",
+    "kind": "code_or_data",
+    "bytes": 2781,
+    "sha256": "801e5a2aa358c98fdb4b6c4215b5079640a738f080e0f4f2dc5ddd02dcd6012c",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/index-BeOCPDnn.js",
+    "path": "assets/index-BeOCPDnn.js",
+    "kind": "code_or_data",
+    "bytes": 763,
+    "sha256": "3700ab4cbcd533d2bb716f931c63c365416a363c2e26db421450f3f0f9d1d588",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/index-CpuUzGIQ.js",
+    "path": "assets/index-CpuUzGIQ.js",
+    "kind": "code_or_data",
+    "bytes": 980,
+    "sha256": "a57a103a194642d68cbe51b53f35fd1310e14d7dde047ee0834cb29c7a2365bb",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/index-DgdyVR_2.js",
+    "path": "assets/index-DgdyVR_2.js",
+    "kind": "code_or_data",
+    "bytes": 5298064,
+    "sha256": "ebaf33be9406769a9e6fd4e8684e27c149cf2384248a8e53240239ca4a6e5719",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/index-sjcBBUU8.js",
+    "path": "assets/index-sjcBBUU8.js",
+    "kind": "code_or_data",
+    "bytes": 530,
+    "sha256": "61abc2652da80f3756ae01469dfa96f0e266b52896ed1d634e6dafcbb956e4ca",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/index-wMyEtiiV.js",
+    "path": "assets/index-wMyEtiiV.js",
+    "kind": "code_or_data",
+    "bytes": 560,
+    "sha256": "d10f4cd26d70428f70f05cd4d42132e0b35bd32a0b99e4ecda44e33b2cfdf7d8",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Infiltrator.png",
+    "path": "assets/Infiltrator-Dhj8zpP1.png",
+    "kind": "image",
+    "bytes": 9833,
+    "sha256": "59c994deb6b1cc80573cf78e0ba244e3b91771a68508478ab4ded5d4024ebb61",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/InfiltratorPortrait.png",
+    "path": "assets/InfiltratorPortrait-DtGVqF4r.png",
+    "kind": "image",
+    "bytes": 179278,
+    "sha256": "d9838ddaf1b8e23041b12528ea56e8d63f7c2c29154ab199341952553eb4c179",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_cancel_launch.wav",
+    "path": "assets/infopanel_cancel_launch-Db5InVxQ.wav",
+    "kind": "audio",
+    "bytes": 114732,
+    "sha256": "fe9604e87f9123840849cbe0de96d0a2fad54668bb47047f958d2b4631b895f5",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_drill_mine_cancel.wav",
+    "path": "assets/infopanel_drill_mine_cancel-DlhncpVA.wav",
+    "kind": "audio",
+    "bytes": 290860,
+    "sha256": "75a479575220e33f24b045a410260d1fbd76e3dc4ebf4d6731ffbbba13a287d2",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_drill_mine.wav",
+    "path": "assets/infopanel_drill_mine-B4776GwZ.wav",
+    "kind": "audio",
+    "bytes": 189996,
+    "sha256": "efa9e8dd1d073911685fcb1b092d886b71301b94d0ef0c9f2c397a387b9ad196",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_gift_cancel.wav",
+    "path": "assets/infopanel_gift_cancel-B15hRctR.wav",
+    "kind": "audio",
+    "bytes": 97324,
+    "sha256": "f2d96dfadbbebaacac6a4706896aadc08b641e6169ccf46ceab355d6b32f8cc3",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_gift.wav",
+    "path": "assets/infopanel_gift-CuNTo5iR.wav",
+    "kind": "audio",
+    "bytes": 166700,
+    "sha256": "3ac437336d9afe026be9cf4051975f613a8552936817d39fc5239bebd3a790b1",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_hire_cancel.wav",
+    "path": "assets/infopanel_hire_cancel-EUnDKhbO.wav",
+    "kind": "audio",
+    "bytes": 102852,
+    "sha256": "54ad18908bedaab038ff43ae5a1c003ca96df1e15709afe986907aac9f49eae4",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_hire.wav",
+    "path": "assets/infopanel_hire-VOdl1VER.wav",
+    "kind": "audio",
+    "bytes": 213292,
+    "sha256": "b8bb5d20dc884ee0878293462378c93fbcc89d5e663df5a930968cb9e25745d0",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_jump_to.wav",
+    "path": "assets/infopanel_jump_to-BivDUaHZ.wav",
+    "kind": "audio",
+    "bytes": 108620,
+    "sha256": "78edfbab0d54c6c4cf44c705d8c14ac362de81822a4db94e8de7abc6a7637776",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_load_drillers.wav",
+    "path": "assets/infopanel_load_drillers-PiONTzxz.wav",
+    "kind": "audio",
+    "bytes": 24748,
+    "sha256": "641f2b496257ace72903bd8f7f05603330e0159ce9cc8daa32528aed93c924e4",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_load_specialist.wav",
+    "path": "assets/infopanel_load_specialist-BDLBErBq.wav",
+    "kind": "audio",
+    "bytes": 118060,
+    "sha256": "284816b40bebc1234c2affd2cea6345ef003ad2872c134afd18e410c14940d18",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_promote_cancel.wav",
+    "path": "assets/infopanel_promote_cancel-DPPHzBGg.wav",
+    "kind": "audio",
+    "bytes": 271916,
+    "sha256": "47bdec399177409bf36f0d4006a1aee3827c48857c5c0779f0df03afd50dec4b",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_promote.wav",
+    "path": "assets/infopanel_promote-CQRIcQKV.wav",
+    "kind": "audio",
+    "bytes": 264748,
+    "sha256": "1f37f333f3b3daeb76bd05afe64361de8e2cadc29cf5134a0f6f688654418a94",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_release_captive.wav",
+    "path": "assets/infopanel_release_captive-DLQnKw5-.wav",
+    "kind": "audio",
+    "bytes": 209196,
+    "sha256": "8228248ff11bc27e28726fc798541e6f021421b7f37d32566a71dc8ef9eba3e6",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_shields_disable.wav",
+    "path": "assets/infopanel_shields_disable-CfI2-1Dx.wav",
+    "kind": "audio",
+    "bytes": 294956,
+    "sha256": "fabc24a2485e6e157f12c091fc313204eaf608a4549ded8e385ad184b63e0e00",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_shields_enable.wav",
+    "path": "assets/infopanel_shields_enable-DzE1nQd2.wav",
+    "kind": "audio",
+    "bytes": 352652,
+    "sha256": "73639f62d5ff3f11b10ea9f2db5c99a48565fb5e8a4708bca9747493a24ba209",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_slide_in.wav",
+    "path": "assets/infopanel_slide_in-2mcExeVX.wav",
+    "kind": "audio",
+    "bytes": 81452,
+    "sha256": "d8ab578a1061e588e2d45bf60e701080c7d8bb079ef52ac9286fe0a31331d364",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_slide_out.wav",
+    "path": "assets/infopanel_slide_out-C5OTSM4q.wav",
+    "kind": "audio",
+    "bytes": 113080,
+    "sha256": "07481f89ee34e79ed2ca10652b172cef1eb3aad8144a2733d8411dcbdc0d018c",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_unload_drillers.wav",
+    "path": "assets/infopanel_unload_drillers-DRSh1oLM.wav",
+    "kind": "audio",
+    "bytes": 24748,
+    "sha256": "2489048ad54b647ee08a8aea8701d07011434179e2ec77e8005b1f93ff4cfe45",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/infopanel_unload_specialist.wav",
+    "path": "assets/infopanel_unload_specialist-DzNjSbHb.wav",
+    "kind": "audio",
+    "bytes": 100220,
+    "sha256": "efdef7695530a4a32d75c67f34fc363debc4d85ee51811c4d2c047ddc1ce4f9b",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Inspector.png",
+    "path": "assets/Inspector-BT1tLxkA.png",
+    "kind": "image",
+    "bytes": 10389,
+    "sha256": "11edf600cb9913b32c48345d08e15ea1c8b67e86446c6aa04f8185217825379a",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/InspectorPortrait.png",
+    "path": "assets/InspectorPortrait-CuNmAz0I.png",
+    "kind": "image",
+    "bytes": 128388,
+    "sha256": "e14ef850572e09336fe5795cc244c2fc66fd379ec77a118b83f0b5a9ffc7c672",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/inspectPuzzle-C_LGBeOD.js",
+    "path": "assets/inspectPuzzle-C_LGBeOD.js",
+    "kind": "code_or_data",
+    "bytes": 973,
+    "sha256": "b4780d5e90ee25680804863930dd5293a51eb374a8ecb9dd618bb62dfe976e93",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/IntelligenceOfficer.png",
+    "path": "assets/IntelligenceOfficer-Dn4WsLtd.png",
+    "kind": "image",
+    "bytes": 13262,
+    "sha256": "2d23c2e1b21a2d7be156ad9a48fb2de8342fbdc6691e3284079b6f6d99c2a039",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/IntelligenceOfficerPortrait.png",
+    "path": "assets/IntelligenceOfficerPortrait-DZEXqtJ7.png",
+    "kind": "image",
+    "bytes": 128060,
+    "sha256": "c708cefa4b4968bdde477b3140bc76998778787e2ace19d4eb074fd818948fca",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/InviteBg.png",
+    "path": "assets/InviteBg-CM-aOJdp.png",
+    "kind": "image",
+    "bytes": 59876,
+    "sha256": "915c8d345c231227a3dd34812ee2c0c695f038391080e61f36befb70c2599301",
+    "dimensions": {
+      "width": 600,
+      "height": 590
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/King.png",
+    "path": "assets/King-DXXXTGN1.png",
+    "kind": "image",
+    "bytes": 6203,
+    "sha256": "63fd0b68ebd9e89feaac518c94027b811cddb3826c0bd8c7171da3095b226fb3",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/KingPortrait.png",
+    "path": "assets/KingPortrait-SXudP1MH.png",
+    "kind": "image",
+    "bytes": 106274,
+    "sha256": "7d66a008c6953091ff77168461af84dfe4f1bb1444c18947d2d0696587ae85fc",
+    "dimensions": {
+      "width": 350,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/L1big.png",
+    "path": "assets/L1big-CbvJjf5D.png",
+    "kind": "image",
+    "bytes": 7808,
+    "sha256": "804f85fbeba8cc1bcbbd8f54e59fbd7de8ef64dbf8561325a15250c9d3814122",
+    "dimensions": {
+      "width": 300,
+      "height": 430
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/L2big.png",
+    "path": "assets/L2big-CdJDflV0.png",
+    "kind": "image",
+    "bytes": 9834,
+    "sha256": "42ed48472ea08a99eb4506f917d2d0dd4fa1f8a36069c53e4166342a72ebce8e",
+    "dimensions": {
+      "width": 300,
+      "height": 430
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/L3big.png",
+    "path": "assets/L3big-BeFaY2gb.png",
+    "kind": "image",
+    "bytes": 10203,
+    "sha256": "6b492a88a93dbbfd77a71b1fdec69932623d25c954713c6821a6f17be555463f",
+    "dimensions": {
+      "width": 300,
+      "height": 430
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Lieutenant.png",
+    "path": "assets/Lieutenant-W6xUVQHY.png",
+    "kind": "image",
+    "bytes": 8856,
+    "sha256": "193f2b78161ae70e0a70ded6a6099f131669d10ff455a7cfa66b1a8b7569a95f",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/LieutenantPortrait.png",
+    "path": "assets/LieutenantPortrait-DDOy9Vrj.png",
+    "kind": "image",
+    "bytes": 93418,
+    "sha256": "40b0419e80e5fe332100d5cc5542125955515d3f1c39da42577f205aae65eddd",
+    "dimensions": {
+      "width": 350,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_launch_sub_begin.wav",
+    "path": "assets/map_launch_sub_begin-C2DlMwGy.wav",
+    "kind": "audio",
+    "bytes": 80820,
+    "sha256": "d61ea6899210e7cae5afad7ed86b9dc0fd4bf72f5ad733b7bc5a359987dd4c94",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_launch_sub_drag.wav",
+    "path": "assets/map_launch_sub_drag-Bk010RFb.wav",
+    "kind": "audio",
+    "bytes": 16812,
+    "sha256": "8991bb3d1c08135b93914fcd514a9553883f9d91bda806612722caecb522c9d7",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_launch_sub_fail.wav",
+    "path": "assets/map_launch_sub_fail-C1iQtySj.wav",
+    "kind": "audio",
+    "bytes": 29996,
+    "sha256": "1816af754fefb476e477b234dd6369264bb01a890abc43d44b3bc86011b3ff5d",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_launch_sub_snap.wav",
+    "path": "assets/map_launch_sub_snap-BzG9tv2r.wav",
+    "kind": "audio",
+    "bytes": 23596,
+    "sha256": "d194ba6dcdd9d045a002e678f47fe4ba87ee7b44105c2537f63ddcee3155b5a0",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_launch_sub_success.wav",
+    "path": "assets/map_launch_sub_success-K8BeJoky.wav",
+    "kind": "audio",
+    "bytes": 195116,
+    "sha256": "1cb1ce725a945a49c6a35abf7df0e77b26d73207b709872ab561f4062357e8fb",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_launch_sub_unsnap.wav",
+    "path": "assets/map_launch_sub_unsnap-DpXPwE0P.wav",
+    "kind": "audio",
+    "bytes": 13224,
+    "sha256": "ce6e076fd1bf79c301541afbf59f1ecff2ca962be2889f7bac91b1970ce29f51",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_openapp.wav",
+    "path": "assets/map_openapp-qW_wHtL9.wav",
+    "kind": "audio",
+    "bytes": 122752,
+    "sha256": "4d294dd9029016034e172124b478bbeb53a4fb026497cc3e9f116856ed4dda7a",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_pan.wav",
+    "path": "assets/map_pan-D_rNbK_B.wav",
+    "kind": "audio",
+    "bytes": 31532,
+    "sha256": "b566abf9e749ad724103acc17d395b15edcd4dc602a64cd9d60f65193817350a",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_select_factory.wav",
+    "path": "assets/map_select_factory-DY-_nam4.wav",
+    "kind": "audio",
+    "bytes": 151340,
+    "sha256": "c4dc08c87568c90783e96dfc0944ecba0dd02d1ac0d87c989c3fda3ff6624f45",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_select_generator.wav",
+    "path": "assets/map_select_generator-bIS07MPx.wav",
+    "kind": "audio",
+    "bytes": 210336,
+    "sha256": "9aa55a907e2c58a0845f10b44c72cfa30453c64b5b58b87bd4982ae736814088",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_select_mine.wav",
+    "path": "assets/map_select_mine-O9NsIWbI.wav",
+    "kind": "audio",
+    "bytes": 244780,
+    "sha256": "d77b57ab903f0c3c2619d628cc773c004213f7dcae726442e90423aee7b85430",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_select_outpost.wav",
+    "path": "assets/map_select_outpost-CLeMGdnx.wav",
+    "kind": "audio",
+    "bytes": 80820,
+    "sha256": "55304dfc54bc674b4597410053b04df990f4d517a6d43961ff904927e02ed4c9",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_select_outpostdestroyed.wav",
+    "path": "assets/map_select_outpostdestroyed-DN4tF-5C.wav",
+    "kind": "audio",
+    "bytes": 233004,
+    "sha256": "48b357dd770ff0ea672b253925fee67fb2817dfcacfc3383c0b709f93a4e6b63",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_select_outpostunknown.wav",
+    "path": "assets/map_select_outpostunknown-BDv4iI9l.wav",
+    "kind": "audio",
+    "bytes": 173100,
+    "sha256": "946b4b889ddd9d9d1bfc8657ccbfc412c8c5a77ee5c2377a3bc21180cfc43adc",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_select_specialist.wav",
+    "path": "assets/map_select_specialist-rIlhdKaL.wav",
+    "kind": "audio",
+    "bytes": 62380,
+    "sha256": "aad4719701bffd10d141cc6329009cfa89a4a86bad9007637f1ce953cfd6341d",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_select_sub.wav",
+    "path": "assets/map_select_sub-BBJq1sDn.wav",
+    "kind": "audio",
+    "bytes": 333868,
+    "sha256": "7d22b2e6091accf5ae6615c6fc7983ed36ac5041fe50ffab35b0aa28d57738ea",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_timemachine_backward_01.wav",
+    "path": "assets/map_timemachine_backward_01-Da2A2obn.wav",
+    "kind": "audio",
+    "bytes": 30252,
+    "sha256": "111597faafe1db9990a7df733795a6e0aca6db575259cd29bc1463503285c083",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_timemachine_backward_02.wav",
+    "path": "assets/map_timemachine_backward_02-D8prnKdx.wav",
+    "kind": "audio",
+    "bytes": 30252,
+    "sha256": "1fbd8e47e9c256df9977f2fd1e136e05fc0d66e66677643bdef549a02993dfe8",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_timemachine_forward_01.wav",
+    "path": "assets/map_timemachine_forward_01-DKDdhyks.wav",
+    "kind": "audio",
+    "bytes": 30252,
+    "sha256": "05d9df844257247b023efbca8fb2ebb2031cc65b04c8b94c2d14801ec19023a0",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_timemachine_forward_02.wav",
+    "path": "assets/map_timemachine_forward_02-CN6Iv7C4.wav",
+    "kind": "audio",
+    "bytes": 30252,
+    "sha256": "e6242f213f8df8d5f5dc02275d8636f736fea343117e470a1cb36fb2d4bf5973",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_timemachine_tick_backward.wav",
+    "path": "assets/map_timemachine_tick_backward-D8_S77Mf.wav",
+    "kind": "audio",
+    "bytes": 78124,
+    "sha256": "5da8b57209723fa77e281030effea5dd5bb2f4343773ffc370c3a91a0a127b6f",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_timemachine_tick_forward.wav",
+    "path": "assets/map_timemachine_tick_forward-CJM2f9EV.wav",
+    "kind": "audio",
+    "bytes": 91948,
+    "sha256": "c5b9ed208b2427b74ddaf2b9dcc250226a11fb803385fa2a654588a33a5e1750",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_zoom_in.wav",
+    "path": "assets/map_zoom_in-wC8L2Zh9.wav",
+    "kind": "audio",
+    "bytes": 17964,
+    "sha256": "61b86779761a714d6f9d916298a0420686a19e652ab65450f04a8cee0665675c",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/map_zoom_out.wav",
+    "path": "assets/map_zoom_out-CYvs1yMI.wav",
+    "kind": "audio",
+    "bytes": 13740,
+    "sha256": "ce6f1f3f42c519291346e1a56d06caa7a82f92809e69a8dc753e19ab8bb729ea",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Martyr.png",
+    "path": "assets/Martyr-DCy9xF3_.png",
+    "kind": "image",
+    "bytes": 5837,
+    "sha256": "ff3ff77f4c33747094fd40dccda08c33d51fff7c0fec525060292b74f0de37af",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/MartyrPortrait.png",
+    "path": "assets/MartyrPortrait-CPHb2Iho.png",
+    "kind": "image",
+    "bytes": 42406,
+    "sha256": "0cdaa6b97cd90519330d9b2b36502573ec332a7eaf6e735968fce94b902a14a1",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/menu_click_back.wav",
+    "path": "assets/menu_click_back-DPwwCW2p.wav",
+    "kind": "audio",
+    "bytes": 31304,
+    "sha256": "2d134c87a7ba9b96c8116b2c972e6a92a58e7d9ae2c6c23a2bcbdea20ec0fa37",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/menu_click_gamesactive.wav",
+    "path": "assets/menu_click_gamesactive-BFn7Vx06.wav",
+    "kind": "audio",
+    "bytes": 80428,
+    "sha256": "541de4ea9ea40fe99d29f5146c46868a8d2f16cbb04efdb88d5037f3dce088c7",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/menu_click_main.wav",
+    "path": "assets/menu_click_main-C99Lt7n6.wav",
+    "kind": "audio",
+    "bytes": 24448,
+    "sha256": "148f1207a0f107a3d0139f831cb9602b42c5a72f40b357e9c59a3288d74c1c35",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/menu_click_tab.wav",
+    "path": "assets/menu_click_tab-CdGdr95N.wav",
+    "kind": "audio",
+    "bytes": 56364,
+    "sha256": "58843c4c61a151e4faaa13beaab86fdcc3e568053b2f9457b15101e6383d5c02",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/menu_counter_down.wav",
+    "path": "assets/menu_counter_down-DpjD5QeO.wav",
+    "kind": "audio",
+    "bytes": 21696,
+    "sha256": "4c3e381fda674c2cd8501861a460f059cc442f12940b28908ad1728370ae810b",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/menu_counter_up.wav",
+    "path": "assets/menu_counter_up-DwxuqaJU.wav",
+    "kind": "audio",
+    "bytes": 21776,
+    "sha256": "a4bc36940b3db900d2b2c4b272f69ec2457a762d9606c1c1ba6f0029e31be329",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/menu_grabslider.wav",
+    "path": "assets/menu_grabslider-CjeKX_nG.wav",
+    "kind": "audio",
+    "bytes": 9004,
+    "sha256": "e1b6fc8151d6a0eac52b24654b66b95556af923c9a3dd65459d82853843f9b84",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/menu_sliderleft.wav",
+    "path": "assets/menu_sliderleft-BzDXxPrf.wav",
+    "kind": "audio",
+    "bytes": 113100,
+    "sha256": "7bd858f09fa8b100c2131a05ec9b69d534e22f68598340df58fae03ee8dcee2a",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/menu_sliderright.wav",
+    "path": "assets/menu_sliderright-Cjzw9wEl.wav",
+    "kind": "audio",
+    "bytes": 113612,
+    "sha256": "5d173ce170e9c2cec5e3d58a8a99db964e4d9843f73ce2bbf65853ce13493735",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/MineAbandonedPortrait.png",
+    "path": "assets/MineAbandonedPortrait-ByhfFku1.png",
+    "kind": "image",
+    "bytes": 352254,
+    "sha256": "e93f974c571e8797f8f059d0dbe5885c15553d7087c37302287dea6978d4ba2f",
+    "dimensions": {
+      "width": 585,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/MineDestroyedPortrait.png",
+    "path": "assets/MineDestroyedPortrait-Ca9eDknq.png",
+    "kind": "image",
+    "bytes": 415754,
+    "sha256": "c0e93aaa490498fe5fad7cb0d5c2114041f8d9834d053c3b962ef17b57dd2aee",
+    "dimensions": {
+      "width": 585,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/MinePortrait.png",
+    "path": "assets/MinePortrait-CJrmz8QG.png",
+    "kind": "image",
+    "bytes": 439355,
+    "sha256": "ead533385e39b438d0f76bfc90acc78c6977d15701c0f38025c1031e468a2447",
+    "dimensions": {
+      "width": 585,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/MineWatermark.png",
+    "path": "assets/MineWatermark-uNgmdNYx.png",
+    "kind": "image",
+    "bytes": 4206,
+    "sha256": "5dff91585ecf694e11f32d7939b0cf6b8f05a64062cf56ce6476ceae3fd964f1",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/MinisterOfEnergy.png",
+    "path": "assets/MinisterOfEnergy-D7q5ueNu.png",
+    "kind": "image",
+    "bytes": 9757,
+    "sha256": "8374bba0e224c381d73e4a053a04accbdab51338745a0b907d3413450755e032",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/MinisterOfEnergyPortrait.png",
+    "path": "assets/MinisterOfEnergyPortrait-eVdPfBWQ.png",
+    "kind": "image",
+    "bytes": 109219,
+    "sha256": "895bbc5d6e29392baa927bc9eb8a7e0c214d7c1c7839c7638cda4ccbb18e5576",
+    "dimensions": {
+      "width": 350,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Navigator.png",
+    "path": "assets/Navigator-j_3UQ84r.png",
+    "kind": "image",
+    "bytes": 8620,
+    "sha256": "6b656453cd4f63b0fee74edeab45015f79eabbd18476e808a823e725eb58641c",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/NavigatorPortrait.png",
+    "path": "assets/NavigatorPortrait-BZoKZ1Vm.png",
+    "kind": "image",
+    "bytes": 140610,
+    "sha256": "5f397420e5b0b905c1a493b8179a3ed5c3d38de845f4fc99ed926f18885f204e",
+    "dimensions": {
+      "width": 350,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/notification_alert.wav",
+    "path": "assets/notification_alert-qrb63fhT.wav",
+    "kind": "audio",
+    "bytes": 158832,
+    "sha256": "4b691936b4002dcc68a70f31db89673ab6df67cc41953084fd87e9e33d73dc32",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/notification_message.wav",
+    "path": "assets/notification_message-6MVmzBbz.wav",
+    "kind": "audio",
+    "bytes": 37440,
+    "sha256": "730143cdee1ecf64bf38040d9c6eabddc2ce11f2b242034eace192035dca00e2",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/patron-badge.png",
+    "path": "assets/patron-badge-D_RyO0Dt.png",
+    "kind": "image",
+    "bytes": 26095,
+    "sha256": "cdd2be6ae21ecf76d46eba34a8e99a3ef2e40a124bcba729deff82ab7428ea26",
+    "dimensions": {
+      "width": 128,
+      "height": 128
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Pirate.png",
+    "path": "assets/Pirate-8u3yGKtG.png",
+    "kind": "image",
+    "bytes": 13542,
+    "sha256": "9b03591a2e4f640024a7c7763414fb69fa17ffb2e1c8bcfa1e59b97e27b6db48",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/PiratePortrait.png",
+    "path": "assets/PiratePortrait-C_RPD2rr.png",
+    "kind": "image",
+    "bytes": 118596,
+    "sha256": "89c9f5257b443cb3d8a7d889242b537c18a2296827d36b94d210db1c9955e8aa",
+    "dimensions": {
+      "width": 350,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Princess.png",
+    "path": "assets/Princess-C6GvK-hd.png",
+    "kind": "image",
+    "bytes": 9492,
+    "sha256": "309b43315b5e160aaa09f407319989e1c498828193358bef205fc7991774136a",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/PrincessPortrait.png",
+    "path": "assets/PrincessPortrait-Byvq8byg.png",
+    "kind": "image",
+    "bytes": 121271,
+    "sha256": "cc87c0b7864b53e136c2abd8637452da90528fcaffe991390656a902af45e7e9",
+    "dimensions": {
+      "width": 350,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/puzzle_solved_anim.wav",
+    "path": "assets/puzzle_solved_anim-De9RTQzy.wav",
+    "kind": "audio",
+    "bytes": 401936,
+    "sha256": "3ce4d8adcf5736ebbd51b79a1e63ee321792b328b585dcd122a20c7660ddc092",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/puzzle_solved_begin.wav",
+    "path": "assets/puzzle_solved_begin-DsXVc5Le.wav",
+    "kind": "audio",
+    "bytes": 241708,
+    "sha256": "4fde35aa55c534a82ee36e1c0f78e238664dda21795e607962274883953a0429",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/puzzle_solved_end.wav",
+    "path": "assets/puzzle_solved_end-B118gSG1.wav",
+    "kind": "audio",
+    "bytes": 571436,
+    "sha256": "1e6c389c15cda9b4b294284bf7865191044119572f81b617b962e4fcfe2c9d0c",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Queen.png",
+    "path": "assets/Queen-B-SRb8gE.png",
+    "kind": "image",
+    "bytes": 14583,
+    "sha256": "b1eaf1e833023f80fe7d31d92c49f45da94cd96696237030882c57d1b6a3283e",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/QueenPortrait.png",
+    "path": "assets/QueenPortrait-B0RcN8zX.png",
+    "kind": "image",
+    "bytes": 41512,
+    "sha256": "bb0dde390525164d18b78f32b90084948a5a6f39ff24069d49fa3b8a1737ffe7",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/ReveredElder.png",
+    "path": "assets/ReveredElder-CodGlL7O.png",
+    "kind": "image",
+    "bytes": 9020,
+    "sha256": "a72b686eceb63b2e92d90d69ee6e3504691b4d3546b3de43ba41f6da389584a6",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/ReveredElderPortrait.png",
+    "path": "assets/ReveredElderPortrait-CvuTj5Cn.png",
+    "kind": "image",
+    "bytes": 34849,
+    "sha256": "1be60e6d9230a34cc8203ffa2cd8e10207bdd4cefe78c8ef0a0e4ffd3c5f1649",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Saboteur.png",
+    "path": "assets/Saboteur-BfHcagl0.png",
+    "kind": "image",
+    "bytes": 10933,
+    "sha256": "a2f11e30095d71a1020d1923739a3dc9adc5a12dfcf58981d070fb9ebe68bbc8",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/SaboteurPortrait.png",
+    "path": "assets/SaboteurPortrait-ChFl4JUU.png",
+    "kind": "image",
+    "bytes": 26126,
+    "sha256": "51af94ba5baefd66b1aa9b70e367c56a57a632e810f9741000893283bd133127",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Sea.png",
+    "path": "assets/Sea-8Q-aXb55.png",
+    "kind": "image",
+    "bytes": 570088,
+    "sha256": "f7ec5a41ba3d4d03ff61a19cba08fd349a9e52135222782aafcabf0026f6127d",
+    "dimensions": {
+      "width": 2048,
+      "height": 2048
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/secret-plan-logo.png",
+    "path": "assets/secret-plan-logo-oZLurA2Z.png",
+    "kind": "image",
+    "bytes": 37648,
+    "sha256": "8c8697a2ea15a9e38cbe566f851b71c57555f073813e4437b49e23fe3bef8002",
+    "dimensions": {
+      "width": 1034,
+      "height": 342
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/SecurityChief.png",
+    "path": "assets/SecurityChief-DIdMwzIE.png",
+    "kind": "image",
+    "bytes": 15248,
+    "sha256": "39c79cfd141b163c1ad871710da1acde053a9f8ee7e35aed4692dbf7f3ca3d4d",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/SecurityChiefPortrait.png",
+    "path": "assets/SecurityChiefPortrait-vcJiPchH.png",
+    "kind": "image",
+    "bytes": 28330,
+    "sha256": "3459002ff518b9443760f14aef6fdb9d1128fff5a8d67b5060d4be59448e293a",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Sentry_full.png",
+    "path": "assets/Sentry_full-B7mPnEIm.png",
+    "kind": "image",
+    "bytes": 354161,
+    "sha256": "ebd9076a44bf99a387626ba27ac4da2d0e98633d246344fa663df651fdcecbc3",
+    "dimensions": {
+      "width": 502,
+      "height": 375
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Sentry.png",
+    "path": "assets/Sentry-D6iRm5e2.png",
+    "kind": "image",
+    "bytes": 9522,
+    "sha256": "725382f515fd278e1aac59648a628252343812a8c2514c790e8abb996c58d906",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/SentryPortrait.png",
+    "path": "assets/SentryPortrait-CkH5WsEw.png",
+    "kind": "image",
+    "bytes": 139252,
+    "sha256": "4996015c31b5860a187e384dad9ebd05ffea36c9b195700f189443e164f156f9",
+    "dimensions": {
+      "width": 350,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Smuggler.png",
+    "path": "assets/Smuggler-C8_P6Bci.png",
+    "kind": "image",
+    "bytes": 7946,
+    "sha256": "f5e88e6c02aad3a5a2f52b42b35740904d090754672479fb96eadecc2b4d9964",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/SmugglerPortrait.png",
+    "path": "assets/SmugglerPortrait-RF3cEMLM.png",
+    "kind": "image",
+    "bytes": 36566,
+    "sha256": "4eff11048b7c35151094aa0301f1ed46750c46a0407d70c4e2b09c575db4cdc1",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/SpecialistAtlas.png",
+    "path": "assets/SpecialistAtlas-BQysp94a.png",
+    "kind": "image",
+    "bytes": 52090,
+    "sha256": "a658b00443a58f06941b23d3bec5d9515e33feb698dd071bb853cb0718c150d0",
+    "dimensions": {
+      "width": 506,
+      "height": 475
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/SubPortrait.png",
+    "path": "assets/SubPortrait-EFwqziq4.png",
+    "kind": "image",
+    "bytes": 345843,
+    "sha256": "3b3655c011ce82e6c46fa0a68e23698c3d431b9e4a5e531692f04428639e858e",
+    "dimensions": {
+      "width": 585,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/tauri-BWwxQLn1.js",
+    "path": "assets/tauri-BWwxQLn1.js",
+    "kind": "code_or_data",
+    "bytes": 3171,
+    "sha256": "559cc2a83a65fdc0fcde8dce687ea2392cb59623ba2b6e2c2e2df4001aa7da18",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Thief_full.png",
+    "path": "assets/Thief_full-DkmyMzvN.png",
+    "kind": "image",
+    "bytes": 206146,
+    "sha256": "8149f93f990e620b9e6bd47a6344b0a8b2f21d8c68ed7c4fe8f045a8f5e6483e",
+    "dimensions": {
+      "width": 360,
+      "height": 360
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Thief.png",
+    "path": "assets/Thief-DgivgBea.png",
+    "kind": "image",
+    "bytes": 6458,
+    "sha256": "da9841e1b9ec78d7e7821de881c272622fdc35b74b553acaafddfc2bed60d541",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/ThiefPortrait.png",
+    "path": "assets/ThiefPortrait-BzqawO97.png",
+    "kind": "image",
+    "bytes": 27624,
+    "sha256": "dd3db8b3c3eade640782834584e7426699e6ad5daf3f27e6ecfac99f54360dd9",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Tinkerer.png",
+    "path": "assets/Tinkerer-BjgcHYEs.png",
+    "kind": "image",
+    "bytes": 8283,
+    "sha256": "ef7f84d955ca675e7deeded3297ac2ddfb83c128a696ae56b8f7827049290d5b",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/TinkererPortrait.png",
+    "path": "assets/TinkererPortrait-D-8bZkf9.png",
+    "kind": "image",
+    "bytes": 152810,
+    "sha256": "3af3cc892b2b009d2db1410ee1d23c9b7f5583f88c48e322ce34963f254ddaa0",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/TycoonPortrait.png",
+    "path": "assets/TycoonPortrait-C3Yu7i80.png",
+    "kind": "image",
+    "bytes": 159802,
+    "sha256": "60d58208636570d82db28233ad28972ebabd83d5d2f88b9cba73536522b6f495",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/UnknownAbandonedPortrait.png",
+    "path": "assets/UnknownAbandonedPortrait-nYsaQq9H.png",
+    "kind": "image",
+    "bytes": 290132,
+    "sha256": "eab660f73635219af0697fcbf1d88a890f675d51cd17d5d33daa9ba07889134a",
+    "dimensions": {
+      "width": 585,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/UnknownPortrait.png",
+    "path": "assets/UnknownPortrait-BQMX8BUl.png",
+    "kind": "image",
+    "bytes": 300619,
+    "sha256": "041d80d22c5bffae225ca550a4ad0046e0baf36502cd06192dff2b90ff23ccf9",
+    "dimensions": {
+      "width": 585,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/upsell_anim_hide.wav",
+    "path": "assets/upsell_anim_hide-D8Ie7DNc.wav",
+    "kind": "audio",
+    "bytes": 155378,
+    "sha256": "cabb4f4d0dda4ff67a749422b9b8d4ea20fd1be5c4d1374b21d557bdbd90d0ac",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/upsell_anim_show.wav",
+    "path": "assets/upsell_anim_show-CUXfCUOw.wav",
+    "kind": "audio",
+    "bytes": 334962,
+    "sha256": "979612eae585344703e3dbc68d5a6b0a8b793f26aaddb47f83741f7b3cf14605",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "audio/upsell_anim_unlock.wav",
+    "path": "assets/upsell_anim_unlock-BJ789f5M.wav",
+    "kind": "audio",
+    "bytes": 384626,
+    "sha256": "1d0a56f7f833af747b31f174d7556ba4f2b7e0ab252dfe1921001e093ad41ebe",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/WarHero.png",
+    "path": "assets/WarHero-CYl-lFTV.png",
+    "kind": "image",
+    "bytes": 7745,
+    "sha256": "18d50fd7227d74187ebc05d7127cd1c6096f4787002900aaf53e76a20cd8c7ae",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/WarHeroPortrait.png",
+    "path": "assets/WarHeroPortrait-Z9NkzYVp.png",
+    "kind": "image",
+    "bytes": 29634,
+    "sha256": "1be835768f312c9e49a048dedb2cc696a57ecfc642cd3d520fe810a242e41fc2",
+    "dimensions": {
+      "width": 300,
+      "height": 300
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/web-4PB9ZZXJ.js",
+    "path": "assets/web-4PB9ZZXJ.js",
+    "kind": "code_or_data",
+    "bytes": 9101,
+    "sha256": "a8abbea4813d93580d7bbab80097f63e2c797032fb2ffcf9226013c1174d8832",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/web-Bmr46XcI.js",
+    "path": "assets/web-Bmr46XcI.js",
+    "kind": "code_or_data",
+    "bytes": 569,
+    "sha256": "bb34738b98f89cf7751bd3988d2863bd47aad79ca0a707bb2db7eb2721cc4994",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/web-BzVs6rqv.js",
+    "path": "assets/web-BzVs6rqv.js",
+    "kind": "code_or_data",
+    "bytes": 1667,
+    "sha256": "9d253eb784ce2bb1c292cfeab87fae17023590be02623e89b7039fca9d9df26a",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/web-C9EeW8Ud.js",
+    "path": "assets/web-C9EeW8Ud.js",
+    "kind": "code_or_data",
+    "bytes": 1264,
+    "sha256": "c9ffa6fd354e79b2b4de966c28a809f9fdb49029d06b8643891d5db2ab744c12",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/web-Cc9U3j1D.js",
+    "path": "assets/web-Cc9U3j1D.js",
+    "kind": "code_or_data",
+    "bytes": 541,
+    "sha256": "606c2b6262e62d0c262aa16553a726f7513211e87d0fb36a419484b9e7c97d8c",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/web-Cpzj1zYE.js",
+    "path": "assets/web-Cpzj1zYE.js",
+    "kind": "code_or_data",
+    "bytes": 1315,
+    "sha256": "fb43cdcc6b5c23c7ced199e911a9765254c4c2f9e37ffce6cc572c17d3ff99e4",
+    "dimensions": null,
+    "builtin_reference": false
+  },
+  {
+    "id": "code_or_data/assets/web-DCMNwkqw.js",
+    "path": "assets/web-DCMNwkqw.js",
+    "kind": "code_or_data",
+    "bytes": 783,
+    "sha256": "4115ffb31af42141d0431d85831076fa38acfcc6d8fe7b075a8f2549bcf1c314",
+    "dimensions": null,
+    "builtin_reference": false
+  },
+  {
+    "id": "code_or_data/assets/web-DxMyJq4o.js",
+    "path": "assets/web-DxMyJq4o.js",
+    "kind": "code_or_data",
+    "bytes": 684,
+    "sha256": "623532bbfe1cc68292e90063ce33e293ed18e7c8005071cf2711e55689c64fe8",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/web-QCs_B8n3.js",
+    "path": "assets/web-QCs_B8n3.js",
+    "kind": "code_or_data",
+    "bytes": 807,
+    "sha256": "371b9bd28459fe20f75579acf039b61236eab06aee0511a89361288911d78609",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/webworkerAll-CujDxzFq.js",
+    "path": "assets/webworkerAll-CujDxzFq.js",
+    "kind": "code_or_data",
+    "bytes": 516,
+    "sha256": "6cc86a88da0f4a17a2adee504cb43efbd6d91abc022c91cbc1810030ff4e1973",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/assets/window-vud-We2y.js",
+    "path": "assets/window-vud-We2y.js",
+    "kind": "code_or_data",
+    "bytes": 14431,
+    "sha256": "0f3031dd0fa5aaa63b7eb3bad1cc5e2e948cf504ddd32b70e3737138f1c6bafb",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "image/Wire.png",
+    "path": "assets/Wire-D9d3L25n.png",
+    "kind": "image",
+    "bytes": 54246,
+    "sha256": "b5f287d9dd556de4069b810594bea4018ff05f64b74d51a4637f593ca383c8ea",
+    "dimensions": {
+      "width": 585,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "image/WireShadow.png",
+    "path": "assets/WireShadow-CDRIcG7O.png",
+    "kind": "image",
+    "bytes": 31172,
+    "sha256": "169ab7ae220bfabcb57e5c4fe654501eb861efc3a237369e959972d81b4253be",
+    "dimensions": {
+      "width": 585,
+      "height": 500
+    },
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/cordova_plugins.js",
+    "path": "cordova_plugins.js",
+    "kind": "code_or_data",
+    "bytes": 518,
+    "sha256": "e6a5f3fe4ffd99c1393c38c7af85aeb90d7896d3537aa99863e70b6ee2e5aaf5",
+    "dimensions": null,
+    "builtin_reference": false
+  },
+  {
+    "id": "code_or_data/cordova.js",
+    "path": "cordova.js",
+    "kind": "code_or_data",
+    "bytes": 52045,
+    "sha256": "ea049019c662743f711a62201a87e7ada7e3982caae63fcda4a5785300a36b59",
+    "dimensions": null,
+    "builtin_reference": false
+  },
+  {
+    "id": "code_or_data/index.html",
+    "path": "index.html",
+    "kind": "code_or_data",
+    "bytes": 472,
+    "sha256": "338af4e7d33c36b574ae041596b89369c636632718a98e87ec078b65ceb58853",
+    "dimensions": null,
+    "builtin_reference": true
+  },
+  {
+    "id": "code_or_data/ota-builtin-id.txt",
+    "path": "ota-builtin-id.txt",
+    "kind": "code_or_data",
+    "bytes": 64,
+    "sha256": "d73cbeca162f2191ec8fbb17ab3af6a54ac4afb1b80c0449afbf38325dc0326c",
+    "dimensions": null,
+    "builtin_reference": false
+  },
+  {
+    "id": "code_or_data/plugins/cordova-plugin-purchase/www/store.js",
+    "path": "plugins/cordova-plugin-purchase/www/store.js",
+    "kind": "code_or_data",
+    "bytes": 508334,
+    "sha256": "53dc6233f9ad44784f632ac73f5f84b9dccf71a13a5f57466fd21cd1e7453464",
+    "dimensions": null,
+    "builtin_reference": false
+  }
+]

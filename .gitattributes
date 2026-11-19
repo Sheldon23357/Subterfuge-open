@@ -1,0 +1,2 @@
+# Preserve archived benchmark sources byte-for-byte for their recorded hashes.
+outputs/ai-memory-optimization/baseline/*.ts -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

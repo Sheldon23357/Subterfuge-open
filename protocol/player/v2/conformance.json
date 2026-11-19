@@ -1,0 +1,894 @@
+{
+  "format": "player-protocol-conformance/1",
+  "cases": [
+    {
+      "id": "S01",
+      "suite": "snapshot",
+      "testFile": "tests/player-protocol-domains.test.ts",
+      "assertion": "Fixed snapshot H; append chat/notification during pagination; no gap or duplication",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "S01 real chat and gameplay notifications appended during pagination remain after the fixed snapshot cut",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-domains.test.ts",
+          "testTitle": "S01 real chat and gameplay notifications appended during pagination remain after the fixed snapshot cut"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "S02",
+      "suite": "snapshot",
+      "testFile": "tests/player-protocol-snapshot.test.ts",
+      "assertion": "Expiry before final page rejects incomplete installation",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "S02 S03 snapshot TTL, quota and completion bound pins without deleting durable events",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-snapshot.test.ts",
+          "testTitle": "S02 S03 snapshot TTL, quota and completion bound pins without deleting durable events"
+        },
+        {
+          "testFile": "examples/player-clients/go/client_test.go",
+          "testTitle": "TestS02ExpiredSnapshot"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "S03",
+      "suite": "snapshot",
+      "testFile": "tests/player-protocol-snapshot.test.ts",
+      "assertion": "Retention honors bootstrap pin or explicitly expires entire bootstrap",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "S02 S03 snapshot TTL, quota and completion bound pins without deleting durable events",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-snapshot.test.ts",
+          "testTitle": "S02 S03 snapshot TTL, quota and completion bound pins without deleting durable events"
+        }
+      ],
+      "coverageNotes": "Current retention deletes no durable events. Active bootstraps have explicit bounded pins; expired/completed bootstraps fail closed. No hypothetical future cleanup policy is claimed tested."
+    },
+    {
+      "id": "S04",
+      "suite": "snapshot",
+      "testFile": "tests/player-protocol-snapshot.test.ts",
+      "assertion": "Out-of-order pages and duplicates retain one fixed collection",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "S04 out-of-order and duplicated page retrieval preserve exactly one immutable snapshot document",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-snapshot.test.ts",
+          "testTitle": "S04 out-of-order and duplicated page retrieval preserve exactly one immutable snapshot document"
+        },
+        {
+          "testFile": "examples/player-clients/go/client_test.go",
+          "testTitle": "TestS04FixedPagesAtomicInstallation"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "S05",
+      "suite": "client-recovery",
+      "testFile": "tests/player-sdk-recovery.test.ts",
+      "assertion": "Crash before local event transaction replays once",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "S05 SQLite event crash before durable commit recovers without duplicate application",
+      "tests": [
+        {
+          "testFile": "tests/player-sdk-recovery.test.ts",
+          "testTitle": "S05 SQLite event crash before durable commit recovers without duplicate application"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "S06",
+      "suite": "client-recovery",
+      "testFile": "tests/player-sdk-recovery.test.ts",
+      "assertion": "Crash after local commit before ack does not reapply",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "S06 SQLite event crash after durable commit recovers without duplicate application",
+      "tests": [
+        {
+          "testFile": "tests/player-sdk-recovery.test.ts",
+          "testTitle": "S06 SQLite event crash after durable commit recovers without duplicate application"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "S07",
+      "suite": "client-recovery",
+      "testFile": "tests/player-sdk.test.ts",
+      "assertion": "Out-of-order sequence cannot advance over an unapplied gap",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "SDK rejects event gaps and unknown required events without advancing cursor",
+      "tests": [
+        {
+          "testFile": "tests/player-sdk.test.ts",
+          "testTitle": "SDK rejects event gaps and unknown required events without advancing cursor"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "S08",
+      "suite": "snapshot",
+      "testFile": "tests/player-protocol-snapshot.test.ts",
+      "assertion": "Old stream, cross-player and tampered cursors fail closed",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "S08 cross-player cursors, snapshot IDs and page tokens cannot read another seat",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-snapshot.test.ts",
+          "testTitle": "S08 cross-player cursors, snapshot IDs and page tokens cannot read another seat"
+        },
+        {
+          "testFile": "tests/player-protocol-snapshot.test.ts",
+          "testTitle": "S08 cursor from a restored stream is rejected even when the stable player lineage is preserved"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "S09",
+      "suite": "client-recovery",
+      "testFile": "tests/player-sdk-recovery.test.ts",
+      "assertion": "Expired cursor preserves and reconciles pending command ledger",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "S09 expired cursor resynchronizes read state without losing an unknown command",
+      "tests": [
+        {
+          "testFile": "tests/player-sdk-recovery.test.ts",
+          "testTitle": "S09 expired cursor resynchronizes read state without losing an unknown command"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "S10",
+      "suite": "events",
+      "testFile": "tests/player-protocol-snapshot.test.ts",
+      "assertion": "Invalidation coalesces only before numbering; optional event coverage",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "S10 numbered invalidations are immutable and optional events retain contiguous declared coverage",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-snapshot.test.ts",
+          "testTitle": "S10 numbered invalidations are immutable and optional events retain contiguous declared coverage"
+        },
+        {
+          "testFile": "tests/player-sdk-recovery.test.ts",
+          "testTitle": "S10 unknown optional events advance a contiguous cursor but never invoke the application reducer"
+        }
+      ],
+      "coverageNotes": "Server never coalesces already numbered events; client skips optional unknown events only across validated contiguous coverage."
+    },
+    {
+      "id": "S11",
+      "suite": "client-recovery",
+      "testFile": "tests/player-sdk.test.ts",
+      "assertion": "Required unknown event stops writes; redaction removes stale fields",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "SDK rejects event gaps and unknown required events without advancing cursor",
+      "tests": [
+        {
+          "testFile": "tests/player-sdk.test.ts",
+          "testTitle": "SDK rejects event gaps and unknown required events without advancing cursor"
+        },
+        {
+          "testFile": "examples/player-clients/go/client_test.go",
+          "testTitle": "TestS11UnknownRequiredAndRedaction"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "E01",
+      "suite": "storage",
+      "testFile": "tests/player-protocol-storage.test.ts",
+      "assertion": "Restart preserves epoch/receipts but invalidates prior lease generation",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "E01 C07 ordinary restart retains epoch and ledger, fences leases, and terminates durable accepted work",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-storage.test.ts",
+          "testTitle": "E01 C07 ordinary restart retains epoch and ledger, fences leases, and terminates durable accepted work"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "E02",
+      "suite": "checkpoint",
+      "testFile": "tests/game-server.test.ts",
+      "assertion": "Supported rollback creates a new epoch before listener opens",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "clone restores canonical private domains, forks offline once, revokes old grants and preserves source",
+      "tests": [
+        {
+          "testFile": "tests/game-server.test.ts",
+          "testTitle": "clone restores canonical private domains, forks offline once, revokes old grants and preserves source"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "E03",
+      "suite": "checkpoint",
+      "testFile": "tests/game-server.test.ts",
+      "assertion": "Two supported restored clones have distinct epochs",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "E03 restoring one checkpoint into two clones forks distinct epochs before either listener and denies the source executor on both",
+      "tests": [
+        {
+          "testFile": "tests/game-server.test.ts",
+          "testTitle": "E03 restoring one checkpoint into two clones forks distinct epochs before either listener and denies the source executor on both"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "E04",
+      "suite": "client-recovery",
+      "testFile": "tests/player-sdk.test.ts",
+      "assertion": "Old epoch responses cannot change current client state",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "SDK epoch changes pin old outbox and cannot acquire or replay under a new epoch",
+      "tests": [
+        {
+          "testFile": "tests/player-sdk.test.ts",
+          "testTitle": "SDK epoch changes pin old outbox and cannot acquire or replay under a new epoch"
+        },
+        {
+          "testFile": "examples/player-clients/go/client_test.go",
+          "testTitle": "TestE04C10EpochChangeStopsOldIntent"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "L01",
+      "suite": "control",
+      "testFile": "tests/player-protocol-negotiation.test.ts",
+      "assertion": "Concurrent acquire produces exactly one lease owner",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "L01 concurrent HTTP acquisition linearizes to exactly one current lease owner",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-negotiation.test.ts",
+          "testTitle": "L01 concurrent HTTP acquisition linearizes to exactly one current lease owner"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "L02",
+      "suite": "control",
+      "testFile": "tests/player-protocol-control.test.ts",
+      "assertion": "Takeover before final commit rejects old fence without effect",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "L02 final authority recheck rolls back writes when synchronous game computation crosses lease expiry",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-control.test.ts",
+          "testTitle": "L02 final authority recheck rolls back writes when synchronous game computation crosses lease expiry"
+        },
+        {
+          "testFile": "tests/player-protocol-admission-deadline.test.ts",
+          "testTitle": "B4 L02 takeover terminates effect-free accepted work without another settle and late settle returns that exact terminal"
+        },
+        {
+          "testFile": "tests/player-protocol-admission-deadline.test.ts",
+          "testTitle": "B4 calculation crossing the fixed accepted deadline rolls back its tentative world and emits only one no-effect terminal"
+        },
+        {
+          "testFile": "tests/player-protocol-admission-deadline.test.ts",
+          "testTitle": "B4 revocation retires independent worker admissions without a gameplay lease or another execution attempt"
+        },
+        {
+          "testFile": "tests/player-protocol-admission-deadline.test.ts",
+          "testTitle": "B4 takeover retirement, receipt version and event all roll back when their outer storage transaction fails"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "L03",
+      "suite": "commands",
+      "testFile": "tests/player-protocol-negotiation.test.ts",
+      "assertion": "Post-commit loss then takeover and replay returns old receipt only",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C04 lost HTTP response after committed world change is reconciled by lookup and never duplicates effect",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-negotiation.test.ts",
+          "testTitle": "C04 lost HTTP response after committed world change is reconciled by lookup and never duplicates effect"
+        },
+        {
+          "testFile": "tests/player-protocol-commands.test.ts",
+          "testTitle": "L03 terminal replay after lease takeover is lookup only and cannot become a fresh effect"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "L04",
+      "suite": "client-recovery",
+      "testFile": "tests/player-sdk.test.ts",
+      "assertion": "Late renew cannot revive expired or released local lease",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "SDK obsolete renewal cannot overwrite or revoke a newly acquired fence",
+      "tests": [
+        {
+          "testFile": "tests/player-sdk.test.ts",
+          "testTitle": "SDK obsolete renewal cannot overwrite or revoke a newly acquired fence"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "L05",
+      "suite": "control",
+      "testFile": "tests/player-protocol-control.test.ts",
+      "assertion": "Wall-clock jumps do not alter elapsed-clock lease authority",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "L05 monotonic lease expiry ignores wall-clock regression and rejects late renewal",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-control.test.ts",
+          "testTitle": "L05 monotonic lease expiry ignores wall-clock regression and rejects late renewal"
+        },
+        {
+          "testFile": "tests/player-sdk.test.ts",
+          "testTitle": "SDK ignores wall clock for lease safety and refuses expired fences before network transmission"
+        },
+        {
+          "testFile": "tests/player-protocol-admission-deadline.test.ts",
+          "testTitle": "B4 lease expiry reaches a no-effect terminal through lookup alone before the fixed admission deadline"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "L06",
+      "suite": "client-recovery",
+      "testFile": "examples/player-clients/go/client_test.go",
+      "assertion": "Restarted client cannot resume old monotonic deadline",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "TestS06L06RestartCursorNotLease",
+      "tests": [
+        {
+          "testFile": "examples/player-clients/go/client_test.go",
+          "testTitle": "TestS06L06RestartCursorNotLease"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "C01",
+      "suite": "commands",
+      "testFile": "tests/player-protocol-commands.test.ts",
+      "assertion": "One key replayed 100 times produces one effect and command ID",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C01 same logical key produces one command effect and a durable identical receipt",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-commands.test.ts",
+          "testTitle": "C01 same logical key produces one command effect and a durable identical receipt"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "C02",
+      "suite": "commands",
+      "testFile": "tests/player-protocol-commands.test.ts",
+      "assertion": "Changed intent/revision/instructions with same key conflicts",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C02 same key changed intent or same client command under a new key conflicts without effect",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-commands.test.ts",
+          "testTitle": "C02 same key changed intent or same client command under a new key conflicts without effect"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "C03",
+      "suite": "wire",
+      "testFile": "tests/player-protocol-commands.test.ts",
+      "assertion": "Equivalent JSON key order/whitespace/number spellings share digest",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C03 equivalent request key order, whitespace and numeric spellings share one canonical intent",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-commands.test.ts",
+          "testTitle": "C03 equivalent request key order, whitespace and numeric spellings share one canonical intent"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "C04",
+      "suite": "commands",
+      "testFile": "tests/player-protocol-negotiation.test.ts",
+      "assertion": "Failures before and after commit are initially unknown; lookup distinguishes",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C04 lost HTTP response after committed world change is reconciled by lookup and never duplicates effect",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-negotiation.test.ts",
+          "testTitle": "C04 lost HTTP response after committed world change is reconciled by lookup and never duplicates effect"
+        },
+        {
+          "testFile": "tests/player-protocol-negotiation.test.ts",
+          "testTitle": "C05 transport failure after durable acceptance remains unknown until same-key reconciliation"
+        },
+        {
+          "testFile": "tests/player-protocol-storage.test.ts",
+          "testTitle": "world, command receipt and event journal rollback together on SQLite failure after world mutation"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "C05",
+      "suite": "commands",
+      "testFile": "tests/player-protocol-negotiation.test.ts",
+      "assertion": "Delayed original and absent-coverage retry are at most once",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C05 delayed original and authoritative-absence retry commit once (original first)",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-negotiation.test.ts",
+          "testTitle": "C05 delayed original and authoritative-absence retry commit once (original first)"
+        },
+        {
+          "testFile": "tests/player-protocol-negotiation.test.ts",
+          "testTitle": "C05 delayed original and authoritative-absence retry commit once (retry first)"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "C06",
+      "suite": "commands",
+      "testFile": "tests/player-protocol-commands.test.ts",
+      "assertion": "Unavailable retained history stays unknown, never inferred absent",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C06 C10 authoritative absence stays scoped to epoch and unavailable history stays unknown",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-commands.test.ts",
+          "testTitle": "C06 C10 authoritative absence stays scoped to epoch and unavailable history stays unknown"
+        },
+        {
+          "testFile": "tests/player-sdk.test.ts",
+          "testTitle": "SDK unavailable ledger history cannot turn an unknown write into a fresh command"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "C07",
+      "suite": "storage",
+      "testFile": "tests/player-protocol-storage.test.ts",
+      "assertion": "Durable accepted command resolves after restart, never remains accepted",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "E01 C07 ordinary restart retains epoch and ledger, fences leases, and terminates durable accepted work",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-storage.test.ts",
+          "testTitle": "E01 C07 ordinary restart retains epoch and ledger, fences leases, and terminates durable accepted work"
+        },
+        {
+          "testFile": "tests/player-protocol-admission-deadline.test.ts",
+          "testTitle": "B4 C07 continuing renewal, request retries and lookup cannot extend the persisted accepted deadline"
+        },
+        {
+          "testFile": "tests/player-protocol-admission-deadline.test.ts",
+          "testTitle": "B4 C07 SDK keeps a storage-unknown admission until real HTTP lookup proves COMMAND_EXPIRED without resending"
+        }
+      ],
+      "coverageNotes": "Durable accepted work has a fixed 30-second server-monotonic transport deadline. Lease renewal, replay and lookup cannot extend it. The SDK preserves unknown until authoritative lookup returns its no-effect terminal; it never substitutes timeout guesses or retransmits under a fresh key."
+    },
+    {
+      "id": "C08",
+      "suite": "commands",
+      "testFile": "tests/player-protocol-commands.test.ts",
+      "assertion": "Committed schedule still fires after lease expiry",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C08 a committed schedule fires after executor lease expiry and advances its receipt version",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-commands.test.ts",
+          "testTitle": "C08 a committed schedule fires after executor lease expiry and advances its receipt version"
+        },
+        {
+          "testFile": "tests/player-protocol-admission-deadline.test.ts",
+          "testTitle": "B4 expiration of an accepted deadline cannot retire an already committed schedule, which still fires once"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "C09",
+      "suite": "client-recovery",
+      "testFile": "tests/player-sdk-recovery.test.ts",
+      "assertion": "Receipt version three applied dominates late version one accepted",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C09 applied receipt v3 remains authoritative when accepted v1 arrives later",
+      "tests": [
+        {
+          "testFile": "tests/player-sdk-recovery.test.ts",
+          "testTitle": "C09 applied receipt v3 remains authoritative when accepted v1 arrives later"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "C10",
+      "suite": "commands",
+      "testFile": "tests/player-protocol-commands.test.ts",
+      "assertion": "Old epoch intent cannot be replayed as a new epoch command",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C06 C10 authoritative absence stays scoped to epoch and unavailable history stays unknown",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-commands.test.ts",
+          "testTitle": "C06 C10 authoritative absence stays scoped to epoch and unavailable history stays unknown"
+        },
+        {
+          "testFile": "tests/player-sdk.test.ts",
+          "testTitle": "SDK epoch changes pin old outbox and cannot acquire or replay under a new epoch"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "C11",
+      "suite": "client-recovery",
+      "testFile": "tests/player-sdk-recovery.test.ts",
+      "assertion": "Mixed applied/unknown subcommands reconcile independently",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C11 mixed-key ledger recovery reconciles each applied or unknown operation without replacing intent",
+      "tests": [
+        {
+          "testFile": "tests/player-sdk-recovery.test.ts",
+          "testTitle": "C11 mixed-key ledger recovery reconciles each applied or unknown operation without replacing intent"
+        },
+        {
+          "testFile": "tests/player-protocol-batch.test.ts",
+          "testTitle": "a lost committed batch response reconciles each original child without sending gameplay again"
+        }
+      ],
+      "coverageNotes": "Individual commands and negotiated order batches retain immutable child keys and independent receipts; batch delivery loss is recovered by lookup without replacing intent."
+    },
+    {
+      "id": "R01",
+      "suite": "readiness",
+      "testFile": "tests/player-protocol-domains.test.ts",
+      "assertion": "Readiness acknowledgement does not self-invalidate decision input",
+      "requiresCapabilities": [
+        "readiness/1"
+      ],
+      "testTitle": "R01 R02 readiness is opaque-baseline exact and ignores status/ready events but invalidates on relevant private chat only",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-domains.test.ts",
+          "testTitle": "R01 R02 readiness is opaque-baseline exact and ignores status/ready events but invalidates on relevant private chat only"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "R02",
+      "suite": "readiness",
+      "testFile": "tests/player-protocol-domains.test.ts",
+      "assertion": "Observation/instructions/pending writes invalidate readiness before advance",
+      "requiresCapabilities": [
+        "readiness/1"
+      ],
+      "testTitle": "R02 a fresh snapshot cannot mark readiness across an unresolved accepted gameplay command",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-domains.test.ts",
+          "testTitle": "R02 a fresh snapshot cannot mark readiness across an unresolved accepted gameplay command"
+        },
+        {
+          "testFile": "tests/player-protocol-domains.test.ts",
+          "testTitle": "R01 R02 readiness is opaque-baseline exact and ignores status/ready events but invalidates on relevant private chat only"
+        },
+        {
+          "testFile": "tests/player-protocol-domains.test.ts",
+          "testTitle": "owner confirmation binds epoch, proposal baseline and canonical content digest; worker headers cannot confirm"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "R03",
+      "suite": "readiness",
+      "testFile": "tests/player-protocol-main.test.ts",
+      "assertion": "Explicit bounded remote profile reaches fixed deadline with offline seat",
+      "requiresCapabilities": [
+        "readiness/1"
+      ],
+      "testTitle": "R03 real main opt-in finite deadline advances with every executor offline",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-main.test.ts",
+          "testTitle": "R03 real main opt-in finite deadline advances with every executor offline"
+        },
+        {
+          "testFile": "tests/player-protocol-deadline.test.ts",
+          "testTitle": "R03 R05 explicit deadline is fixed per turn and cannot be extended by chat, repeated reads or wall-clock jumps"
+        },
+        {
+          "testFile": "tests/player-protocol-main.test.ts",
+          "testTitle": "real main default manual progression remains unchanged without explicit remote deadline"
+        }
+      ],
+      "coverageNotes": "Explicit finite remote profile only; default progression remains unchanged."
+    },
+    {
+      "id": "R04",
+      "suite": "readiness",
+      "testFile": "tests/player-protocol-negotiation.test.ts",
+      "assertion": "Ready does not authorize an illegal command",
+      "requiresCapabilities": [
+        "readiness/1"
+      ],
+      "testTitle": "R04 HTTP readiness is not authority to execute an illegal action",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-negotiation.test.ts",
+          "testTitle": "R04 HTTP readiness is not authority to execute an illegal action"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "R05",
+      "suite": "readiness",
+      "testFile": "tests/player-protocol-resources.test.ts",
+      "assertion": "Chat/heartbeat flood neither extends deadline nor starves writes",
+      "requiresCapabilities": [
+        "readiness/1"
+      ],
+      "testTitle": "R05 entry admission is bounded per authenticated player and global queue, without borrowing another player budget",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-resources.test.ts",
+          "testTitle": "R05 entry admission is bounded per authenticated player and global queue, without borrowing another player budget"
+        },
+        {
+          "testFile": "tests/player-protocol-resources.test.ts",
+          "testTitle": "R05 HTTP rejects excess pending reads before joining the shared serial queue"
+        },
+        {
+          "testFile": "tests/player-protocol-deadline.test.ts",
+          "testTitle": "R03 R05 explicit deadline is fixed per turn and cannot be extended by chat, repeated reads or wall-clock jumps"
+        }
+      ],
+      "coverageNotes": "No default heartbeat exists. All reads/writes (including status) share bounded pre-queue budgets; chat does not extend the fixed deadline."
+    },
+    {
+      "id": "V01",
+      "suite": "wire",
+      "testFile": "tests/player-protocol-wire.test.ts",
+      "assertion": "Counters above 2^53 preserve exact decimal values",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C03 V01 V02 canonical JCS fixtures preserve binary64, UTF-16 ordering and counter strings",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-wire.test.ts",
+          "testTitle": "C03 V01 V02 canonical JCS fixtures preserve binary64, UTF-16 ordering and counter strings"
+        },
+        {
+          "testFile": "tests/player-sdk.test.ts",
+          "testTitle": "SDK event counters larger than IEEE754 safe integers retain exact ordering"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "V02",
+      "suite": "wire",
+      "testFile": "tests/player-protocol-wire.test.ts",
+      "assertion": "Missing/null/zero/empty collections and visibility unknown remain distinct",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "V02 missing null zero empty collections and explicit visibility-unknown are not interchangeable",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-wire.test.ts",
+          "testTitle": "V02 missing null zero empty collections and explicit visibility-unknown are not interchangeable"
+        },
+        {
+          "testFile": "examples/player-clients/go/client_test.go",
+          "testTitle": "TestV02NullMissingZeroEmpty"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "V03",
+      "suite": "wire",
+      "testFile": "tests/player-protocol-wire.test.ts",
+      "assertion": "Duplicate keys/nonfinite/lone surrogate/depth limits reject with no effect",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "V03 strict JSON rejects duplicate decoded keys, invalid Unicode/non-finite values, depth and byte overflow",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-wire.test.ts",
+          "testTitle": "V03 strict JSON rejects duplicate decoded keys, invalid Unicode/non-finite values, depth and byte overflow"
+        },
+        {
+          "testFile": "tests/player-protocol-negotiation.test.ts",
+          "testTitle": "HTTP strict body rejects duplicate keys, invalid UTF-8 and command field additions without durable admission"
+        },
+        {
+          "testFile": "tests/player-protocol-wire.test.ts",
+          "testTitle": "strict identifiers, counters and checkpoint digests reject trailing line terminators"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "V04",
+      "suite": "wire",
+      "testFile": "tests/player-protocol-wire.test.ts",
+      "assertion": "Unicode, UTF-16 sorting, arrays and numeric JCS golden vectors",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "C03 V01 V02 canonical JCS fixtures preserve binary64, UTF-16 ordering and counter strings",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-wire.test.ts",
+          "testTitle": "C03 V01 V02 canonical JCS fixtures preserve binary64, UTF-16 ordering and counter strings"
+        },
+        {
+          "testFile": "examples/player-clients/go/client_test.go",
+          "testTitle": "TestV04Binary64EdgesAndDeterministicVectors"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "V05",
+      "suite": "negotiation",
+      "testFile": "examples/player-clients/go/client_test.go",
+      "assertion": "Version/capability mismatch rejects; optional response fields accepted",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "TestV05PinnedIdentityAndCapabilities",
+      "tests": [
+        {
+          "testFile": "examples/player-clients/go/client_test.go",
+          "testTitle": "TestV05PinnedIdentityAndCapabilities"
+        }
+      ],
+      "coverageNotes": ""
+    },
+    {
+      "id": "V06",
+      "suite": "negotiation",
+      "testFile": "tests/player-protocol-negotiation.test.ts",
+      "assertion": "Declared current/previous compatibility matrix is tested, unsupported rejects",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "V06 discovery independently versions protocol, ruleset and schemas without inventing an older public release",
+      "tests": [
+        {
+          "testFile": "tests/player-protocol-negotiation.test.ts",
+          "testTitle": "V06 discovery independently versions protocol, ruleset and schemas without inventing an older public release"
+        }
+      ],
+      "coverageNotes": "Current public version is 2.0, previous is explicitly null. Unsupported 1.x and 3.x fail; no nonexistent previous release is fabricated."
+    },
+    {
+      "id": "V07",
+      "suite": "independent-clients",
+      "testFile": "examples/player-clients/interop/independent-clients.test.mjs",
+      "assertion": "No SDK/model/memory/finish required for writable core",
+      "requiresCapabilities": [
+        "core/2"
+      ],
+      "testTitle": "V07 Python and Go control distinct seats in the same isolated room",
+      "tests": [
+        {
+          "testFile": "examples/player-clients/interop/independent-clients.test.mjs",
+          "testTitle": "V07 Python and Go control distinct seats in the same isolated room"
+        },
+        {
+          "testFile": "tests/game-server.test.ts",
+          "testTitle": "entire game-server runtime import graph is independent of AI, SDK, client and legacy linked checkpoints"
+        },
+        {
+          "testFile": "examples/player-clients/interop/independent-clients.test.mjs",
+          "testTitle": "V07-runtime: official AgentRuntime, Python and Go share three isolated seats with private state and exactly-once effects",
+          "details": "docs/open-client/compatibility.md"
+        }
+      ],
+      "coverageNotes": "Core is independently writable without SDK/model/memory. Separately, the real official AgentRuntime (fake provider only), Python and Go share three isolated seats; each produces one effect, all six cross-seat reads/cursors fail closed, private official memory/model configuration remains absent from the protocol."
+    }
+  ]
+}

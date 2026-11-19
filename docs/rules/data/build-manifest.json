@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "as_of": "2026-10-15",
+  "profile": "apk-12075-rules-4300",
+  "live_server_verified": false,
+  "apk_sha256": "6bb06f9a9cfe210937c67a9a20a380d300910edfe174893736ce0a5677c5bafa",
+  "formatted_js_sha256": "41a81d2529b71de38016cff949fb9731b858869d274ecb4aa179231231c02bd1",
+  "parameter_count": 73,
+  "specialist_count": 29,
+  "historical_profile_count": 29
+}

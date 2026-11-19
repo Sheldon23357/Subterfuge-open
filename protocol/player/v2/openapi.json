@@ -1,0 +1,1532 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Subterfuge public player protocol",
+    "version": "2.0.0"
+  },
+  "servers": [
+    {
+      "url": "/player/v2"
+    }
+  ],
+  "security": [
+    {
+      "executorBearer": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "executorBearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Server-side scoped executor grant. Owner endpoints require a separate owner credential."
+      },
+      "ownerBearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Existing human owner credential verified by host. Executor grants never satisfy this scheme."
+      }
+    }
+  },
+  "paths": {
+    "/protocol": {
+      "get": {
+        "operationId": "get_protocol",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/sessions/hello": {
+      "post": {
+        "operationId": "post_sessions_hello",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/helloResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/helloRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/snapshot": {
+      "get": {
+        "operationId": "get_snapshot",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/snapshotPage"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "snapshotId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            }
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            }
+          }
+        ]
+      }
+    },
+    "/snapshot/{snapshotId}/complete": {
+      "post": {
+        "operationId": "post_snapshot_snapshotId_complete",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/emptyRequest"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "snapshotId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            }
+          }
+        ]
+      }
+    },
+    "/events": {
+      "get": {
+        "operationId": "get_events",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/eventPage"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "after",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200
+            }
+          },
+          {
+            "name": "waitMs",
+            "in": "query",
+            "required": false,
+            "description": "Wait up to this many milliseconds for a scoped event when the current page is empty; releases the room executor while waiting.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000,
+              "default": 0
+            }
+          }
+        ]
+      }
+    },
+    "/control": {
+      "get": {
+        "operationId": "get_control",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/lease"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            }
+          }
+        ]
+      }
+    },
+    "/control/acquire": {
+      "post": {
+        "operationId": "post_control_acquire",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/controlOperationReceipt"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/acquireRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/control/renew": {
+      "post": {
+        "operationId": "post_control_renew",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/controlOperationReceipt"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/renewRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/control/release": {
+      "post": {
+        "operationId": "post_control_release",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/controlOperationReceipt"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/releaseRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commands": {
+      "post": {
+        "operationId": "post_commands",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/receipt"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "schema.json#/$defs/commandRequest"
+                  },
+                  {
+                    "properties": {
+                      "kind": {
+                        "not": {
+                          "const": "order-batch"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "description": " Immediate launch/return-fleet orders may use actionBasis with actions.scoped-revision/1; both admission and settlement validate direct action dependencies while preserving the original expectedRevision. See schema.json and README.md."
+      }
+    },
+    "/commands/lookup": {
+      "post": {
+        "operationId": "post_commands_lookup",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/lookupResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/lookupRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chat": {
+      "get": {
+        "operationId": "get_chat",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "description": "Authorized player projection. Collection counters are canonical decimal strings; bounded response pages preserve explicit hasMore/coverage."
+      }
+    },
+    "/chat/search": {
+      "get": {
+        "operationId": "get_chat_search",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "description": "Authorized player projection. Collection counters are canonical decimal strings; bounded response pages preserve explicit hasMore/coverage."
+      }
+    },
+    "/notifications": {
+      "get": {
+        "operationId": "get_notifications",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "description": "Authorized player projection. Collection counters are canonical decimal strings; bounded response pages preserve explicit hasMore/coverage."
+      }
+    },
+    "/commander/worker": {
+      "post": {
+        "operationId": "post_commander_worker",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/receipt"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/commanderRequest"
+              }
+            }
+          }
+        },
+        "description": "Independent discussion lane. Stored scoped grant and current session required; gameplay lease is neither acquired nor borrowed. Uses the same durable command lookup ledger."
+      }
+    },
+    "/checkpoints/current": {
+      "get": {
+        "operationId": "get_checkpoints_current",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/checkpointResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "description": "Optional checkpoints.coordinated/1. Optional checkpointId query selects retained historical attempt. Returns only own opaque receipt and global participant counts."
+      }
+    },
+    "/checkpoints/{checkpointId}": {
+      "get": {
+        "operationId": "get_checkpoints_checkpointId",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/checkpointResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "description": "Retained own acknowledgement lookup, including terminal attempts; not latest-only."
+      }
+    },
+    "/checkpoints/ack": {
+      "post": {
+        "operationId": "post_checkpoints_ack",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/checkpointResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/checkpointAcknowledgement"
+              }
+            }
+          }
+        },
+        "description": "Idempotent per checkpoint/session/phase. Frozen acknowledgement contains only opaque local receipt ID and SHA256, never uploaded private state or paths."
+      }
+    },
+    "/owner/grants": {
+      "get": {
+        "operationId": "get_owner_grants",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ownerBearer": []
+          }
+        ]
+      },
+      "post": {
+        "operationId": "post_owner_grants",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/grantRequest"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ownerBearer": []
+          }
+        ]
+      }
+    },
+    "/owner/grants/{grantId}/revoke": {
+      "post": {
+        "operationId": "post_owner_grants_grantId_revoke",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/emptyRequest"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ownerBearer": []
+          }
+        ]
+      }
+    },
+    "/owner/commander": {
+      "get": {
+        "operationId": "get_owner_commander",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ownerBearer": []
+          }
+        ]
+      }
+    },
+    "/owner/commander/messages": {
+      "post": {
+        "operationId": "post_owner_commander_messages",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/ownerMessageRequest"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ownerBearer": []
+          }
+        ]
+      }
+    },
+    "/owner/commander/confirm": {
+      "post": {
+        "operationId": "post_owner_commander_confirm",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/ownerConfirmationRequest"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ownerBearer": []
+          }
+        ]
+      }
+    },
+    "/activity": {
+      "get": {
+        "operationId": "get_activity",
+        "description": "Authorized immutable settlement facts. activity.read/1. after/through are bounded exclusive cursors from the captured observation.",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "after",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)$"
+            }
+          },
+          {
+            "name": "through",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)$"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      }
+    },
+    "/manual-commands": {
+      "get": {
+        "operationId": "get_manual_commands",
+        "description": "Authorized manual intent receipts. manual-commands/1.",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)$"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 128
+            }
+          }
+        ]
+      }
+    },
+    "/owner/identity": {
+      "get": {
+        "operationId": "get_owner_identity",
+        "description": "Owner-only room epoch and authoritative seat mapping for executor delegation.",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/owner/queries/history": {
+      "post": {
+        "operationId": "owner_history",
+        "description": "Authoritative player-visible historical state, bounded by the current observation.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/ownerHistoryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/owner/control": {
+      "post": {
+        "operationId": "post_owner_control_takeover",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/emptyRequest"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ownerBearer": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "get_owner_control",
+        "description": "Current own control status.",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/diplomacy/receipts": {
+      "get": {
+        "operationId": "get_diplomacy_receipts",
+        "description": "Authorized diplomacy receipts and referenced agreement summaries. diplomacy/2. Seat-local after/through cursors; bounded pages.",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)$"
+            }
+          },
+          {
+            "name": "through",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^(0|[1-9][0-9]*)$"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ]
+      }
+    },
+    "/tick-times": {
+      "get": {
+        "operationId": "get_tick_times",
+        "description": "Server-authoritative tick persistence boundaries and elapsed time. tick-times.read/1; observe scope required for executor grants. No client database or workstation clock is used. Missing history is not interpolated.",
+        "parameters": [
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authoritative timing page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/tickTimePage"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Protocol authorization or input error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/owner/tick-times": {
+      "get": {
+        "operationId": "owner_tick_times",
+        "description": "Server-authoritative tick persistence boundaries and elapsed time. tick-times.read/1; observe scope required for executor grants. No client database or workstation clock is used. Missing history is not interpolated.",
+        "parameters": [
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authoritative timing page",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/tickTimePage"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Protocol authorization or input error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ownerBearer": []
+          }
+        ]
+      }
+    },
+    "/commands/batch": {
+      "post": {
+        "operationId": "post_commands_batch",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/batchCommandResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "schema.json#/$defs/batchCommandRequest"
+              }
+            }
+          }
+        },
+        "description": " Immediate launch/return-fleet orders may use actionBasis with actions.scoped-revision/1; both admission and settlement validate direct action dependencies while preserving the original expectedRevision. See schema.json and README.md.",
+        "summary": "Execute an ordered, durable batch with individual receipts and one authorized snapshot"
+      }
+    },
+    "/observation": {
+      "get": {
+        "operationId": "get_observation",
+        "description": "Current authorized observation. observation.read/1. Does not install a snapshot or advance an event cursor.",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/observationReadResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commander": {
+      "get": {
+        "operationId": "get_commander",
+        "description": "Private commander thread. commander.read/1. Does not read world, chat or activity data.",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/commanderReadResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sync": {
+      "get": {
+        "operationId": "get_sync",
+        "responses": {
+          "200": {
+            "description": "Authoritative success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/syncResponse"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Typed protocol error; unknown is not failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "schema.json#/$defs/error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9._:-]+$"
+            }
+          },
+          {
+            "name": "waitMs",
+            "in": "query",
+            "required": false,
+            "description": "Wait up to this many milliseconds for a scoped event when the current page is empty; releases the room executor while waiting.",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000,
+              "default": 0
+            }
+          },
+          {
+            "name": "sessionId",
+            "in": "query",
+            "required": false,
+            "description": "Authenticated session whose own control identity may be disclosed. Other sessions remain masked.",
+            "schema": {
+              "$ref": "schema.json#/$defs/identifier"
+            }
+          }
+        ],
+        "description": "state.sync/1: wait for a change and return a complete authorized live document at one atomic stream cut. No pagination, replay pin or completion acknowledgement. An unchanged cursor returns document null. Requires observe and events.read; response is bounded by snapshotBytes plus envelope."
+      }
+    }
+  }
+}

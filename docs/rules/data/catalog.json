@@ -1,0 +1,2949 @@
+{
+  "schema_version": "1.0.0",
+  "profile": "apk-12075-rules-4300",
+  "as_of": "2026-10-15",
+  "parameters": [
+    {
+      "id": "GameParams.RulesVersion",
+      "section": "GameParams",
+      "key": "RulesVersion",
+      "label_zh": "规则版本号",
+      "value": 4300,
+      "unit": "version",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.DominationRequirementByPlayerCount",
+      "section": "GameParams",
+      "key": "DominationRequirementByPlayerCount",
+      "label_zh": "个人统治目标，数组下标为玩家数",
+      "value": [
+        0,
+        0,
+        11,
+        13,
+        14,
+        18,
+        21,
+        25,
+        28,
+        32,
+        35
+      ],
+      "unit": "outpost_count_by_player_count",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.InitialOutpostsPerPlayer",
+      "section": "GameParams",
+      "key": "InitialOutpostsPerPlayer",
+      "label_zh": "女王据点之外的初始据点数",
+      "value": 4,
+      "unit": "outpost",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.BaseElectricalOutput",
+      "section": "GameParams",
+      "key": "BaseElectricalOutput",
+      "label_zh": "基础供电",
+      "value": 150,
+      "unit": "driller_capacity",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.NeptuniumPercentLostWithMine",
+      "section": "GameParams",
+      "key": "NeptuniumPercentLostWithMine",
+      "label_zh": "失矿损失比例",
+      "value": 0.2,
+      "unit": "ratio",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.FundingElectricalOutputBonus",
+      "section": "GameParams",
+      "key": "FundingElectricalOutputBonus",
+      "label_zh": "每位资助者供电加成",
+      "value": 50,
+      "unit": "driller_capacity_per_funder",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.FundingDrillerProductionBonus",
+      "section": "GameParams",
+      "key": "FundingDrillerProductionBonus",
+      "label_zh": "每位资助者工厂产量加成",
+      "value": 2,
+      "unit": "driller_per_cycle_per_funder",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.NeptuniumLeadRequiredForFunding",
+      "section": "GameParams",
+      "key": "NeptuniumLeadRequiredForFunding",
+      "label_zh": "资助所需矿领先量",
+      "value": 20,
+      "unit": "kg",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.MinutesOfInactivityBeforeFirstWarning",
+      "section": "GameParams",
+      "key": "MinutesOfInactivityBeforeFirstWarning",
+      "label_zh": "不活跃首次警告阈值",
+      "value": 960,
+      "unit": "minute",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.MinutesOfInactivityBetweenWarnings",
+      "section": "GameParams",
+      "key": "MinutesOfInactivityBetweenWarnings",
+      "label_zh": "后续警告间隔",
+      "value": 360,
+      "unit": "minute",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.HoursOfInactivityBeforeAutoresign",
+      "section": "GameParams",
+      "key": "HoursOfInactivityBeforeAutoresign",
+      "label_zh": "不活跃自动投降阈值",
+      "value": 48,
+      "unit": "hour",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.SecondsBetweenResignationAndSelfDestruct",
+      "section": "GameParams",
+      "key": "SecondsBetweenResignationAndSelfDestruct",
+      "label_zh": "投降到自毁配置延迟，具体触发待审计",
+      "value": 43200,
+      "unit": "second",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.GameStartingDelayInHours",
+      "section": "GameParams",
+      "key": "GameStartingDelayInHours",
+      "label_zh": "开局等待配置",
+      "value": 8,
+      "unit": "hour",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.GameStartingDelayInHoursAfterWorldRecreation",
+      "section": "GameParams",
+      "key": "GameStartingDelayInHoursAfterWorldRecreation",
+      "label_zh": "重建地图后的等待配置",
+      "value": 8,
+      "unit": "hour",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.HoursBeforeFirstHire",
+      "section": "GameParams",
+      "key": "HoursBeforeFirstHire",
+      "label_zh": "首次招募等待，受开局有效时间影响",
+      "value": 4,
+      "unit": "effective_hour",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.HoursBetweenHires",
+      "section": "GameParams",
+      "key": "HoursBetweenHires",
+      "label_zh": "后续招募间隔",
+      "value": 18,
+      "unit": "effective_hour",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.HoursAfterEliminationToDestroySpecialists",
+      "section": "GameParams",
+      "key": "HoursAfterEliminationToDestroySpecialists",
+      "label_zh": "淘汰到专家销毁配置延迟，触发待审计",
+      "value": 24,
+      "unit": "hour",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.MinutesToCancelAction",
+      "section": "GameParams",
+      "key": "MinutesToCancelAction",
+      "label_zh": "可取消动作窗口",
+      "value": 10,
+      "unit": "minute",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.CostOfExtraHire",
+      "section": "GameParams",
+      "key": "CostOfExtraHire",
+      "label_zh": "额外招募历史配置，不认定为可用机制",
+      "value": 20,
+      "unit": "unknown",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.GameStartSpeedupTicks",
+      "section": "GameParams",
+      "key": "GameStartSpeedupTicks",
+      "label_zh": "开局加速阈值",
+      "value": 72,
+      "unit": "tick",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.GameStartSpeedupFactor",
+      "section": "GameParams",
+      "key": "GameStartSpeedupFactor",
+      "label_zh": "开局加速倍率，非所有系统统一加速",
+      "value": 1.5,
+      "unit": "multiplier",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.GiftDrillersRespectElectricalCap",
+      "section": "GameParams",
+      "key": "GiftDrillersRespectElectricalCap",
+      "label_zh": "赠兵受接收方供电上限限制",
+      "value": 1,
+      "unit": "boolean_int",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "GameParams.TeamDominationRequirementByPlayerCount",
+      "section": "GameParams",
+      "key": "TeamDominationRequirementByPlayerCount",
+      "label_zh": "团队统治目标，索引语义仍需核对胜利分支",
+      "value": [
+        0,
+        0,
+        0,
+        0,
+        19,
+        24,
+        28,
+        33,
+        37,
+        42,
+        46
+      ],
+      "unit": "outpost_count_by_player_count",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.AdmiralGlobalSpeedBonus",
+      "section": "SpecialistParams",
+      "key": "AdmiralGlobalSpeedBonus",
+      "label_zh": "海军上将全局速度加成",
+      "value": 0.5,
+      "unit": "ratio",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.EngineerRepairBonus",
+      "section": "SpecialistParams",
+      "key": "EngineerRepairBonus",
+      "label_zh": "工程师全局修复比例",
+      "value": 0.25,
+      "unit": "ratio",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.EngineerRepairBonusIfPresent",
+      "section": "SpecialistParams",
+      "key": "EngineerRepairBonusIfPresent",
+      "label_zh": "工程师在场额外修复比例",
+      "value": 0.25,
+      "unit": "ratio",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.DoubleAgentRange",
+      "section": "SpecialistParams",
+      "key": "DoubleAgentRange",
+      "label_zh": "保留配置，不据此推断当前双面间谍范围技能",
+      "value": 6,
+      "unit": "world_unit",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.ForemanExtraDrillers",
+      "section": "SpecialistParams",
+      "key": "ForemanExtraDrillers",
+      "label_zh": "每位覆盖工头的额外产量",
+      "value": 4,
+      "unit": "driller_per_cycle",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.GeneralPowerBonusForSpecialists",
+      "section": "SpecialistParams",
+      "key": "GeneralPowerBonusForSpecialists",
+      "label_zh": "每位将军的全局杀伤",
+      "value": 10,
+      "unit": "driller",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.GeneralCombatBonus",
+      "section": "SpecialistParams",
+      "key": "GeneralCombatBonus",
+      "label_zh": "保留配置，当前为零",
+      "value": 0,
+      "unit": "driller",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.InfiltratorDrainAmount",
+      "section": "SpecialistParams",
+      "key": "InfiltratorDrainAmount",
+      "label_zh": "渗透者排盾配置哨兵值",
+      "value": 9999,
+      "unit": "shield_charge",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.InspectorShieldBonus",
+      "section": "SpecialistParams",
+      "key": "InspectorShieldBonus",
+      "label_zh": "检查员护盾上限旧参数，当前为零",
+      "value": 0,
+      "unit": "shield_charge",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.IntelligenceOfficerGlobalVisibilityBonus",
+      "section": "SpecialistParams",
+      "key": "IntelligenceOfficerGlobalVisibilityBonus",
+      "label_zh": "情报官全局声呐加成",
+      "value": 0.25,
+      "unit": "ratio",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.IntelligenceOfficerLocalVisibilityMultiplier",
+      "section": "SpecialistParams",
+      "key": "IntelligenceOfficerLocalVisibilityMultiplier",
+      "label_zh": "情报官本地声呐倍率",
+      "value": 1,
+      "unit": "multiplier",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.DEPRECATED_V25_KingCombatBonus",
+      "section": "SpecialistParams",
+      "key": "DEPRECATED_V25_KingCombatBonus",
+      "label_zh": "旧国王战力参数，明确废弃",
+      "value": 0.25,
+      "unit": "ratio",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.KingDestroyRatio",
+      "section": "SpecialistParams",
+      "key": "KingDestroyRatio",
+      "label_zh": "国王每击毁一兵所需己方兵数",
+      "value": 4,
+      "unit": "own_drillers_per_enemy_driller",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.KingShieldPenalty",
+      "section": "SpecialistParams",
+      "key": "KingShieldPenalty",
+      "label_zh": "每位国王护盾上限惩罚",
+      "value": 20,
+      "unit": "shield_charge_per_king",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.LieutenantCombatBonus",
+      "section": "SpecialistParams",
+      "key": "LieutenantCombatBonus",
+      "label_zh": "中尉直接杀伤",
+      "value": 5,
+      "unit": "driller",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.MartyrRange",
+      "section": "SpecialistParams",
+      "key": "MartyrRange",
+      "label_zh": "殉道者爆炸半径",
+      "value": 1.5,
+      "unit": "world_unit",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.MartyrShieldThreshold",
+      "section": "SpecialistParams",
+      "key": "MartyrShieldThreshold",
+      "label_zh": "殉道者摧毁据点护盾阈值",
+      "value": 9999,
+      "unit": "shield_charge",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.MinisterOfEnergyDrillerProductionFactor",
+      "section": "SpecialistParams",
+      "key": "MinisterOfEnergyDrillerProductionFactor",
+      "label_zh": "旧版生产倍率，4300生产分支不使用",
+      "value": 0.5,
+      "unit": "multiplier",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.MinisterOfEnergyDrillerProductionPenalty",
+      "section": "SpecialistParams",
+      "key": "MinisterOfEnergyDrillerProductionPenalty",
+      "label_zh": "名义生产惩罚；当前执行公式直接减能源部长数量",
+      "value": 1,
+      "unit": "driller_per_cycle",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.MinisterOfEnergyOutput",
+      "section": "SpecialistParams",
+      "key": "MinisterOfEnergyOutput",
+      "label_zh": "能源部长供电加成",
+      "value": 300,
+      "unit": "driller_capacity",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.NavigatorChangeCourseDelayInSeconds",
+      "section": "SpecialistParams",
+      "key": "NavigatorChangeCourseDelayInSeconds",
+      "label_zh": "导航改向延迟配置",
+      "value": 0,
+      "unit": "second",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.NavigatorCourseChangeCooldownInMinutes",
+      "section": "SpecialistParams",
+      "key": "NavigatorCourseChangeCooldownInMinutes",
+      "label_zh": "导航改向冷却",
+      "value": 480,
+      "unit": "minute",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.NavigatorSpeedPenalty",
+      "section": "SpecialistParams",
+      "key": "NavigatorSpeedPenalty",
+      "label_zh": "导航速度惩罚",
+      "value": 0,
+      "unit": "ratio",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.PrincessLocalVisibilityMultiplier",
+      "section": "SpecialistParams",
+      "key": "PrincessLocalVisibilityMultiplier",
+      "label_zh": "公主本地声呐倍率",
+      "value": 1.5,
+      "unit": "multiplier",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.QueenShieldBonus",
+      "section": "SpecialistParams",
+      "key": "QueenShieldBonus",
+      "label_zh": "女王本地护盾上限加成",
+      "value": 20,
+      "unit": "shield_charge",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.SecurityChiefGlobalShieldBonus",
+      "section": "SpecialistParams",
+      "key": "SecurityChiefGlobalShieldBonus",
+      "label_zh": "安全主管全局护盾上限加成",
+      "value": 10,
+      "unit": "shield_charge",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.SecurityChiefLocalShieldBonus",
+      "section": "SpecialistParams",
+      "key": "SecurityChiefLocalShieldBonus",
+      "label_zh": "安全主管本地护盾上限加成",
+      "value": 10,
+      "unit": "shield_charge",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.SentryDrillerRemovedPercentage",
+      "section": "SpecialistParams",
+      "key": "SentryDrillerRemovedPercentage",
+      "label_zh": "哨兵单发杀伤比例",
+      "value": 0.05,
+      "unit": "ratio",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.SentryFirePeriodInMinutes",
+      "section": "SpecialistParams",
+      "key": "SentryFirePeriodInMinutes",
+      "label_zh": "哨兵射击间隔",
+      "value": 120,
+      "unit": "minute",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.ThiefTransferFactor",
+      "section": "SpecialistParams",
+      "key": "ThiefTransferFactor",
+      "label_zh": "盗贼夺兵比例",
+      "value": 0.15,
+      "unit": "ratio",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.TinkererBoostFactor",
+      "section": "SpecialistParams",
+      "key": "TinkererBoostFactor",
+      "label_zh": "修补匠按护盾上限增加供电的系数",
+      "value": 3,
+      "unit": "capacity_per_shield_charge",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.TinkererDischargePerHour",
+      "section": "SpecialistParams",
+      "key": "TinkererDischargePerHour",
+      "label_zh": "修补匠耗盾速率",
+      "value": 3,
+      "unit": "shield_charge_per_hour",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.TycoonExtraDrillers",
+      "section": "SpecialistParams",
+      "key": "TycoonExtraDrillers",
+      "label_zh": "大亨本地产量加成",
+      "value": 3,
+      "unit": "driller_per_cycle",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.TycoonProductionRateBonusFactor",
+      "section": "SpecialistParams",
+      "key": "TycoonProductionRateBonusFactor",
+      "label_zh": "大亨全局生产速率加成",
+      "value": 0.5,
+      "unit": "ratio",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SpecialistParams.WarHeroCombatBonus",
+      "section": "SpecialistParams",
+      "key": "WarHeroCombatBonus",
+      "label_zh": "战争英雄直接杀伤",
+      "value": 20,
+      "unit": "driller",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.GeneratorElectricalOutput",
+      "section": "OutpostParams",
+      "key": "GeneratorElectricalOutput",
+      "label_zh": "每座发电站供电",
+      "value": 50,
+      "unit": "driller_capacity",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.MinDistBetweenOutposts",
+      "section": "OutpostParams",
+      "key": "MinDistBetweenOutposts",
+      "label_zh": "地图生成最小据点距离配置",
+      "value": 3,
+      "unit": "world_unit",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.MaxDistBetweenOutposts",
+      "section": "OutpostParams",
+      "key": "MaxDistBetweenOutposts",
+      "label_zh": "地图生成最大据点距离配置",
+      "value": 10,
+      "unit": "world_unit",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.VisibilityRange",
+      "section": "OutpostParams",
+      "key": "VisibilityRange",
+      "label_zh": "基础声呐半径",
+      "value": 8,
+      "unit": "world_unit",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.QueenInitialDrillers",
+      "section": "OutpostParams",
+      "key": "QueenInitialDrillers",
+      "label_zh": "女王据点初始钻机",
+      "value": 0,
+      "unit": "driller",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.SecondaryOutpostInitialDrillers",
+      "section": "OutpostParams",
+      "key": "SecondaryOutpostInitialDrillers",
+      "label_zh": "其余初始据点钻机",
+      "value": 40,
+      "unit": "driller",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.ShieldDisableDelayInMinutes",
+      "section": "OutpostParams",
+      "key": "ShieldDisableDelayInMinutes",
+      "label_zh": "关闭护盾等待",
+      "value": 10,
+      "unit": "minute",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.MinutesForFullShieldPower",
+      "section": "OutpostParams",
+      "key": "MinutesForFullShieldPower",
+      "label_zh": "护盾恢复周期名义值，离散取整会改变实际时间",
+      "value": 2880,
+      "unit": "minute",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.WeakShieldMaxCharge",
+      "section": "OutpostParams",
+      "key": "WeakShieldMaxCharge",
+      "label_zh": "弱护盾基础上限",
+      "value": 10,
+      "unit": "shield_charge",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.StrongShieldMaxCharge",
+      "section": "OutpostParams",
+      "key": "StrongShieldMaxCharge",
+      "label_zh": "强护盾基础上限",
+      "value": 20,
+      "unit": "shield_charge",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.CityShieldMaxCharge",
+      "section": "OutpostParams",
+      "key": "CityShieldMaxCharge",
+      "label_zh": "城市护盾保留配置，普通模式用途未核实",
+      "value": 40,
+      "unit": "shield_charge",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.MinutesBetweenDrillerProductions",
+      "section": "OutpostParams",
+      "key": "MinutesBetweenDrillerProductions",
+      "label_zh": "工厂基础生产周期",
+      "value": 480,
+      "unit": "minute",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.DrillersPerProduction",
+      "section": "OutpostParams",
+      "key": "DrillersPerProduction",
+      "label_zh": "工厂基础产量",
+      "value": 6,
+      "unit": "driller_per_cycle",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.BaseMineCreationCostInDrillers",
+      "section": "OutpostParams",
+      "key": "BaseMineCreationCostInDrillers",
+      "label_zh": "基础开矿费用；4300主公式含硬编码50与100",
+      "value": 50,
+      "unit": "driller",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "OutpostParams.MineProductionCycleInMinutes",
+      "section": "OutpostParams",
+      "key": "MineProductionCycleInMinutes",
+      "label_zh": "历史采矿周期配置，4300实际按据点数计算",
+      "value": 240,
+      "unit": "minute",
+      "status": "client_config",
+      "source_ids": [
+        "client_config"
+      ],
+      "runtime_verified": false
+    }
+  ],
+  "specialists": [
+    {
+      "id": "Diplomat",
+      "client_type_id": 11,
+      "name_en": "Diplomat",
+      "name_zh": "外交官",
+      "category": "other",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": null,
+      "summary_zh": "释放其据点声呐覆盖范围内、关押在据点中的己方专家。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Engineer",
+      "client_type_id": 7,
+      "name_en": "Engineer",
+      "name_zh": "工程师",
+      "category": "promoted",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": null,
+      "summary_zh": "胜方修复：全局每名25%，现场每名额外25%；合并比例最高100%，对结算记录的钻机损失向上取整。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "ReveredElder",
+      "client_type_id": 17,
+      "name_en": "Revered Elder",
+      "name_zh": "长老",
+      "category": "defense",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 2,
+      "combat_participation_flags": {
+        "invading": true,
+        "defending": true,
+        "transit": true
+      },
+      "promotes_to": null,
+      "summary_zh": "只有一方有可参战长老时，关闭后续双方专家参战标记；双方都有则不关闭。殉道者优先于长老。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Admiral",
+      "client_type_id": 3,
+      "name_en": "Admiral",
+      "name_zh": "海军上将",
+      "category": "promoted",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.5,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": null,
+      "summary_zh": "至少一名提供无专家潜艇50%全局加速，不按人数叠加；自身速度1.5倍。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Foreman",
+      "client_type_id": 23,
+      "name_en": "Foreman",
+      "name_zh": "工头",
+      "category": "other",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": "Engineer",
+      "summary_zh": "位于据点且生效时，覆盖该据点一半实际声呐范围内己方工厂，每周期每名加4。覆盖含边界。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Tycoon",
+      "client_type_id": 4,
+      "name_en": "Tycoon",
+      "name_zh": "大亨",
+      "category": "promoted",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": null,
+      "summary_zh": "每名将全局生产速率系数增加0.5；本人所在工厂每周期额外3。周期按tick取整。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Pirate",
+      "client_type_id": 12,
+      "name_en": "Pirate",
+      "name_zh": "海盗",
+      "category": "attack",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 2.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": true
+      },
+      "promotes_to": null,
+      "summary_zh": "可指定敌方潜艇为目标，追击速度2倍，返航最近友方据点时4倍；普通据点航行不自动享受2倍。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Lieutenant",
+      "client_type_id": 1,
+      "name_en": "Lieutenant",
+      "name_zh": "中尉",
+      "category": "attack",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.5,
+      "combat_priority": 8,
+      "combat_participation_flags": {
+        "invading": true,
+        "defending": true,
+        "transit": true
+      },
+      "promotes_to": "General",
+      "summary_zh": "参战直接摧毁最多5台敌方钻机，自身速度1.5倍。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Princess",
+      "client_type_id": 24,
+      "name_en": "Princess",
+      "name_zh": "公主",
+      "category": "other",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": null,
+      "summary_zh": "所在据点声呐1.5倍；女王失去控制时最近的公主继位，距离相同的裁定待核实。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "King",
+      "client_type_id": 8,
+      "name_en": "King",
+      "name_zh": "国王",
+      "category": "promoted",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": null,
+      "summary_zh": "专家阶段结束己方每4兵摧毁1敌兵，向下取整；攻击加成不叠加。每名仍各减全局护盾上限20。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Infiltrator",
+      "client_type_id": 14,
+      "name_en": "Infiltrator",
+      "name_zh": "渗透者",
+      "category": "attack",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 5,
+      "combat_participation_flags": {
+        "invading": true,
+        "defending": false,
+        "transit": true
+      },
+      "promotes_to": null,
+      "summary_zh": "攻据点清空护盾；潜艇战触发结束战斗并继续航行。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "MinisterOfEnergy",
+      "client_type_id": 9,
+      "name_en": "Minister of Energy",
+      "name_zh": "能源部长",
+      "category": "promoted",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": null,
+      "summary_zh": "每名增加300供电，同时每座工厂每周期少产1台钻机。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "WarHero",
+      "client_type_id": 2,
+      "name_en": "War Hero",
+      "name_zh": "战争英雄",
+      "category": "attack",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 8,
+      "combat_participation_flags": {
+        "invading": true,
+        "defending": true,
+        "transit": true
+      },
+      "promotes_to": "Sentry",
+      "summary_zh": "参战直接摧毁最多20台敌方钻机。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Sentry",
+      "client_type_id": 15,
+      "name_en": "Sentry",
+      "name_zh": "哨兵",
+      "category": "promoted",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": null,
+      "summary_zh": "据点内每120分钟尝试射击，范围为所在据点半声呐；伤害为目标钻机数5%向上取整，优先最大伤害目标。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "IntelligenceOfficer",
+      "client_type_id": 25,
+      "name_en": "Intelligence Officer",
+      "name_zh": "情报官",
+      "category": "other",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": null,
+      "summary_zh": "增加全局声呐25%，并显示视野外据点类型；多个情报官的叠加顺序另列待确认。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Tinkerer",
+      "client_type_id": 22,
+      "name_en": "Tinkerer",
+      "name_zh": "修补匠",
+      "category": "other",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": true,
+        "transit": false
+      },
+      "promotes_to": "MinisterOfEnergy",
+      "summary_zh": "供电增加所在据点最大护盾的3倍，每小时消耗该据点3护盾。零盾/转移时序待确认。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Saboteur",
+      "client_type_id": 19,
+      "name_en": "Saboteur",
+      "name_zh": "破坏者",
+      "category": "defense",
+      "hire_bundle_size": 2,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 3,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": true
+      },
+      "promotes_to": null,
+      "summary_zh": "潜艇战将对方潜艇改派至对方最近友方据点；一次招募获得2名。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Assassin",
+      "client_type_id": 13,
+      "name_en": "Assassin",
+      "name_zh": "刺客",
+      "category": "attack",
+      "hire_bundle_size": 2,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 7,
+      "combat_participation_flags": {
+        "invading": true,
+        "defending": true,
+        "transit": true
+      },
+      "promotes_to": null,
+      "summary_zh": "杀死战场对方所属专家；一次招募获得2名。同优先级刺客可相互杀死。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Inspector",
+      "client_type_id": 16,
+      "name_en": "Inspector",
+      "name_zh": "检查员",
+      "category": "defense",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": true,
+        "transit": false
+      },
+      "promotes_to": "SecurityChief",
+      "summary_zh": "到达友方据点及战后在场时补满护盾；当前不增加基础护盾上限。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "DoubleAgent",
+      "client_type_id": 27,
+      "name_en": "Double Agent",
+      "name_zh": "双面间谍",
+      "category": "defense",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 6,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": true
+      },
+      "promotes_to": null,
+      "summary_zh": "潜艇战双方钻机清零，交换双方潜艇和专家归属并结束战斗。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "SecurityChief",
+      "client_type_id": 5,
+      "name_en": "Security Chief",
+      "name_zh": "安全主管",
+      "category": "promoted",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": true,
+        "transit": false
+      },
+      "promotes_to": null,
+      "summary_zh": "每名全局护盾上限加10，本人据点再加10。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Queen",
+      "client_type_id": 30,
+      "name_en": "Queen",
+      "name_zh": "女王",
+      "category": "promoted",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": null,
+      "summary_zh": "所在据点护盾上限加20；提供招募入口；额外获得的女王转为公主。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Thief",
+      "client_type_id": 10,
+      "name_en": "Thief",
+      "name_zh": "盗贼",
+      "category": "attack",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 4,
+      "combat_participation_flags": {
+        "invading": true,
+        "defending": false,
+        "transit": true
+      },
+      "promotes_to": null,
+      "summary_zh": "进攻据点或潜艇战夺取对方15%钻机，向上取整并限制到实际剩余兵力；防守据点不发动。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "General",
+      "client_type_id": 6,
+      "name_en": "General",
+      "name_zh": "将军",
+      "category": "promoted",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.5,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": true,
+        "defending": true,
+        "transit": true
+      },
+      "promotes_to": null,
+      "summary_zh": "专家阶段后己方仍有未被俘且存活专家才触发全局每名10杀伤；自身速度1.5倍。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Smuggler",
+      "client_type_id": 20,
+      "name_en": "Smuggler",
+      "name_zh": "走私者",
+      "category": "defense",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 3.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": true,
+        "defending": false,
+        "transit": true
+      },
+      "promotes_to": "Tycoon",
+      "summary_zh": "目的地属于本人时速度3倍；不对敌方据点进攻提供3倍加速。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Navigator",
+      "client_type_id": 21,
+      "name_en": "Navigator",
+      "name_zh": "导航员",
+      "category": "other",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": "Admiral",
+      "summary_zh": "允许途中改向，冷却480分钟；冷却归属与首次使用边界列为待确认。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Martyr",
+      "client_type_id": 29,
+      "name_en": "Martyr",
+      "name_zh": "殉道者",
+      "category": "defense",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 1,
+      "combat_participation_flags": {
+        "invading": true,
+        "defending": true,
+        "transit": true
+      },
+      "promotes_to": null,
+      "summary_zh": "战斗优先级1爆炸，摧毁半径1.5世界单位内潜艇及满足护盾阈值的据点，含友军；使用环面最短距离。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Helmsman",
+      "client_type_id": 26,
+      "name_en": "Helmsman",
+      "name_zh": "舵手",
+      "category": "other",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 2.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": null,
+      "summary_zh": "自身速度2倍。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    },
+    {
+      "id": "Hypnotist",
+      "client_type_id": 28,
+      "name_en": "Hypnotist",
+      "name_zh": "催眠师",
+      "category": "other",
+      "hire_bundle_size": 1,
+      "base_speed_multiplier": 1.0,
+      "combat_priority": 0,
+      "combat_participation_flags": {
+        "invading": false,
+        "defending": false,
+        "transit": false
+      },
+      "promotes_to": "King",
+      "summary_zh": "将本人所在据点的俘虏转为己方专家。",
+      "source_ids": [
+        "client_specialists",
+        "official_specialists"
+      ],
+      "status": "client_metadata_and_reviewed_summary",
+      "source_line": 29621
+    }
+  ],
+  "constants": [
+    {
+      "id": "seconds_per_tick",
+      "value": 600,
+      "unit": "second",
+      "status": "client_static",
+      "source_ids": [
+        "global_constants"
+      ]
+    },
+    {
+      "id": "ticks_per_day",
+      "value": 144,
+      "unit": "tick",
+      "status": "client_static",
+      "source_ids": [
+        "global_constants"
+      ]
+    },
+    {
+      "id": "outposts_per_player_map",
+      "value": 10,
+      "unit": "outpost",
+      "status": "client_static",
+      "source_ids": [
+        "global_constants"
+      ]
+    },
+    {
+      "id": "max_players",
+      "value": 10,
+      "unit": "player",
+      "status": "client_static",
+      "source_ids": [
+        "global_constants"
+      ]
+    },
+    {
+      "id": "max_subs_per_player",
+      "value": 128,
+      "unit": "sub",
+      "status": "client_static",
+      "source_ids": [
+        "global_constants"
+      ]
+    },
+    {
+      "id": "max_specialists_per_player",
+      "value": 48,
+      "unit": "specialist",
+      "status": "client_static",
+      "source_ids": [
+        "global_constants"
+      ]
+    },
+    {
+      "id": "max_specialists_per_sub",
+      "value": 3,
+      "unit": "specialist",
+      "status": "client_static",
+      "source_ids": [
+        "global_constants"
+      ]
+    },
+    {
+      "id": "max_specialists_per_location",
+      "value": 128,
+      "unit": "specialist",
+      "status": "client_static",
+      "source_ids": [
+        "global_constants"
+      ]
+    },
+    {
+      "id": "default_neptunium_goal",
+      "value": 200,
+      "unit": "kg",
+      "status": "client_static",
+      "source_ids": [
+        "global_constants"
+      ]
+    },
+    {
+      "id": "base_sub_speed",
+      "value": 0.004999999888,
+      "unit": "world_unit_per_minute",
+      "status": "client_static",
+      "source_ids": [
+        "sub_constants"
+      ]
+    },
+    {
+      "id": "gift_delay",
+      "value": 10,
+      "unit": "minute",
+      "status": "client_static",
+      "source_ids": [
+        "sub_constants"
+      ]
+    },
+    {
+      "id": "sub_destruction_delay",
+      "value": 10,
+      "unit": "minute",
+      "status": "client_static",
+      "source_ids": [
+        "sub_constants"
+      ]
+    },
+    {
+      "id": "default_foreman_range_factor",
+      "value": 0.5,
+      "unit": "ratio",
+      "status": "client_static",
+      "source_ids": [
+        "foreman_range"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "WORLD-001",
+      "summary_zh": "初始据点为额外据点参数加女王据点；初始钻机总数160。",
+      "formula": "initial_total = 4 + 1; initial_drillers = 4*40",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "world_init"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "WORLD-002",
+      "summary_zh": "地图生成目标据点数为玩家数乘10。",
+      "formula": "outpost_count = player_count * 10",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "global_constants"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "WORLD-003",
+      "summary_zh": "使用环面最短距离，跨地图边界相邻。",
+      "formula": "dx=min(abs(x1-x2),width-abs(x1-x2)); dy=min(abs(y1-y2),height-abs(y1-y2))",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "geometry"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "TIME-001",
+      "summary_zh": "标准tick为600秒，144tick为逻辑日。",
+      "formula": "seconds_per_tick=600; ticks_per_day=144",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "global_constants"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "TIME-002",
+      "summary_zh": "前72tick适用1.5开局倍率；招募使用有效tick。",
+      "formula": "effective_ticks=1.5*min(t,72)+max(0,t-72)",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "start_speed"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "TIME-003",
+      "summary_zh": "移动事件先按步内时间，再按潜艇索引升序。",
+      "formula": "sort_key=(timeFraction,subIndex)",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "event_order"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "TIME-004",
+      "summary_zh": "据点更新后提交专家，再移动/战斗，再周期能力、护盾裁剪及清理。",
+      "formula": "p3e -> y3e -> h3e -> S3e -> w3e -> C3e -> cleanup",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "tick_pipeline"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "ECON-001",
+      "summary_zh": "工厂产量受覆盖工头、本地大亨、资助、能源部长和供电剩余量影响。",
+      "formula": "min(max(0,6+4*F+3*T_local+2*funders-ministers),max(0,capacity-drillers))",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "production_amount"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "ECON-002",
+      "summary_zh": "大亨加快生产，按分钟和tick两次向下截断。",
+      "formula": "floor(floor(480/(1+0.5*tycoons))/10)",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "production_period"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "ECON-003",
+      "summary_zh": "达到供电容量时不推进工厂生产进度；开局生产进度乘加速系数。",
+      "formula": "progress += speedup_if_can_produce",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "factory_tick"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "ECON-004",
+      "summary_zh": "有效工头按所在据点一半实际声呐覆盖己方工厂，含边界，可叠加。",
+      "formula": "distance <= foreman_outpost_sonar * 0.5",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "foreman_range"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SHIELD-001",
+      "summary_zh": "安全主管和女王加盾，国王每名减20，最低0。",
+      "formula": "max(0,base+10*global_chiefs+10*local_chiefs+20*local_queens-20*kings)",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "shield_max"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SHIELD-002",
+      "summary_zh": "护盾离散恢复，非恒定48小时线性充满。",
+      "formula": "ticks_per_charge=floor(288/current_max_charge)",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "shield_tick"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "SHIELD-003",
+      "summary_zh": "关盾延迟到期时盾值清零并关闭。",
+      "formula": "disable_delay_minutes=10",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "shield_tick"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "MINE-001",
+      "summary_zh": "开矿费用使用团队历史建矿计数和正在开矿标记。",
+      "formula": "n=team_created+(team_pending?1:0); cost=(n==0?50:100*n)",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "mine_cost"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "MINE-002",
+      "summary_zh": "每矿按本人有效据点数计算生产1kg所需tick，保留小数。",
+      "formula": "ticks_per_kg=144/owned_factory_generator_mine_count",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "mine_period"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "MINE-003",
+      "summary_zh": "每tick采矿进度加1，达到阈值减去周期并生产1kg；不套用开局加速。",
+      "formula": "progress+=1; if progress>=period: progress-=period; np+=1",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "mine_tick"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "MINE-004",
+      "summary_zh": "战败丢矿后剩余矿按0.8倍四舍五入，攻占者不直接获得矿。",
+      "formula": "remaining=floor(old_np*0.8+0.5)",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "mine_capture"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "MINE-005",
+      "summary_zh": "4300占领分支不显式重置采矿计时，该重置仅在v18条件内。",
+      "formula": "preserve_mining_progress_in_reviewed_capture_branch",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "mine_capture"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "MINE-006",
+      "summary_zh": "完成建矿清零生产和采矿进度并增加本人历史建矿次数。",
+      "formula": "mine_creation_count+=1; factory_progress=0; mining_progress=0",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "mine_convert"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "MOVE-001",
+      "summary_zh": "有效专家航速取最大条件倍率，不进行多专家连乘。",
+      "formula": "speed=base_speed*max(eligible_specialist_multipliers)",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "speed_selection"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "MOVE-002",
+      "summary_zh": "潜艇基础速度约0.005世界单位/分钟，赠送延迟10分钟。",
+      "formula": "base_speed=0.004999999888; gift_delay_minutes=10",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "sub_constants"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "MOVE-003",
+      "summary_zh": "转交后超出接收方容量的部分从赠艇扣除，最多扣完赠艇钻机。",
+      "formula": "removed=min(gift_drillers,max(0,ceil(total_after_transfer-capacity)))",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "gift_cap"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "MOVE-004",
+      "summary_zh": "敌方攻击据点时召回尚待发射的艇；普通空无人据点直接接管。",
+      "formula": "recall_waiting_subs_before_hostile_outpost_combat",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "arrival"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "HIRE-001",
+      "summary_zh": "有效tick达到24首次增加机会，此后每108tick增加一次；未使用机会还须减去已消费次数。",
+      "formula": "total_unlocked=1+floor((effective_ticks-24)/108) when effective_ticks>=24 else 0",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "hiring"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "COMBAT-001",
+      "summary_zh": "俘虏不可主动参战；按入侵、守点、潜艇战标记筛选。",
+      "formula": "participates = not_captive and scenario_flag",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "combat_entry"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "COMBAT-002",
+      "summary_zh": "正优先级从小到大执行，相同级先收集双方再依缓存顺序调用。",
+      "formula": "priority_order=[1,2,3,4,5,6,7,8]",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "combat_entry"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "COMBAT-003",
+      "summary_zh": "据点战力由剩余钻机和护盾组成，艇战无盾。",
+      "formula": "attacker_power=A; defender_power=D+S",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "combat_power"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "COMBAT-004",
+      "summary_zh": "战力平局比较存活非俘虏专家数量，仍相同则守点胜或海上平局。",
+      "formula": "tie -> compare_owned_alive_specialists -> outpost_defender_or_sub_draw",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "combat_entry"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "COMBAT-005",
+      "summary_zh": "国王全局攻击加成不按国王数叠加，按专家阶段后兵数快照计算。",
+      "formula": "king_damage=min(enemy_remaining,floor(snapshot_own_drillers/4))",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "combat_entry"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "COMBAT-006",
+      "summary_zh": "将军每名10杀伤，要求己方战场存在存活未被俘专家；技能提前结束战斗时不追加。",
+      "formula": "general_damage=min(enemy_remaining,10*generals)",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "combat_entry"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "COMBAT-007",
+      "summary_zh": "盗贼夺取对方剩余兵力15%向上取整，守点不发动。",
+      "formula": "transfer=min(enemy_remaining,ceil(enemy_remaining*0.15))",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "specialist_effects"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "COMBAT-008",
+      "summary_zh": "胜方工程师修复比例为全局和现场贡献之和，封顶100%，对记录损失向上取整。",
+      "formula": "repair=ceil(recorded_loss*min(1,0.25*global_engineers+0.25*local_engineers))",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "engineer_repair"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "COMBAT-009",
+      "summary_zh": "殉道者爆炸半径使用1.5世界单位与环面距离，不用声呐20%的近似替代。",
+      "formula": "wrapped_distance_squared<=1.5*1.5",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "martyr_distance"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "COMBAT-010",
+      "summary_zh": "哨兵按120分钟计时，每发摧毁5%钻机向上取整，无有效目标不重置计时。",
+      "formula": "damage=ceil(target_drillers*0.05)",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "sentry_tick"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "COMBAT-011",
+      "summary_zh": "据点战后由到达调用者执行检查员补盾及催眠师转化，不能漏掉调用者效果。",
+      "formula": "combat -> unload -> inspector -> hypnotist",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "arrival"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "FORECAST-001",
+      "summary_zh": "未来推演克隆当前状态并移除不可见对象，不等于预知敌方未来命令。",
+      "formula": "forecast_input=visible_projection(current_state)",
+      "status": "client_static",
+      "profile": "apk-12075-rules-4300",
+      "source_ids": [
+        "forecast"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "WIN-001",
+      "summary_zh": "默认采矿200kg获胜；统治模式按据点目标；仅剩一人也结束。",
+      "formula": "default_np_goal=200",
+      "status": "official_documented",
+      "profile": "unversioned_official",
+      "source_ids": [
+        "official_rulebook"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "VIS-001",
+      "summary_zh": "据点位置公开，详情依声呐；己方和来袭单位有可见例外；矿场身份全局公开。",
+      "formula": "see official visibility rules",
+      "status": "official_documented",
+      "profile": "unversioned_official",
+      "source_ids": [
+        "official_rulebook"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "FUND-001",
+      "summary_zh": "矿领先至少20kg可资助，每位提供50容量和每工厂每周期2钻机。",
+      "formula": "lead>=20",
+      "status": "official_documented",
+      "profile": "unversioned_official",
+      "source_ids": [
+        "official_rulebook"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "LOSE-001",
+      "summary_zh": "无女王且无继承、投降、不活跃达到48小时导致淘汰；现代清理时序仍待核实。",
+      "formula": "inactive_hours>=48",
+      "status": "official_documented",
+      "profile": "unversioned_official",
+      "source_ids": [
+        "official_rulebook"
+      ],
+      "runtime_verified": false
+    }
+  ],
+  "sources": [
+    {
+      "id": "client_config",
+      "kind": "local_static",
+      "title": "client configuration versions and patches",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 20485,
+      "locator": "    il = {",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "client_specialists",
+      "kind": "local_static",
+      "title": "v42 specialist metadata with 4201/4300 inheritance",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 29621,
+      "locator": "        v42: {\n            Diplomat:",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "global_constants",
+      "kind": "local_static",
+      "title": "K global constants",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 20503,
+      "locator": "    K = (() => {",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "world_init",
+      "kind": "local_static",
+      "title": "V2e initial world ownership",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 31606,
+      "locator": "function V2e(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "geometry",
+      "kind": "local_static",
+      "title": "V.getMinDistSquared",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 41500,
+      "locator": "static getMinDistSquared(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "start_speed",
+      "kind": "local_static",
+      "title": "V.getEffectiveTickCount",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 41389,
+      "locator": "static getEffectiveTickCount(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "event_order",
+      "kind": "local_static",
+      "title": "h3e event list and YD comparator",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 42444,
+      "locator": "function h3e(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "tick_pipeline",
+      "kind": "local_static",
+      "title": "V.updateTick",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 41582,
+      "locator": "p3e(e), y3e(e)",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "production_amount",
+      "kind": "local_static",
+      "title": "V.calculateDrillersForNextProductionAtOutpost",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 42160,
+      "locator": "static calculateDrillersForNextProductionAtOutpost(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "production_period",
+      "kind": "local_static",
+      "title": "V.calculateTicksBetweenDrillerProductions",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 42260,
+      "locator": "static calculateTicksBetweenDrillerProductions(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "factory_tick",
+      "kind": "local_static",
+      "title": "m3e factory tick",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 42612,
+      "locator": "function m3e(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "foreman_range",
+      "kind": "local_static",
+      "title": "n3e coverage",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 41242,
+      "locator": "function n3e(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "shield_max",
+      "kind": "local_static",
+      "title": "kH shield cap",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 41267,
+      "locator": "function kH(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "shield_tick",
+      "kind": "local_static",
+      "title": "A3e shield tick",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 42634,
+      "locator": "function A3e(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "mine_cost",
+      "kind": "local_static",
+      "title": "ut.getMineCreationCostForPlayer",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 32546,
+      "locator": "static getMineCreationCostForPlayer(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "mine_period",
+      "kind": "local_static",
+      "title": "V.calculateTicksBetweenNpProductions",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 42194,
+      "locator": "static calculateTicksBetweenNpProductions(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "mine_tick",
+      "kind": "local_static",
+      "title": "g3e mine tick",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 42626,
+      "locator": "function g3e(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "mine_capture",
+      "kind": "local_static",
+      "title": "oX mine capture branch",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 30667,
+      "locator": "qn.getType(k, n.world.secondsSinceLastTick) == pe.Mine &&",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "mine_convert",
+      "kind": "local_static",
+      "title": "V.convertToMine",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 41877,
+      "locator": "static convertToMine(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "speed_selection",
+      "kind": "local_static",
+      "title": "V.getBestSpeedWithSpecialists",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 41418,
+      "locator": "static getBestSpeedWithSpecialists(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "sub_constants",
+      "kind": "local_static",
+      "title": "g0 constants; Aee=1, er=1",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 30131,
+      "locator": "const g0 = {",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "gift_cap",
+      "kind": "local_static",
+      "title": "V.capGiftDrillersToElectricalOutput",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 42180,
+      "locator": "static capGiftDrillersToElectricalOutput(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "arrival",
+      "kind": "local_static",
+      "title": "V.handleSubArrival",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 41584,
+      "locator": "static handleSubArrival(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "hiring",
+      "kind": "local_static",
+      "title": "ut.updateTick hiring clock",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 32466,
+      "locator": "e.tickCount % K.TicksPerDay, e.tickCount++",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "combat_entry",
+      "kind": "local_static",
+      "title": "oX combat including lX participation",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 30398,
+      "locator": "function oX(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "combat_power",
+      "kind": "local_static",
+      "title": "dX combat power",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 30855,
+      "locator": "function dX(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "specialist_effects",
+      "kind": "local_static",
+      "title": "r2e specialist effects",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 30689,
+      "locator": "function r2e(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "engineer_repair",
+      "kind": "local_static",
+      "title": "oX winning side repair",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 30618,
+      "locator": "U = $e.EngineerRepairBonus * L,",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "martyr_distance",
+      "kind": "local_static",
+      "title": "hX blast range",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 30954,
+      "locator": "function hX(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "sentry_tick",
+      "kind": "local_static",
+      "title": "EMe sentry tick",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 33544,
+      "locator": "function EMe(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "forecast",
+      "kind": "local_static",
+      "title": "future visibility removal",
+      "path": "research/analysis/javascript/index-DgdyVR_2.js",
+      "line": 40711,
+      "locator": "removeAllNonVisibleItems(",
+      "access_status": "read_local",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "official_rulebook",
+      "kind": "web",
+      "title": "Official Rule Book",
+      "url": "https://subterfuge-game.com/rulebook/index.html",
+      "access_status": "read_previous_turn",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "official_specialists",
+      "kind": "web",
+      "title": "Official Specialist Reference",
+      "url": "https://subterfuge-game.com/rulebook/Specialists.html",
+      "access_status": "indexed_previous_turn_direct_retry_failed",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "official_videos",
+      "kind": "web",
+      "title": "Tutorial Videos",
+      "url": "https://subterfuge-game.com/rulebook/Videos.html",
+      "access_status": "landing_page_only",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "wiki_rules",
+      "kind": "web",
+      "title": "Community Rules",
+      "url": "https://subterfuge.fandom.com/wiki/Rules",
+      "access_status": "search_index",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "wiki_combat",
+      "kind": "web",
+      "title": "Community Combat Resolution",
+      "url": "https://subterfuge.fandom.com/wiki/Combat_Resolution",
+      "access_status": "search_index_direct_failed",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "wiki_puzzles",
+      "kind": "web",
+      "title": "Community Puzzle Directory",
+      "url": "https://subterfuge.fandom.com/wiki/Puzzles",
+      "access_status": "directory_read",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "wiki_strategy",
+      "kind": "web",
+      "title": "Community Strategy",
+      "url": "https://subterfuge.fandom.com/wiki/Strategy",
+      "access_status": "index_only",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "update_post",
+      "kind": "web",
+      "title": "v42.1 announcement discussion",
+      "url": "https://www.reddit.com/r/Subterfuge/comments/1wjzowl/balance_and_gameplay_changes_rules_v42_is_live/",
+      "access_status": "read_previous_turn",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "update_official",
+      "kind": "web",
+      "title": "Linked v42.1 changelog",
+      "url": "https://www.secretplan.com/subterfuge-news/rules-v42-1.html",
+      "access_status": "unavailable",
+      "as_of": "2026-10-15"
+    },
+    {
+      "id": "tier_discussion",
+      "kind": "web",
+      "title": "v42.1 player tier discussion",
+      "url": "https://www.reddit.com/r/Subterfuge/comments/1x007d0/spec_tier_list_v421/",
+      "access_status": "read_opinion_only",
+      "as_of": "2026-10-15"
+    }
+  ],
+  "acceptance_cases": [
+    {
+      "id": "C01",
+      "kind": "production",
+      "input": {
+        "F": 0,
+        "T": 0,
+        "U": 0,
+        "M": 0,
+        "capacity": 150,
+        "current": 148
+      },
+      "expected": 2,
+      "rule_ids": [
+        "ECON-001"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C02",
+      "kind": "production",
+      "input": {
+        "F": 2,
+        "T": 1,
+        "U": 1,
+        "M": 1,
+        "capacity": 300,
+        "current": 100
+      },
+      "expected": 18,
+      "rule_ids": [
+        "ECON-001"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C03",
+      "kind": "production",
+      "input": {
+        "F": 0,
+        "T": 0,
+        "U": 0,
+        "M": 0,
+        "capacity": 150,
+        "current": 160
+      },
+      "expected": 0,
+      "rule_ids": [
+        "ECON-001"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C04",
+      "kind": "factory_period",
+      "input": {
+        "tycoons": 1
+      },
+      "expected": 32,
+      "rule_ids": [
+        "ECON-002"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C05",
+      "kind": "mine_cost",
+      "input": {
+        "team_created": 0,
+        "pending": false
+      },
+      "expected": 50,
+      "rule_ids": [
+        "MINE-001"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C06",
+      "kind": "mine_cost",
+      "input": {
+        "team_created": 2,
+        "pending": true
+      },
+      "expected": 300,
+      "rule_ids": [
+        "MINE-001"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C07",
+      "kind": "mine_loss",
+      "input": {
+        "np": 7
+      },
+      "expected": 6,
+      "rule_ids": [
+        "MINE-004"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C08",
+      "kind": "mine_period",
+      "input": {
+        "outposts": 7
+      },
+      "expected": 20.571428571428573,
+      "rule_ids": [
+        "MINE-002"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C09",
+      "kind": "gift",
+      "input": {
+        "gift_drillers": 50,
+        "total_after": 180,
+        "capacity": 150
+      },
+      "expected": 20,
+      "rule_ids": [
+        "MOVE-003"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C10",
+      "kind": "gift",
+      "input": {
+        "gift_drillers": 20,
+        "total_after": 190,
+        "capacity": 150
+      },
+      "expected": 0,
+      "rule_ids": [
+        "MOVE-003"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C11",
+      "kind": "engineer",
+      "input": {
+        "loss": 7,
+        "global_count": 1,
+        "local_count": 1
+      },
+      "expected": 4,
+      "rule_ids": [
+        "COMBAT-008"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C12",
+      "kind": "engineer",
+      "input": {
+        "loss": 7,
+        "global_count": 4,
+        "local_count": 2
+      },
+      "expected": 7,
+      "rule_ids": [
+        "COMBAT-008"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C13",
+      "kind": "thief",
+      "input": {
+        "enemy": 7
+      },
+      "expected": 2,
+      "rule_ids": [
+        "COMBAT-007"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C14",
+      "kind": "sentry",
+      "input": {
+        "enemy": 1
+      },
+      "expected": 1,
+      "rule_ids": [
+        "COMBAT-010"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C15",
+      "kind": "king",
+      "input": {
+        "own": 15,
+        "enemy": 9
+      },
+      "expected": 3,
+      "rule_ids": [
+        "COMBAT-005"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C16",
+      "kind": "effective_ticks",
+      "input": {
+        "tick": 16
+      },
+      "expected": 24,
+      "rule_ids": [
+        "TIME-002"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C17",
+      "kind": "effective_ticks",
+      "input": {
+        "tick": 73
+      },
+      "expected": 109,
+      "rule_ids": [
+        "TIME-002"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C18",
+      "kind": "shield_period",
+      "input": {
+        "max_charge": 10
+      },
+      "expected": 28,
+      "rule_ids": [
+        "SHIELD-002"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C19",
+      "kind": "battle",
+      "input": {
+        "A": 27,
+        "D": 11,
+        "S": 8,
+        "attacker_specs": 0,
+        "defender_specs": 0,
+        "outpost": true
+      },
+      "expected": {
+        "A": 8,
+        "D": 0,
+        "S": 0,
+        "winner": "attacker"
+      },
+      "rule_ids": [
+        "COMBAT-003",
+        "COMBAT-004"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C20",
+      "kind": "battle",
+      "input": {
+        "A": 5,
+        "D": 0,
+        "S": 8,
+        "attacker_specs": 0,
+        "defender_specs": 0,
+        "outpost": true
+      },
+      "expected": {
+        "A": 0,
+        "D": 0,
+        "S": 3,
+        "winner": "defender"
+      },
+      "rule_ids": [
+        "COMBAT-003",
+        "COMBAT-004"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C21",
+      "kind": "battle",
+      "input": {
+        "A": 10,
+        "D": 10,
+        "S": 0,
+        "attacker_specs": 1,
+        "defender_specs": 0,
+        "outpost": true
+      },
+      "expected": {
+        "A": 0,
+        "D": 0,
+        "S": 0,
+        "winner": "attacker"
+      },
+      "rule_ids": [
+        "COMBAT-003",
+        "COMBAT-004"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    },
+    {
+      "id": "C22",
+      "kind": "battle",
+      "input": {
+        "A": 10,
+        "D": 10,
+        "S": 0,
+        "attacker_specs": 0,
+        "defender_specs": 0,
+        "outpost": false
+      },
+      "expected": {
+        "A": 0,
+        "D": 0,
+        "S": 0,
+        "winner": "draw"
+      },
+      "rule_ids": [
+        "COMBAT-003",
+        "COMBAT-004"
+      ],
+      "evidence": "derived_spec_example_not_runtime_test"
+    }
+  ]
+}

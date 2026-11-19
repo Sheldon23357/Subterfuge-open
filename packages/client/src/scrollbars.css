@@ -1,0 +1,3 @@
+/* Keep wheel, touch and keyboard scrolling; never reserve a visible rail. */
+html, body, body * { scrollbar-width: none; -ms-overflow-style: none; }
+::-webkit-scrollbar { display: none; width: 0; height: 0; }

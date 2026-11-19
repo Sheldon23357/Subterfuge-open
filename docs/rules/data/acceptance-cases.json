@@ -1,0 +1,336 @@
+[
+  {
+    "id": "C01",
+    "kind": "production",
+    "input": {
+      "F": 0,
+      "T": 0,
+      "U": 0,
+      "M": 0,
+      "capacity": 150,
+      "current": 148
+    },
+    "expected": 2,
+    "rule_ids": [
+      "ECON-001"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C02",
+    "kind": "production",
+    "input": {
+      "F": 2,
+      "T": 1,
+      "U": 1,
+      "M": 1,
+      "capacity": 300,
+      "current": 100
+    },
+    "expected": 18,
+    "rule_ids": [
+      "ECON-001"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C03",
+    "kind": "production",
+    "input": {
+      "F": 0,
+      "T": 0,
+      "U": 0,
+      "M": 0,
+      "capacity": 150,
+      "current": 160
+    },
+    "expected": 0,
+    "rule_ids": [
+      "ECON-001"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C04",
+    "kind": "factory_period",
+    "input": {
+      "tycoons": 1
+    },
+    "expected": 32,
+    "rule_ids": [
+      "ECON-002"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C05",
+    "kind": "mine_cost",
+    "input": {
+      "team_created": 0,
+      "pending": false
+    },
+    "expected": 50,
+    "rule_ids": [
+      "MINE-001"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C06",
+    "kind": "mine_cost",
+    "input": {
+      "team_created": 2,
+      "pending": true
+    },
+    "expected": 300,
+    "rule_ids": [
+      "MINE-001"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C07",
+    "kind": "mine_loss",
+    "input": {
+      "np": 7
+    },
+    "expected": 6,
+    "rule_ids": [
+      "MINE-004"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C08",
+    "kind": "mine_period",
+    "input": {
+      "outposts": 7
+    },
+    "expected": 20.571428571428573,
+    "rule_ids": [
+      "MINE-002"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C09",
+    "kind": "gift",
+    "input": {
+      "gift_drillers": 50,
+      "total_after": 180,
+      "capacity": 150
+    },
+    "expected": 20,
+    "rule_ids": [
+      "MOVE-003"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C10",
+    "kind": "gift",
+    "input": {
+      "gift_drillers": 20,
+      "total_after": 190,
+      "capacity": 150
+    },
+    "expected": 0,
+    "rule_ids": [
+      "MOVE-003"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C11",
+    "kind": "engineer",
+    "input": {
+      "loss": 7,
+      "global_count": 1,
+      "local_count": 1
+    },
+    "expected": 4,
+    "rule_ids": [
+      "COMBAT-008"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C12",
+    "kind": "engineer",
+    "input": {
+      "loss": 7,
+      "global_count": 4,
+      "local_count": 2
+    },
+    "expected": 7,
+    "rule_ids": [
+      "COMBAT-008"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C13",
+    "kind": "thief",
+    "input": {
+      "enemy": 7
+    },
+    "expected": 2,
+    "rule_ids": [
+      "COMBAT-007"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C14",
+    "kind": "sentry",
+    "input": {
+      "enemy": 1
+    },
+    "expected": 1,
+    "rule_ids": [
+      "COMBAT-010"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C15",
+    "kind": "king",
+    "input": {
+      "own": 15,
+      "enemy": 9
+    },
+    "expected": 3,
+    "rule_ids": [
+      "COMBAT-005"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C16",
+    "kind": "effective_ticks",
+    "input": {
+      "tick": 16
+    },
+    "expected": 24,
+    "rule_ids": [
+      "TIME-002"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C17",
+    "kind": "effective_ticks",
+    "input": {
+      "tick": 73
+    },
+    "expected": 109,
+    "rule_ids": [
+      "TIME-002"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C18",
+    "kind": "shield_period",
+    "input": {
+      "max_charge": 10
+    },
+    "expected": 28,
+    "rule_ids": [
+      "SHIELD-002"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C19",
+    "kind": "battle",
+    "input": {
+      "A": 27,
+      "D": 11,
+      "S": 8,
+      "attacker_specs": 0,
+      "defender_specs": 0,
+      "outpost": true
+    },
+    "expected": {
+      "A": 8,
+      "D": 0,
+      "S": 0,
+      "winner": "attacker"
+    },
+    "rule_ids": [
+      "COMBAT-003",
+      "COMBAT-004"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C20",
+    "kind": "battle",
+    "input": {
+      "A": 5,
+      "D": 0,
+      "S": 8,
+      "attacker_specs": 0,
+      "defender_specs": 0,
+      "outpost": true
+    },
+    "expected": {
+      "A": 0,
+      "D": 0,
+      "S": 3,
+      "winner": "defender"
+    },
+    "rule_ids": [
+      "COMBAT-003",
+      "COMBAT-004"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C21",
+    "kind": "battle",
+    "input": {
+      "A": 10,
+      "D": 10,
+      "S": 0,
+      "attacker_specs": 1,
+      "defender_specs": 0,
+      "outpost": true
+    },
+    "expected": {
+      "A": 0,
+      "D": 0,
+      "S": 0,
+      "winner": "attacker"
+    },
+    "rule_ids": [
+      "COMBAT-003",
+      "COMBAT-004"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  },
+  {
+    "id": "C22",
+    "kind": "battle",
+    "input": {
+      "A": 10,
+      "D": 10,
+      "S": 0,
+      "attacker_specs": 0,
+      "defender_specs": 0,
+      "outpost": false
+    },
+    "expected": {
+      "A": 0,
+      "D": 0,
+      "S": 0,
+      "winner": "draw"
+    },
+    "rule_ids": [
+      "COMBAT-003",
+      "COMBAT-004"
+    ],
+    "evidence": "derived_spec_example_not_runtime_test"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "retrieved_date": "2026-10-15",
+  "timezone": "Asia/Hong_Kong",
+  "source": "APKPure third-party distribution",
+  "listing_url": "https://apkpure.net/subterfuge/com.snappytouch.subterfuge/download",
+  "download_url": "https://d.apkpure.net/b/APK/com.snappytouch.subterfuge?version=latest",
+  "redirect_host": "data.winudf.com",
+  "local_file": "research/packages/subterfuge-latest.apk",
+  "package": "com.snappytouch.subterfuge",
+  "version_name": "12075",
+  "version_code": "12075",
+  "bytes": 37625094,
+  "sha256": "6bb06f9a9cfe210937c67a9a20a380d300910edfe174893736ce0a5677c5bafa",
+  "certificate_sha256": "b994797228acbef889efb1033d82c99a6511b0db3bf4022f613749cfce0f3ceb",
+  "signature_schemes_present": ["v2", "v3"],
+  "zip_crc": "all entries readable with matching CRC",
+  "authenticity": "Certificate extracted, but publisher identity and cryptographic APK signature validity have not been independently verified.",
+  "execution": "No APK installation, JavaScript execution, or game backend requests performed."
+}

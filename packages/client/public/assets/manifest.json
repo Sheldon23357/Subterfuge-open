@@ -1,0 +1,24 @@
+{
+  "theme": "abyssal-survey-room",
+  "assets": [
+    {
+      "id": "menu.submarine",
+      "file": "menu-submarine.png",
+      "width": 1536,
+      "height": 1024,
+      "transparent": false,
+      "source": "OpenAI built-in image generation tool; generated for this project",
+      "status": "representative original menu artwork; no bulk portrait production",
+      "prompt": "Use case: stylized-concept. Asset type: background key art for an original desktop underwater strategy game menu, landscape 1536x1024. Create cinematic refined illustrated concept art of a single large elegant military research submarine, graphite dark metal, long smooth hull and small sail, subtle warm ivory cabin lights and tiny cyan running lights, traveling from the lower right toward the upper right in vast deep midnight navy water. Perspective three-quarter side view, submarine occupies right two thirds only, dramatic very soft overhead light shafts, layered distant seabed ridges and fine suspended particles. Quiet, serious, mysterious, premium PC strategy game art, restrained teal and slate palette, painterly realistic surface detail, tasteful film grain. Left third is dark clean negative space reserved for menu text. No typography, logos, UI elements, frames, people, explosions, torpedoes, neon effects. Make the silhouette readable and atmospheric, not a bright saturated science fiction spaceship."
+    },
+    {
+      "id": "lobby.deep-harbor",
+      "file": "lobby/deep-harbor.png",
+      "width": 1536,
+      "height": 1024,
+      "transparent": false,
+      "source": "OpenAI built-in image generation; original project artwork",
+      "prompt": "Original retrofuturist submarine deep-sea harbor, huge dark teal submarine docked on right, tiny warm gold porthole lights, cold cyan scattered light, distant seafloor ridges. Cinematic game concept art with restrained ink-wash texture. Left and upper dark negative space. No text, logos, watermarks or UI."
+    }
+  ]
+}

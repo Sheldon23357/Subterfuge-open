@@ -1,0 +1,48 @@
+.chat-shortcuts {
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  padding:8px 10px;
+  flex-shrink:0;
+  border-top:1px solid #304a5755;
+  max-height:112px;
+  overflow:auto;
+}
+.chat-shortcuts button {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  min-height:28px;
+  padding:4px 8px;
+  border:1px solid #455a6666;
+  border-radius:5px;
+  background:#0a2029;
+  color:#b9d0d8;
+  font:11px/1.4 "Microsoft YaHei",sans-serif;
+  cursor:pointer;
+}
+.chat-shortcuts button:hover {background:#203742;}
+.chat-shortcuts button[aria-pressed="true"] {border-color:currentColor;background:#29414c;}
+.chat-shortcuts button:focus-visible {outline:2px solid currentColor;outline-offset:2px;}
+.chat-shortcuts button:disabled {opacity:.5;cursor:default;}
+.chat-shortcuts small {font-size:10px;font-variant-numeric:tabular-nums;opacity:.8;}
+.chat-shortcuts i {width:5px;height:5px;border-radius:50%;background:currentColor;}
+.chat-window .chat-input,.player-chat .chat-compose .chat-input {
+  box-sizing:border-box;
+  height:32px;
+  min-height:32px;
+  min-width:0;
+  flex:1;
+  width:100%;
+  margin:0;
+  padding:6px 10px;
+  border:1px solid #455a6666;
+  border-radius:5px;
+  background:#0a2029;
+  color:#cfdbe2;
+  font:12px/18px "Microsoft YaHei",sans-serif;
+}
+.chat-window .chat-input::placeholder,.player-chat .chat-input::placeholder {color:#7d97a5;}
+.chat-window form:has(.chat-input),.player-chat .chat-compose {display:flex;align-items:center;gap:8px;}
+.chat-window form:has(.chat-input) button {height:32px;padding:6px;}
+.player-chat .chat-compose > button,.player-session .player-chat .chat-compose > button {width:auto;margin:0;min-height:32px;flex-shrink:0;padding:6px 10px;}

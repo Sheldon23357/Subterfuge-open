@@ -1,0 +1,6 @@
+.agent-console .recent-ai-calls { min-width: 0; }
+.recent-call-details { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--console-border); }
+.recent-call-details > summary { cursor: pointer; font-size: 12px; color: #b9cadb; }
+.agent-console .recent-call-details .diagnostic-table { max-height: 320px; overflow: auto; }
+.recent-call-details :is(th,td) { white-space: nowrap; vertical-align: middle; }
+.recent-call-details thead { position: sticky; top: 0; }

@@ -1,0 +1,18 @@
+.communications-panel > header .communications-tabs { min-width: 0; overflow-x: auto; }
+.communications-panel > header > button { flex-shrink: 0; }
+.communications-tabs button { flex-shrink: 0; }
+.battle-loss-context { display: flex; justify-content: space-between; gap: 12px; padding: 14px 16px; color: #b8cbd3; font-size: 12px; }
+.battle-loss-context time { color: #8da8b4; }
+.battle-loss-scroll { overflow: auto; min-height: 0; min-width: 0; max-width: 100%; padding: 0 12px 12px; overscroll-behavior-x: contain; }
+.battle-loss-table { border-collapse: separate; border-spacing: 3px; width: 100%; table-layout: fixed; font-size: 11px; font-variant-numeric: tabular-nums; }
+.battle-loss-table th { height: 34px; font-weight: 500; white-space: nowrap; }
+.battle-loss-table th:first-child { width: 64px; text-align: left; padding-left: 5px; position: sticky; left: 0; z-index: 1; background: #14232d; }
+.battle-loss-table .battle-loss-corner { color: #a9c0ca; }
+.battle-loss-table td { height: auto; padding: 0; text-align: center; border-radius: 4px; font-weight: 600; }
+.battle-loss-value { display: grid; place-items: center; width: 100%; aspect-ratio: 1; }
+.battle-loss-table td:hover { outline: 1px solid #ebf5f9; outline-offset: -1px; }
+.battle-loss-table .is-zero { background: #20333e; color: #8ea8b4; }
+.battle-loss-table .is-diagonal { background: #182a34; color: #56717f; }
+.battle-loss-note { margin: 0; padding: 8px 16px 14px; color: #8da8b4; font-size: 11px; line-height: 1.6; }
+
+.relations-table .trust-positive{color:#91edbc}.relations-table .trust-negative{color:#ffa29a}.relations-table.is-perspective .battle-loss-value{aspect-ratio:auto;min-height:36px}

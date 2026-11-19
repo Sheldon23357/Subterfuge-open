@@ -1,0 +1,91 @@
+.agent-console .assessment-workspace {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  height: clamp(420px, calc(100dvh - 235px), 1100px);
+}
+.assessment-workspace .assessment-column {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--console-border) var(--console-panel, #15263b);
+}
+.agent-console .assessment-workspace .assessment-panel {
+  min-height: 100%;
+  margin: 0;
+  padding: 18px;
+}
+.agent-console .assessment-workspace .assessment-table :is(th, td) {
+  padding: 10px 8px;
+  font-size: 11px;
+  vertical-align: middle;
+}
+.agent-console .assessment-workspace .assessment-table .detail-tip-trigger {
+  min-height: 28px;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 11px;
+  line-height: 18px;
+}
+.agent-console .assessment-workspace .assessment-table .detail-tip-trigger:hover,
+.agent-console .assessment-workspace .assessment-table .detail-tip-trigger[aria-describedby] {
+  color: #a7efe5;
+  background: #153337;
+  border-color: #346365;
+}
+.agent-console .console-detail-tip {
+  padding: 0;
+  background: #171f29;
+  border: 1px solid #425363;
+  border-radius: 8px;
+  color: #dce7f1;
+  box-shadow: 0 14px 40px #0009, 0 2px 8px #0006;
+  scrollbar-width: thin;
+  scrollbar-color: #425363 #171f29;
+}
+.agent-console .console-detail-tip .detail-tip-heading {
+  margin: 0;
+  padding: 13px 16px;
+  border-bottom: 1px solid #344451;
+  background: #1d2a35;
+  color: #e3eef6;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.detail-tip-body { padding: 16px; }
+.assessment-tip-key-metrics {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 16px;
+  margin: 0 0 16px;
+}
+.assessment-tip-key-metrics > div { min-width: 0; }
+.assessment-tip-key-metrics dt { color: #9baec0; font-size: 11px; }
+.assessment-tip-key-metrics dd { margin: 5px 0 0; color: #d8efee; font: 22px/1.25 Consolas,monospace; font-variant-numeric: tabular-nums; }
+.assessment-tip-key-metrics dd small { margin-left: 5px; color: #9baec0; font: 11px system-ui; }
+.assessment-tip-facts { display: grid; gap: 0; margin: 0; }
+.assessment-tip-facts > div { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid #34445180; }
+.assessment-tip-facts dt { color: #9baec0; font-size: 11px; }
+.assessment-tip-facts dd { margin: 0; color: #dce7f1; font-size: 12px; font-variant-numeric: tabular-nums; }
+.agent-console .console-detail-tip h4 { margin: 16px 0 8px; color: #c4d5e3; font-size: 11px; font-weight: 600; }
+.agent-console .console-detail-tip p { margin: 0; color: #a9bacb; font-size: 12px; line-height: 1.8; }
+.assessment-tip-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+.assessment-tip-tag { padding: 2px 7px; border: 1px solid #405362; border-radius: 4px; background: #22303b; color: #b9cadb; font-size: 11px; }
+.agent-console .console-detail-tip .assessment-tip-support { padding: 0; margin: 0; list-style: none; }
+.assessment-tip-support li { display: grid; gap: 3px; padding: 8px 0; }
+.assessment-tip-support b { color: #d1e1eb; font-size: 12px; font-weight: 500; }
+.assessment-tip-support span { color: #9baec0; font-size: 11px; }
+.assessment-workspace .assessment-table table { min-width: 540px; }
+@media (max-width: 760px) {
+  .agent-console .assessment-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+  }
+  .assessment-workspace .assessment-column { max-height: 70dvh; }
+  .agent-console .assessment-workspace .assessment-panel { min-height: 220px; }
+}

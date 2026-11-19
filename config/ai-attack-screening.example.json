@@ -1,0 +1,54 @@
+{
+  "version": "attack-screening/1",
+  "limits": {
+    "candidates": 5,
+    "diversitySlots": 3,
+    "maxSources": 3,
+    "attackTicks": 108,
+    "nearTicks": 72,
+    "assemblySpreadTicks": 30,
+    "holdTicks": 24,
+    "localTicks": 48,
+    "previewCandidates": 2
+  },
+  "force": {
+    "minimumReserve": 0,
+    "enemyMobilization": 0.65,
+    "thirdPartyMobilization": 0.5,
+    "unknownDrillers": 30,
+    "unknownShield": 10
+  },
+  "confidence": {
+    "unknownTarget": 0.35,
+    "unknownSupportPenalty": 0.08,
+    "minimum": 0.1
+  },
+  "value": {
+    "territory": 12,
+    "factory": 28,
+    "generator": 14,
+    "mine": 24,
+    "unknown": 6,
+    "capacityBottleneck": 12,
+    "existingMineExpansion": 4,
+    "leader": 12,
+    "scale": 80
+  },
+  "weights": {
+    "value": 30,
+    "attackBalance": 25,
+    "holdBalance": 15,
+    "speed": 10,
+    "confidence": 10,
+    "lowExposure": 10
+  },
+  "mineValue": {
+    "replacementPerBaseCost": 8,
+    "replacementCap": 24,
+    "incomePerNeptunium": 1.5,
+    "incomeCap": 18,
+    "denialPerNeptunium": 1,
+    "denialCap": 18,
+    "incomeHorizonTicks": 144
+  }
+}

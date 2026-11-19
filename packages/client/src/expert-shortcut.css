@@ -1,0 +1,20 @@
+.expert-function-tip {
+  position: fixed;
+  z-index: 1000;
+  width: 224px;
+  max-width: calc(100vw - 24px);
+  box-sizing: border-box;
+  padding: 11px 13px;
+  border: 1px solid #8aafbd40;
+  border-radius: 8px;
+  background: #132530f5;
+  box-shadow: 0 8px 24px #0005;
+  color: #c7dbe2;
+  font: 12px/1.65 var(--font-ui, sans-serif);
+  overflow-wrap: anywhere;
+  pointer-events: none;
+  animation: expert-tip-enter 120ms ease-out;
+}
+.expert-function-tip b {display: block;color: #e0edf0;margin-bottom: 4px;}
+@keyframes expert-tip-enter {from {opacity: 0;transform: translateY(3px);} to {opacity: 1;transform: translateY(0);}}
+@media (prefers-reduced-motion: reduce) {.expert-function-tip {animation: none;}}

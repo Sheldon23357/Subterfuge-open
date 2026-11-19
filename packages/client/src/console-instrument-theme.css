@@ -1,0 +1,151 @@
+/* Shared console chrome and reading surfaces use the live instrument palette. */
+:root{background:#101722}
+.agent-console.instrument-console{--console-border:#293e52;--console-muted:#91a7ba;--console-accent:#8bdfcf;--console-text:#d9e8f4;max-width:none;min-height:100dvh;background:#101722;color:var(--console-text);font-size:12px}
+.instrument-console .console-sidebar{display:none}
+.instrument-console .console-layout{display:block;min-height:100dvh;height:auto}
+.agent-console.instrument-console .console-detail{padding:0 16px 16px;min-width:0}
+.instrument-console .detail-top{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:24px;padding:7px 0 0;min-height:44px;background:#101722;border-bottom:1px solid var(--console-border)}
+.agent-console.instrument-console .detail-tabs{flex:1;min-width:0;display:flex;gap:23px;margin:0;padding:0;border:0;overflow-x:auto;scrollbar-width:none}
+.agent-console.instrument-console .detail-tabs button{flex:none;min-height:36px;padding:7px 0 9px;font-size:11px;color:#91a7ba;background:transparent}
+.agent-console.instrument-console .detail-tabs button[aria-selected=true]{color:#e0f5f5}
+.instrument-console .live-console-controls{position:static;display:flex;align-items:center;gap:6px;flex:none;padding-bottom:5px}
+.instrument-console .live-console-controls button{min-height:28px}
+.agent-console.instrument-console .detail-body{min-width:0;padding-top:10px;overflow:visible;max-height:none;outline-offset:-2px}
+.instrument-console .console-detail>.live-fleet{height:49px;margin-top:10px}
+.instrument-console .agent-diagnostics,.instrument-console .settings-stack{max-width:1600px;margin-inline:auto}
+.instrument-console :is(button,input,select){border-radius:5px}
+.instrument-console button{color:#b3cadb;background:#1a2a3a;border-color:#30495d}
+.instrument-console button:hover:not(:disabled){background:#233c4f;border-color:#52798d}
+.instrument-console :is(button,input,select,summary):focus-visible{outline-color:#8bdfcf}
+.instrument-console :is(input,select){color:#deebf5;background:#101d2b;border-color:#30495d}
+.instrument-console :is(input,select):disabled{background:#14212e;color:#aebdca}
+.instrument-console .muted,.instrument-console .diagnostic-caption{color:var(--console-muted)}
+.instrument-console .console-error{background:#38242b;color:#ffbac5;border-color:#77434e}
+.instrument-console .console-notice{background:#17322e;color:#a3ddcb;border-color:#30584e}
+.instrument-console .diagnostic-toolbar{min-height:40px;gap:12px;margin-bottom:12px;padding:8px 10px;border:1px solid var(--console-border);border-radius:7px;background:#152231;flex-wrap:wrap}
+.instrument-console .toolbar-actions{margin-left:auto}
+.instrument-console .toolbar-actions button{padding:4px 10px;font-size:11px;background:#1a2a3a;border-color:#30495d}
+.instrument-console .segmented-control{border-color:#30495d;background:#101a27;border-radius:5px}
+.instrument-console .segmented-control button{background:transparent;color:#91a7ba}
+.instrument-console .segmented-control button[aria-pressed=true]{background:#204039;color:#a4e6d5}
+.instrument-console .empty-state{min-height:260px;border:1px solid var(--console-border);border-radius:7px;background:linear-gradient(130deg,#172535,#111b28);color:#91a7ba}
+.instrument-console .empty-state svg{color:#64899e}
+.instrument-console .decision-panel,.instrument-console .tick-time-chart,.instrument-console .notebook-overview{padding:18px;margin:0 0 12px;border:1px solid var(--console-border);border-radius:7px;background:linear-gradient(130deg,#172535,#111b28)}
+.instrument-console :is(.section-heading,.chart-heading){margin-bottom:14px}
+.instrument-console :is(h3,h4){color:#b7dce9}
+.instrument-console .diagnostic-badge{color:#98dfca;background:#17382f;border-color:#366756;border-radius:4px;font-size:10px}
+.instrument-console .diagnostic-badge.is-stale{color:#f3cc87;background:#392f20;border-color:#6b5831}
+.instrument-console :is(.diagnostic-facts,.notebook-memory-grid>details,.note-list .note-card){background:#101e2c;border-color:var(--console-border);border-radius:6px}
+.instrument-console .diagnostic-facts dd,.instrument-console .strategy-prose,.instrument-console .note-body{color:#d2e1ec}
+.instrument-console .diagnostic-metrics>div{border-color:#377f78}
+.instrument-console .diagnostic-metrics dd{font-family:Consolas,monospace;color:#b2ebdf}
+.instrument-console :is(.diagnostic-disclosure,.hybrid-stage,.objective-group,.objective-groups,.objective-list>li,.hybrid-instructions>li,.diagnostic-records>li){border-color:var(--console-border)}
+.instrument-console .hybrid-stage h4>span{border-color:#377f78;color:#99ded0}
+.instrument-console .diagnostic-table{margin:14px 0 0;border:1px solid var(--console-border);border-radius:5px}
+.instrument-console .diagnostic-table :is(th,td){padding:11px 13px;border-color:#253b4e;font-size:11px}
+.instrument-console .diagnostic-table thead{background:#102334}
+.instrument-console .diagnostic-table th{color:#9db8cb}
+.instrument-console .diagnostic-table tbody tr:hover{background:#1b3040}
+.instrument-console .detail-tip-trigger{color:#92d7e5;background:transparent}
+.instrument-console .call-list{gap:10px}
+.instrument-console .call-round{border:1px solid var(--console-border);border-radius:7px;background:#131f2d;overflow:hidden}
+.instrument-console .call-round-heading{background:#192a3a!important;border-radius:0;width:100%}
+.instrument-console .call-row{background:transparent;border-radius:0;border-bottom:1px solid #293e5266}
+.instrument-console .call-row.selected{background:#1e3c43;border-left:2px solid #8bdfcf}
+.instrument-console .call-round-heading b,.instrument-console .call-row-title>b{color:#c7e2ed}
+.instrument-console .call-content{padding:18px;border:1px solid var(--console-border);border-radius:7px;background:#142230;margin-top:12px}
+.instrument-console :is(.call-content pre,.raw-record pre){background:#0d1723;border-color:var(--console-border);color:#c5dbe7}
+.instrument-console .statistics-stack{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.instrument-console .statistics-stack>section{padding:18px;margin:0;border:1px solid var(--console-border);border-radius:7px;background:linear-gradient(130deg,#172535,#111b28)}
+.instrument-console .statistics-stack>.diagnostic-caption{margin:0;padding:18px;align-self:start}
+.instrument-console .stat-summary strong{font-family:Consolas,monospace;color:#a5e6d7}
+.instrument-console .chart-axis{stroke:#365067}
+.instrument-console .execution-tooltip{background:#152637;border-color:#42637b;color:#d9e8f4}
+.instrument-console .tool-usage-track{background:#263b4d}
+.instrument-console .tool-usage-track>span{background:#61bba8}
+.instrument-console .settings-stack{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:12px}
+.agent-console.instrument-console .settings-stack>.provider-form,.agent-console.instrument-console .settings-stack>.strategy-form{margin:0;padding:18px;border:1px solid var(--console-border);border-radius:7px;background:linear-gradient(130deg,#172535,#111b28)}
+.instrument-console .settings-stack>.bot-settings{grid-column:1/-1}
+.instrument-console .settings-stack legend{color:#b7dce9;font-size:13px}
+.instrument-console .settings-stack :is(.bot-setting,.provider-form fieldset>label,.provider-advanced label){background:#111e2c;border-color:var(--console-border)}
+.instrument-console .settings-stack label{color:#b5c9d8}
+.instrument-console .settings-stack :is(input,select){font-size:12px;min-height:34px}
+.instrument-console .bot-settings fieldset>section{border-color:var(--console-border)}
+.instrument-console .personality-options button{background:#122333;border-color:#30495d}
+.instrument-console .personality-options button[aria-pressed=true]{background:#1b3a36;border-color:#559d8d;color:#b3efdd}
+.instrument-console .settings-status{grid-column:1/-1;margin:0;background:#1b3039;border-color:#5c99ab;color:#b9d5e4}
+.agent-console.instrument-console .settings-save{grid-column:1/-1;bottom:0;margin:0;padding:12px 0;background:#101722;border-color:var(--console-border)}
+.instrument-console button[type=submit],.instrument-console .console-primary{background:#1e5147;border-color:#438b7c;color:#b3f1de}
+.instrument-console button[type=submit]:hover:not(:disabled),.instrument-console .console-primary:hover:not(:disabled){background:#286859;border-color:#72bca8}
+.instrument-console .connection-settings{grid-column:1/-1;margin:0;padding:16px;border:1px solid var(--console-border);border-radius:7px;background:#131f2c}
+.instrument-console .connection-settings p{color:#91a7ba}
+.instrument-console .console-confirm{grid-column:1/-1;background:#30232b}
+
+/* Flex sizing fills the viewport even when the toolbar or notices change height. */
+.agent-console.instrument-console.live-console{display:flex;flex-direction:column;height:100dvh;min-height:0;overflow:clip}
+.instrument-console.live-console>.console-layout{display:flex;align-items:stretch;flex:1;min-width:0;min-height:0;height:auto}
+.agent-console.instrument-console.live-console .console-detail{display:flex;flex-direction:column;flex:1;min-height:0;min-width:0;padding-bottom:8px;align-self:stretch}
+.agent-console.instrument-console.live-console .detail-top{flex:none}
+.agent-console.instrument-console.live-console .detail-body{flex:1;min-width:0;min-height:0;display:flex;overflow:clip}
+.instrument-console.live-console .live-operations{flex:1;height:auto;min-width:0;min-height:0;grid-template-rows:19px 47px minmax(0,1fr) 48px}
+.instrument-console.live-console .console-error,.instrument-console.live-console .console-notice{flex:none}
+.instrument-console .live-operations.is-start{grid-template-areas:"status" "bots" "board";grid-template-rows:19px 47px minmax(0,1fr)}
+.console-start{grid-area:board;display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:48px;min-height:0;overflow:auto;padding:clamp(28px,5vw,80px);border:1px solid #293e52;border-radius:7px;background:radial-gradient(ellipse at 10% 70%,#1b51443b,transparent 60%),linear-gradient(130deg,#172535,#111b28)}
+.start-intro{max-width:520px}
+.start-status{display:inline-flex;align-items:center;gap:8px;color:#90bcb8;font-size:11px}
+.start-status i{width:6px;height:6px;background:#779a98;border-radius:50%}
+.instrument-console .console-start h2{margin:18px 0 14px;color:#deeff6;font-size:clamp(24px,3vw,38px);font-weight:550;letter-spacing:.02em;line-height:1.3}
+.console-start p{color:#91a7ba;line-height:1.8;font-size:12px}
+.start-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.instrument-console .start-actions button{min-height:38px;padding-inline:16px;font-size:12px}
+.start-connection{margin-top:14px}
+.start-checklist{list-style:none;padding:0;margin:0;min-width:0}
+.start-checklist li{display:flex;align-items:center;gap:16px;padding:24px 0;border-bottom:1px solid #293e52}
+.start-checklist li:last-child{border:0}
+.start-step{display:grid;place-items:center;width:38px;height:38px;flex:none;border:1px solid #365064;border-radius:7px;background:#152333;color:#7899ad}
+.start-checklist [data-ready=true] .start-step{color:#94dec9;background:#193a33;border-color:#386558}
+.start-checklist li>div{flex:1;min-width:0}
+.instrument-console .start-checklist h3{font-size:12px;margin-bottom:5px;color:#c0d8e8}
+.start-checklist p{overflow-wrap:anywhere;font-size:11px}
+.start-checklist li>span:last-child{font-size:10px;white-space:nowrap;color:#7c99aa}
+.start-checklist button{background:transparent;border:0;padding:4px;font-size:11px}
+@media(min-width:1600px){.instrument-console .bot-settings-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:1050px){.instrument-console .settings-stack{grid-template-columns:minmax(0,1fr)}.instrument-console .statistics-stack{grid-template-columns:minmax(0,1fr)}.console-start{gap:24px;padding:32px}.instrument-console .provider-form fieldset{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.agent-console.instrument-console .console-detail{padding-inline:10px}.instrument-console .detail-top{gap:12px;padding-top:3px}.agent-console.instrument-console .detail-tabs{gap:17px}.instrument-console .live-console-controls{padding:4px 0}.instrument-console .console-detail>.live-fleet{height:auto;min-height:90px;grid-template-columns:repeat(5,minmax(0,1fr))}.console-start{grid-template-columns:minmax(0,1fr);gap:18px;padding:24px}.start-checklist li{padding:16px 0}.instrument-console .bot-settings-grid,.instrument-console .provider-form fieldset{grid-template-columns:minmax(0,1fr)}.instrument-console .toolbar-actions{margin-left:auto;flex-wrap:wrap}.instrument-console .settings-stack>.provider-form,.instrument-console .settings-stack>.strategy-form{padding:14px}.instrument-console .diagnostic-toolbar{gap:8px}.instrument-console .diagnostic-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-height:650px){
+ .instrument-console .live-search{grid-template-rows:auto 40px minmax(0,1fr) auto}
+ .instrument-console .live-process-lane.is-embedded,.instrument-console .live-guidance>.live-process-lane.is-embedded{flex-basis:40px;height:40px}
+ .instrument-console .live-search>.live-process-lane.is-embedded{height:40px}
+ .instrument-console .live-stage-counts{min-height:42px;padding-block:2px;grid-auto-rows:36px}
+ .instrument-console .live-stage-counts>div{grid-template-rows:5px 10px 16px;gap:1px}
+ .instrument-console .live-stage-counts b{font-size:14px;line-height:16px}
+}
+@media(max-width:620px) and (orientation:portrait){
+ .agent-console.instrument-console.live-console{height:100dvh;min-height:0}
+ .instrument-console.live-console .live-operations{min-height:0;grid-template-rows:19px 80px minmax(0,1fr) 82px}
+ .instrument-console .live-operations.is-start{grid-template-rows:19px 80px minmax(0,1fr)}
+ .instrument-console .live-fleet{grid-template-columns:repeat(5,minmax(0,1fr))}
+ .instrument-console .live-bot svg.live-bot-engines{width:28px;height:18px}
+ .instrument-console .live-board{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-rows:minmax(0,1.15fr) minmax(0,1fr)}
+ .instrument-console .live-search{grid-template-rows:auto 36px minmax(0,1fr) auto}
+ .instrument-console .live-search>.live-process-lane.is-embedded{height:36px}
+ .instrument-console .live-process-lane.is-embedded,.instrument-console .live-guidance>.live-process-lane.is-embedded{flex-basis:36px;height:36px}
+ .instrument-console .live-stage-counts{min-height:42px;padding-block:2px}
+ .instrument-console .live-stage-counts>div{grid-template-rows:5px 10px 16px;gap:1px}
+ .instrument-console .live-stage-counts b{font-size:14px;line-height:16px}
+ .instrument-console .live-header{font-size:8px;gap:5px}
+ .instrument-console .live-header>.live-engine-counts{gap:8px}
+ .instrument-console .live-refresh{display:none}
+ .instrument-console .live-instruments{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .instrument-console .live-instruments>div:not(.live-budgets){grid-template-columns:18px minmax(0,1fr);grid-template-rows:10px 18px;padding:2px 5px;gap:0 3px}
+ .instrument-console .live-instruments svg{width:17px;height:17px}
+ .instrument-console .live-instruments strong{font-size:15px}
+ .instrument-console .live-budgets{display:flex;flex-direction:column;gap:0;padding:3px 6px}
+ .instrument-console .live-budgets span{display:flex;justify-content:space-between;width:100%;font-size:7px}
+ .instrument-console .live-budgets b{font-size:9px;line-height:1.1}
+ .instrument-console .console-start{align-content:start;align-items:start}
+}
+
+.instrument-console .live-console-controls .disconnect-control{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;color:#a8bccb;background:transparent;border:1px solid #344b5d;border-radius:5px}
+.instrument-console .live-console-controls .disconnect-control:hover:not(:disabled){color:#f0bbc3;background:#35232c;border-color:#79505c}
+.instrument-console .console-detail>.console-confirm{margin:10px 0;flex-wrap:wrap;gap:12px}

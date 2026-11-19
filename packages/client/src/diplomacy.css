@@ -1,0 +1,30 @@
+.communications-panel:has(#relations-tab[aria-selected="true"]){z-index:25}
+.communications-panel #relations-content:not([hidden]){display:block;overflow-y:auto;overscroll-behavior:contain}
+.communications-panel #relations-content>.battle-loss-scroll{overflow-x:auto;overflow-y:visible}
+.diplomacy-panel{padding:16px 0 4px;border-top:1px solid #ffffff1a;margin-top:4px}
+.diplomacy-panel .agreement-form{padding:12px;margin:0 0 16px;border:1px solid #a8c6dd40;border-radius:6px;background:#0b1a2380}
+.diplomacy-panel .agreement-form-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.diplomacy-panel .agreement-form-heading h5{font-size:12px;font-weight:600;margin:0}
+.diplomacy-panel .agreement-form-heading button{border:0;background:transparent;padding:3px;color:#91a9b5}
+.agreement-form fieldset{border:0;padding:0;margin:0;display:grid;gap:12px;min-width:0}
+.agreement-form label{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:11px;min-width:0}
+.agreement-form input[type=number],.agreement-form select{max-width:58%;min-width:0;min-height:30px;padding:5px 7px;color:inherit;background:#142832;border:1px solid #ffffff26;border-radius:4px}
+.agreement-form .agreement-form-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.agreement-form .agreement-form-row label{display:grid;gap:5px;color:#91a9b5}
+.agreement-form .agreement-form-row input,.agreement-form .agreement-form-row select{width:100%;max-width:none;color:#e2e8eb}
+.agreement-form p{font-size:10px;color:#91a9b5;margin:0}
+.agreement-form .agreement-duration{margin-top:-5px}
+.agreement-scope-heading{display:flex;justify-content:space-between;gap:8px;margin-bottom:7px;font-size:11px}
+.agreement-scope-heading b{font-weight:500}
+.agreement-scope-heading>span{color:#91a9b5}
+.agreement-scope{max-height:160px;overflow:auto;border:1px solid #ffffff18;border-radius:4px;padding:5px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;margin-bottom:6px}
+.agreement-scope label{justify-content:flex-start;gap:6px;padding:5px;border-radius:3px;cursor:pointer}
+.agreement-scope label:has(input:checked){background:#a8d9c910;color:#bce4d8}
+.agreement-scope label:hover{background:#ffffff07}
+.agreement-scope input{accent-color:#a8d9c9;margin:0;flex-shrink:0}
+.agreement-scope small{margin-left:auto;white-space:nowrap;font-size:10px}
+.agreement-subsidy{display:grid;gap:8px;border-top:1px solid #ffffff1a;padding-top:12px}
+.agreement-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.agreement-form .agreement-actions{margin-top:0}
+.server-agreements .agreement-error{padding:8px 10px;margin:0 0 12px;color:#ffb8ad;background:#a649381a;border:1px solid #d2817140;border-radius:4px;font-size:11px}
+@media(max-width:380px){.agreement-scope{grid-template-columns:minmax(0,1fr)}}

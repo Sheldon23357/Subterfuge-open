@@ -1,0 +1,119 @@
+[
+  {
+    "id": "seconds_per_tick",
+    "value": 600,
+    "unit": "second",
+    "status": "client_static",
+    "source_ids": [
+      "global_constants"
+    ]
+  },
+  {
+    "id": "ticks_per_day",
+    "value": 144,
+    "unit": "tick",
+    "status": "client_static",
+    "source_ids": [
+      "global_constants"
+    ]
+  },
+  {
+    "id": "outposts_per_player_map",
+    "value": 10,
+    "unit": "outpost",
+    "status": "client_static",
+    "source_ids": [
+      "global_constants"
+    ]
+  },
+  {
+    "id": "max_players",
+    "value": 10,
+    "unit": "player",
+    "status": "client_static",
+    "source_ids": [
+      "global_constants"
+    ]
+  },
+  {
+    "id": "max_subs_per_player",
+    "value": 128,
+    "unit": "sub",
+    "status": "client_static",
+    "source_ids": [
+      "global_constants"
+    ]
+  },
+  {
+    "id": "max_specialists_per_player",
+    "value": 48,
+    "unit": "specialist",
+    "status": "client_static",
+    "source_ids": [
+      "global_constants"
+    ]
+  },
+  {
+    "id": "max_specialists_per_sub",
+    "value": 3,
+    "unit": "specialist",
+    "status": "client_static",
+    "source_ids": [
+      "global_constants"
+    ]
+  },
+  {
+    "id": "max_specialists_per_location",
+    "value": 128,
+    "unit": "specialist",
+    "status": "client_static",
+    "source_ids": [
+      "global_constants"
+    ]
+  },
+  {
+    "id": "default_neptunium_goal",
+    "value": 200,
+    "unit": "kg",
+    "status": "client_static",
+    "source_ids": [
+      "global_constants"
+    ]
+  },
+  {
+    "id": "base_sub_speed",
+    "value": 0.004999999888,
+    "unit": "world_unit_per_minute",
+    "status": "client_static",
+    "source_ids": [
+      "sub_constants"
+    ]
+  },
+  {
+    "id": "gift_delay",
+    "value": 10,
+    "unit": "minute",
+    "status": "client_static",
+    "source_ids": [
+      "sub_constants"
+    ]
+  },
+  {
+    "id": "sub_destruction_delay",
+    "value": 10,
+    "unit": "minute",
+    "status": "client_static",
+    "source_ids": [
+      "sub_constants"
+    ]
+  },
+  {
+    "id": "default_foreman_range_factor",
+    "value": 0.5,
+    "unit": "ratio",
+    "status": "client_static",
+    "source_ids": [
+      "foreman_range"
+    ]
+  }
+]

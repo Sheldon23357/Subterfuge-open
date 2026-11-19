@@ -1,0 +1,9 @@
+.observer-chat { min-height: 0; flex: 1; }
+.observer-chat-heading { display: flex; justify-content: space-between; gap: 12px; padding: 12px; border-bottom: 1px solid #304a57; font-size: 12px; }
+.observer-chat-heading span { color: #91aab5; font-size: 11px; }
+.observer-chat .observer-chat-route { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-start; gap: 5px; font-size: 11px; color: #91aab5; }
+.observer-chat-route time { margin-left: auto; white-space: nowrap; }
+.observer-chat-recipients { display: inline-flex; flex-wrap: wrap; gap: 5px; }
+.observer-chat .chat-messages article { max-width: 100%; }
+.observer-chat .chat-messages p { overflow-wrap: anywhere; }
+.observer-chat-earlier { display: block; margin: 0 auto 14px; font-size: 11px; }

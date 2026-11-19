@@ -1,0 +1,669 @@
+[
+  {
+    "id": "Diplomat",
+    "client_type_id": 11,
+    "name_en": "Diplomat",
+    "name_zh": "外交官",
+    "category": "other",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": null,
+    "summary_zh": "释放其据点声呐覆盖范围内、关押在据点中的己方专家。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Engineer",
+    "client_type_id": 7,
+    "name_en": "Engineer",
+    "name_zh": "工程师",
+    "category": "promoted",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": null,
+    "summary_zh": "胜方修复：全局每名25%，现场每名额外25%；合并比例最高100%，对结算记录的钻机损失向上取整。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "ReveredElder",
+    "client_type_id": 17,
+    "name_en": "Revered Elder",
+    "name_zh": "长老",
+    "category": "defense",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 2,
+    "combat_participation_flags": {
+      "invading": true,
+      "defending": true,
+      "transit": true
+    },
+    "promotes_to": null,
+    "summary_zh": "只有一方有可参战长老时，关闭后续双方专家参战标记；双方都有则不关闭。殉道者优先于长老。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Admiral",
+    "client_type_id": 3,
+    "name_en": "Admiral",
+    "name_zh": "海军上将",
+    "category": "promoted",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.5,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": null,
+    "summary_zh": "至少一名提供无专家潜艇50%全局加速，不按人数叠加；自身速度1.5倍。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Foreman",
+    "client_type_id": 23,
+    "name_en": "Foreman",
+    "name_zh": "工头",
+    "category": "other",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": "Engineer",
+    "summary_zh": "位于据点且生效时，覆盖该据点一半实际声呐范围内己方工厂，每周期每名加4。覆盖含边界。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Tycoon",
+    "client_type_id": 4,
+    "name_en": "Tycoon",
+    "name_zh": "大亨",
+    "category": "promoted",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": null,
+    "summary_zh": "每名将全局生产速率系数增加0.5；本人所在工厂每周期额外3。周期按tick取整。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Pirate",
+    "client_type_id": 12,
+    "name_en": "Pirate",
+    "name_zh": "海盗",
+    "category": "attack",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 2.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": true
+    },
+    "promotes_to": null,
+    "summary_zh": "可指定敌方潜艇为目标，追击速度2倍，返航最近友方据点时4倍；普通据点航行不自动享受2倍。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Lieutenant",
+    "client_type_id": 1,
+    "name_en": "Lieutenant",
+    "name_zh": "中尉",
+    "category": "attack",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.5,
+    "combat_priority": 8,
+    "combat_participation_flags": {
+      "invading": true,
+      "defending": true,
+      "transit": true
+    },
+    "promotes_to": "General",
+    "summary_zh": "参战直接摧毁最多5台敌方钻机，自身速度1.5倍。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Princess",
+    "client_type_id": 24,
+    "name_en": "Princess",
+    "name_zh": "公主",
+    "category": "other",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": null,
+    "summary_zh": "所在据点声呐1.5倍；女王失去控制时最近的公主继位，距离相同的裁定待核实。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "King",
+    "client_type_id": 8,
+    "name_en": "King",
+    "name_zh": "国王",
+    "category": "promoted",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": null,
+    "summary_zh": "专家阶段结束己方每4兵摧毁1敌兵，向下取整；攻击加成不叠加。每名仍各减全局护盾上限20。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Infiltrator",
+    "client_type_id": 14,
+    "name_en": "Infiltrator",
+    "name_zh": "渗透者",
+    "category": "attack",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 5,
+    "combat_participation_flags": {
+      "invading": true,
+      "defending": false,
+      "transit": true
+    },
+    "promotes_to": null,
+    "summary_zh": "攻据点清空护盾；潜艇战触发结束战斗并继续航行。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "MinisterOfEnergy",
+    "client_type_id": 9,
+    "name_en": "Minister of Energy",
+    "name_zh": "能源部长",
+    "category": "promoted",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": null,
+    "summary_zh": "每名增加300供电，同时每座工厂每周期少产1台钻机。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "WarHero",
+    "client_type_id": 2,
+    "name_en": "War Hero",
+    "name_zh": "战争英雄",
+    "category": "attack",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 8,
+    "combat_participation_flags": {
+      "invading": true,
+      "defending": true,
+      "transit": true
+    },
+    "promotes_to": "Sentry",
+    "summary_zh": "参战直接摧毁最多20台敌方钻机。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Sentry",
+    "client_type_id": 15,
+    "name_en": "Sentry",
+    "name_zh": "哨兵",
+    "category": "promoted",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": null,
+    "summary_zh": "据点内每120分钟尝试射击，范围为所在据点半声呐；伤害为目标钻机数5%向上取整，优先最大伤害目标。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "IntelligenceOfficer",
+    "client_type_id": 25,
+    "name_en": "Intelligence Officer",
+    "name_zh": "情报官",
+    "category": "other",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": null,
+    "summary_zh": "增加全局声呐25%，并显示视野外据点类型；多个情报官的叠加顺序另列待确认。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Tinkerer",
+    "client_type_id": 22,
+    "name_en": "Tinkerer",
+    "name_zh": "修补匠",
+    "category": "other",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": true,
+      "transit": false
+    },
+    "promotes_to": "MinisterOfEnergy",
+    "summary_zh": "供电增加所在据点最大护盾的3倍，每小时消耗该据点3护盾。零盾/转移时序待确认。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Saboteur",
+    "client_type_id": 19,
+    "name_en": "Saboteur",
+    "name_zh": "破坏者",
+    "category": "defense",
+    "hire_bundle_size": 2,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 3,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": true
+    },
+    "promotes_to": null,
+    "summary_zh": "潜艇战将对方潜艇改派至对方最近友方据点；一次招募获得2名。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Assassin",
+    "client_type_id": 13,
+    "name_en": "Assassin",
+    "name_zh": "刺客",
+    "category": "attack",
+    "hire_bundle_size": 2,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 7,
+    "combat_participation_flags": {
+      "invading": true,
+      "defending": true,
+      "transit": true
+    },
+    "promotes_to": null,
+    "summary_zh": "杀死战场对方所属专家；一次招募获得2名。同优先级刺客可相互杀死。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Inspector",
+    "client_type_id": 16,
+    "name_en": "Inspector",
+    "name_zh": "检查员",
+    "category": "defense",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": true,
+      "transit": false
+    },
+    "promotes_to": "SecurityChief",
+    "summary_zh": "到达友方据点及战后在场时补满护盾；当前不增加基础护盾上限。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "DoubleAgent",
+    "client_type_id": 27,
+    "name_en": "Double Agent",
+    "name_zh": "双面间谍",
+    "category": "defense",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 6,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": true
+    },
+    "promotes_to": null,
+    "summary_zh": "潜艇战双方钻机清零，交换双方潜艇和专家归属并结束战斗。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "SecurityChief",
+    "client_type_id": 5,
+    "name_en": "Security Chief",
+    "name_zh": "安全主管",
+    "category": "promoted",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": true,
+      "transit": false
+    },
+    "promotes_to": null,
+    "summary_zh": "每名全局护盾上限加10，本人据点再加10。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Queen",
+    "client_type_id": 30,
+    "name_en": "Queen",
+    "name_zh": "女王",
+    "category": "promoted",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": null,
+    "summary_zh": "所在据点护盾上限加20；提供招募入口；额外获得的女王转为公主。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Thief",
+    "client_type_id": 10,
+    "name_en": "Thief",
+    "name_zh": "盗贼",
+    "category": "attack",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 4,
+    "combat_participation_flags": {
+      "invading": true,
+      "defending": false,
+      "transit": true
+    },
+    "promotes_to": null,
+    "summary_zh": "进攻据点或潜艇战夺取对方15%钻机，向上取整并限制到实际剩余兵力；防守据点不发动。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "General",
+    "client_type_id": 6,
+    "name_en": "General",
+    "name_zh": "将军",
+    "category": "promoted",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.5,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": true,
+      "defending": true,
+      "transit": true
+    },
+    "promotes_to": null,
+    "summary_zh": "专家阶段后己方仍有未被俘且存活专家才触发全局每名10杀伤；自身速度1.5倍。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Smuggler",
+    "client_type_id": 20,
+    "name_en": "Smuggler",
+    "name_zh": "走私者",
+    "category": "defense",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 3.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": true,
+      "defending": false,
+      "transit": true
+    },
+    "promotes_to": "Tycoon",
+    "summary_zh": "目的地属于本人时速度3倍；不对敌方据点进攻提供3倍加速。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Navigator",
+    "client_type_id": 21,
+    "name_en": "Navigator",
+    "name_zh": "导航员",
+    "category": "other",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": "Admiral",
+    "summary_zh": "允许途中改向，冷却480分钟；冷却归属与首次使用边界列为待确认。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Martyr",
+    "client_type_id": 29,
+    "name_en": "Martyr",
+    "name_zh": "殉道者",
+    "category": "defense",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 1,
+    "combat_participation_flags": {
+      "invading": true,
+      "defending": true,
+      "transit": true
+    },
+    "promotes_to": null,
+    "summary_zh": "战斗优先级1爆炸，摧毁半径1.5世界单位内潜艇及满足护盾阈值的据点，含友军；使用环面最短距离。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Helmsman",
+    "client_type_id": 26,
+    "name_en": "Helmsman",
+    "name_zh": "舵手",
+    "category": "other",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 2.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": null,
+    "summary_zh": "自身速度2倍。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  },
+  {
+    "id": "Hypnotist",
+    "client_type_id": 28,
+    "name_en": "Hypnotist",
+    "name_zh": "催眠师",
+    "category": "other",
+    "hire_bundle_size": 1,
+    "base_speed_multiplier": 1.0,
+    "combat_priority": 0,
+    "combat_participation_flags": {
+      "invading": false,
+      "defending": false,
+      "transit": false
+    },
+    "promotes_to": "King",
+    "summary_zh": "将本人所在据点的俘虏转为己方专家。",
+    "source_ids": [
+      "client_specialists",
+      "official_specialists"
+    ],
+    "status": "client_metadata_and_reviewed_summary",
+    "source_line": 29621
+  }
+]

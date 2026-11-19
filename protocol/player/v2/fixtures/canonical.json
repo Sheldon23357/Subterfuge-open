@@ -1,0 +1,32 @@
+[
+  {
+    "name": "property-order-unicode",
+    "raw": "{\"z\":1e+0,\"a\":{\"b\":2,\"a\":-0},\"雪\":\"😀\"}",
+    "canonical": "{\"a\":{\"a\":0,\"b\":2},\"z\":1,\"雪\":\"😀\"}",
+    "sha256": "77178b60bb68452955c2fc67bf8f00d51da7473ded6634aae9a3a54e33f7dfb7"
+  },
+  {
+    "name": "binary64-shortest",
+    "raw": "[333333333.33333329,1E30,4.50,2e-3,0.000000000000000000000000001]",
+    "canonical": "[333333333.3333333,1e+30,4.5,0.002,1e-27]",
+    "sha256": "7c6bc86d861387d823ae596b79ca0b26567dddc22a77acb1f4e06d441f555adf"
+  },
+  {
+    "name": "negative-zero",
+    "raw": "{\"n\":-0.0,\"small\":1e-6,\"tiny\":1e-7}",
+    "canonical": "{\"n\":0,\"small\":0.000001,\"tiny\":1e-7}",
+    "sha256": "0c75e6276bb8d5a4afbcc6fd113779e71637d14fdfeb4c4d09c7fde8148829fb"
+  },
+  {
+    "name": "utf16-key-order",
+    "raw": "{\"\\ue000\":2,\"\\ud83d\\ude00\":1}",
+    "canonical": "{\"😀\":1,\"\":2}",
+    "sha256": "04208f6cdb854e2ab1b07dd3633a39dec854344fe72824cf7f2fdb4e2e33129e"
+  },
+  {
+    "name": "no-unicode-normalization",
+    "raw": "{\"é\":1,\"é\":2}",
+    "canonical": "{\"é\":1,\"é\":2}",
+    "sha256": "c2635d7e15e25b90abc8b3543d92f0ffcee0644372d8b662a0775f88d43278e5"
+  }
+]

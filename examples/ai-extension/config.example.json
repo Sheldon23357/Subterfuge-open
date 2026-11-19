@@ -1,0 +1,21 @@
+{
+  "storeDirectory": "outputs/my-custom-ai",
+  "pollMs": 1000,
+  "seats": [
+    {
+      "id": "my-ai",
+      "serverUrl": "https://game.example",
+      "roomId": "existing-room-id",
+      "lobbySeat": 0,
+      "gamePlayer": 0,
+      "chatPlayer": 0,
+      "chatCount": 2,
+      "tokenEnv": "PLAYER_EXECUTOR_TOKEN",
+      "settings": {
+        "mode": "custom-hybrid",
+        "model": "deterministic-example",
+        "personality": "schemer"
+      }
+    }
+  ]
+}

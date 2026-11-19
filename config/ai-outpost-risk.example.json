@@ -1,0 +1,8 @@
+{
+  "firstSupportWeight": 0.5,
+  "secondSupportWeight": 0.2,
+  "outerEnemyWeight": 0.5,
+  "mineMultiplier": 1.5,
+  "horizonTicks": 144,
+  "targetLimit": 10
+}

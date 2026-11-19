@@ -1,0 +1,13 @@
+import {spawn} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+import {build} from 'esbuild';
+import {mkdtemp,copyFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+const root=fileURLToPath(new URL('../',import.meta.url));
+const web=await mkdtemp(join(tmpdir(),'subterfuge-ai-example-web-'));
+await build({absWorkingDir:root,entryPoints:['packages/client/src/agent-console-main.tsx'],bundle:true,external:['/assets/*'],outfile:join(web,'agent-console.js'),format:'esm',platform:'browser'});
+await copyFile(new URL('../packages/client/agent-console-public/index.html',import.meta.url),join(web,'index.html'));
+const child=spawn(process.execPath,['dist/examples/ai-extension/main.js','--web-root',web,...process.argv.slice(2)],{cwd:root,stdio:['inherit','inherit','inherit','ipc'],windowsHide:true});
+for(const signal of ['SIGINT','SIGTERM'])process.once(signal,()=>{if(child.connected)child.send({kind:'shutdown'});});
+child.once('exit',code=>{process.exitCode=code??1;});

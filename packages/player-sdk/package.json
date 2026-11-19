@@ -1,0 +1,13 @@
+{
+  "name": "@subterfuge/player-sdk",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Optional Node.js client for the public Subterfuge player v2 protocol",
+  "license": "MIT",
+  "engines": {"node": ">=22.13.0"},
+  "main": "./dist/index.js",
+  "types": "./dist/types/player-sdk/src/index.d.ts",
+  "exports": {".": {"types": "./dist/types/player-sdk/src/index.d.ts", "import": "./dist/index.js"}},
+  "files": ["dist", "README.md"],
+  "scripts": {"build": "node ../../scripts/build-player-sdk.mjs"}
+}

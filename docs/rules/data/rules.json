@@ -1,0 +1,453 @@
+[
+  {
+    "id": "WORLD-001",
+    "summary_zh": "初始据点为额外据点参数加女王据点；初始钻机总数160。",
+    "formula": "initial_total = 4 + 1; initial_drillers = 4*40",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "world_init"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "WORLD-002",
+    "summary_zh": "地图生成目标据点数为玩家数乘10。",
+    "formula": "outpost_count = player_count * 10",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "global_constants"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "WORLD-003",
+    "summary_zh": "使用环面最短距离，跨地图边界相邻。",
+    "formula": "dx=min(abs(x1-x2),width-abs(x1-x2)); dy=min(abs(y1-y2),height-abs(y1-y2))",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "geometry"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "TIME-001",
+    "summary_zh": "标准tick为600秒，144tick为逻辑日。",
+    "formula": "seconds_per_tick=600; ticks_per_day=144",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "global_constants"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "TIME-002",
+    "summary_zh": "前72tick适用1.5开局倍率；招募使用有效tick。",
+    "formula": "effective_ticks=1.5*min(t,72)+max(0,t-72)",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "start_speed"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "TIME-003",
+    "summary_zh": "移动事件先按步内时间，再按潜艇索引升序。",
+    "formula": "sort_key=(timeFraction,subIndex)",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "event_order"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "TIME-004",
+    "summary_zh": "据点更新后提交专家，再移动/战斗，再周期能力、护盾裁剪及清理。",
+    "formula": "p3e -> y3e -> h3e -> S3e -> w3e -> C3e -> cleanup",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "tick_pipeline"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "ECON-001",
+    "summary_zh": "工厂产量受覆盖工头、本地大亨、资助、能源部长和供电剩余量影响。",
+    "formula": "min(max(0,6+4*F+3*T_local+2*funders-ministers),max(0,capacity-drillers))",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "production_amount"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "ECON-002",
+    "summary_zh": "大亨加快生产，按分钟和tick两次向下截断。",
+    "formula": "floor(floor(480/(1+0.5*tycoons))/10)",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "production_period"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "ECON-003",
+    "summary_zh": "达到供电容量时不推进工厂生产进度；开局生产进度乘加速系数。",
+    "formula": "progress += speedup_if_can_produce",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "factory_tick"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "ECON-004",
+    "summary_zh": "有效工头按所在据点一半实际声呐覆盖己方工厂，含边界，可叠加。",
+    "formula": "distance <= foreman_outpost_sonar * 0.5",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "foreman_range"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "SHIELD-001",
+    "summary_zh": "安全主管和女王加盾，国王每名减20，最低0。",
+    "formula": "max(0,base+10*global_chiefs+10*local_chiefs+20*local_queens-20*kings)",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "shield_max"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "SHIELD-002",
+    "summary_zh": "护盾离散恢复，非恒定48小时线性充满。",
+    "formula": "ticks_per_charge=floor(288/current_max_charge)",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "shield_tick"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "SHIELD-003",
+    "summary_zh": "关盾延迟到期时盾值清零并关闭。",
+    "formula": "disable_delay_minutes=10",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "shield_tick"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "MINE-001",
+    "summary_zh": "开矿费用使用团队历史建矿计数和正在开矿标记。",
+    "formula": "n=team_created+(team_pending?1:0); cost=(n==0?50:100*n)",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "mine_cost"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "MINE-002",
+    "summary_zh": "每矿按本人有效据点数计算生产1kg所需tick，保留小数。",
+    "formula": "ticks_per_kg=144/owned_factory_generator_mine_count",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "mine_period"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "MINE-003",
+    "summary_zh": "每tick采矿进度加1，达到阈值减去周期并生产1kg；不套用开局加速。",
+    "formula": "progress+=1; if progress>=period: progress-=period; np+=1",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "mine_tick"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "MINE-004",
+    "summary_zh": "战败丢矿后剩余矿按0.8倍四舍五入，攻占者不直接获得矿。",
+    "formula": "remaining=floor(old_np*0.8+0.5)",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "mine_capture"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "MINE-005",
+    "summary_zh": "4300占领分支不显式重置采矿计时，该重置仅在v18条件内。",
+    "formula": "preserve_mining_progress_in_reviewed_capture_branch",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "mine_capture"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "MINE-006",
+    "summary_zh": "完成建矿清零生产和采矿进度并增加本人历史建矿次数。",
+    "formula": "mine_creation_count+=1; factory_progress=0; mining_progress=0",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "mine_convert"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "MOVE-001",
+    "summary_zh": "有效专家航速取最大条件倍率，不进行多专家连乘。",
+    "formula": "speed=base_speed*max(eligible_specialist_multipliers)",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "speed_selection"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "MOVE-002",
+    "summary_zh": "潜艇基础速度约0.005世界单位/分钟，赠送延迟10分钟。",
+    "formula": "base_speed=0.004999999888; gift_delay_minutes=10",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "sub_constants"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "MOVE-003",
+    "summary_zh": "转交后超出接收方容量的部分从赠艇扣除，最多扣完赠艇钻机。",
+    "formula": "removed=min(gift_drillers,max(0,ceil(total_after_transfer-capacity)))",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "gift_cap"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "MOVE-004",
+    "summary_zh": "敌方攻击据点时召回尚待发射的艇；普通空无人据点直接接管。",
+    "formula": "recall_waiting_subs_before_hostile_outpost_combat",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "arrival"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "HIRE-001",
+    "summary_zh": "有效tick达到24首次增加机会，此后每108tick增加一次；未使用机会还须减去已消费次数。",
+    "formula": "total_unlocked=1+floor((effective_ticks-24)/108) when effective_ticks>=24 else 0",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "hiring"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "COMBAT-001",
+    "summary_zh": "俘虏不可主动参战；按入侵、守点、潜艇战标记筛选。",
+    "formula": "participates = not_captive and scenario_flag",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "combat_entry"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "COMBAT-002",
+    "summary_zh": "正优先级从小到大执行，相同级先收集双方再依缓存顺序调用。",
+    "formula": "priority_order=[1,2,3,4,5,6,7,8]",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "combat_entry"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "COMBAT-003",
+    "summary_zh": "据点战力由剩余钻机和护盾组成，艇战无盾。",
+    "formula": "attacker_power=A; defender_power=D+S",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "combat_power"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "COMBAT-004",
+    "summary_zh": "战力平局比较存活非俘虏专家数量，仍相同则守点胜或海上平局。",
+    "formula": "tie -> compare_owned_alive_specialists -> outpost_defender_or_sub_draw",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "combat_entry"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "COMBAT-005",
+    "summary_zh": "国王全局攻击加成不按国王数叠加，按专家阶段后兵数快照计算。",
+    "formula": "king_damage=min(enemy_remaining,floor(snapshot_own_drillers/4))",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "combat_entry"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "COMBAT-006",
+    "summary_zh": "将军每名10杀伤，要求己方战场存在存活未被俘专家；技能提前结束战斗时不追加。",
+    "formula": "general_damage=min(enemy_remaining,10*generals)",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "combat_entry"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "COMBAT-007",
+    "summary_zh": "盗贼夺取对方剩余兵力15%向上取整，守点不发动。",
+    "formula": "transfer=min(enemy_remaining,ceil(enemy_remaining*0.15))",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "specialist_effects"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "COMBAT-008",
+    "summary_zh": "胜方工程师修复比例为全局和现场贡献之和，封顶100%，对记录损失向上取整。",
+    "formula": "repair=ceil(recorded_loss*min(1,0.25*global_engineers+0.25*local_engineers))",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "engineer_repair"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "COMBAT-009",
+    "summary_zh": "殉道者爆炸半径使用1.5世界单位与环面距离，不用声呐20%的近似替代。",
+    "formula": "wrapped_distance_squared<=1.5*1.5",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "martyr_distance"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "COMBAT-010",
+    "summary_zh": "哨兵按120分钟计时，每发摧毁5%钻机向上取整，无有效目标不重置计时。",
+    "formula": "damage=ceil(target_drillers*0.05)",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "sentry_tick"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "COMBAT-011",
+    "summary_zh": "据点战后由到达调用者执行检查员补盾及催眠师转化，不能漏掉调用者效果。",
+    "formula": "combat -> unload -> inspector -> hypnotist",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "arrival"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "FORECAST-001",
+    "summary_zh": "未来推演克隆当前状态并移除不可见对象，不等于预知敌方未来命令。",
+    "formula": "forecast_input=visible_projection(current_state)",
+    "status": "client_static",
+    "profile": "apk-12075-rules-4300",
+    "source_ids": [
+      "forecast"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "WIN-001",
+    "summary_zh": "默认采矿200kg获胜；统治模式按据点目标；仅剩一人也结束。",
+    "formula": "default_np_goal=200",
+    "status": "official_documented",
+    "profile": "unversioned_official",
+    "source_ids": [
+      "official_rulebook"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "VIS-001",
+    "summary_zh": "据点位置公开，详情依声呐；己方和来袭单位有可见例外；矿场身份全局公开。",
+    "formula": "see official visibility rules",
+    "status": "official_documented",
+    "profile": "unversioned_official",
+    "source_ids": [
+      "official_rulebook"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "FUND-001",
+    "summary_zh": "矿领先至少20kg可资助，每位提供50容量和每工厂每周期2钻机。",
+    "formula": "lead>=20",
+    "status": "official_documented",
+    "profile": "unversioned_official",
+    "source_ids": [
+      "official_rulebook"
+    ],
+    "runtime_verified": false
+  },
+  {
+    "id": "LOSE-001",
+    "summary_zh": "无女王且无继承、投降、不活跃达到48小时导致淘汰；现代清理时序仍待核实。",
+    "formula": "inactive_hours>=48",
+    "status": "official_documented",
+    "profile": "unversioned_official",
+    "source_ids": [
+      "official_rulebook"
+    ],
+    "runtime_verified": false
+  }
+]

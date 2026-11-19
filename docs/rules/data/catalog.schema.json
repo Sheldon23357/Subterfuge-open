@@ -1,0 +1,326 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "profile": {
+      "type": "string"
+    },
+    "as_of": {
+      "type": "string"
+    },
+    "parameters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "section": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "label_zh": {
+            "type": "string"
+          },
+          "value": {},
+          "unit": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "client_config"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "runtime_verified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "section",
+          "key",
+          "label_zh",
+          "value",
+          "unit",
+          "status",
+          "source_ids",
+          "runtime_verified"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "specialists": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "client_type_id": {
+            "type": "integer"
+          },
+          "name_en": {
+            "type": "string"
+          },
+          "name_zh": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "hire_bundle_size": {
+            "type": "integer"
+          },
+          "base_speed_multiplier": {
+            "type": "number"
+          },
+          "combat_priority": {
+            "type": "integer"
+          },
+          "combat_participation_flags": {
+            "type": "object",
+            "properties": {
+              "invading": {
+                "type": "boolean"
+              },
+              "defending": {
+                "type": "boolean"
+              },
+              "transit": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "invading",
+              "defending",
+              "transit"
+            ],
+            "additionalProperties": false
+          },
+          "promotes_to": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "summary_zh": {
+            "type": "string"
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "type": "string"
+          },
+          "source_line": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "client_type_id",
+          "name_en",
+          "name_zh",
+          "category",
+          "hire_bundle_size",
+          "base_speed_multiplier",
+          "combat_priority",
+          "combat_participation_flags",
+          "promotes_to",
+          "summary_zh",
+          "source_ids",
+          "status",
+          "source_line"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "constants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "value",
+          "unit",
+          "status",
+          "source_ids"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "summary_zh": {
+            "type": "string"
+          },
+          "formula": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "client_static",
+              "official_documented"
+            ]
+          },
+          "profile": {
+            "type": "string"
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "runtime_verified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "summary_zh",
+          "formula",
+          "status",
+          "profile",
+          "source_ids",
+          "runtime_verified"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "title",
+          "access_status",
+          "as_of"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          },
+          "access_status": {
+            "type": "string"
+          },
+          "as_of": {
+            "type": "string"
+          },
+          "line": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "acceptance_cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "input": {
+            "type": "object"
+          },
+          "expected": {},
+          "rule_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "input",
+          "expected",
+          "rule_ids",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "profile",
+    "as_of",
+    "parameters",
+    "specialists",
+    "constants",
+    "rules",
+    "sources",
+    "acceptance_cases"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Subterfuge normalized research catalog"
+}

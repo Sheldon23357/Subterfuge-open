@@ -1,0 +1,55 @@
+.time-history-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border: 1px solid #7294a345;
+  border-radius: 7px;
+  background: #142e39;
+  color: #a4bdc9;
+  cursor: pointer;
+}
+.command-room > footer.precision-timebar { height: 58px; gap: 10px; padding: 0 12px; }
+footer.precision-timebar .time-readout { min-width: 106px; gap: 0; }
+footer.precision-timebar .time-readout b { font-size: 18px; letter-spacing: .3px; }
+footer.precision-timebar .time-readout small { font-size: 9px; letter-spacing: 0; margin-top: 2px; }
+footer.precision-timebar .time-button { width: 32px; height: 32px; padding: 6px; flex-shrink: 0; }
+.time-history-button:hover, .time-history-button[aria-pressed="true"] {
+  background: #26444e;
+  border-color: #8ebfc28c;
+  color: #d4eeee;
+}
+.time-history-button:disabled { opacity: .4; cursor: default; }
+.history-mode .tick-labels span:last-child { color: #d4eeee; }
+.history-mode .tick-labels span { font-size: 10px; letter-spacing: 0; }
+.precision-timebar .precision-track { min-width: 60px; }
+.time-history-error { position: absolute; left: 0; bottom: calc(100% + 8px); max-width: 320px; padding: 10px 14px; border: 1px solid #b99b6c60; border-radius: 6px; background: #102730; color: #dec49e; font-size: 12px; }
+@media(max-width:1200px) {
+  .history-mode .tick-labels span:nth-child(2), .history-mode .tick-labels span:nth-child(4) { visibility: hidden; }
+}
+@media(max-width:760px) {
+  .command-room > footer.precision-timebar { gap: 6px; padding-left: 8px; padding-right: 8px; }
+  footer.precision-timebar .time-readout { min-width: 82px; }
+  footer.precision-timebar .time-readout b { font-size: 16px; }
+}
+/* World dates are longer than the legacy hour counter. Keep the slider usable. */
+footer.precision-timebar .time-readout b { font-size: 14px; white-space: nowrap; }
+footer.precision-timebar .time-readout { min-width: 118px; }
+@media(max-width:760px) {
+  footer.precision-timebar .time-readout { min-width: 100px; }
+  footer.precision-timebar .time-readout b { font-size: 11px; }
+  footer.precision-timebar .tick-labels span:nth-child(2),
+  footer.precision-timebar .tick-labels span:nth-child(4) { visibility: hidden; }
+}
+.departure-precision { display:block; overflow-wrap:anywhere; font-size:11px; color:#9fb7c3; }
+.world-departure-input { display:grid; gap:6px; margin:12px 0; min-width:0; }
+.world-departure-input label { display:flex; align-items:center; gap:8px; }
+.world-departure-input input { min-width:0; width:140px; }
+.world-departure-input>div { display:flex; gap:8px; }
+.world-departure-input small { overflow-wrap:anywhere; }
+
+.shield-recovery-note { display:flex; align-items:center; gap:6px; margin:6px 0 12px; color:#a4bdc9; }
+.shield-recovery-note small { overflow-wrap:anywhere; }

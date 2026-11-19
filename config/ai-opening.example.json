@@ -1,0 +1,17 @@
+{
+  "endTick": 144,
+  "contestedRatio": 1.25,
+  "tieRatio": 1.03,
+  "maxTargets": 8,
+  "weights": {
+    "threatBorder": 35,
+    "threatStrength": 25,
+    "threatClaims": 25,
+    "threatIncoming": 15,
+    "allyCommonThreat": 40,
+    "allyLowConflict": 35,
+    "allyReach": 25,
+    "attackOpportunity": 65,
+    "attackClaims": 35
+  }
+}

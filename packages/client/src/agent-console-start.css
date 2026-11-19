@@ -1,0 +1,119 @@
+/* Full-width seat selection and the unbound command-deck welcome. */
+.agent-console.instrument-console .live-fleet { width:100%;grid-template-columns:repeat(var(--fleet-columns,8),minmax(0,1fr)); }
+.agent-console.instrument-console .live-bot { justify-content:center;gap:10px;padding:5px 8px; }
+.agent-console.instrument-console .live-bot b { font-size:12px; }
+.agent-console.instrument-console .live-bot small { font-size:10px;max-width:100%; }
+.agent-console.instrument-console .live-bot svg.live-bot-engines { width:44px;height:26px; }
+.agent-console.instrument-console .console-start.start-launch { display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(270px,1fr) auto;align-items:stretch;align-content:stretch;gap:0;padding:0;min-height:0;border:1px solid #314956;border-radius:12px;background:#101c26;overflow:auto;isolation:isolate; }
+.launch-hero { position:relative;display:flex;align-items:center;min-width:0;padding:clamp(26px,3.8vw,56px);background:linear-gradient(90deg,#081720f2 0%,#0a1a24cc 38%,#0a1a2440 72%,#0a1a2410),url('/assets/abyss-command.png') center 46%/cover; }
+.launch-hero::after { content:'';position:absolute;inset:12px;pointer-events:none;border:1px solid #a5ddd314;border-radius:5px; }
+.launch-copy { position:relative;z-index:1;max-width:540px; }
+.launch-status { display:flex;align-items:center;gap:8px;color:#a1c6c6;font-size:11px;letter-spacing:.06em; }
+.launch-status i { width:6px;height:6px;background:#93c9c8;border-radius:50%;box-shadow:0 0 12px #93c9c850; }
+.launch-emblem { display:grid;place-items:center;width:52px;height:52px;margin:24px 0 0;border:1px solid #b7d2b74a;border-radius:50%;color:#dac493;background:#142c3540;box-shadow:0 0 0 6px #8adfd008; }
+.agent-console.instrument-console .start-launch h2 { margin:20px 0 12px;font-size:clamp(26px,3.1vw,44px);font-weight:600;letter-spacing:.025em;line-height:1.25;color:#e7f1f3; }
+.agent-console.instrument-console .start-launch .launch-copy>p { max-width:390px;color:#adc3ce;font-size:13px;line-height:1.9; }
+.start-launch .start-actions { display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:26px; }
+.agent-console.instrument-console .start-launch .start-actions button { min-height:42px;padding:10px 18px;border-radius:7px;font-size:12px; }
+.agent-console.instrument-console .start-launch .start-actions .console-primary { background:#9bdcd1;color:#10262d;border:1px solid #b6e8de;font-weight:650;box-shadow:0 5px 24px #73d2c51a; }
+.agent-console.instrument-console .start-launch .start-actions .console-primary:hover:not(:disabled) { background:#b6e8de; }
+.agent-console.instrument-console .start-launch .start-actions button:not(.console-primary) { background:#0e2434a6;border:1px solid #45616b;color:#c4d8df; }
+.agent-console.instrument-console .start-launch .start-connection { margin-top:14px;color:#e6c58b;font-size:12px; }
+.launch-guide { display:grid;grid-template-columns:minmax(0,2.3fr) minmax(240px,1fr);border-top:1px solid #314956;background:linear-gradient(120deg,#14242e,#101c26); }
+.launch-connection { padding:26px 30px;min-width:0; }
+.agent-console.instrument-console .launch-guide h3 { margin:0 0 20px;font-size:12px;color:#a7c3ce;font-weight:500;letter-spacing:.06em; }
+.launch-steps { list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px; }
+.launch-steps li { display:flex;gap:12px;align-items:flex-start;min-width:0; }
+.launch-steps li>span { color:#bba77f;font:11px/22px ui-monospace,Consolas,monospace;border-bottom:1px solid #bba77f60;flex-shrink:0; }
+.launch-steps h4 { margin:0 0 8px;font-size:13px;font-weight:550;color:#e1edf0;line-height:22px; }
+.agent-console.instrument-console .launch-steps p { margin:0;font-size:11px;line-height:1.85;color:#9bb2c0; }
+.launch-steps small { display:block;margin-top:6px;color:#9bdcd1;font-size:10px;overflow-wrap:anywhere; }
+.launch-rules { padding:26px 30px;border-left:1px solid #314956;background:#06131c26; }
+.launch-rules dl { display:grid;gap:14px;margin:0; }
+.launch-rules dt { font-size:11px;color:#c4d7de;margin-bottom:4px; }
+.launch-rules dd { font-size:11px;color:#90a9b7;line-height:1.8;margin:0; }
+@media(max-width:1000px) {
+ .launch-guide { grid-template-columns:minmax(0,1fr); }
+ .launch-rules { border-left:0;border-top:1px solid #314956; }
+ .launch-rules dl { grid-template-columns:repeat(3,minmax(0,1fr));gap:22px; }
+ .launch-hero { background-position:60% center; }
+}
+@media(max-width:620px) {
+ .agent-console.instrument-console .live-fleet { grid-template-columns:repeat(4,minmax(0,1fr)); }
+ .agent-console.instrument-console .live-bot { gap:5px!important;padding:4px; }
+ .agent-console.instrument-console .live-bot svg.live-bot-engines { width:26px;height:20px; }
+ .agent-console.instrument-console .live-bot b { font-size:10px; }
+ .agent-console.instrument-console .live-bot small { font-size:8px; }
+ .agent-console.instrument-console .console-start.start-launch { grid-template-rows:minmax(300px,auto) auto; }
+ .launch-hero { padding:26px 22px;background-image:linear-gradient(90deg,#081720ec,#0a1a2480),url('/assets/abyss-command.png'); }
+ .launch-emblem { margin-top:22px;width:44px;height:44px; }
+ .launch-connection,.launch-rules { padding:22px; }
+ .launch-steps { grid-template-columns:minmax(0,1fr);gap:18px; }
+ .launch-rules dl { grid-template-columns:minmax(0,1fr);gap:14px; }
+ .agent-console.instrument-console .launch-guide h3 { margin-bottom:16px; }
+}
+@media(max-height:750px) and (min-width:1001px) {
+ .launch-hero { padding:24px 34px; }
+ .launch-emblem { width:38px;height:38px;margin-top:16px; }
+ .agent-console.instrument-console .start-launch h2 { margin-top:14px;font-size:30px; }
+ .start-launch .start-actions { margin-top:18px; }
+ .launch-connection,.launch-rules { padding:20px 26px; }
+}
+
+/* Bound, paused seats use a compact launch deck with one clear primary action. */
+.agent-console.instrument-console .console-start.start-ready {
+ display:grid;grid-template-columns:minmax(0,1fr);align-items:center;align-content:center;
+ padding:clamp(20px,4vw,64px);gap:0;min-height:0;overflow:auto;
+ border:0;border-radius:0;background:#101722;
+}
+.ready-deck {
+ display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);width:100%;max-width:1180px;
+ margin:auto;border:1px solid #2b4254;border-radius:16px;overflow:hidden;
+ background:#142332;box-shadow:0 24px 70px #030a1238;
+}
+.ready-intro {
+ display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+ min-width:0;min-height:380px;padding:clamp(28px,3.5vw,48px);position:relative;
+ background:linear-gradient(110deg,#0b1a26f5,#0c1b29d9),url('/assets/abyss-command.png') center/cover;
+}
+.ready-status { display:inline-flex;align-items:center;gap:8px;color:#9bd8cb;font-size:11px;letter-spacing:.04em; }
+.ready-status i { width:6px;height:6px;border-radius:50%;background:#8bdfcf;box-shadow:0 0 12px #8bdfcf40; }
+.ready-status[data-connected=false] { color:#e3bf83; }
+.ready-status[data-connected=false] i { background:#e3bf83;box-shadow:none; }
+.agent-console.instrument-console .start-ready h2 { margin:28px 0 14px;font-size:clamp(28px,3vw,40px);line-height:1.25;font-weight:600;letter-spacing:-.025em;color:#ecf4f9; }
+.agent-console.instrument-console .start-ready .ready-copy>p { max-width:340px;margin:0;color:#a2b7c7;font-size:13px;line-height:1.9; }
+.agent-console.instrument-console .start-ready .ready-actions { display:flex;flex-wrap:wrap;gap:12px;margin-top:32px; }
+.agent-console.instrument-console .start-ready .ready-actions button { display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;padding:10px 16px;border-radius:7px;font-size:12px; }
+.agent-console.instrument-console .start-ready .ready-actions .console-primary { min-width:132px;background:#8bdfcf;border:1px solid #8bdfcf;color:#102b32;font-weight:650; }
+.agent-console.instrument-console .start-ready .ready-actions .console-primary:hover:not(:disabled) { background:#a6ebdd;border-color:#a6ebdd; }
+.agent-console.instrument-console .start-ready .ready-actions button:not(.console-primary) { color:#bed1df;background:#152b3b;border:1px solid #344e61; }
+.agent-console.instrument-console .start-ready .ready-actions button:disabled { opacity:.45;cursor:not-allowed; }
+.agent-console.instrument-console .start-ready .start-connection { margin:16px 0 0;color:#e3bf83;font-size:12px; }
+.ready-overview { min-width:0;padding:36px clamp(24px,3vw,40px);border-left:1px solid #2b4254;display:flex;flex-direction:column;justify-content:center; }
+.agent-console.instrument-console .ready-overview-title { margin:0 0 12px;font-size:11px;font-weight:500;letter-spacing:.06em;color:#7e9aaf; }
+.ready-checklist { list-style:none;margin:0;padding:0; }
+.ready-checklist li { display:flex;align-items:center;gap:16px;padding:22px 0;border-bottom:1px solid #2b4051;min-width:0; }
+.ready-checklist li:last-child { border-bottom:0; }
+.ready-step { display:grid;place-items:center;flex:0 0 40px;height:40px;border:1px solid #2e4557;border-radius:10px;background:#101e2b;color:#7794a8; }
+.ready-step[data-ready=true] { color:#91dfcf;background:#18363b;border-color:#2c5a5e; }
+.ready-checklist li>div { min-width:0;flex:1; }
+.agent-console.instrument-console .ready-checklist h3 { margin:0 0 5px;font-size:13px;font-weight:550;color:#dceaf4; }
+.agent-console.instrument-console .ready-checklist p { margin:0;color:#8fa9bc;font-size:12px;line-height:1.7;overflow-wrap:anywhere; }
+.ready-tag { flex-shrink:0;font-size:10px;padding:3px 8px;border:1px solid #2b5556;background:#153033;border-radius:5px;color:#97d4c8; }
+.ready-idle { flex-shrink:0;font-size:10px;color:#7893a7; }
+.agent-console.instrument-console .ready-checklist button { display:grid;place-items:center;flex:0 0 32px;height:32px;padding:0;color:#9eb9ca;background:transparent;border:1px solid transparent;border-radius:6px; }
+.agent-console.instrument-console .ready-checklist button:hover { color:#a4e8da;background:#1c3746;border-color:#345365; }
+@media(max-width:800px) {
+ .agent-console.instrument-console .console-start.start-ready { padding:20px;align-content:start; }
+ .ready-deck { grid-template-columns:minmax(0,1fr);max-width:620px; }
+ .ready-intro { min-height:0;padding:28px; }
+ .ready-overview { padding:24px 28px;border-left:0;border-top:1px solid #2b4254; }
+ .agent-console.instrument-console .start-ready h2 { margin-top:22px; }
+ .ready-checklist li { padding:16px 0; }
+}
+@media(max-height:700px) and (min-width:801px) {
+ .agent-console.instrument-console .console-start.start-ready { padding:16px 28px; }
+ .ready-intro { min-height:320px;padding:28px; }
+ .ready-overview { padding-block:24px; }
+ .ready-checklist li { padding-block:17px; }
+}
