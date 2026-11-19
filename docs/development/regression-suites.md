@@ -21,7 +21,7 @@ Windows 下，较深的隔离构建目录可能使测试文件列表超过进程
 
 ## 分层与证据
 
-GitHub Actions 在 Windows 和 Ubuntu 上用 Node.js 22、24 安装锁定依赖、核对文档、检查清理工具、打包网页并运行默认测试。
+GitHub Actions 在 Windows 和 Ubuntu 上用 Node.js 22、24 安装锁定依赖、核对文档、打包网页并运行默认测试。Windows 任务额外验证本地 PowerShell 清理工具。
 
 quick 与 package 互斥并组成默认集合。局部工作选择相关文件；改构建、SDK或分发需包含 package，完整验收使用完整集合。默认测试验证本项目契约，不等于原版正确性。
 

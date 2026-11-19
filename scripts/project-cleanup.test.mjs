@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtempSync,mkdirSync,writeFileSync,readFileSync,existsSync,rmSync,symlinkSync,utimesSync} from 'node:fs';
+import {mkdtempSync,mkdirSync,writeFileSync,readFileSync,existsSync,realpathSync,rmSync,symlinkSync,utimesSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
@@ -11,8 +11,9 @@ import {listLocalGames} from './list-local-games.mjs';
 const modulePath=fileURLToPath(new URL('./project-cleanup.psm1',import.meta.url));
 const quote=s=>"'"+s.replaceAll("'","''")+"'";
 function fixture(t){
-  const root=mkdtempSync(join(tmpdir(),'subterfuge-cleanup-'));
-  t.after(()=>{assert.ok(root.startsWith(join(tmpdir(),'subterfuge-cleanup-')));rmSync(root,{recursive:true,force:true});});
+  const prefix=join(realpathSync(tmpdir()),'subterfuge-cleanup-');
+  const root=mkdtempSync(prefix);
+  t.after(()=>{assert.ok(root.startsWith(prefix));rmSync(root,{recursive:true,force:true});});
   const put=(p,text='fixture')=>{mkdirSync(join(root,p,'..'),{recursive:true});writeFileSync(join(root,p),text);};
   put('AGENTS.md');put('package.json','{}');put('packages/server/src/main.ts');put('runtime/latest/player-access.json');
   assert.equal(spawnSync('git',['init','--quiet',root]).status,0);
@@ -21,7 +22,7 @@ function fixture(t){
 function ps(root,code){
   const script=`$ErrorActionPreference='Stop'; Import-Module ${quote(modulePath)} -Force; $root=${quote(root)}; ${code}`;
   const result=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-EncodedCommand',Buffer.from(script,'utf16le').toString('base64')],{encoding:'utf8',timeout:60000});
-  assert.equal(result.status,0,result.stdout+'\n'+result.stderr);
+  assert.equal(result.status,0,result.error?.message ?? (result.stdout+'\n'+result.stderr));
   return result.stdout;
 }
 function game(root,name,room,wallMs){
@@ -61,15 +62,15 @@ test('a game at the shared runtime root protects its state without keeping old g
   assert.ok(!selected.protectedDirectories.includes(join(root,'runtime')));
   const keep=selected.protectedDirectories.map(quote).join(',');
   const plan=JSON.parse(ps(root,`@(Get-ProjectCleanupPlan $root @(${keep})) | ConvertTo-Json -Depth 4 -Compress`));
-  assert.ok(plan.some(p=>p.Path===join(root,'runtime/old')));
+  assert.ok(plan.some(p=>realpathSync(p.Path)===realpathSync(join(root,'runtime/old'))),JSON.stringify(plan));
 });
 test('plan covers history outside runtime while preserving latest state and source',t=>{
   const {root,put,keep}=fixture(t);
   put('runtime/old/subterfuge.sqlite');put('runtime/.cleanup/previous.json');put('outputs/report.json');put('artifacts/preview.png');put('dist/output.js');put('research/packages/original.apk');put('research/analysis/generated.js');put('packages/client/public/assets/texture.png');
   const plan=JSON.parse(ps(root,`@(Get-ProjectCleanupPlan $root @(${quote(keep)})) | ConvertTo-Json -Depth 4 -Compress`));
-  const paths=plan.map(p=>p.Path.toLowerCase());
-  for(const p of ['runtime/old','outputs','artifacts','dist','research/analysis'])assert.ok(paths.includes(join(root,p).toLowerCase()),p);
-  for(const p of [keep,join(root,'runtime/.cleanup'),join(root,'research/packages'),join(root,'packages')])assert.ok(!paths.includes(p.toLowerCase()),p);
+  const paths=plan.map(p=>realpathSync(p.Path));
+  for(const p of ['runtime/old','outputs','artifacts','dist','research/analysis'])assert.ok(paths.includes(realpathSync(join(root,p))),`${p}: ${JSON.stringify(paths)}`);
+  for(const p of [keep,join(root,'runtime/.cleanup'),join(root,'research/packages'),join(root,'packages')])assert.ok(!paths.includes(realpathSync(p)),p);
 });
 test('deletion rejects root, outside paths, retained directory and its ancestor',t=>{
   const {root,put,keep}=fixture(t);put('runtime/old/file.txt');
