@@ -8,8 +8,8 @@ import { availableParallelism } from 'node:os';
 const packaging = new Set(['player-sdk-package.test.js', 'player-devkit-package.test.js','bot-release-package.test.js']);
 // This fixture advances a synthetic wall clock while observing real async
 // rounds; CPU contention can introduce an extra strategic wake.
-// Hybrid worker deadlines also require an uncontended worker startup window.
-const serialOnly = new Set(['lab-ai-convergence.test.js', 'hybrid-bot.test.js']);
+// Hybrid workers and coordinated checkpoint fixtures have real startup and I/O deadlines.
+const serialOnly = new Set(['lab-ai-convergence.test.js', 'hybrid-bot.test.js', 'ai-protocol-checkpoint.test.js']);
 const targets = [];
 let suite = 'full', concurrency = Math.min(4, availableParallelism()), list = false;
 for (const arg of process.argv.slice(2)) {

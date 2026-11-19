@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtemp,mkdir,writeFile,readdir,rm} from 'node:fs/promises';
+import {mkdtemp,mkdir,writeFile,readdir,rm,symlink} from 'node:fs/promises';
 import {readFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
@@ -22,13 +22,15 @@ async function fixture(root:string,code:string,index:number,ended:boolean,runnin
  await writeFile(join(dir,'room.json'),JSON.stringify({code,name:code,createdAt:2000000-index*10000,createHash:createHash('sha256').update(code).digest('hex')}));
 }
 test('lobby serves before recovery, isolates corrupt rooms, and deletes only ended matches older than the newest five', {timeout:60000},async()=>{
- const dir=await mkdtemp(join(tmpdir(),'hub-retain-'));let hub:Awaited<ReturnType<typeof createRoomHub>>|undefined;
+ const root=await mkdtemp(join(tmpdir(),'hub-retain-')),dir=join(root,'rooms'),alias=join(root,'configured-path');let hub:Awaited<ReturnType<typeof createRoomHub>>|undefined;
  try{
+  await mkdir(dir);
+  await symlink(dir,alias,process.platform==='win32'?'junction':'dir');
   for(let i=0;i<7;i++)await fixture(dir,'E0000'+i,i,true);
   await fixture(dir,'W00000',0,false);await fixture(dir,'P00000',0,false,true);await mkdir(join(dir,'X00000'));
   await writeFile(join(dir,'X00000','room.json'),JSON.stringify({code:'X00000',name:'损坏测试',createdAt:1,createHash:'a'.repeat(64)}));
   await writeFile(join(dir,'X00000','lifecycle.sqlite'),'invalid sqlite');
-  hub=await createRoomHub({directory:dir,webRoot:resolve('packages/client/public')});
+  hub=await createRoomHub({directory:alias,webRoot:resolve('packages/client/public')});
   const listen=async()=>{await new Promise<void>(r=>hub!.server.listen(0,'127.0.0.1',r));return `http://127.0.0.1:${(hub!.server.address() as AddressInfo).port}`;};
   let origin=await listen();const initial=await fetch(origin+'/api/rooms');assert.equal(initial.status,200);
   assert.ok((await initial.json()).rooms.some((r:any)=>r.status==='recovering'));
@@ -38,7 +40,7 @@ test('lobby serves before recovery, isolates corrupt rooms, and deletes only end
   assert.equal(rooms.find((r:any)=>r.code==='X00000').status,'unavailable');assert.equal(rooms.find((r:any)=>r.code==='W00000').status,'waiting');assert.equal(rooms.find((r:any)=>r.code==='P00000').status,'in-progress');
   assert.equal((await fetch(origin+'/api/rooms/X00000/join',{method:'POST',body:JSON.stringify({key:'a'.repeat(64)})})).status,503);
   const files=await readdir(dir);assert.ok(!files.includes('E00000')&&!files.includes('E00001'));assert.ok(files.includes('W00000')&&files.includes('X00000')&&files.includes('P00000'));assert.ok(!files.some(name=>name.startsWith('.ended-')));
-  await hub.close();hub=await createRoomHub({directory:dir,webRoot:resolve('packages/client/public')});origin=await listen();await hub.ready;
+  await hub.close();hub=await createRoomHub({directory:alias,webRoot:resolve('packages/client/public')});origin=await listen();await hub.ready;
   assert.equal((await (await fetch(origin+'/api/rooms')).json()).rooms.filter((r:any)=>r.status==='ended').length,5);
- }finally{if(hub)await hub.close();await rm(dir,{recursive:true,force:true});}
+ }finally{if(hub)await hub.close();await rm(root,{recursive:true,force:true,maxRetries:5});}
 });

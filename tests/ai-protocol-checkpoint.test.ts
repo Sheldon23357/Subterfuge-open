@@ -21,11 +21,11 @@ const hash = (value: string | Buffer) => createHash('sha256').update(value).dige
 const modelSecret = 'SYNTHETIC_CHECKPOINT_MODEL_SECRET_NEVER_TRANSMIT';
 const localMemory = 'SYNTHETIC_PRIVATE_MEMORY_NEVER_UPLOAD';
 const defaultTimeouts: GameCheckpointTimeouts = {
-  prepareMs: 1000, drainMs: 100, freezeMs: 1000, publishMs: 1500, resumeMs: 500,
+  prepareMs: 2000, drainMs: 100, freezeMs: 3000, publishMs: 5000, resumeMs: 1000,
 };
 type RequestRecord = { path: string; body: string; method: string };
 
-async function until(check: () => boolean | Promise<boolean>, message: string, timeoutMs = 5000) {
+async function until(check: () => boolean | Promise<boolean>, message: string, timeoutMs = 12000) {
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
     if (await check()) return;

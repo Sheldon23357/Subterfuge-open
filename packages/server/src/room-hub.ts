@@ -1,7 +1,7 @@
 import { createServer } from "node:http";
 import { randomInt, createHash, randomUUID } from "node:crypto";
 import { mkdir, readdir, readFile, writeFile, realpath, rename, rm } from "node:fs/promises";
-import { join, resolve } from "node:path";
+import { join } from "node:path";
 import { PlayerAccess, SerialExecutor } from "./player-access.js";
 import { LobbyStore } from "./lobby-store.js";
 import { createLifecycleService } from "./lifecycle-service.js";
@@ -67,8 +67,9 @@ export async function createRoomHub(options: {
   let finishAudit!:()=>void;
   const audited=new Promise<void>(resolve=>{finishAudit=resolve;});
   await mkdir(options.directory, { recursive: true });
+  const roomRoot = await realpath(options.directory);
   async function open(meta: Metadata) {
-    const directory = join(options.directory, meta.code),
+    const directory = join(roomRoot, meta.code),
       store = new LobbyStore(join(directory, "lifecycle.sqlite"),{}, {buildId});
     try {
       const saved = store.current();
@@ -94,12 +95,12 @@ export async function createRoomHub(options: {
   }
   const discovered:Metadata[]=[];
   const retired=new Set<string>();
-  for(const entry of await readdir(options.directory,{withFileTypes:true})){
+  for(const entry of await readdir(roomRoot,{withFileTypes:true})){
     if(!entry.isDirectory())continue;
-    if(/^\.ended-[A-Z0-9]{6}-[a-f0-9-]{36}$/.test(entry.name)){retired.add(join(options.directory,entry.name));continue;}
+    if(/^\.ended-[A-Z0-9]{6}-[a-f0-9-]{36}$/.test(entry.name)){retired.add(join(roomRoot,entry.name));continue;}
     if(!/^[A-Z0-9]{6}$/.test(entry.name))continue;
     try{
-      const meta=JSON.parse(await readFile(join(options.directory,entry.name,'room.json'),'utf8')) as Metadata;
+      const meta=JSON.parse(await readFile(join(roomRoot,entry.name,'room.json'),'utf8')) as Metadata;
       if(meta.code!==entry.name||typeof meta.name!=='string'||meta.name.length>40||!Number.isSafeInteger(meta.createdAt)||!/^[a-f0-9]{64}$/.test(meta.createHash))throw Error('Invalid room metadata');
       discovered.push(meta);pending.set(meta.code,{code:meta.code,name:meta.name,createdAt:meta.createdAt,status:'recovering'});
     }catch{pending.set(entry.name,{code:entry.name,name:'房间恢复失败',createdAt:0,status:'unavailable'});console.error('Room metadata unavailable:',entry.name);}
@@ -131,7 +132,7 @@ export async function createRoomHub(options: {
     room.service.stopClock();room.service.server.close();await room.service.drain();room.store.close(false);
   }
   async function removeRetired(){for(const path of retired){
-    if(await realpath(path)!==resolve(path))throw Error('Refuse cleanup outside room directory');
+    if(await realpath(path)!==path)throw Error('Refuse cleanup outside room directory');
     await rm(path,{recursive:true,force:true});retired.delete(path);
   }}
   async function retainEnded(){
@@ -141,10 +142,10 @@ export async function createRoomHub(options: {
     for(const room of ended.slice(ENDED_ROOM_LIMIT)){
       if(!auditedRooms.has(room.meta.code))continue;
       if(room.store.current()?.runtime?.status!=='ended')continue;
-      const path=join(options.directory,room.meta.code);
-      if(await realpath(path)!==resolve(options.directory,room.meta.code))throw Error('Refuse cleanup outside room directory');
+      const path=join(roomRoot,room.meta.code);
+      if(await realpath(path)!==path)throw Error('Refuse cleanup outside room directory');
       rooms.delete(room.meta.code);await dispose(room);
-      const target=join(options.directory,`.ended-${room.meta.code}-${randomUUID()}`);
+      const target=join(roomRoot,`.ended-${room.meta.code}-${randomUUID()}`);
       await rename(path,target);retired.add(target);await removeRetired();
     }
   }
@@ -162,18 +163,18 @@ export async function createRoomHub(options: {
     try{for(const meta of discovered){
       if(closing)break;
       try{
-        const result=await work(join(options.directory,meta.code,'lifecycle.sqlite'));
+        const result=await work(join(roomRoot,meta.code,'lifecycle.sqlite'));
         if(closing)break;
         await serial.run(()=>open(meta));if(result.usedCheckpoint)audits.push(meta);else auditedRooms.add(meta.code);
       }catch{if(!closing){await serial.run(()=>quarantine(meta));console.error('Room recovery failed:',meta.code);}}
     }
     recoveryComplete=true;
     if(!closing)await serial.run(retainEnded);
-    }catch{console.error('Room recovery maintenance failed');}
+    }catch(error){console.error('Room recovery maintenance failed:',error);}
     finally{finishRecovery();}
     // Full replay stays off the request thread; checkpoint restore does not suppress audit.
     for(const meta of audits){if(closing)break;if(!rooms.has(meta.code))continue;
-      try{await work(join(options.directory,meta.code,'lifecycle.sqlite'),true);auditedRooms.add(meta.code);if(!closing)await serial.run(retainEnded);}
+      try{await work(join(roomRoot,meta.code,'lifecycle.sqlite'),true);auditedRooms.add(meta.code);if(!closing)await serial.run(retainEnded);}
       catch{if(!closing){await serial.run(()=>quarantine(meta));console.error('Room background audit failed:',meta.code);}}
     }
     finishAudit();
@@ -305,7 +306,7 @@ export async function createRoomHub(options: {
               let code: string, directory: string;
               for (;;) {
                 code = generateRoomCode();
-                directory = join(options.directory, code);
+                directory = join(roomRoot, code);
                 try {
                   await mkdir(directory);
                   break;
